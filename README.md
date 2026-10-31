@@ -2,7 +2,7 @@
 
 Полная обезличенная нативная поставка для **macOS 26.5.1 / Apple Silicon**. Новые собственные ключи, профиль, задачи и пустые пространства данных. Доступы и личные материалы автора отсутствуют.
 
-**Полная инструкция одним файлом:** [INSTALLATION_COMPLETE_RU.md](INSTALLATION_COMPLETE_RU.md).
+**Полная инструкция одним файлом:** [INSTALLATION_COMPLETE_RU-v2.md](INSTALLATION_COMPLETE_RU-v2.md).
 
 **Начать:** [полная пошаговая установка](docs/INSTALL_MACOS.md).
 
