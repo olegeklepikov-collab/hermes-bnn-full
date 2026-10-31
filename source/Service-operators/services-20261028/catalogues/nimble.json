@@ -1,0 +1,3301 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "nimble_crawl_run",
+      "title": "Nimble Crawl Run",
+      "description": "Nimble Crawl: one-time bulk fetch of a known doc tree or URL list.\n\nUse for documentation sections or a fixed set of pages already in hand. Not\nfor product/catalog or directory entity lists — that is dataset-building\nWeb Search Agent work (nimble_agents_*). For a single known URL, use\nnimble_extract. For listing URLs only, use nimble_map.",
+      "inputSchema": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The starting URL for the crawl. The crawler will discover and visit\nlinked pages from this entry point."
+          },
+          "limit": {
+            "default": 100,
+            "type": "integer",
+            "description": "Maximum number of pages to crawl (default: 100).\nHigher limits take longer but provide more comprehensive coverage."
+          },
+          "sitemap": {
+            "default": "include",
+            "type": "string",
+            "description": "How to use the site's sitemap for URL discovery:\n- \"include\": Use sitemap in addition to link following (default)\n- \"skip\": Ignore sitemap, only follow links\n- \"only\": Only crawl URLs found in sitemap"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional human-readable name for this crawl job."
+          },
+          "include_paths": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional list of regex patterns. Only URLs matching at least\none pattern will be crawled. Example: [\"/blog/.*\", \"/docs/.*\"]"
+          },
+          "exclude_paths": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional list of regex patterns. URLs matching any pattern\nwill be skipped. Example: [\"/admin/.*\", \"/private/.*\"]"
+          },
+          "allow_subdomains": {
+            "default": false,
+            "type": "boolean",
+            "description": "Whether to follow links to subdomains of the starting URL.\nDefault is False (stay on same subdomain)."
+          },
+          "allow_external_links": {
+            "default": false,
+            "type": "boolean",
+            "description": "Whether to follow links to external domains.\nDefault is False (stay on same domain)."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Crawl Run",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_crawl_status",
+      "title": "Nimble Crawl Status",
+      "description": "Check the status and progress of a running or completed crawl job.",
+      "inputSchema": {
+        "properties": {
+          "crawl_id": {
+            "type": "string",
+            "description": "The unique crawl identifier returned by nimble_crawl_run."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "crawl_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Crawl Status",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_crawl_list",
+      "title": "Nimble Crawl List",
+      "description": "List crawl jobs, optionally filtered by status.",
+      "inputSchema": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional filter by crawl status:\n- \"queued\": Waiting to start\n- \"running\": Currently in progress\n- \"succeeded\": Completed successfully\n- \"failed\": Completed with errors\n- \"canceled\": Manually terminated\n- \"all\": Show all statuses (default if not specified)"
+          },
+          "limit": {
+            "default": 20,
+            "type": "integer",
+            "description": "Maximum number of crawl jobs to return (default: 20)."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Crawl List",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_crawl_terminate",
+      "title": "Nimble Crawl Terminate",
+      "description": "Cancel a running or queued crawl job.",
+      "inputSchema": {
+        "properties": {
+          "crawl_id": {
+            "type": "string",
+            "description": "The unique crawl identifier returned by nimble_crawl_run."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "crawl_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Crawl Terminate",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_templates_list",
+      "title": "List Extract Templates",
+      "description": "Browse Extract Templates — reusable, site-specific structured scrapers.\n\nFirst step when a named site plus a direct item (URL or site-specific ID) is\nknown. Not the default for open research, enrichment, or dataset building.\nIf none matches, use a Web Search Agent (nimble_agents_*) — do not generate a\nnew template and do not dump a raw Extract.\n\nRows are summaries (name, metadata, required_params). Full input_schema,\noutput_schema and samples come from nimble_extract_templates_get.\n\nTypical workflow: list → get (inspect input_schema) → run (1–few known items).",
+      "inputSchema": {
+        "properties": {
+          "skip": {
+            "default": 0,
+            "description": "Offset for pagination. Use 0 for the first page, then pass the previous response's next_skip — unrunnable templates are skipped over, so skip + limit is not the next offset.",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 50,
+            "description": "Maximum number of templates to return in one page (1-100).",
+            "type": "integer"
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Short keyword to filter templates by name or domain (e.g. 'amazon', 'linkedin'). Use 1-2 words for best results."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "description": "Paginated list of Extract Template payloads.",
+        "properties": {
+          "templates": {
+            "description": "Extract Template objects for the current page.",
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "skip": {
+            "description": "Offset used for this page",
+            "type": "integer"
+          },
+          "limit": {
+            "description": "Limit used for this page",
+            "type": "integer"
+          },
+          "curr_count": {
+            "description": "Count of templates in the current page",
+            "type": "integer"
+          },
+          "next_skip": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Offset to pass as `skip` for the next page, or null when there is no next page. Unrunnable templates are skipped over, so skip + limit is not the next offset."
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Advisory note about the listing (e.g. unpublished templates hidden)."
+          },
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        },
+        "required": [
+          "templates",
+          "skip",
+          "limit",
+          "curr_count"
+        ],
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "List Extract Templates",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_templates_get",
+      "title": "Get Extract Template",
+      "description": "Get an Extract Template's input/output schema before running it.\n\nUse after nimble_extract_templates_list. This is an Extract Template, not\na Web Search Agent gallery template (nimble_agent_templates_get).",
+      "inputSchema": {
+        "properties": {
+          "template_name": {
+            "description": "Exact template name as returned by nimble_extract_templates_list.",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "template_name"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "description": "Response shape for nimble_extract_templates_get.",
+        "properties": {
+          "template": {
+            "additionalProperties": true,
+            "description": "Raw Extract Template payload from the SDK. Includes name, schemas, domain, and other backend-defined metadata.",
+            "type": "object"
+          },
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        },
+        "required": [
+          "template"
+        ],
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get Extract Template",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_templates_run",
+      "title": "Run Extract Template",
+      "description": "Run an Extract Template against 1–few known items (URL or site ID).\n\nParams must match the template's input_schema — inspect with\nnimble_extract_templates_get. Do not loop this to discover coverage; that\nfan-out is a Web Search Agent.\n\nIf no results are returned, say so: the URL may be unreachable or behind a\nlogin wall, the page structure may have changed, or required params may be\nmissing. Recover in this capability (fix params / URL) before switching class.",
+      "inputSchema": {
+        "properties": {
+          "template": {
+            "description": "Template name from nimble_extract_templates_list, nimble_extract_templates_get, or a completed generation.",
+            "type": "string"
+          },
+          "params": {
+            "additionalProperties": true,
+            "description": "Runtime input parameters built from the template's input_schema. Include all required keys. Example: {\"url\": \"https://www.amazon.com/dp/B09V3KXJPB\"}",
+            "type": "object"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "template",
+          "params"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "description": "Response shape for nimble_extract_templates_run.",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "description": "Nested result data returned by nimble_extract_templates_run on success.",
+                "properties": {
+                  "results": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": true,
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Parsed entity rows extracted by the template. Each item is one record."
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Structured output; currently exposes parsed `results`. May be null when the run fails or returns no parsed records."
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Source URL used by the template (from backend response or run params)."
+          },
+          "template_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Extract Template name that was executed."
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Error message from the backend, if any."
+          },
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        },
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Run Extract Template",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_templates_generate",
+      "title": "Generate Extract Template",
+      "description": "Generate a new Extract Template — only when the user explicitly asks to.\n\nDo not use as the no-template fallback. If list/get found no match, route to\na Web Search Agent (nimble_agents_*) instead of generating.\n\nReturns a ``generation_id``; poll nimble_extract_templates_generation_status\nuntil terminal (``completed`` or ``failed``). On completion, run via\nnimble_extract_templates_run.",
+      "inputSchema": {
+        "properties": {
+          "prompt": {
+            "description": "Natural-language instruction describing what the template should collect (e.g. 'Collect product name, price, and rating from Amazon product pages').",
+            "type": "string"
+          },
+          "url": {
+            "description": "Example target URL that helps the generator understand page structure.",
+            "type": "string"
+          },
+          "input_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional JSON Schema object describing runtime input parameters."
+          },
+          "output_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional JSON Schema object describing desired output fields."
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional desired name for the generated template."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "prompt",
+          "url"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "description": "Response from Extract Template generation and refinement tools.\n\nThe SDK uses a server-assigned ``generation_id`` (no client-chosen session id)\nand produces a versioned Extract Template on completion identified by\n``template_name`` + ``version_id``.",
+        "properties": {
+          "status": {
+            "description": "Generation state returned by the backend (e.g. 'pending', 'processing', 'completed', 'failed'). Treat any value other than completed/failed as in-progress and poll via nimble_extract_templates_generation_status.",
+            "type": "string"
+          },
+          "generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Server-assigned generation id. Use with nimble_extract_templates_generation_status to poll for completion. Different from the generated template_name. None when no generation was created (e.g. rate-limited before the backend accepted the request)."
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Human-readable status message and any tool-side guidance."
+          },
+          "template_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Name of the Extract Template produced by this generation (populated on completion)."
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Version id of the generated template revision."
+          },
+          "input_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "JSON Schema describing the runtime inputs of the generated template."
+          },
+          "output_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "JSON Schema describing the structured outputs of the generated template."
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Backend-provided summary of what the generation produced."
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Error message from the backend, if any."
+          },
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Generate Extract Template",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_templates_generation_status",
+      "title": "Check Extract Template Generation Status",
+      "description": "Check the current status of a generation.\n\nStatus flow:\n- in-progress (``pending`` / ``processing`` / etc.): call again after ~30 seconds.\n- ``completed``: template_name and version_id are set; proceed to run.\n- ``failed`` / ``error``: inspect ``error`` for diagnostics.",
+      "inputSchema": {
+        "properties": {
+          "generation_id": {
+            "description": "Server-assigned id returned by nimble_extract_templates_generate or nimble_extract_templates_update_from_template.",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "generation_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "description": "Response from Extract Template generation and refinement tools.\n\nThe SDK uses a server-assigned ``generation_id`` (no client-chosen session id)\nand produces a versioned Extract Template on completion identified by\n``template_name`` + ``version_id``.",
+        "properties": {
+          "status": {
+            "description": "Generation state returned by the backend (e.g. 'pending', 'processing', 'completed', 'failed'). Treat any value other than completed/failed as in-progress and poll via nimble_extract_templates_generation_status.",
+            "type": "string"
+          },
+          "generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Server-assigned generation id. Use with nimble_extract_templates_generation_status to poll for completion. Different from the generated template_name. None when no generation was created (e.g. rate-limited before the backend accepted the request)."
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Human-readable status message and any tool-side guidance."
+          },
+          "template_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Name of the Extract Template produced by this generation (populated on completion)."
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Version id of the generated template revision."
+          },
+          "input_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "JSON Schema describing the runtime inputs of the generated template."
+          },
+          "output_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "JSON Schema describing the structured outputs of the generated template."
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Backend-provided summary of what the generation produced."
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Error message from the backend, if any."
+          },
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Check Extract Template Generation Status",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_templates_update_from_template",
+      "title": "Refine Existing Extract Template",
+      "description": "Refine an existing Extract Template — only when the user explicitly asks to.\n\nNot the no-template fallback (that is a Web Search Agent). Returns a\n``generation_id``; poll nimble_extract_templates_generation_status until\nterminal, then run with the returned ``template_name``.",
+      "inputSchema": {
+        "properties": {
+          "from_template": {
+            "description": "Template name to refine. A new generation is created from this template.",
+            "type": "string"
+          },
+          "prompt": {
+            "description": "Natural-language refinement instruction (e.g. 'add a ratings field to the output').",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "from_template",
+          "prompt"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "description": "Response from Extract Template generation and refinement tools.\n\nThe SDK uses a server-assigned ``generation_id`` (no client-chosen session id)\nand produces a versioned Extract Template on completion identified by\n``template_name`` + ``version_id``.",
+        "properties": {
+          "status": {
+            "description": "Generation state returned by the backend (e.g. 'pending', 'processing', 'completed', 'failed'). Treat any value other than completed/failed as in-progress and poll via nimble_extract_templates_generation_status.",
+            "type": "string"
+          },
+          "generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Server-assigned generation id. Use with nimble_extract_templates_generation_status to poll for completion. Different from the generated template_name. None when no generation was created (e.g. rate-limited before the backend accepted the request)."
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Human-readable status message and any tool-side guidance."
+          },
+          "template_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Name of the Extract Template produced by this generation (populated on completion)."
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Version id of the generated template revision."
+          },
+          "input_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "JSON Schema describing the runtime inputs of the generated template."
+          },
+          "output_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "JSON Schema describing the structured outputs of the generated template."
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Backend-provided summary of what the generation produced."
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Error message from the backend, if any."
+          },
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Refine Existing Extract Template",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_map",
+      "title": "Nimble Map",
+      "description": "Nimble Map: discover the URLs that exist on a site (every link / site map).\n\nUse when the user wants the URL list itself, or as a precursor to Extract or\nCrawl of a known section. Not for assembling a catalog or entity set — that\nis a dataset-building Web Search Agent.",
+      "inputSchema": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The website URL to map. The tool will discover all linked pages\nstarting from this URL."
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Maximum number of URLs to return. If not specified, the API\ndefault is used."
+          },
+          "sitemap": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "How to use the site's sitemap for URL discovery:\n- \"include\": Use sitemap in addition to link following (default)\n- \"skip\": Ignore sitemap, only follow links\n- \"only\": Only return URLs found in sitemap"
+          },
+          "domain_filter": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Control URL scope for discovery:\n- \"domain\": Only URLs on the exact domain (default)\n- \"subdomain\": Include URLs from subdomains\n- \"all\": Include all discovered URLs regardless of domain"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Map",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_task_results",
+      "title": "Nimble Task Results",
+      "description": "Get the status and results of an async task.\n\nUse this to retrieve results from nimble_extract_async or nimble_extract_templates_run_async.\nIf the task is still pending, returns the current state so you can poll again later.",
+      "inputSchema": {
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "The task ID returned by nimble_extract_async or nimble_extract_templates_run_async."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Task Results",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_templates_run_async",
+      "title": "Run Extract Template Async",
+      "description": "Start an asynchronous Extract Template run. Returns a task ID immediately.\n\nSame capability as nimble_extract_templates_run, out of band: poll\nnimble_task_results. For 1–few known items only — not a substitute for a\nWeb Search Agent fan-out.",
+      "inputSchema": {
+        "properties": {
+          "template": {
+            "type": "string",
+            "description": "Extract Template name to execute. Get available templates from\nnimble_extract_templates_list."
+          },
+          "params": {
+            "additionalProperties": true,
+            "type": "object",
+            "description": "Runtime input parameters matching the template's input_schema.\nExample: {\"url\": \"https://www.amazon.com/dp/B09V3KXJPB\"}"
+          },
+          "callback_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional webhook URL to receive results when the run completes."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "template",
+          "params"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Run Extract Template Async",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_search",
+      "title": "Nimble Search",
+      "description": "Nimble Search: raw web results for a single closed lookup.\n\nUse only when one search is enough — who/what at a glance, a filing or page\npointer, a reverse lookup, or named-channel presence. Not for research,\nenrichment, dataset building, named-subject information gathering, or\n\"extract all …\" — those are a Web Search Agent (nimble_agents_*). Named\nsite + a direct item → check Extract Templates first. For a closed\nsynthesized fact, set include_answer=true (Answer); still not a substitute\nfor a Web Search Agent.",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query to execute. Can be natural language questions or keywords."
+          },
+          "max_results": {
+            "default": 3,
+            "type": "integer",
+            "description": "Maximum number of search results to return (1-100). Default is 3.\nActual count may be less depending on available results.\n- Use 3-5 for a closed lookup\n- Use up to 10 only when that single search still answers the ask\n- Do not raise this to \"cover more ground\" — that fan-out is a Web Search Agent"
+          },
+          "focus": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "default": "general",
+            "description": "Search focus mode that determines content sources and ranking.\nCan be a single mode string or a list of explicit Extract Template names.\n\nSingle mode options:\n- \"general\": Standard web search (default)\n- \"news\": Real-time news search\n- \"location\": Location-based search\n- \"shopping\": E-commerce and product search (AI-powered)\n- \"geo\": Generative engine optimization (AI-powered)\n- \"social\": Social media content search (AI-powered)\n\nOr a list of explicit Extract Template names (e.g., [\"amazon_serp\", \"target_serp\"])\nto skip the AI router and query exactly those templates. Only the templates\nbehind the shopping, social and geo modes are accepted. Max 10 items, no duplicates."
+          },
+          "output_format": {
+            "default": "markdown",
+            "type": "string",
+            "description": "Content output format for extracted pages:\n- \"markdown\": Markdown-formatted content with structure (default)\n- \"plain_text\": Plain text without formatting\n- \"simplified_html\": Clean HTML without scripts/styles"
+          },
+          "locale": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Language/locale code (e.g., \"en\", \"fr\", \"de\"). Defaults to \"en\"."
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Country code for geo-targeted results (e.g., \"US\", \"GB\", \"IL\").\nDefaults to \"US\"."
+          },
+          "search_depth": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Content richness level. Omit to let the Nimble API choose the default.\n- \"lite\": Metadata only (title, description, URL). Fast (1-3 seconds).\n    Use for quick lookups, getting links, or simple fact-checking.\n- \"standard\": Rich content snippets (~2K chars per result) optimized for AI agents.\n    Only supported with focus=\"general\" — every other focus mode is\n    rejected with a 422, so pair those with \"lite\" instead."
+          },
+          "full_content": {
+            "default": false,
+            "type": "boolean",
+            "description": "Return full page content per result instead of snippets only.\nHow that content is fetched depends on the depth it is paired with:\nwith search_depth=\"lite\" each result is scraped and parsed in full;\nwith search_depth=\"standard\" it instead widens live crawling across\nweb and news sources so results carry full markdown. Either way it\ncosts more and is slower (5-15 seconds) — use it to read deeply into\nthat same closed lookup, not as a substitute for a Web Search Agent."
+          },
+          "include_answer": {
+            "default": false,
+            "type": "boolean",
+            "description": "Nimble Answer — one synthesized, citation-backed response\nfor a closed factual question. Default is False (raw Search results).\nStill not a substitute for a Web Search Agent on research or datasets."
+          },
+          "include_domains": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Whitelist of domains to include in search results (max 50).\nOnly results from these domains will be returned.\nExample: [\"wikipedia.org\", \"britannica.com\"]"
+          },
+          "exclude_domains": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Blacklist of domains to exclude from search results (max 50).\nResults from these domains will be filtered out.\nExample: [\"pinterest.com\", \"facebook.com\"]"
+          },
+          "start_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter results after this date. Format: YYYY-MM-DD or YYYY.\nCannot be combined with time_range."
+          },
+          "end_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter results before this date. Format: YYYY-MM-DD or YYYY.\nCannot be combined with time_range."
+          },
+          "time_range": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter by recency with predefined periods.\nCannot be combined with start_date/end_date.\nOptions: \"hour\", \"day\", \"week\", \"month\", \"year\""
+          },
+          "content_type": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter by content type (only supported with focus=\"general\").\nSupports semantic groups (\"documents\", \"spreadsheets\", \"presentations\")\nand specific formats (\"pdf\", \"docx\", \"xlsx\", etc.)."
+          },
+          "max_subagents": {
+            "default": 3,
+            "type": "integer",
+            "description": "Maximum number of Extract Templates the AI router picks and runs\nin parallel for the shopping, social and geo focus modes (1-10). Default is 3.\nIgnored for an explicit template list (every listed template runs) and for\ngeneral, news, location modes."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Search",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract",
+      "title": "Nimble Extract",
+      "description": "Nimble Extract: one-time pull of a single known URL.\n\nUse for a fixed URL (page content, structure, HTML). When the site is named,\ncheck Extract Templates first (nimble_extract_templates_list). Not for\n\"extract all [entities]\", catalogs, or more than a few already-known URLs —\nthat fan-out is a Web Search Agent (nimble_agents_*), not a second Extract.",
+      "inputSchema": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL to extract content from. Must be a valid, accessible web page."
+          },
+          "output_format": {
+            "default": "markdown",
+            "type": "string",
+            "description": "Content output format for the extracted page:\n- \"markdown\": Markdown-formatted content with structure (default)\n- \"plain_text\": Plain text without formatting\n- \"simplified_html\": Clean HTML without scripts/styles"
+          },
+          "locale": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Language/locale code (e.g., \"en\", \"fr\", \"de\"). Defaults to \"en\"."
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Country code for geo-targeted results (e.g., \"US\", \"GB\", \"IL\").\nDefaults to \"US\"."
+          },
+          "driver": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional browser driver tier for web extraction:\n- \"vx6\": fast HTTP requests, no JavaScript — static pages and APIs\n- \"vx8\": headless browser with JavaScript rendering — dynamic pages and SPAs\n- \"vx8-pro\": headful browser with JavaScript rendering — complex interactions\n- \"vx10\": stealth headless browser — sites with strict bot mitigation\n- \"vx10-pro\": stealth headful browser — heavily bot-protected sites\nIf omitted, the backend selects. Escalate explicitly for JavaScript-heavy pages\n(\"vx8\"/\"vx8-pro\"), or for sites with strict bot mitigation (\"vx10\"/\"vx10-pro\"),\nwhen a default extraction returns empty or truncated content."
+          },
+          "wait": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional wait time in milliseconds before extracting content.\nUseful for JavaScript-rendered pages that need time to load.\nExample: wait=3000 for pages that render content dynamically."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Extract",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_extract_async",
+      "title": "Nimble Extract Async",
+      "description": "Start an asynchronous Extract of one known URL. Returns a task ID immediately.\n\nSame capability as `nimble_extract`, out of band: poll `nimble_task_results`.\nUse when a single synchronous Extract would blow this turn's latency budget.\nNot a faster path to the same content (~30s end-to-end vs sub-second sync).\nNot for catalogs, \"extract all …\", or discovering coverage — that fan-out is\na Web Search Agent. For a known doc tree, use `nimble_crawl_run`.",
+      "inputSchema": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL to extract content from."
+          },
+          "output_format": {
+            "default": "markdown",
+            "type": "string",
+            "description": "Content output format:\n- \"markdown\": Markdown-formatted content (default)\n- \"plain_text\": Plain text without formatting\n- \"simplified_html\": Clean HTML without scripts/styles"
+          },
+          "locale": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Language/locale code (e.g., \"en\", \"fr\", \"de\"). Defaults to \"en\"."
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Country code for geo-targeted results (e.g., \"US\", \"GB\", \"IL\").\nDefaults to \"US\"."
+          },
+          "driver": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional browser driver tier for web extraction:\n- \"vx6\": fast HTTP requests, no JavaScript — static pages and APIs\n- \"vx8\": headless browser with JavaScript rendering — dynamic pages and SPAs\n- \"vx8-pro\": headful browser with JavaScript rendering — complex interactions\n- \"vx10\": stealth headless browser — sites with strict bot mitigation\n- \"vx10-pro\": stealth headful browser — heavily bot-protected sites\nIf omitted, the backend selects. Escalate explicitly for JavaScript-heavy pages\n(\"vx8\"/\"vx8-pro\"), or for sites with strict bot mitigation (\"vx10\"/\"vx10-pro\"),\nwhen a default extraction returns empty or truncated content."
+          },
+          "wait": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional wait time in milliseconds for JavaScript-rendered pages."
+          },
+          "callback_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional webhook URL to receive results when extraction completes."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional reasoning about why this tool was selected."
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional description of the tool's purpose."
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Nimble Extract Async",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_list",
+      "title": "List Web Search Agents",
+      "description": "List Web Search Agents in the account — reuse before creating a new one.\n\nUse for research, enrichment, dataset building, named-subject gathering,\n\"extract all …\" without a URL, catalog/directory lists, and fan-out beyond\n1–few known URLs. Classify use_case: research = dossiers/briefings/synthesis;\ndataset_building = entity lists/catalogs/extract-all without a URL;\nenrichment = add fields to records the user already has. Then: get → run →\nrun_status (poll) → run_result. If none fit, check nimble_agent_templates_list\nbefore free-form create.",
+      "inputSchema": {
+        "properties": {
+          "offset": {
+            "default": 0,
+            "description": "Offset for pagination. Use 0 for the first page.",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 50,
+            "description": "Maximum number of agents to return in one page (1-100).",
+            "type": "integer"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "List Web Search Agents",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_get",
+      "title": "Get Web Search Agent",
+      "description": "Get a Web Search Agent's skill, sources, effort, use_case, and output schema.\n\nWorkspace agents only — do not pass an Extract Template name or a gallery\ntemplate name here (use nimble_agent_templates_get for gallery templates).",
+      "inputSchema": {
+        "properties": {
+          "agent_id": {
+            "description": "Agent id as returned by nimble_agents_list or nimble_agents_create.",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "agent_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get Web Search Agent",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_create",
+      "title": "Create Web Search Agent",
+      "description": "Create a Web Search Agent. Prefer reuse: list existing, then gallery templates.\n\nPass ``template`` (from nimble_agent_templates_list) when a gallery blueprint\nmatches; otherwise describe the agent via name/skill/sources. Classify\n``use_case``: research = dossiers/briefings/synthesis; dataset_building =\nentity lists/catalogs/extract-all without a URL; enrichment = add fields to\nrecords the user already has. Set effort from the task — do not ask the user to pick:\nlow/medium simple, high default, x-high/max complex; dataset_building requires high\nor above. For a one-shot, prefer\nnimble_agents_run(agent_name=...) create-or-reuse instead of create-then-run.",
+      "inputSchema": {
+        "properties": {
+          "agent_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Unique name for the agent."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "What the agent does."
+          },
+          "display_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Human-friendly display name."
+          },
+          "skill": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Skill/domain the agent specializes in."
+          },
+          "effort": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Set from the task — do not ask the user to pick: 'low'/'medium' for fast simple asks; 'high' default once several fields need digging; 'x-high'/'max' for complex profiles (financials, filings, history). dataset_building requires high or above. Optional preview at low, then re-run at the recommended tier."
+          },
+          "output_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "JSON Schema for the agent's structured output, stored and reused by every run. Required when use_case is 'dataset_building' or 'enrichment'. Must be real JSON Schema (Draft 7), not a field->example map: each field is a subschema like {\"type\": \"string\"}. Root is \"object\" with non-empty \"properties\", or \"array\" whose \"items\" is an object (a table: prefer it for lists, dataset_building, and list input_data). Put \"required\" next to \"properties\", never inside it. Max nesting depth 5 (objects and arrays both count): prefer flat columns over nested arrays. Max 100 properties total; no format/pattern/min*/max* keywords; no standalone \"null\" type (use [\"string\", \"null\"]). Example: {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}}, \"required\": [\"name\"]}}."
+          },
+          "sources": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Source preferences: {allow: [...], block: [...], prioritize: str, avoid: str}."
+          },
+          "suggested_questions": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Example questions for the agent."
+          },
+          "template": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional Web Search Agent gallery template name from nimble_agent_templates_list. Not an Extract Template name."
+          },
+          "use_case": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "One of: 'research' (dossiers, briefings, synthesis), 'dataset_building' (entity lists, catalogs, extract-all without a URL), 'enrichment' (add fields to records the user already has). Classify the kind first."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Create Web Search Agent",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_update",
+      "title": "Update Web Search Agent",
+      "description": "Update an existing Web Search Agent via JSON Patch operations.",
+      "inputSchema": {
+        "properties": {
+          "agent_id": {
+            "description": "Agent id to update.",
+            "type": "string"
+          },
+          "operations": {
+            "description": "JSON Patch operations to apply. Each item: {op: 'add'|'remove'|'replace'|'move'|'copy'|'test', path: \"/field\", value: ...}. Example: [{\"op\": \"replace\", \"path\": \"/description\", \"value\": \"New\"}]",
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "agent_id",
+          "operations"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Update Web Search Agent",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_delete",
+      "title": "Delete Web Search Agent",
+      "description": "Delete a Web Search Agent permanently.",
+      "inputSchema": {
+        "properties": {
+          "agent_id": {
+            "description": "Agent id to delete.",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "agent_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Delete Web Search Agent",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_run",
+      "title": "Start Web Search Agent Run",
+      "description": "Start a Web Search Agent run (research / enrichment / dataset building).\n\nReturns immediately with a run ``id`` and ``status``. Poll\nnimble_agents_run_status until terminal, then nimble_agents_run_result.\nProvide ``agent_id`` to run an existing agent, or ``agent_name`` to\ncreate-or-reuse by name (the one-shot path). Classify ``use_case`` when\ncreating: research = dossiers/briefings/synthesis; dataset_building =\nentity lists/catalogs/extract-all without a URL; enrichment = add fields\nto records the user already has. Set effort from the task — do not ask the\nuser to pick: low/medium simple, high default, x-high/max complex;\ndataset_building requires high or above.",
+      "inputSchema": {
+        "properties": {
+          "input": {
+            "description": "Natural-language research question or task for the agent.",
+            "type": "string"
+          },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Existing agent id to run. Provide this or `agent_name`, not both."
+          },
+          "agent_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Stable agent name for create-or-reuse: an unseen name creates a new agent, an existing name reuses it and returns the same agent id across calls. Ignored if `agent_id` is set."
+          },
+          "effort": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Run override. Set from the task — do not ask the user to pick: 'low'/'medium' for fast simple asks; 'high' default once several fields need digging; 'x-high'/'max' for complex profiles (financials, filings, history). dataset_building requires high or above. Optional preview at low, then re-run at the recommended tier."
+          },
+          "input_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional structured input for enrichment runs: up to 40 rows, with rows multiplied by new output columns capped at 200 cells."
+          },
+          "output_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Usually omit: the run uses the agent's stored schema. Set the schema once on the agent rather than regenerating it per run. Required when this call creates a 'dataset_building' or 'enrichment' agent via `agent_name`. Must be real JSON Schema (Draft 7), not a field->example map: each field is a subschema like {\"type\": \"string\"}. Root is \"object\" with non-empty \"properties\", or \"array\" whose \"items\" is an object (a table: prefer it for lists, dataset_building, and list input_data). Put \"required\" next to \"properties\", never inside it. Max nesting depth 5 (objects and arrays both count): prefer flat columns over nested arrays. Max 100 properties total; no format/pattern/min*/max* keywords; no standalone \"null\" type (use [\"string\", \"null\"]). Example: {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}}, \"required\": [\"name\"]}}."
+          },
+          "skill": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Skill override for this run. One-time only against an existing agent; becomes the new agent's stored skill if this call creates it via `agent_name`."
+          },
+          "use_case": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "One of: 'research' (dossiers, briefings, synthesis), 'dataset_building' (entity lists, catalogs, extract-all without a URL), 'enrichment' (add fields to records the user already has). Classify the kind first. Only settable when this run creates a new agent (via `agent_name`); against an existing agent it must match the agent's stored use_case."
+          },
+          "sources": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Source preferences override: {allow: [...], block: [...], prioritize: str, avoid: str}."
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "input"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Start Web Search Agent Run",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_run_status",
+      "title": "Check Web Search Agent Run Status",
+      "description": "Check a Web Search Agent run. Poll every ~15-30s until terminal, then run_result.",
+      "inputSchema": {
+        "properties": {
+          "run_id": {
+            "description": "Run id returned by nimble_agents_run.",
+            "type": "string"
+          },
+          "agent_id": {
+            "description": "Agent id the run belongs to.",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "run_id",
+          "agent_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Check Web Search Agent Run Status",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_runs_list",
+      "title": "List Web Search Agent Runs",
+      "description": "List past and in-progress runs of a Web Search Agent.",
+      "inputSchema": {
+        "properties": {
+          "agent_id": {
+            "description": "Agent id whose runs to list.",
+            "type": "string"
+          },
+          "offset": {
+            "default": 0,
+            "description": "Offset for pagination.",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 50,
+            "description": "Maximum number of runs to return (1-100).",
+            "type": "integer"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "agent_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "List Web Search Agent Runs",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agents_run_result",
+      "title": "Get Web Search Agent Run Result",
+      "description": "Fetch a completed Web Search Agent run (text or JSON plus trust/citations).\n\nCall after nimble_agents_run_status reports a terminal status.",
+      "inputSchema": {
+        "properties": {
+          "run_id": {
+            "description": "Run id returned by nimble_agents_run.",
+            "type": "string"
+          },
+          "agent_id": {
+            "description": "Agent id the run belongs to.",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "run_id",
+          "agent_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get Web Search Agent Run Result",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agent_templates_list",
+      "title": "List Web Search Agent Templates",
+      "description": "List Web Search Agent gallery templates to seed nimble_agents_create(template=...).\n\nThese are not Extract Templates — do not pass names to nimble_extract_templates_*.\nPrefer a matching gallery template over a free-form create.",
+      "inputSchema": {
+        "properties": {
+          "offset": {
+            "default": 0,
+            "description": "Offset for pagination.",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 50,
+            "description": "Maximum number of templates to return (1-100).",
+            "type": "integer"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "List Web Search Agent Templates",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "nimble_agent_templates_get",
+      "title": "Get Web Search Agent Template",
+      "description": "Get a Web Search Agent gallery template. Not an Extract Template.",
+      "inputSchema": {
+        "properties": {
+          "template_name": {
+            "description": "Template name as returned by nimble_agent_templates_list.",
+            "type": "string"
+          },
+          "tool_reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "tool_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "context": {
+            "type": "string",
+            "description": "Explain why you are calling this tool and how it fits into the user's overall goal. This parameter is used for analytics and user intent tracking. YOU MUST provide 15-25 words (count carefully). NEVER use first person ('I', 'we', 'you') - maintain third-person perspective. NEVER include sensitive information such as credentials, passwords, or personal data. Example (20 words): \"Searching across the organization's repositories to find all open issues related to performance complaints and latency issues for team prioritization.\""
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "Echo the conversation_id from the server's previous response. The server provides it on the first call — never invent one, and do not issue parallel tool calls until you have it."
+          }
+        },
+        "required": [
+          "template_name"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "_mcp_instructions": {
+            "type": "object",
+            "description": "Server-issued metadata for this conversation.",
+            "properties": {
+              "conversation_id": {
+                "type": "string",
+                "description": "The server-issued conversation identifier."
+              }
+            }
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get Web Search Agent Template",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": null,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    }
+  ],
+  "instructions": "Nimble turns the web into structured data. Use these product names exactly: Search, Answer, Extract, Extract Template, Web Search Agent, Map, Crawl. Never call an Extract Template a Web Search Agent (or vice versa).\n\nRoute by intent:\n\n1. Named site + a direct item (URL or site-specific ID): nimble_extract_templates_list → get → run. If none matches, use a Web Search Agent — do not generate a new Extract Template and do not dump a raw Extract.\n\n2. Web Search Agent (nimble_agents_*): research, data enrichment, dataset building, named-subject information gathering, \"extract all …\" without a URL, catalog/directory entity lists, and any fan-out beyond 1–few already-known URLs. Reuse order: nimble_agents_list → nimble_agent_templates_list → create/run. Classify use_case before create/run: research = open-ended gathering/synthesis (named-subject dossiers, briefings, site/product deep dives); dataset_building = entity lists/tables by criteria or geo, catalogs, \"extract all …\" without a URL; enrichment = add fields to records the user already has (list, CSV, named items) via web lookup. Set effort from the task — do not ask the user to pick: low/medium for fast simple asks; high as the default once several fields need real digging; x-high/max for complex multi-faceted profiles (financials, filings, history). dataset_building requires high or above. For a quick first look, offer a preview at low then re-run at the recommended tier. Poll nimble_agents_run_status then nimble_agents_run_result. Gallery templates (nimble_agent_templates_*) are not Extract Templates.\n\n3. Search (nimble_search): only a single closed lookup — who/what at a glance, filing/page pointer, reverse lookup, named-channel presence. For a closed synthesized fact, set include_answer=true (Answer). Do not complete research or dataset asks with Search.\n\n4. Extract (nimble_extract): one known URL, one-time. Check Extract Templates first when the site is named. Not for \"extract all\", catalogs, or more than a few known URLs — that fan-out is a Web Search Agent.\n\n5. Map (nimble_map): list the URLs on a site. Crawl (nimble_crawl_run): one-time bulk fetch of a known doc tree or URL list — not catalogs or entity sets.\n\nNever invent live prices or news from training data. If a run is empty or wrong, say so and recover in the same capability (different param) before switching class. nimble_extract_templates_generate / update_from_template only when the user explicitly asks to create or refine a reusable Extract Template — not as the no-template fallback.\n",
+  "serverInfo": {
+    "name": "Nimble",
+    "title": null,
+    "version": "3.4.7",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": {},
+    "prompts": {
+      "listChanged": true
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": true
+    },
+    "tools": {
+      "listChanged": true
+    },
+    "completions": null,
+    "extensions": {
+      "io.modelcontextprotocol/ui": {}
+    },
+    "tasks": null
+  }
+}

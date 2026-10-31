@@ -1,0 +1,570 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return a list of providers (including members and consortium organizations).
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "providers",
+      "description": "Providers"
+    }
+  ],
+  "paths": {
+    "/providers": {
+      "get": {
+        "tags": [
+          "providers"
+        ],
+        "summary": "Return a list of providers (including members and consortium organizations).",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "description": "The year the provider was created.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/consortiumIdParam"
+          },
+          {
+            "in": "query",
+            "name": "region",
+            "schema": {
+              "$ref": "#/components/schemas/region"
+            }
+          },
+          {
+            "in": "query",
+            "name": "member-type",
+            "schema": {
+              "$ref": "#/components/schemas/member-type"
+            }
+          },
+          {
+            "in": "query",
+            "name": "organization-type",
+            "schema": {
+              "$ref": "#/components/schemas/organization-type"
+            }
+          },
+          {
+            "in": "query",
+            "name": "focus-area",
+            "schema": {
+              "$ref": "#/components/schemas/focus-area"
+            }
+          },
+          {
+            "in": "query",
+            "name": "has-required-contacts",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/pageNumberParam"
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/pageSizeParam"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "relevance",
+                "name",
+                "-name",
+                "created",
+                "-created"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of providers.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Provider"
+                      }
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/MetaCore"
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "years": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "regions": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "memberTypes": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "organizationTypes": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "focusAreas": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "nonProfitStatuses": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "hasRequiredContacts": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Links"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Provider": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "providers"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "systemEmail": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "string"
+              },
+              "groupEmail": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "string"
+              },
+              "globusUuid": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "region": {
+                "$ref": "#/components/schemas/region"
+              },
+              "country": {
+                "type": "string"
+              },
+              "logoUrl": {
+                "type": "string"
+              },
+              "memberType": {
+                "$ref": "#/components/schemas/member-type"
+              },
+              "organizationType": {
+                "$ref": "#/components/schemas/organization-type"
+              },
+              "focusArea": {
+                "$ref": "#/components/schemas/focus-area"
+              },
+              "nonProfitStatus": {
+                "type": "string"
+              },
+              "isActive": {
+                "type": "boolean"
+              },
+              "hasPassword": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "boolean"
+              },
+              "joined": {
+                "type": "string"
+              },
+              "twitterHandle": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "string"
+              },
+              "rorId": {
+                "type": "string"
+              },
+              "technicalContact": {
+                "$ref": "#/components/schemas/ProviderContact"
+              },
+              "secondaryTechnicalContact": {
+                "$ref": "#/components/schemas/ProviderContact"
+              },
+              "billingContact": {
+                "$ref": "#/components/schemas/ProviderContact"
+              },
+              "secondaryBillingContact": {
+                "$ref": "#/components/schemas/ProviderContact"
+              },
+              "serviceContact": {
+                "$ref": "#/components/schemas/ProviderContact"
+              },
+              "secondaryServiceContact": {
+                "$ref": "#/components/schemas/ProviderContact"
+              },
+              "votingContact": {
+                "$ref": "#/components/schemas/ProviderContact"
+              },
+              "hasRequiredContacts": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "boolean"
+              },
+              "created": {
+                "type": "string"
+              },
+              "updated": {
+                "type": "string"
+              },
+              "doiEstimate": {
+                "type": "number"
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "clients": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              },
+              "prefixes": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              },
+              "contacts": {
+                "type": "object",
+                "description": "Returned only when authenticated with associated credentials.",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              },
+              "consortium": {
+                "type": "object",
+                "description": "Returned only when the provider is a Consortium Organization.",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataObject"
+                  }
+                }
+              },
+              "consortiumOrganizations": {
+                "type": "object",
+                "description": "Returned only when the provider is a Consortium.",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "attributes - name - symbol"
+        ]
+      },
+      "ProviderContact": {
+        "type": "object",
+        "description": "Returned only when authenticated with associated credentials.",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "familyName": {
+            "type": "string"
+          },
+          "givenName": {
+            "type": "string"
+          }
+        }
+      },
+      "DataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "DataArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DataObject"
+        }
+      },
+      "MetaObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "MetaArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/MetaObject"
+        }
+      },
+      "MetaCore": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "description": "Total results count.",
+            "type": "number"
+          },
+          "totalPages": {
+            "description": "Total pages count.",
+            "type": "number"
+          },
+          "page": {
+            "description": "Current page of the results.",
+            "type": "number"
+          }
+        }
+      },
+      "Links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string"
+          },
+          "next": {
+            "type": "string"
+          }
+        }
+      },
+      "region": {
+        "type": "string",
+        "enum": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ]
+      },
+      "member-type": {
+        "type": "string",
+        "enum": [
+          "consortium_organization",
+          "direct_member",
+          "consortium",
+          "member_only",
+          "developer"
+        ]
+      },
+      "organization-type": {
+        "type": "string",
+        "enum": [
+          "academicInstitution",
+          "governmentAgency",
+          "nationalInstitution",
+          "publisher",
+          "professionalSociety",
+          "researchInstitution",
+          "serviceProvider",
+          "internationalOrganization",
+          "other",
+          null
+        ]
+      },
+      "focus-area": {
+        "type": "string",
+        "enum": [
+          "naturalSciences",
+          "engineeringAndTechnology",
+          "medicalAndHealthSciences",
+          "agriculturalSciences",
+          "socialSciences",
+          "humanities",
+          "general",
+          null
+        ]
+      }
+    },
+    "parameters": {
+      "consortiumIdParam": {
+        "name": "consortium-id",
+        "in": "query",
+        "description": "Filter by a specific DataCite consortium.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "ardc"
+      },
+      "pageNumberParam": {
+        "name": "page[number]",
+        "in": "query",
+        "schema": {
+          "type": "integer"
+        },
+        "description": "Page number for [pagination](https://support.datacite.org/docs/pagination)."
+      },
+      "pageSizeParam": {
+        "name": "page[size]",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "description": "Page size between 0 and 1,000 for [pagination](https://support.datacite.org/docs/pagination)."
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```

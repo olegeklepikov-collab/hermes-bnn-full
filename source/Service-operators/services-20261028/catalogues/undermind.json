@@ -1,0 +1,2130 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "list_workspaces",
+      "title": "List workspaces",
+      "description": "Lists workspaces available to the connected account, ordered by most recent activity.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": 0,
+            "type": "integer"
+          },
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "List workspaces",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "create_workspace",
+      "title": "Create workspace",
+      "description": "Creates a new workspace and returns its title and workspace_id. Use the returned workspace_id with workspace-scoped tools. Requires a non-empty 'title'.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "description": "Workspace title",
+            "maxLength": 255,
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Create workspace",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "get_orientation",
+      "title": "Get Undermind orientation",
+      "description": "Undermind helps you find, read, and organize scholarly papers. Its tools work with both the global scholarly literature and workspaces containing papers, PDFs, deep searches, Markdown files, and folders. If you have not called this tool in the current conversation, call it before using the other Undermind tools. It explains what the tools do, how they work together, what workspaces and cite keys are, and how to refer to papers, files, folders, and deep searches. The response also tells you which Undermind account is connected.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get Undermind orientation",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "inspect_files",
+      "title": "Inspect files",
+      "description": "Browse files and folders.\n\n- paths=[] → Shallow listing of root\n- paths=['/analysis/'] → Shallow listing of folder\n- paths=['/analysis/my-research'] → Full file content",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "paths": {
+            "default": [],
+            "description": "File or folder paths",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Inspect files",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "inspect_folders",
+      "title": "Inspect folders",
+      "description": "Browse the workspace's folders and their papers.\n\n- folders=[] → the folder tree: each folder with its direct file, search, and paper counts\n- folders=['/literature/crispr-delivery/'] or ['crispr-delivery'] → that folder's direct contents: subfolders, files, searches, and papers",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "folders": {
+            "default": [],
+            "description": "Folder names or paths. Empty list shows the folder tree.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "type": "array"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Page size for a folder's paper list. Default 20, maximum 50."
+          },
+          "offset": {
+            "default": 0,
+            "description": "Offset into a folder's paper list.",
+            "type": "integer"
+          },
+          "detail_level": {
+            "default": "cite_key_only",
+            "description": "Paper detail level. Defaults to 'cite_key_only' (cite keys only). 'compact' adds title, year, and PDF status; 'standard' adds authors, journal, and citation metrics; 'full' also includes the abstract.",
+            "enum": [
+              "cite_key_only",
+              "compact",
+              "standard",
+              "full"
+            ],
+            "type": "string"
+          },
+          "sort_override": {
+            "anyOf": [
+              {
+                "enum": [
+                  "year_descending",
+                  "year_ascending",
+                  "citations_per_year_descending",
+                  "citations_per_year_ascending"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional ordering of a folder's papers, overriding the default most-recently-added order: 'year_descending', 'year_ascending', 'citations_per_year_descending', or 'citations_per_year_ascending'."
+          },
+          "year_min": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Keep only papers published in or after this year."
+          },
+          "year_max": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Keep only papers published in or before this year."
+          },
+          "has_pdf": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Keep only papers that have a PDF (true) or that lack one (false)."
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Inspect folders",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "inspect_deep_searches",
+      "title": "Inspect deep searches",
+      "description": "Browse deep literature searches.\n\nSearches live in the workspace folder tree. Listings show each search's\nfolder path; address a search by bare name (when unique) or by full\npath (e.g. '/analysis/my-search') when the name repeats across folders.\n\n- names=[] → All searches (folder path, status, timestamps)\n- names=['initial-search'] or ['/analysis/initial-search'] → Search details (goal, summary of results, timestamps, relevant papers)\n- names=['initial-search'], status_only=True → Just path + status and timestamps (fast, for polling)\n- names=['initial-search'], papers_only=True → Relevant papers list + search status, without goal or summary; use this for repeat/paginated reads",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "names": {
+            "default": [],
+            "description": "Search names or paths. Empty list lists all searches.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "type": "array"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Page size for search result paper lists. Default 20, maximum 50."
+          },
+          "offset": {
+            "default": 0,
+            "description": "Offset into search result paper lists. Default 0.",
+            "type": "integer"
+          },
+          "detail_level": {
+            "default": "compact",
+            "description": "Paper detail level. Defaults to 'compact'. Use 'cite_key_only' for cite keys only; 'compact' shows title, year, PDF status, and relevance; 'standard' adds authors, journal, and citation metrics; 'full' also includes the abstract. Use 'full' with small pages.",
+            "enum": [
+              "cite_key_only",
+              "compact",
+              "standard",
+              "full"
+            ],
+            "type": "string"
+          },
+          "sort_override": {
+            "anyOf": [
+              {
+                "enum": [
+                  "year_descending",
+                  "year_ascending",
+                  "citations_per_year_descending",
+                  "citations_per_year_ascending"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional metadata ordering. Orders the displayed relevant-paper rows before pagination. Allowed values: 'year_descending', 'year_ascending', 'citations_per_year_descending', 'citations_per_year_ascending'. Year sorts use exact date when available and year otherwise; missing values sort last."
+          },
+          "status_only": {
+            "default": false,
+            "description": "Return only status and timestamps",
+            "type": "boolean"
+          },
+          "papers_only": {
+            "default": false,
+            "description": "Omit the research goal and results summary. Use for follow-up paper-list reads.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Inspect deep searches",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "get_paper_info",
+      "title": "Get paper details",
+      "description": "Look up detailed metadata for papers, and where they are located in the workspace.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Paper cite keys (e.g., 'Smi98')",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 50,
+            "type": "array"
+          },
+          "detail_level": {
+            "default": "full",
+            "description": "Paper detail level. Defaults to 'full'. 'cite_key_only' shows cite keys only; 'compact' shows title, year, and PDF status; 'standard' adds authors, journal, and citation metrics; 'full' also includes the abstract.",
+            "enum": [
+              "cite_key_only",
+              "compact",
+              "standard",
+              "full"
+            ],
+            "type": "string"
+          },
+          "show_locations": {
+            "default": false,
+            "description": "Also show where each paper lives in the workspace: the folders, files, and searches that contain it.",
+            "type": "boolean"
+          },
+          "show_doi": {
+            "default": false,
+            "description": "Include DOIs (papers without one get a link instead).",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get paper details",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "display_references",
+      "title": "Display references",
+      "description": "Shows papers that are important to the current discussion in an interactive reference card with bibliographic details and expandable abstracts. Use it when first discussing them. Display at most one card of any kind per turn.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Cite keys of papers to display, in the order they should appear.",
+            "items": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Display references",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://undermind/paper-list-e57dc087680edcc0.html",
+          "prefersBorder": true
+        },
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "display_deep_search_results",
+      "title": "Display deep search results",
+      "description": "Shows a deep search in an interactive card with its research goal and estimated progress while running, and its summary and ranked papers with relevance and expandable abstracts when complete. Use it after launching a deep search or when discussing one existing search. Display at most one card of any kind per turn; give an overview of several searches in prose.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "search": {
+            "description": "Search name or path.",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "search"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Display deep search results",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://undermind/paper-list-e57dc087680edcc0.html",
+          "prefersBorder": true
+        },
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "suggest_pdf_uploads",
+      "title": "Suggest PDF uploads",
+      "description": "Shows an interactive card that asks the user to upload PDFs for up to 5 papers, with a reason and one upload link. Use it when papers important to the current discussion lack full text and reading them would materially improve the answer. Display at most one card of any kind per turn. Frame the suggestion positively: the current abstracts, metadata, and available PDFs may already support useful work, and the suggested full texts would strengthen it further.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Cite keys of papers that need PDFs uploaded (max 5)",
+            "items": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "type": "array"
+          },
+          "reason": {
+            "description": "Why uploading these PDFs would help the conversation",
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "cite_keys",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Suggest PDF uploads",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://undermind/paper-list-e57dc087680edcc0.html",
+          "prefersBorder": true
+        },
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "get_deep_search_status",
+      "title": "Get deep search status",
+      "description": "Used by interactive deep-search cards to update their status. Do not call it directly; use inspect_deep_searches when you need to check a search's status.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "search_id": {
+            "description": "ID of the deep search to check.",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "search_id"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": false,
+        "description": "The current state of one deep search, addressed by its immutable id.\n\n``outcome`` is ``\"not_found\"`` for every id the argument schema accepts that\nnames no search visible in this workspace — a syntactically invalid UUID, an\nunknown one, a soft-deleted search, another workspace's search — one\nbyte-identical answer, so existence elsewhere is not revealed, and every\nother field stays absent. (The argument's own bounds — non-empty, at most 64\ncharacters — are validated by the host/FastMCP like every argument, before\nthe tool body runs.) Timestamps are the data layer's ``.isoformat()`` strings\npassed through verbatim (typed ``str`` on purpose: a ``datetime`` field would\nbe re-rendered by JSON mode and drift from the rest of the surface), and\ndeclare ``format: date-time`` so the RFC 3339 shape is part of the contract.",
+        "properties": {
+          "refreshPolicy": {
+            "enum": [
+              "auto",
+              "manual"
+            ],
+            "title": "Refreshpolicy",
+            "type": "string"
+          },
+          "outcome": {
+            "enum": [
+              "ok",
+              "not_found"
+            ],
+            "title": "Outcome",
+            "type": "string"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tentative",
+                  "submitted",
+                  "in_progress",
+                  "completed",
+                  "failed",
+                  "cancelled"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Status"
+          },
+          "submittedAt": {
+            "anyOf": [
+              {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "format": "date-time",
+            "title": "Submittedat"
+          },
+          "startedAt": {
+            "anyOf": [
+              {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "format": "date-time",
+            "title": "Startedat"
+          },
+          "finishedAt": {
+            "anyOf": [
+              {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "format": "date-time",
+            "title": "Finishedat"
+          },
+          "searchUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Searchurl"
+          }
+        },
+        "required": [
+          "refreshPolicy",
+          "outcome"
+        ],
+        "title": "DeepSearchStatusPayload",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get deep search status",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        },
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "get_paper_pdf_status",
+      "title": "Get paper PDF status",
+      "description": "Used by interactive paper cards to check whether PDFs are now available. Do not call it directly; use get_paper_info to check PDF availability.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Paper cite keys to check for PDF availability.",
+            "items": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": false,
+        "description": "Per-cite-key PDF availability for the papers a card asked about.\n\nKeys of ``papers`` are the REQUESTED spellings (after dedupe), so the card\ncan index its own request; every requested key lands in exactly one of\n``papers`` / ``unresolved``. An available state carries the server-built\nworkspace link the row gains with its PDF badge. Unlike the other App\npayloads it carries no ``refreshPolicy``: this answer arrives after the one\nautomatic call it could have stopped, and the card payload that armed that\ncall already carried the policy.",
+        "properties": {
+          "papers": {
+            "additionalProperties": {
+              "additionalProperties": false,
+              "description": "Whether one workspace paper has its full text in the workspace.",
+              "properties": {
+                "pdfSource": {
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "user_upload",
+                        "open_access"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "title": "Pdfsource"
+                },
+                "workspacePdfUrl": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "title": "Workspacepdfurl"
+                }
+              },
+              "required": [
+                "pdfSource"
+              ],
+              "title": "PaperPdfState",
+              "type": "object"
+            },
+            "title": "Papers",
+            "type": "object"
+          },
+          "unresolved": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unresolved",
+            "type": "array"
+          }
+        },
+        "required": [
+          "papers"
+        ],
+        "title": "PaperPdfStatusPayload",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get paper PDF status",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        },
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "get_pdf_download_links",
+      "title": "Get PDF download links",
+      "description": "Get download links for PDFs uploaded to the workspace or open-access PDFs already retrieved by Undermind.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "The papers' cite keys in this workspace.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Get PDF download links",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "search_papers",
+      "title": "Search scholarly papers",
+      "description": "Search for papers by semantic similarity.\n\nsearch_type chooses the source: global corpus, the 'library' pool of papers\npreviously surfaced in the workspace, papers citing seed_papers, or papers\nreferenced by seed_papers. sample_abstract is always used as the semantic query\nwithin that source. Without sort_override, results are ordered by semantic\nsimilarity. With sort_override, the tool first keeps a bounded set of\nsemantically similar candidates, then orders that set by date/year or citations\nper year before pagination; it is not a metadata sort over the whole source.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "sample_abstract": {
+            "description": "2-3 sentences that could be a word-for-word match to text in the papers you want to find. Write this as if excerpting directly from the target paper's abstract or body. Required for all search types.",
+            "type": "string"
+          },
+          "search_type": {
+            "default": "semantic",
+            "description": "Candidate source: 'semantic' searches the top 100 global corpus matches; 'library' searches papers previously surfaced in the workspace; 'citations' searches later papers citing seed_papers; 'references' searches earlier papers cited by seed_papers.",
+            "enum": [
+              "semantic",
+              "library",
+              "citations",
+              "references"
+            ],
+            "type": "string"
+          },
+          "seed_papers": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 10,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Cite keys to use as seeds for citations or references, e.g., ['Smi98', 'Jon01']. Required for citations/references; not used for semantic/library."
+          },
+          "limit": {
+            "default": 20,
+            "description": "Result page size. Default 20, maximum 50.",
+            "maximum": 50,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "description": "Result offset for pagination. Default 0. offset + limit must be at most 100 for semantic search and 200 otherwise.",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "sort_override": {
+            "anyOf": [
+              {
+                "enum": [
+                  "year_descending",
+                  "year_ascending",
+                  "citations_per_year_descending",
+                  "citations_per_year_ascending"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional metadata ordering after semantic candidate selection and before pagination. Reorders the bounded candidate set by date/year or citations per year; it does not sort the whole corpus, library, citation set, or reference set. Allowed values: 'year_descending', 'year_ascending', 'citations_per_year_descending', 'citations_per_year_ascending'. Missing values sort last."
+          },
+          "detail_level": {
+            "default": "compact",
+            "description": "Paper detail level. Defaults to 'compact'. Use 'cite_key_only' for cite keys only; 'compact' shows title, year, and PDF status; 'standard' adds authors, journal, and citation metrics; 'full' also includes the abstract. Use 'full' with small result pages.",
+            "enum": [
+              "cite_key_only",
+              "compact",
+              "standard",
+              "full"
+            ],
+            "type": "string"
+          },
+          "author_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter by author last name (case-insensitive substring match). Use a single last name only."
+          },
+          "journal_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter by journal name (case-insensitive substring match)."
+          },
+          "published_from": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter to papers published in or after this year or month, e.g. '2020' or '2020-06'."
+          },
+          "published_until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter to papers published in or before this year or month, e.g. '2023' or '2023-12'."
+          },
+          "has_pdf": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter by whether Undermind has a PDF available for the paper."
+          },
+          "is_user_uploaded": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter by whether the paper has a PDF uploaded by a user in this workspace."
+          },
+          "is_starred": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Filter by whether the paper is starred in this workspace."
+          }
+        },
+        "required": [
+          "workspace_id",
+          "sample_abstract"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Search scholarly papers",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "find_papers_by_author",
+      "title": "Find papers by author",
+      "description": "Find or disambiguate academic papers by author.\nReturns cite keys grouped by likely author identity and confidence.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "request": {
+            "description": "Author-search request. Describe whose papers to find and what you know about them already. Include author name(s), the cite keys of any known core existing papers by the target author(s) (to assist in discovery), and disambiguating clues you possess such as topics, title words, year bounds, or venue hints.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "request"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Find papers by author",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "lookup_papers_by_metadata",
+      "title": "Look up papers by metadata",
+      "description": "Look up specific papers from bibliographic information and return papers with cite keys.\n\nUse this to look up cite keys for particular papers by title,\nDOI, or citation entry. Accepts at most 300 items.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "paper_metadata": {
+            "description": "Identifying information for the specific papers to look up. Each item should identify one paper by title or DOI. Include also BibTeX/RIS entry info such as authors, year, venue, etc. if present for disambiguation. Prefer the smallest sufficient metadata (don't include full abstracts).",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 300,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "paper_metadata"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Look up papers by metadata",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "launch_deep_search",
+      "title": "Launch deep search",
+      "description": "Launch a comprehensive review of the scholarly literature that runs\nasynchronously for several minutes. The tool returns immediately; use\ninspect_deep_searches with status_only=True for quick status checks.\nUltimately produces a ranked list of papers and a summary, stored in the\nworkspace. Only a few searches can run in parallel at once.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "goal": {
+            "description": "A self-contained natural-language statement of what you are trying to understand or achieve — raw paragraph text; it may, but need not, say what literature is needed. It is handed to autonomous reasoning agents that operate on the goal directly, devising their own queries and strategies over the scholarly literature — they are not expecting a standard search query, so no keyword lists, journal names, or guessed criteria (the agents infer those themselves; guesses add noise). The agents see ONLY this text — none of your other context. Broad goals are fine as long as they still make some papers clearly more central than others.",
+            "maxLength": 30000,
+            "type": "string"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional short title — a natural-language label with the most descriptive words first (spaces, not dashes). Defaults to the goal's first words."
+          },
+          "folder_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional folder to place the search in (e.g. '/analysis/'). Defaults to the workspace root."
+          }
+        },
+        "required": [
+          "workspace_id",
+          "goal"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Launch deep search",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "read_pdfs",
+      "title": "Read paper PDFs",
+      "description": "Send sub-agents to read full-text PDFs and answer questions, summarize, or retrieve information.\n\nEach paper gets its own sub-agent that can see the entire PDF, including figures,\ntables, and equations. Multiple papers are read in parallel.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "papers": {
+            "description": "List of papers to read. Each entry has a cite_key and a self-contained query to that paper's full text (specific question, request for summary, etc). Up to 4 per call — all read in parallel.",
+            "items": {
+              "description": "A single (cite_key, question) pair for batch PDF reading.",
+              "properties": {
+                "cite_key": {
+                  "description": "Cite key of the paper (e.g., Vas17)",
+                  "type": "string"
+                },
+                "question": {
+                  "description": "Specific question to answer from this paper's full text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "cite_key",
+                "question"
+              ],
+              "type": "object"
+            },
+            "maxItems": 4,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "papers"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Read paper PDFs",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "write_file",
+      "title": "Write file",
+      "description": "Create or update a file.\n\n- To update content: provide content (full replace) or content_edits (targeted)",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Path to file",
+            "type": "string"
+          },
+          "content": {
+            "anyOf": [
+              {
+                "maxLength": 100000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Full file content (Markdown)"
+          },
+          "content_edits": {
+            "anyOf": [
+              {
+                "items": {
+                  "description": "Type definition for content edit dictionary.",
+                  "properties": {
+                    "oldText": {
+                      "type": "string"
+                    },
+                    "newText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "oldText",
+                    "newText"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 20,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Targeted edits"
+          },
+          "new_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "New file name"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "path"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Write file",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "delete_file",
+      "title": "Delete file",
+      "description": "Delete a file",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Path to file",
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "path"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Delete file",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "move_files",
+      "title": "Move files",
+      "description": "Move files to a different folder.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "file_paths": {
+            "description": "Files to move",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "type": "array"
+          },
+          "destination_folder": {
+            "default": "/",
+            "description": "Target folder ('/' for root)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "file_paths"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Move files",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "create_folder",
+      "title": "Create folder",
+      "description": "Create a new folder.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Full path for new folder (e.g., '/analysis/')",
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "path"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Create folder",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "delete_folder",
+      "title": "Delete folder",
+      "description": "Delete a folder. Folder must be empty.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Path to folder",
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "path"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Delete folder",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "move_folder",
+      "title": "Move folder",
+      "description": "Move and/or rename a folder.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "source_path": {
+            "description": "Folder to move (e.g., '/old-folder/')",
+            "type": "string"
+          },
+          "destination_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "New parent folder (e.g., '/archive/'), or None to rename in place"
+          },
+          "new_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "New folder name"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "source_path"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Move folder",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "add_papers_to_folder",
+      "title": "Add papers to folder",
+      "description": "Add papers to a folder.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Folder path, e.g. '/analysis/'.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Paper cite keys (e.g., 'Smi98')",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "path",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Add papers to folder",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "remove_papers_from_folder",
+      "title": "Remove papers from folder",
+      "description": "Remove papers from a folder.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Folder path, e.g. '/analysis/'.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Paper cite keys (e.g., 'Smi98')",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "path",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Remove papers from folder",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "star_papers",
+      "title": "Star papers",
+      "description": "Star papers.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Paper cite keys (e.g., 'Smi98')",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Star papers",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "unstar_papers",
+      "title": "Unstar papers",
+      "description": "Unstar papers.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "cite_keys": {
+            "description": "Paper cite keys (e.g., 'Smi98')",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "cite_keys"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Unstar papers",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "move_deep_searches",
+      "title": "Move deep searches",
+      "description": "Move deep searches to a different folder.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "search_paths": {
+            "description": "Searches to move",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "type": "array"
+          },
+          "destination_folder": {
+            "default": "/",
+            "description": "Target folder ('/' for root)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "search_paths"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Move deep searches",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "delete_deep_search",
+      "title": "Delete deep search",
+      "description": "Delete a deep search.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "description": "The workspace UUID returned by list_workspaces.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Search name or path",
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "path"
+        ],
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "icons": null,
+      "annotations": {
+        "title": "Delete deep search",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      }
+    }
+  ],
+  "instructions": "Undermind MCP helps you find papers by topic, author, or citation relationships; look up specific papers from bibliographic metadata; read full-text PDFs; run comprehensive deep searches; and organize research in workspaces.\n\nCall `get_orientation()` before using the other tools; it explains Undermind's workspace model, tool roles, and addressing conventions, and tells you which account is connected. Then call `list_workspaces()` to see and choose among the workspaces you can access. PDF reading uses open-access PDFs Undermind can retrieve and paywalled PDFs uploaded to a workspace.",
+  "serverInfo": {
+    "name": "undermind",
+    "title": null,
+    "version": "3.4.11",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": {},
+    "prompts": {
+      "listChanged": true
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": true
+    },
+    "tools": {
+      "listChanged": true
+    },
+    "completions": null,
+    "extensions": {
+      "io.modelcontextprotocol/ui": {}
+    },
+    "tasks": null
+  },
+  "independent_BNN_oauth": true
+}

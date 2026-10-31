@@ -1,0 +1,185 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return a prefix.
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "prefixes",
+      "description": "Prefixes"
+    }
+  ],
+  "paths": {
+    "/prefixes/{id}": {
+      "get": {
+        "tags": [
+          "prefixes"
+        ],
+        "summary": "Return a prefix.",
+        "security": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Prefix",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return a prefix.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Prefix"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Prefix": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "prefixes"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "prefix": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "clients": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              },
+              "providers": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              },
+              "clientPrefixes": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              },
+              "providerPrefixes": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "prefix"
+        ]
+      },
+      "DataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "DataArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DataObject"
+        }
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```

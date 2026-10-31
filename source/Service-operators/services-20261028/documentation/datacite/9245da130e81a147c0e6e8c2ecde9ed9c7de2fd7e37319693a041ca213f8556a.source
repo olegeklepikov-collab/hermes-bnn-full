@@ -1,0 +1,273 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return an event.
+
+### Support Documentation
+
+* [DataCite Event Data](https://support.datacite.org/docs/eventdata-guide)
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "events",
+      "description": "Events"
+    }
+  ],
+  "paths": {
+    "/events/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Event",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": [
+          "events"
+        ],
+        "summary": "Return an event.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "A JSON object.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/Event"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Event": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "events"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "subj-id": {
+                "type": "string"
+              },
+              "obj-id": {
+                "type": "string"
+              },
+              "source-id": {
+                "$ref": "#/components/schemas/source-id"
+              },
+              "relation-type-id": {
+                "$ref": "#/components/schemas/relation-type-id"
+              },
+              "total": {
+                "type": "number"
+              },
+              "message-action": {
+                "type": "string",
+                "enum": [
+                  "create",
+                  "add"
+                ]
+              },
+              "source-token": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "occured-at": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "subj": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataObject"
+                      }
+                    }
+                  },
+                  "obj": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataObject"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "attributes - subj-id - source-token - source-id"
+        ]
+      },
+      "DataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "source-id": {
+        "type": "string",
+        "enum": [
+          "datacite-usage",
+          "datacite-related",
+          "datacite-crossref",
+          "datacite-kisti",
+          "datacite-op",
+          "datacite-medra",
+          "datacite-istic",
+          "datacite-funder",
+          "datacite-orcid-auto-update",
+          "datacite-url",
+          "crossref"
+        ]
+      },
+      "relation-type-id": {
+        "type": "string",
+        "enum": [
+          "is-cited-by",
+          "cites",
+          "is-supplement-to",
+          "is-supplemented-by",
+          "is-continued-by",
+          "continues",
+          "is-described-by",
+          "describes",
+          "has-metadata",
+          "is-metadata-for",
+          "has-version",
+          "is-version-of",
+          "is-new-version-of",
+          "is-previous-version-of",
+          "is-part-of",
+          "has-part",
+          "is-published-in",
+          "is-referenced-by",
+          "references",
+          "is-documented-by",
+          "documents",
+          "is-compiled-by",
+          "compiles",
+          "is-variant-form-of",
+          "is-original-form-of",
+          "is-identical-to",
+          "is-reviewed-by",
+          "reviews",
+          "is-derived-from",
+          "is-source-of",
+          "is-required-by",
+          "requires",
+          "is-obsoleted-by",
+          "obsoletes",
+          "is-collected-by",
+          "collects",
+          "is-translation-of",
+          "has-translation",
+          "other",
+          "is-authored-by",
+          "is-authored-at",
+          "is-funded-by",
+          "total-dataset-investigations-regular",
+          "unique-dataset-investigations-regular",
+          "total-dataset-requests-regular",
+          "unique-dataset-requests-regular",
+          "total-dataset-investigations-machine",
+          "unique-dataset-investigations-machine",
+          "total-dataset-requests-machine",
+          "unique-dataset-requests-machine"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```
