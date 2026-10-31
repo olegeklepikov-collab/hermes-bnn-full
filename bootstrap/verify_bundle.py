@@ -1,14 +1,23 @@
-"""Exact pristine program composition before any owner initialization."""
-import hashlib,json,os,stat
+"""Exact pristine composition, using filesystem-equivalent Unicode path identity."""
+import hashlib,json,os,stat,unicodedata
 from pathlib import Path
 
-def main():
-    root=Path(__file__).resolve().parent;manifest=root/'bundle-manifest.json'
-    expected=json.loads(manifest.read_text())['objects'];actual={}
+def unique_paths(objects):
+    normalized={}
+    for path,item in objects.items():
+        key=unicodedata.normalize('NFC',path)
+        if key in normalized:raise PermissionError('ambiguous_unicode_program_path:'+key)
+        normalized[key]=item
+    return normalized
+
+def verify(root):
+    root=Path(root);manifest=root/'bundle-manifest.json'
+    expected=unique_paths(json.loads(manifest.read_text())['objects']);actual={}
     for base,dirs,names in os.walk(root,followlinks=False):
         for name in dirs+names:
-            path=Path(base)/name;relative=str(path.relative_to(root))
+            path=Path(base)/name;relative=unicodedata.normalize('NFC',str(path.relative_to(root)))
             if relative=='bundle-manifest.json':continue
+            if relative in actual:raise PermissionError('ambiguous_unicode_program_path:'+relative)
             item={'mode':stat.S_IMODE(path.lstat().st_mode)}
             if path.is_symlink():item.update(type='symlink',target=os.readlink(path))
             elif path.is_dir():item['type']='directory'
@@ -20,5 +29,7 @@ def main():
     if expected!=actual:
         changed=[p for p in expected.keys()|actual.keys() if expected.get(p)!=actual.get(p)]
         raise PermissionError('pristine_bundle_changed:'+repr(changed[:10]))
-    print(json.dumps({'pristine_bundle_verified':True,'objects':len(actual),'authority':'Release archive SHA verified separately; embedded manifest is an integrity check, not an independent signature'}))
+    return {'pristine_bundle_verified':True,'objects':len(actual),'unicode_filename_identity':'NFC_with_collision_rejection','authority':'Release archive SHA verified separately; embedded manifest is an integrity check, not an independent signature'}
+
+def main():print(json.dumps(verify(Path(__file__).resolve().parent)))
 if __name__=='__main__':main()

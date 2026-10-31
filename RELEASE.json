@@ -7,69 +7,69 @@
   "Intake": "0.14.3",
   "archive": {
     "name": "Hermes-BNN-Full.tar.gz",
-    "bytes": 6233237000,
-    "sha256": "e1904902c82c59ea2c18802d8d9e420f59bbee68f548f3222da72a519d84ed97"
+    "bytes": 6233231783,
+    "sha256": "fe9cef77e74d47aaa6aae39974d716d0c7318b129cde162ec6cf933d4bab0189"
   },
   "parts": [
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part001",
       "bytes": 536870912,
-      "sha256": "0063fd7f96a874825d137196d9e79888a97e890b51716f0bc194df0c68f533eb"
+      "sha256": "476d0dd88837851a6fd37d3d45466c0a9d7f4ce985413908cd0537a619824546"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part002",
       "bytes": 536870912,
-      "sha256": "97bc085d5995ad5b7e0ba29cc9f1b23d35db5a8561f6270405ee8ca378aa2a11"
+      "sha256": "fc812ef23c8356944d9375da1c9497a5bbf49e56d9ab85ae5f21d25f5b6c4a29"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part003",
       "bytes": 536870912,
-      "sha256": "dfb83b472cc256ae292f9e0f53a8fd111b0565968d812ad09e3865873f77fca5"
+      "sha256": "4b452198c426262d7a7047aa77216880373599f00f04116b637e69db836927f2"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part004",
       "bytes": 536870912,
-      "sha256": "3cf4d1ccb91b86f19395060896c092fcd4cadca002ce3b9453bdcfdfd3095fa2"
+      "sha256": "e9618ccf6ee52bac23650817a0433f9fd33ab330c495a362f8acd00875c3b47b"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part005",
       "bytes": 536870912,
-      "sha256": "d4988caf5957a93fa2246b98fa1d0fe11a7e560420a50dd9ebb56480d27535fa"
+      "sha256": "50b5b23767ecd0e01aed7e209111bda6e818a51c00f3c0ad4b88f1fd8ba420f6"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part006",
       "bytes": 536870912,
-      "sha256": "449b4d2db8d0a8a44646b994640ba4242f11acc0bad8150da67126af39696a2d"
+      "sha256": "7c08198c45fdd4b0609ee3e37a2da52a8dabe1430131b94bc3f6b879b7498823"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part007",
       "bytes": 536870912,
-      "sha256": "c78e8ccea1f5be0ec9f101fb8e056f7c1f2e05bc029e1418707dc71b5b27e3f0"
+      "sha256": "7c144acc2eacb703cc6f2620d5124e43861ea061077400a894590209b8dfb5e2"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part008",
       "bytes": 536870912,
-      "sha256": "eaa3611f8e5c4c3d6c9c106dc3925e948f1bec62bbdc4254c0baded430a08633"
+      "sha256": "bf88dbb17f3ebf1c404baf9a227334234f416267b0825cecb58291342c6b53f4"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part009",
       "bytes": 536870912,
-      "sha256": "f45cf0cfc7c608d1a572ab5604ed81445bf3e0d43a37de8454ade09ad6ac58fe"
+      "sha256": "f8230637a1d682141e360fadfd61b37f6864274a3798def4aadb83ef3a32c300"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part010",
       "bytes": 536870912,
-      "sha256": "1e47726f6a48d69e568a438c6c6bb9e15bcd318bd8186af72e5351b9656e5efc"
+      "sha256": "7a6a5e3c6ba7197d0e5f1ebb03db16d5433f3423c967e94eb3f5cc8e3e150a24"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part011",
       "bytes": 536870912,
-      "sha256": "9f43c643451b5f754ff6d8f474d35065da7a8bfc70965eaac52fb871f376b838"
+      "sha256": "30025c83486442db534da64d991e998eee1467b66e9226b7ebbac8faaa91c078"
     },
     {
       "name": "Hermes-BNN-Full-20261031-Intake-0.14.3.tar.gz.part012",
-      "bytes": 327656968,
-      "sha256": "418d5f0b05a0a74c3133b5e1db7216ff83d0fccf1f60f691748f142687f20007"
+      "bytes": 327651751,
+      "sha256": "a44d744c55f918c3d8f025c20a7c04265e13f4d67a9754717d4d13498de35914"
     }
   ],
   "required_parts": 12,
@@ -78,5 +78,5 @@
   "password_required": false,
   "suppliers_keep_their_own_signatures": true,
   "external_accounts_require_new_owner_setup": true,
-  "expanded_program_bytes": 12969911149
+  "expanded_program_bytes": 12969912419
 }

@@ -86,10 +86,10 @@
       "sha256": "ade5f45578fe119a31c10fb583f93ecb2b6f63d2fcaf772d1288163060cd5516"
     },
     "verify_bundle.py": {
-      "mode": 420,
       "type": "file",
-      "bytes": 1463,
-      "sha256": "4a447a565a157a75f144291cd86523885f163772cdda9a7b559074241aae186c"
+      "mode": 420,
+      "bytes": 2003,
+      "sha256": "f0bf2b730c10ecf09d4ab9438ad739f26c8c333d6457111b49affcc265cf3060"
     },
     "owner_rebind.py": {
       "mode": 420,
@@ -170,10 +170,10 @@
       "sha256": "47cd03c5cdd45c45fb5602495e0aa10a70f33c8ccfadd52dee6c786fdbd52d8c"
     },
     "docs/VERIFICATION.md": {
-      "mode": 420,
       "type": "file",
-      "bytes": 5320,
-      "sha256": "d24e8964df4d7fa3f351b22cbe3fc246802209fa1129a0dd2c7947c7c4103ecd"
+      "mode": 420,
+      "bytes": 6008,
+      "sha256": "d4f5c7cf3f813dfede4516024335b2f87b077fd54b9b78ed0ac0d47dc7f92ed9"
     },
     "docs/SERVICES.md": {
       "mode": 420,
@@ -188,10 +188,10 @@
       "sha256": "97a0e0805dba480fef2e22b4ead3e83ac6821bc30de6add0149854e8a09554bb"
     },
     "docs/VERIFICATION.json": {
-      "mode": 420,
       "type": "file",
-      "bytes": 944,
-      "sha256": "bfc098f6e0a674349d4dfd46b376d67c85b9051735cb8e82fb6b9426d6efff1f"
+      "mode": 420,
+      "bytes": 986,
+      "sha256": "05533b95ca5ab49c9fba60310bbbd8c739d6a7f56750d3022b05c36bd3300ba6"
     },
     "docs/BACKUP_RECOVERY.md": {
       "mode": 420,
