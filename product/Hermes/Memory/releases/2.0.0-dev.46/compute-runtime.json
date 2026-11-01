@@ -1,8 +1,8 @@
 {
   "contract": "BNIsolatedComputeRuntimeV1",
-  "python": "__HERMES_ROOT__/runtime/python/cpython-3.14.6-macos-aarch64-none/bin/python3.14",
+  "python": "/opt/hermes-bnn-distribution/runtime/python/cpython-3.14.6-macos-aarch64-none/bin/python3.14",
   "python_sha256": "839b22560e27f02d716009a2d6bcd377cb6197ff70888787e3097919120e32aa",
-  "runtime_root": "__HERMES_ROOT__/runtime/python/cpython-3.14.6-macos-aarch64-none",
+  "runtime_root": "/opt/hermes-bnn-distribution/runtime/python/cpython-3.14.6-macos-aarch64-none",
   "version": "3.14.6 (main, Jul 18 2026, 17:05:49) [Clang 22.1.3 ]",
   "sandbox_sha256": "8857d087219f0f39d3e3c163e5d0a0aed690cc22f34b50c7eee3d74f93e69688",
   "os_release": "26.5.1"

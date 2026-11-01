@@ -12,6 +12,16 @@ def verify_pins(memory,core,contract):
             if Path(name).is_absolute() or '..' in Path(name).parts or path.is_symlink() or not path.is_file() or digest(path)!=expected:
                 raise PermissionError('unqualified_component_pair:'+name)
 
+def verify_runtime_origin(compute,parser):
+    origin=Path(compute['runtime_root']).parents[2]
+    if not origin.is_absolute() or len(origin.parts)<3 or '..' in origin.parts:
+        raise PermissionError('sealed_runtime_origin_invalid')
+    for value in [compute['python'],parser['python'],*parser['python_roots']]:
+        path=Path(value)
+        if not path.is_absolute() or not path.is_relative_to(origin) or '..' in path.parts:
+            raise PermissionError('sealed_runtime_path_not_in_origin')
+    return origin
+
 def verify_pair(root):
     root=Path(root);product=root/'product';lock=json.loads((root/'locks/product.lock.json').read_text())
     intake=product/'Intake';contract=json.loads((intake/'src/bnn_intake/data/native-compatibility.json').read_text())
@@ -20,6 +30,9 @@ def verify_pair(root):
     if template['package_root']!='__HERMES_ROOT__/Memory/releases/'+contract['memory_version']:
         raise PermissionError('active_memory_template_version_mismatch')
     verify_pins(product/'Hermes/Memory/releases'/contract['memory_version'],product/'Hermes/hermes-agent',contract)
+    memory=product/'Hermes/Memory/releases'/contract['memory_version']
+    verify_pins(memory,memory,{'memory_files':json.loads((memory/'manifest.json').read_text()),'core_files':{}})
+    verify_runtime_origin(json.loads((memory/'compute-runtime.json').read_text()),json.loads((memory/'parser-runtime.json').read_text()))
     distribution=json.loads((intake/'packages/manifest.json').read_text())
     if distribution['version']!=lock['components']['Intake']:raise PermissionError('intake_distribution_version_mismatch')
     name=distribution['wheel']
