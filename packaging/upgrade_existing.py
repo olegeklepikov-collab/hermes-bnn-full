@@ -161,13 +161,21 @@ def execute(root,directory,checkpoint,authority):
     newcfg=rebind(cfg,root,target)
     # The executable and model-visible schemas must change together. Preserve
     # every other owner setting and module schema.
-    declarations=release.read(bundle/'configuration/memory.template.json')['module_tool_catalog']
+    template=bundle/'configuration/memory.template.json'
+    if release.digest(template)!=expected['configuration/memory.template.json']['sha256']:
+        raise PermissionError('incoming_configuration_template_changed')
+    template=release.read(template)
+    declarations=template['module_tool_catalog']
     fresh={entry['name']:entry for entry in declarations}
     newcfg['module_tool_catalog']=[fresh[e['name']] if e['name'] in {'work_team','udr_team'} else e
                                    for e in cfg['module_tool_catalog']]
     for rule in newcfg['tool_policy']['rules']:
         if rule['id'] in {'w3.module.work_team','w3.module.udr_team'}:
             rule['arguments_schema']=copy.deepcopy(fresh[rule['tool']]['parameters'])
+    for identifier in ['native.skills.metadata','native.skills.bundled']:
+        incoming_rule=next((x for x in template['tool_policy']['rules'] if x['id']==identifier),None)
+        if incoming_rule and not any(x['id']==identifier for x in newcfg['tool_policy']['rules']):
+            newcfg['tool_policy']['rules'].append(incoming_rule)
     release.write(checkpoint/'candidate-settings.json',newcfg)
     env={k:v for k,v in os.environ.items() if k in {'HOME','PATH','LANG','LC_ALL','TMPDIR'}}
     env.update(HERMES_HOME=str(root/'data'),PYTHONPATH=os.pathsep.join([str(library),str(target),str(root/'hermes-agent')]),PYTHONDONTWRITEBYTECODE='1',PYTHONNOUSERSITE='1')
@@ -220,6 +228,12 @@ def apply(root,checkpoint):
         for name,entry in cfg['backend_policy']['allow'].items():entry['resource_sha256']=resource_hash(cfg,name)
         verify_native(cfg)
         app=yaml.safe_load((root/'data/config.yaml').read_text())
+        if 'research' in cfg.get('modules',{}) and 'integration_mode' not in app.get('research',{}):
+            app.setdefault('research',{})['integration_mode']='foundation'
+            app['research'].setdefault('workspace_root',str(root/'workspace/research-runs'))
+        if app.get('skills',{}).get('inline_shell',False):
+            raise PermissionError('native_skill_reads_require_separately_controlled_shell_or_inline_shell_off')
+        app.setdefault('skills',{})['inline_shell']=False
         app['mcp_servers']['context']['args'][0]=str(Path(cfg['package_root'])/'bn_memory/server.py')
         app['mcp_servers']['context'].setdefault('env',{})['PYTHONPATH']=os.pathsep.join([cfg['package_root'],str(root/'hermes-agent')])
         app['plugins']['entries']['bn-common-memory']['settings']['intake_library']=str(Path(__import__('bnn_intake').__file__).parent.parent)
