@@ -204,6 +204,28 @@ def qualify(directory,environment):
     return target
 
 
+def admit(directory,evidence_files):
+    from admission import evaluate
+    release=verify_release(directory);r=resources();proofs=[]
+    allowed=[Path(directory).resolve(),ROOT.resolve(),ROOT.parent/'.operator',Path(r['release_root']).resolve()]
+    for name in evidence_files:
+        path=Path(name).resolve()
+        subprocess.run(['/usr/bin/ssh-keygen','-Y','verify','-f',str(ROOT/'trust/allowed_signers'),'-I','bnn-release','-n',NAMESPACE,'-s',str(path)+'.sig'],input=path.read_bytes(),check=True,capture_output=True)
+        item=read(path)
+        for gate in item.get('gates',{}).values():
+            witness=Path(gate.get('witness_path','')).resolve()
+            if not any(witness.is_relative_to(base) for base in allowed):raise PermissionError('witness_outside_approved_evidence_roots')
+            if not witness.is_file() or digest(witness)!=gate.get('witness_sha256'):raise PermissionError('gate_witness_missing_or_changed')
+        proofs.append(item)
+    result=evaluate(read(ROOT/'docs/RELEASE_ACCEPTANCE.json')['required_gates'],release,proofs)
+    result['operator_source_commit']=git('rev-parse','HEAD')
+    stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+    output=Path(directory)/('ADMISSION-'+stamp+'.json');write(output,result)
+    sign_manifest(output,Path(r['development_root'])/'.operator/keys/release_ed25519')
+    print(json.dumps(result,ensure_ascii=False,indent=2))
+    return result
+
+
 def status():
     r=resources();result={'source_commit':git('rev-parse','HEAD'),'source_clean':not bool(git('status','--porcelain')),'resources':{k:v for k,v in r.items() if k!='runtime_cache'},'production_writes_implemented':False,'candidates':[],'qualifications':[]}
     registry=ROOT.parent/'.operator/environments.json'
@@ -218,12 +240,16 @@ def status():
 
 def main():
     p=argparse.ArgumentParser();s=p.add_subparsers(dest='action',required=True)
-    s.add_parser('status');x=s.add_parser('build');x.add_argument('--version',required=True)
+    s.add_parser('status');x=s.add_parser('admit');x.add_argument('directory',type=Path);x.add_argument('--evidence',nargs='+',type=Path,required=True)
+    x=s.add_parser('build');x.add_argument('--version',required=True)
     x=s.add_parser('verify');x.add_argument('directory',type=Path)
     x=s.add_parser('qualify');x.add_argument('directory',type=Path);x.add_argument('--environment',choices=['test','development'],default='test')
     a=p.parse_args()
     if a.action=='status':status()
     elif a.action=='build':build(a.version)
+    elif a.action=='admit':
+        result=admit(a.directory,a.evidence)
+        if not result['eligible_for_production']:raise SystemExit(3)
     elif a.action=='verify':print(json.dumps(verify_release(a.directory),ensure_ascii=False,indent=2))
     elif a.action=='qualify':qualify(a.directory,a.environment)
 

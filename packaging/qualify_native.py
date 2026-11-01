@@ -41,7 +41,8 @@ def main():
  elif m.read(verified)['archive_sha256']!=release['archive']['sha256']:raise PermissionError('stale_archive_readback')
  if a.target.exists():raise FileExistsError('new_native_environment_target_required')
  # Targets are owner-authorized qualification children of the release area.
- allowed=Path(m.resources()['release_root']).resolve()
+ resources=m.resources()
+ allowed=Path(resources.get('environment_roots',{}).get(a.environment,resources['release_root'])).resolve()
  if not a.target.resolve().is_relative_to(allowed):raise PermissionError('qualification_target_not_authorized_release_area')
  a.target.mkdir(parents=True);home=a.target/'operator-home';home.mkdir(mode=0o700);install=a.target/'Hermes-BNN-Full'
  subprocess.run(['/bin/cp','-cRp',str(bundle),str(install)],check=True)
