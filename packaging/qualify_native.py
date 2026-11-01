@@ -71,6 +71,8 @@ def main():
  assert cfg['profile_home']==str(install/'Hermes/data')
  assert cfg['agentmemory_url']=='http://127.0.0.1:'+env['BNN_PORT_BASE']
  assert cfg['neo4j_uri']=='bolt://127.0.0.1:'+str(int(env['BNN_PORT_BASE'])+1)
+ app=m.read(install/'Hermes/data/config.yaml')
+ assert app['research']=={'integration_mode':'foundation','workspace_root':str(install/'Hermes/workspace/research-runs')}
  assert not any((install/'Hermes'/n).exists() for n in ['data/auth.json','private/voyage.key','private/telegram.token'])
  subprocess.run(['/usr/bin/codesign','--verify','--deep','--strict',str(app)],check=True,capture_output=True)
  receipt={'contract':'BNNNativeEnvironmentQualificationV1','at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'environment':a.environment,'build_id':release['build_id'],'source_commit':release['source_commit'],'archive_sha256':release['archive']['sha256'],'materialized_objects_verified':objects,'archive_readback':str(verified),'native_install_complete':True,'five_required_controls':native['five_required_controls'],'Intake_registered':True,'instance_id':m.read(install/'Hermes/state/bootstrap.json')['instance_id'],'profile_home':cfg['profile_home'],'state_root':cfg['state_root'],'agentmemory_url':cfg['agentmemory_url'],'neo4j_uri':cfg['neo4j_uri'],'supplier_signature_valid':True,'metadata_treatment':metadata,'owner_credentials_copied':False,'production_changed':False,'live_model_or_Telegram_claimed':False,'production_promotable':False,'installer_used_verified_full_program_tree':True,'archive_transport':'Every member streamed and compared; native installation uses APFS clone to avoid a second 13GB write','operator_adapter_sha256':m.digest(Path(__file__)),'operator_source_commit':m.git('rev-parse','HEAD')}
