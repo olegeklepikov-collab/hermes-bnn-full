@@ -42,7 +42,7 @@ def run(bundle,old_root,refresh_original=False):
    try:text=raw.decode('utf-8')
    except UnicodeDecodeError:continue
    new=replace_paths(text,mapping)
-   if relative.startswith('Memory/releases/2.0.0-dev.45/'):
+   if relative.startswith('Memory/releases/'):
     continue
    if relative.startswith(tuple(signed)):
     if new!=text:blocked.append(relative)
@@ -55,11 +55,7 @@ def run(bundle,old_root,refresh_original=False):
      executable=line[2:].strip();new='#!/bin/sh\n\'\'\'exec\' '+repr(executable)+' "$0" "$@"\n\' \'\'\'\n'+rest
    if new.encode()!=p.read_bytes():p.write_text(new);changes.append(relative)
  if blocked:raise PermissionError('signed_source_requires_external_path_adapter:'+repr(blocked[:15]))
- # Runtime manifests describe this derivative, never inherit old acceptance claims.
- package=root/'Memory/releases/2.0.0-dev.30'
- core_files=json.loads((bundle/'configuration/core-files.json').read_text())
- save(package/'release.json',{'version':'2.0.0-dev.30','distribution':'fresh-neutral-W4','installed':False,'connected':False,'provider_verified':False,'historical_user_results_included':False,'core_patch_sha256':{p:sha(root/'hermes-agent'/p) for p in core_files}})
- old=json.loads((package/'manifest.json').read_text());save(package/'manifest.json',{name:sha(package/name) for name in old})
+ # All versioned Memory sources stay byte-identical; runtime binding is external.
  identity=root/'Identity/releases/0.2.1';im=json.loads((identity/'manifest.json').read_text());save(identity/'manifest.json',{name:sha(identity/name) for name in im})
  # GSD host adapter has no supplier manifest; its immutable Engine vendor remains unchanged.
  save(bundle/'configuration/relocation.json',{'relocated_links':len(links),'relocated_text_files':len(changes),'signed_source_modified':False,'build_root':str(root),'requires_relocation_after_copy':True})

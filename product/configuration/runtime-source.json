@@ -10,7 +10,7 @@
   "GSD_host_adapter": "0.2.13-hermes-0.22.2-r6",
   "local_source_derivative": true,
   "external_credentials_copied": false,
-  "Intake": "0.14.4",
+  "Intake": "0.14.5",
   "base_local_patch_list": [
     "agent/subagent_lifecycle.py",
     "hermes_cli/execution_control.py",
