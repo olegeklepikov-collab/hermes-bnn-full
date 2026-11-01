@@ -160,7 +160,7 @@ def build(version):
             shutil.copy2(p,target);target.chmod(mode);changed.append(n)
         src_inventory[n]={'sha256':h,'mode':mode}
     epoch=int(git('show','-s','--format=%ct',commit))
-    product={'contract':'BNNIntegratedProductV1','version':version,'build_id':build_id,'source_commit':commit,'source_tree':git('rev-parse','HEAD^{tree}'),'source_date_epoch':epoch,'components':lock['components'],'runtime_manifest_sha256':lock['runtime']['manifest_sha256'],'owner_data_included':False,'credentials_included':False,'historical_patch_chain_required':False,'production_promoted':False}
+    product={'contract':'BNNIntegratedProductV1','version':version,'build_id':build_id,'source_commit':commit,'source_tree':git('rev-parse','HEAD^{tree}'),'source_date_epoch':epoch,'components':lock['components'],'runtime_manifest_sha256':lock['runtime']['manifest_sha256'],'owner_data_included':False,'credentials_included':False,'historical_patch_chain_required':False}
     write(bundle/'BNN-PRODUCT.json',product)
     meta=read(bundle/'bundle-manifest.json');meta.pop('required_context_fix',None);meta.pop('base_manifest_sha256',None);meta.update(product_release=version,source_commit=commit,objects=inventory(bundle))
     write(bundle/'bundle-manifest.json',meta)

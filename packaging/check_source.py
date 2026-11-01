@@ -15,3 +15,6 @@ memory=lock['components']['Memory'];intake=lock['components']['Intake']
 if json.loads((R/'product/Hermes/Memory/releases'/memory/'release.json').read_text())['version']!=memory:raise SystemExit('Memory lock mismatch')
 if tomllib.loads((R/'product/Intake/pyproject.toml').read_text())['project']['version']!=intake:raise SystemExit('Intake lock mismatch')
 print(json.dumps({'committed_product_files':len(origin['files']),'owner_authority_absent':True,'native_execution_claimed':False}))
+
+active_guide=(R/'product/УСТАНОВКА.md').read_text()
+if 'INSTALL-UPDATE-RU.md' in active_guide or 'full-20261031 плюс' in active_guide:raise SystemExit('Current full install guide still requires a historical patch layer')
