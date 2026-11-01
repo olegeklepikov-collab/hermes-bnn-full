@@ -1,0 +1,1109 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "service_status",
+      "title": null,
+      "description": "Проверить личный ключ, бесплатный остаток, тариф и собственные ограничения; ключ скрывается.",
+      "inputSchema": {
+        "properties": {},
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "list_entities",
+      "title": null,
+      "description": "Полный официальный API поиска и фильтров по 26 активным типам сущностей. Полный текст поиска не равен чтению статьи.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "works",
+              "authors",
+              "sources",
+              "institutions",
+              "publishers",
+              "funders",
+              "awards",
+              "locations",
+              "raw-affiliation-strings",
+              "topics",
+              "subfields",
+              "fields",
+              "domains",
+              "keywords",
+              "sdgs",
+              "study-designs",
+              "work-types",
+              "source-types",
+              "institution-types",
+              "countries",
+              "continents",
+              "languages",
+              "licenses",
+              "indexes",
+              "source-lists",
+              "collections"
+            ]
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "searches": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cursor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "sort": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sample": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          },
+          "seed": {
+            "type": "integer"
+          },
+          "group_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "corpus": {
+            "type": "string",
+            "enum": [
+              "core",
+              "expansion",
+              "all"
+            ]
+          },
+          "rerank": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "get_entity",
+      "title": null,
+      "description": "Полные метаданные по OpenAlex ID или DOI/PMID/PMCID/ORCID/ROR/ISSN, с исходными полями.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "works",
+              "authors",
+              "sources",
+              "institutions",
+              "publishers",
+              "funders",
+              "awards",
+              "locations",
+              "raw-affiliation-strings",
+              "topics",
+              "subfields",
+              "fields",
+              "domains",
+              "keywords",
+              "sdgs",
+              "study-designs",
+              "work-types",
+              "source-types",
+              "institution-types",
+              "countries",
+              "continents",
+              "languages",
+              "licenses",
+              "indexes",
+              "source-lists",
+              "collections"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "entity",
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "batch_entities",
+      "title": null,
+      "description": "До 100 однотипных OpenAlex ID через OR; вернуть покрытие и отсутствующие записи без выдумывания.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "works",
+              "authors",
+              "sources",
+              "institutions",
+              "publishers",
+              "funders",
+              "awards",
+              "locations",
+              "raw-affiliation-strings",
+              "topics",
+              "subfields",
+              "fields",
+              "domains",
+              "keywords",
+              "sdgs",
+              "study-designs",
+              "work-types",
+              "source-types",
+              "institution-types",
+              "countries",
+              "continents",
+              "languages",
+              "licenses",
+              "indexes",
+              "source-lists",
+              "collections"
+            ]
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "entity",
+          "ids"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "group_entities",
+      "title": null,
+      "description": "Группировки и числа по полю; фиксировать корпус, пропуски, перекрытие групп и страницы.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "works",
+              "authors",
+              "sources",
+              "institutions",
+              "publishers",
+              "funders",
+              "awards",
+              "locations",
+              "raw-affiliation-strings",
+              "topics",
+              "subfields",
+              "fields",
+              "domains",
+              "keywords",
+              "sdgs",
+              "study-designs",
+              "work-types",
+              "source-types",
+              "institution-types",
+              "countries",
+              "continents",
+              "languages",
+              "licenses",
+              "indexes",
+              "source-lists",
+              "collections"
+            ]
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "searches": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cursor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "sort": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sample": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          },
+          "seed": {
+            "type": "integer"
+          },
+          "group_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "corpus": {
+            "type": "string",
+            "enum": [
+              "core",
+              "expansion",
+              "all"
+            ]
+          },
+          "rerank": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "entity",
+          "group_by"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "semantic_search",
+      "title": null,
+      "description": "Поиск работ по смыслу: до 50 результатов, запрос до 2000 знаков; не оценка научной достоверности.",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "autocomplete",
+      "title": null,
+      "description": "Подсказки имён сущностей и идентификаторов; совпадение имени не подтверждает личность.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "works",
+              "authors",
+              "sources",
+              "institutions",
+              "publishers",
+              "funders",
+              "topics",
+              "keywords"
+            ]
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "entity",
+          "query"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "read_abstract",
+      "title": null,
+      "description": "Восстановить порядок слов индексированной аннотации и прочитать ограниченный фрагмент.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "length": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30000
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_links",
+      "title": null,
+      "description": "OA, версии, лицензии, источники и доступность PDF/TEI. Не скачивает и не читает тексты.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_metrics",
+      "title": null,
+      "description": "Счётчики, динамика, FWCI и процентили OpenAlex; не качество или поддержка научного вывода.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "citations",
+      "title": null,
+      "description": "Входящие цитирования, внесённые исходящие ссылки или похожие работы; по умолчанию краткие записи, дополнительные поля через select. Контексты цитирования не предоставляются.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "incoming",
+              "outgoing",
+              "related"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "cursor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "translate_query",
+      "title": null,
+      "description": "Проверить и перевести OQL/OQO бесплатно, без исполнения; сохранить цену и предупреждения.",
+      "inputSchema": {
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "oql",
+              "oqo"
+            ]
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "required": [
+          "format",
+          "query"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "execute_query",
+      "title": null,
+      "description": "Выполнить проверенный OQL/OQO с вложенной логикой, группировками и расчётами, в пределах бесплатного бюджета.",
+      "inputSchema": {
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "oql",
+              "oqo"
+            ]
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sort": {
+            "type": "string",
+            "minLength": 1
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "rerank": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "format",
+          "query"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "classify_text",
+      "title": null,
+      "description": "Классифицировать предоставленный публичный/согласованный текст по темам и ключевым словам; текущая модель октября 2026. Закрытый текст не передавать автоматически.",
+      "inputSchema": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "abstract": {
+            "type": "string",
+            "maxLength": 1999
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "topics",
+              "keywords",
+              "both"
+            ]
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "download_content",
+      "title": null,
+      "description": "Один доступный оригинальный PDF или GROBID TEI из OpenAlex; личный ключ, контроль расходов, 50 МБ, без передачи ключа хранилищу.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "pdf",
+              "tei"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "format"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "content_structure",
+      "title": null,
+      "description": "Структура местного GROBID TEI: разделы и таблицы. Это машинное извлечение, не издательский XML.",
+      "inputSchema": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "read_content",
+      "title": null,
+      "description": "Прочитать ограниченный раздел, аннотацию или таблицу TEI; сложные таблицы сверять по PDF.",
+      "inputSchema": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "section",
+              "table",
+              "abstract"
+            ]
+          },
+          "index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "length": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30000
+          }
+        },
+        "required": [
+          "path",
+          "kind"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "read_pdf_pages",
+      "title": null,
+      "description": "Прочитать текст указанных страниц оригинального PDF с 1, не более 10; распознавания сканов нет.",
+      "inputSchema": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minItems": 1,
+            "maxItems": 10
+          },
+          "max_characters_per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30000
+          }
+        },
+        "required": [
+          "path",
+          "pages"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "render_pdf_page",
+      "title": null,
+      "description": "Изображение страницы исходного PDF для проверки таблиц и рисунков.",
+      "inputSchema": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "path",
+          "page"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "export_results",
+      "title": null,
+      "description": "Сохранить полученную страницу метаданных/групп в JSON, JSONL или CSV; не объявлять полной выгрузкой.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "works",
+              "authors",
+              "sources",
+              "institutions",
+              "publishers",
+              "funders",
+              "awards",
+              "locations",
+              "raw-affiliation-strings",
+              "topics",
+              "subfields",
+              "fields",
+              "domains",
+              "keywords",
+              "sdgs",
+              "study-designs",
+              "work-types",
+              "source-types",
+              "institution-types",
+              "countries",
+              "continents",
+              "languages",
+              "licenses",
+              "indexes",
+              "source-lists",
+              "collections"
+            ]
+          },
+          "query": {
+            "type": "object",
+            "properties": {
+              "filters": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "searches": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "page": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "cursor": {
+                "type": "string",
+                "minLength": 1
+              },
+              "select": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 100
+              },
+              "sort": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sample": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000
+              },
+              "seed": {
+                "type": "integer"
+              },
+              "group_by": {
+                "type": "string",
+                "minLength": 1
+              },
+              "corpus": {
+                "type": "string",
+                "enum": [
+                  "core",
+                  "expansion",
+                  "all"
+                ]
+              },
+              "rerank": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "jsonl",
+              "csv"
+            ]
+          },
+          "output_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "entity",
+          "format",
+          "output_name"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "save_query",
+      "title": null,
+      "description": "Сохранить проверенный OQL/OQO и его происхождение местным файлом на AgentRuntime2; не создаёт почтовых уведомлений.",
+      "inputSchema": {
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "oql",
+              "oqo"
+            ]
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "output_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "format",
+          "query",
+          "output_name"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "instructions": "Official OpenAlex API and content on AgentRuntime2, complementing the official OpenAlex MCP. Read-only account access; no curation, cloud writes or alerts. Credentials never returned. Respect free daily and local setup budgets; no prepaid usage. Metadata, reconstructed abstracts, original PDFs and machine-parsed GROBID TEI are distinct reading levels. Preserve corpus, dates, paging and missingness. Citation counts and FWCI do not establish quality or citation stance. Downloading is not reading. Inspect specified original PDF pages for complex tables. No automatic retry/provider fallback.",
+  "serverInfo": {
+    "name": "Hermes BN OpenAlex API and Content",
+    "title": null,
+    "version": "1.0.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

@@ -1,0 +1,1258 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "service_status",
+      "title": null,
+      "description": "Check the pinned Zotero instance, paths, account binding, item count and saved write authorization.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "schema",
+      "title": null,
+      "description": "Get the actual local schema, item fields, creator fields and item-specific field/type lists.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "kind": {
+            "type": "string"
+          },
+          "item_type": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "item_template",
+      "title": null,
+      "description": "Return an empty item structure using official field lists and cached public templates.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "item_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_type"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "groups",
+      "title": null,
+      "description": "Read available group libraries; group writes are disabled.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "query_items",
+      "title": null,
+      "description": "Search metadata or indexed full text (qmode=everything). Returns records, not matched full text. Supports collection, saved search, tags, item types, trash and pagination.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "q": {
+            "type": "string"
+          },
+          "qmode": {
+            "type": "string",
+            "enum": [
+              "titleCreatorYear",
+              "everything"
+            ]
+          },
+          "sort": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "itemType": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "includeTrashed": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "collection_key": {
+            "type": "string"
+          },
+          "search_key": {
+            "type": "string"
+          },
+          "trash": {
+            "type": "boolean"
+          },
+          "top": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "get_item",
+      "title": null,
+      "description": "Read one item, note, attachment or annotation and its local optimistic version.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "item_children",
+      "title": null,
+      "description": "Read child notes, attachments and PDF annotations.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "collections",
+      "title": null,
+      "description": "Read collections and their hierarchy.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "top": {
+            "type": "boolean"
+          },
+          "children": {
+            "type": "boolean"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "tags",
+      "title": null,
+      "description": "Read/search library or collection tags.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "q": {
+            "type": "string"
+          },
+          "qmode": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "collection_key": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "saved_searches",
+      "title": null,
+      "description": "Read native saved search names and conditions; execute through query_items(search_key).",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "fulltext_versions",
+      "title": null,
+      "description": "Read locally indexed attachment keys and versions since a local version.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "since": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "read_fulltext",
+      "title": null,
+      "description": "Read a bounded slice of the indexed attachment text; report actual coverage and unread remainder.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "length": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "attachment_info",
+      "title": null,
+      "description": "Resolve a stored local attachment within this independent Zotero library; return hash and size.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "read_pdf_pages",
+      "title": null,
+      "description": "Extract original text from specified one-based PDF pages, at most ten. Does not perform OCR.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "max_characters_per_page": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "key",
+          "pages"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "render_pdf_page",
+      "title": null,
+      "description": "Render one original PDF page to PNG in Zotero/exports; inspect it for tables, figures and layout.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "output_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "page"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "export_items",
+      "title": null,
+      "description": "Export references in 14 translator formats or CSL bibliography HTML. Uses official Zotero styles; does not verify scientific conclusions.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "bibtex",
+              "biblatex",
+              "bookmarks",
+              "coins",
+              "csljson",
+              "csv",
+              "mods",
+              "refer",
+              "rdf_bibliontology",
+              "rdf_dc",
+              "rdf_zotero",
+              "ris",
+              "tei",
+              "wikipedia",
+              "bib"
+            ]
+          },
+          "style": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "output_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "keys",
+          "format"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "create_items",
+      "title": null,
+      "description": "Create bibliographic records using official item fields. Inspect all per-entry failed results. Use a write token for a known retry.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "write_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "patch_item",
+      "title": null,
+      "description": "Patch selected fields using the last read local expected_version; array fields replace the whole array.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "changes": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "key",
+          "expected_version",
+          "changes"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "create_collections",
+      "title": null,
+      "description": "Create collections with name and optional parentCollection; memberships do not move attachment files.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "collections": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "write_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "collections"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "patch_collection",
+      "title": null,
+      "description": "Rename or reparent a collection with an optimistic version.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "changes": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "key",
+          "expected_version",
+          "changes"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "create_saved_searches",
+      "title": null,
+      "description": "Create native saved searches with name and condition/operator/value objects.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "searches": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "write_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "searches"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "patch_saved_search",
+      "title": null,
+      "description": "Update native saved search fields with an optimistic version.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "changes": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "key",
+          "expected_version",
+          "changes"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "create_note",
+      "title": null,
+      "description": "Create an HTML research note. State sources, pages actually read, evidence and limitations.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "html": {
+            "type": "string"
+          },
+          "parent_key": {
+            "type": "string"
+          },
+          "collections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "write_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "html"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "attach_file",
+      "title": null,
+      "description": "Import an authorized local file from Zotero/inbox or Hermes data/workspace as a stored child attachment. Three-phase upload, hash verification, no overwritten files.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "path": {
+            "type": "string"
+          },
+          "parent_key": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "write_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "parent_key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "create_annotation",
+      "title": null,
+      "description": "Create a native PDF highlight on a specified page with verified text and bottom-left PDF rectangle coordinates.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "attachment_key": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "rects": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "text": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "page_label": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "write_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attachment_key",
+          "page",
+          "rects",
+          "text"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "index_fulltext",
+      "title": null,
+      "description": "Index actual extracted PDF text locally for qmode=everything; machine indexing is not agent reading. Rejects PDFs without text and unsupported plain-text attachment writes.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "trash_item",
+      "title": null,
+      "description": "Move an explicitly disposable or user-approved item to recoverable Zotero Trash. Requires the last read local version.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "key",
+          "expected_version"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "restore_item",
+      "title": null,
+      "description": "Restore a trashed item using the last read local version.",
+      "inputSchema": {
+        "properties": {
+          "library_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "group"
+            ],
+            "default": "user"
+          },
+          "library_id": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "key": {
+            "type": "string"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "key",
+          "expected_version"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "instructions": "Official Zotero 10 local API, pinned independent instance on AgentRuntime2. Search and metadata do not establish full article reading. Track indexed coverage, returned page/text slices, original PDF versus notes, DOI and date discrepancies. Creates and patches are restricted to the personal library; expected_version is local to this server. Inspect partial write failures. No permanent deletion, publication, group writes or silent cloud/provider fallback.",
+  "serverInfo": {
+    "name": "Hermes BN Zotero",
+    "title": null,
+    "version": "1.0.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

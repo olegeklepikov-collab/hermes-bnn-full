@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0-dev.21",
+  "distribution": "fresh-neutral-W4",
+  "installed": false,
+  "connected": false,
+  "provider_verified": false,
+  "historical_user_results_included": false,
+  "core_patch_sha256": {
+    "agent/subagent_lifecycle.py": "94961282ce1f8170d8e9d6a6981511d4497ed0e9369bf1253a6355555693f823",
+    "hermes_cli/execution_control.py": "b8b6a692f3970175e0cf1fe800fdf26015a89dd5e2f064bdb72176abb7981811",
+    "agent/auxiliary_hooks.py": "483fe6cd43d2bc7f71467e7045808639363d0978d123fb607fa64d1618a6151b",
+    "agent/conversation_compression.py": "cde0a564724099e122d03ecb497fd45a1c92044d44900dd4b9a5281ecbe769f6",
+    "agent/auxiliary_attempt.py": "79a57afae4f58256ee762d07fc64b162b600de6553e56ebc8f3410d195e6ccb3",
+    "agent/compression_checkpoint.py": "5c99d555d95a8465deb61b7c8a96adc4caf5491a92a8aaf435513a66d0c6b007",
+    "agent/tool_attempt.py": "ea0d202a175aa28bbbcb4bd8529e38cc88e1f2ab6782719bc57e1d8ddd6e7858",
+    "agent/tool_executor.py": "95b8563a036261220ab88a78e7f17415d9c8d2521bff739915fc532ddde089c5",
+    "hermes_cli/middleware.py": "988de6167eacbf117de73cd7fe4eeb60b6aa7adb534d2068c8940e14823cff71",
+    "model_tools.py": "65ce1630ef3996a6dad4e2b3aeffb75880163e8c09f6afedc2182304001b5d48",
+    "tools/connectors/dispatch.py": "01da23d0445316037e7dda5a85599ef8c262d61a2bac361e7d2cbfa1185abc2e",
+    "agent/identity_provider.py": "a7679e72ae1281ab8be0b885ddf809f512225230755a34c9756489f06677f495",
+    "agent/system_prompt.py": "2a7149b23cb2a4bb5d0b61d5bb2c30735fb969b163d788e4ca8f6716c0a3b9cb",
+    "agent/history_preservation.py": "709e5ee55e025b32094047b9bfc807876d2a3ba6d1875a2b8fbe9fbc90535952",
+    "agent/context_compressor.py": "7a25b2493123677ad419ec248027aed379640d57466ace72081e0e0048aa2eb5",
+    "agent/turn_preflight.py": "f8f1f0e5986bc6830b971febdf553fa9c2e308421cfe6e4b1f0d55939c185f10",
+    "tools/registry.py": "44ba59839005acbae988cbd1c25a3234b32a0beb067e66843dd0688f8e1ccab6"
+  }
+}

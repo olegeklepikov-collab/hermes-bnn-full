@@ -1,0 +1,146 @@
+{
+  "contract": "gsd.integration.modes/1.1",
+  "scope": "Исходный полный диагностический план с явным локальным составом и внешними процедурными продуктами.",
+  "independent_domain_executor": "Принимающий агент; конечные встроенные функции не заменяют все предметные операции.",
+  "routes": [
+    {
+      "mode": "G",
+      "local_components": [
+        "G"
+      ],
+      "finite_operations": "gsd_execute",
+      "procedural_route": [
+        "gsd_case_create",
+        "gsd_case_get",
+        "gsd_case_next",
+        "gsd_case_change"
+      ],
+      "external_components_when_required": [
+        "S",
+        "D"
+      ],
+      "external_admission": "gsd.py host-command external-commit --host-control",
+      "startup": "ValidatedCase, точные триггеры, доверенное хранилище и исходные обязательства BOOT. Требования отсутствующего владельца предъявляются external_request.",
+      "completion": "Все актуальные применимые обязательства исходного плана и исходный договор close. Самостоятельный локальный состав не устраняет внешние предпосылки."
+    },
+    {
+      "mode": "S",
+      "local_components": [
+        "S"
+      ],
+      "finite_operations": "gsd_execute",
+      "procedural_route": [
+        "gsd_case_create",
+        "gsd_case_get",
+        "gsd_case_next",
+        "gsd_case_change"
+      ],
+      "external_components_when_required": [
+        "G",
+        "D"
+      ],
+      "external_admission": "gsd.py host-command external-commit --host-control",
+      "startup": "ValidatedCase, точные триггеры, доверенное хранилище и исходные обязательства BOOT. Требования отсутствующего владельца предъявляются external_request.",
+      "completion": "Все актуальные применимые обязательства исходного плана и исходный договор close. Самостоятельный локальный состав не устраняет внешние предпосылки."
+    },
+    {
+      "mode": "D",
+      "local_components": [
+        "D"
+      ],
+      "finite_operations": "gsd_execute",
+      "procedural_route": [
+        "gsd_case_create",
+        "gsd_case_get",
+        "gsd_case_next",
+        "gsd_case_change"
+      ],
+      "external_components_when_required": [
+        "G",
+        "S"
+      ],
+      "external_admission": "gsd.py host-command external-commit --host-control",
+      "startup": "ValidatedCase, точные триггеры, доверенное хранилище и исходные обязательства BOOT. Требования отсутствующего владельца предъявляются external_request.",
+      "completion": "Все актуальные применимые обязательства исходного плана и исходный договор close. Самостоятельный локальный состав не устраняет внешние предпосылки."
+    },
+    {
+      "mode": "GS",
+      "local_components": [
+        "G",
+        "S"
+      ],
+      "finite_operations": "gsd_execute",
+      "procedural_route": [
+        "gsd_case_create",
+        "gsd_case_get",
+        "gsd_case_next",
+        "gsd_case_change"
+      ],
+      "external_components_when_required": [
+        "D"
+      ],
+      "external_admission": "gsd.py host-command external-commit --host-control",
+      "startup": "ValidatedCase, точные триггеры, доверенное хранилище и исходные обязательства BOOT. Требования отсутствующего владельца предъявляются external_request.",
+      "completion": "Все актуальные применимые обязательства исходного плана и исходный договор close. Самостоятельный локальный состав не устраняет внешние предпосылки."
+    },
+    {
+      "mode": "GD",
+      "local_components": [
+        "G",
+        "D"
+      ],
+      "finite_operations": "gsd_execute",
+      "procedural_route": [
+        "gsd_case_create",
+        "gsd_case_get",
+        "gsd_case_next",
+        "gsd_case_change"
+      ],
+      "external_components_when_required": [
+        "S"
+      ],
+      "external_admission": "gsd.py host-command external-commit --host-control",
+      "startup": "ValidatedCase, точные триггеры, доверенное хранилище и исходные обязательства BOOT. Требования отсутствующего владельца предъявляются external_request.",
+      "completion": "Все актуальные применимые обязательства исходного плана и исходный договор close. Самостоятельный локальный состав не устраняет внешние предпосылки."
+    },
+    {
+      "mode": "SD",
+      "local_components": [
+        "S",
+        "D"
+      ],
+      "finite_operations": "gsd_execute",
+      "procedural_route": [
+        "gsd_case_create",
+        "gsd_case_get",
+        "gsd_case_next",
+        "gsd_case_change"
+      ],
+      "external_components_when_required": [
+        "G"
+      ],
+      "external_admission": "gsd.py host-command external-commit --host-control",
+      "startup": "ValidatedCase, точные триггеры, доверенное хранилище и исходные обязательства BOOT. Требования отсутствующего владельца предъявляются external_request.",
+      "completion": "Все актуальные применимые обязательства исходного плана и исходный договор close. Самостоятельный локальный состав не устраняет внешние предпосылки."
+    },
+    {
+      "mode": "GSD",
+      "local_components": [
+        "G",
+        "S",
+        "D"
+      ],
+      "finite_operations": "gsd_execute",
+      "procedural_route": [
+        "gsd_case_create",
+        "gsd_case_get",
+        "gsd_case_next",
+        "gsd_case_change"
+      ],
+      "external_components_when_required": [],
+      "external_admission": "gsd.py host-command external-commit --host-control",
+      "startup": "ValidatedCase, точные триггеры, доверенное хранилище и исходные обязательства BOOT. Требования отсутствующего владельца предъявляются external_request.",
+      "completion": "Все актуальные применимые обязательства исходного плана и исходный договор close. Самостоятельный локальный состав не устраняет внешние предпосылки."
+    }
+  ]
+}

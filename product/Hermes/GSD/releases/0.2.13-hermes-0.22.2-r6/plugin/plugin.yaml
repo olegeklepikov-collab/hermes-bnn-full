@@ -1,0 +1,28 @@
+name: bn-gsd
+version: 0.2.11
+description: GSD 3.0.3 с обязательным контролем и настоящими ролями Hermes.
+requires_hermes: ">=0.21.5"
+provides_tools:
+  - gsd_status
+  - gsd_catalog
+  - gsd_contract
+  - gsd_context
+  - gsd_intake
+  - gsd_validate_case
+  - gsd_execute
+  - gsd_case_create
+  - gsd_case_get
+  - gsd_case_next
+  - gsd_case_change
+  - gsd_handoff_validate
+  - gsd_action_check
+  - gsd_product_register
+  - gsd_product_get
+  - gsd_product_handoff
+  - gsd_research
+  - gsd_analyze
+  - gsd_work
+  - gsd_work_file
+  - gsd_runtime_status
+  - gsd_stop
+  - gsd_save_artifact

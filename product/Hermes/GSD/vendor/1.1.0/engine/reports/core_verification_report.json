@@ -1,0 +1,1106 @@
+{
+  "version": "3.0",
+  "date": "2026-09-12",
+  "test_count": 121,
+  "passed_count": 121,
+  "failed_count": 0,
+  "profile_property_combinations": 192,
+  "traces": [],
+  "scope": "Программные договоры, конечные смысловые примеры и композиция. Нет испытаний свободного поведения LLM, клинической или промышленной пригодности.",
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "tests": [
+    {
+      "name": "Принят корректный пример 01_measurement_vs_process.json",
+      "passed": true,
+      "category": "positive",
+      "finding": null,
+      "seconds": 1.6303844229998958,
+      "detail": null
+    },
+    {
+      "name": "Принят корректный пример 02_joint_causes_and_compensation.json",
+      "passed": true,
+      "category": "positive",
+      "finding": null,
+      "seconds": 0.018327439999893613,
+      "detail": null
+    },
+    {
+      "name": "Принят корректный пример 03_genesis_axes.json",
+      "passed": true,
+      "category": "positive",
+      "finding": null,
+      "seconds": 0.01941117900014433,
+      "detail": null
+    },
+    {
+      "name": "Принят корректный пример 04_critical_no_authority.json",
+      "passed": true,
+      "category": "positive",
+      "finding": null,
+      "seconds": 0.013016999000001306,
+      "detail": null
+    },
+    {
+      "name": "Принят корректный пример 05_missing_evidence.json",
+      "passed": true,
+      "category": "positive",
+      "finding": null,
+      "seconds": 0.0041940270000395685,
+      "detail": null
+    },
+    {
+      "name": "Отсутствующий P не принимается",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.00517576399988684,
+      "detail": null
+    },
+    {
+      "name": "Отсутствующий T не принимается",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.004106576999902245,
+      "detail": null
+    },
+    {
+      "name": "Отсутствующий J не принимается",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.0037547199999607983,
+      "detail": null
+    },
+    {
+      "name": "Отсутствующий S не принимается",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.0039185900000120455,
+      "detail": null
+    },
+    {
+      "name": "Отсутствующий M не принимается",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.0037504360000184533,
+      "detail": null
+    },
+    {
+      "name": "Отсутствующий C не принимается",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.003771340999946915,
+      "detail": null
+    },
+    {
+      "name": "Обязательный J.V ограничивает сильный статус",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.005043746999945142,
+      "detail": null
+    },
+    {
+      "name": "Обязательный J.A ограничивает сильный статус",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.0058625149999897985,
+      "detail": null
+    },
+    {
+      "name": "Обязательный J.R ограничивает сильный статус",
+      "passed": true,
+      "category": "negative",
+      "finding": "F14",
+      "seconds": 0.004985785999906511,
+      "detail": null
+    },
+    {
+      "name": "Пустой тезис",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.004260153999894101,
+      "detail": [
+        "SCHEMA"
+      ]
+    },
+    {
+      "name": "Ложная модальность",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.004031933000078425,
+      "detail": [
+        "SCHEMA"
+      ]
+    },
+    {
+      "name": "Повтор ID",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.00463759400008712,
+      "detail": [
+        "DUPLICATE_ID"
+      ]
+    },
+    {
+      "name": "Несуществующий источник",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.004064156000140429,
+      "detail": [
+        "MISSING_REF"
+      ]
+    },
+    {
+      "name": "Непроведено с исходом",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.004866371999924013,
+      "detail": [
+        "PROMOTION_T",
+        "REVIEW_STALE_BINDING",
+        "STRONG_REVIEW",
+        "UNRUN_RESULT"
+      ]
+    },
+    {
+      "name": "Неизмеренное T",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.004852984000081051,
+      "detail": [
+        "J_CHAIN_UNUSABLE",
+        "PROMOTION_EVIDENCE",
+        "REVIEW_BAD_BASIS",
+        "REVIEW_CHAIN_UNUSABLE",
+        "REVIEW_STALE_BINDING",
+        "STRONG_REVIEW",
+        "STRONG_T",
+        "T_UNUSABLE",
+        "UNSUPPORTED_DIMENSION"
+      ]
+    },
+    {
+      "name": "Просроченный C",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.00465680499996779,
+      "detail": [
+        "EXPIRED_CONTEXT",
+        "REVIEW_STALE_BINDING",
+        "STRONG_REVIEW"
+      ]
+    },
+    {
+      "name": "Устаревшая проверка",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.004722723999975642,
+      "detail": [
+        "REVIEW_STALE_BINDING",
+        "STRONG_REVIEW"
+      ]
+    },
+    {
+      "name": "Подменённый Context",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.004912864999823796,
+      "detail": [
+        "REVIEW_STALE_BINDING",
+        "STRONG_REVIEW"
+      ]
+    },
+    {
+      "name": "Круговое обоснование",
+      "passed": true,
+      "category": "negative",
+      "finding": null,
+      "seconds": 0.0053828259999590955,
+      "detail": [
+        "JUSTIFICATION_CYCLE",
+        "REVIEW_STALE_BINDING",
+        "STRONG_REVIEW"
+      ]
+    },
+    {
+      "name": "Отозванный предок не поддерживает потомка",
+      "passed": true,
+      "category": "regression",
+      "finding": "F11",
+      "seconds": 0.011119103000055475,
+      "detail": [
+        "J_CHAIN_UNUSABLE",
+        "REVIEW_CHAIN_UNUSABLE",
+        "STRONG_T",
+        "T_UNUSABLE"
+      ]
+    },
+    {
+      "name": "Опровержение требует пригодных T и J",
+      "passed": true,
+      "category": "regression",
+      "finding": "F14",
+      "seconds": 0.010418830000162416,
+      "detail": null
+    },
+    {
+      "name": "Вопрос и конкуренты достигают TestPlan",
+      "passed": true,
+      "category": "regression",
+      "finding": "F10",
+      "seconds": 0.0005109769999762648,
+      "detail": [
+        "TEST1"
+      ]
+    },
+    {
+      "name": "192 сочетания профиля и риска",
+      "passed": true,
+      "category": "property",
+      "finding": "F08",
+      "seconds": 0.0004903389999526553,
+      "detail": 192
+    },
+    {
+      "name": "Рост критичности пересобирает обязательства",
+      "passed": true,
+      "category": "regression",
+      "finding": "F08",
+      "seconds": 0.06763933900015218,
+      "detail": {
+        "old": 84,
+        "new": 132
+      }
+    },
+    {
+      "name": "false не выключает необходимое действие",
+      "passed": true,
+      "category": "regression",
+      "finding": "F09",
+      "seconds": 0.035664658000087,
+      "detail": null
+    },
+    {
+      "name": "Изменение Evidence отзывает Claim и Review",
+      "passed": true,
+      "category": "regression",
+      "finding": "F10",
+      "seconds": 0.08894420499996158,
+      "detail": {
+        "claim_status": "unassessed",
+        "pending": 51
+      }
+    },
+    {
+      "name": "Источник нельзя менять без версии",
+      "passed": true,
+      "category": "regression",
+      "finding": "F15",
+      "seconds": 0.03654456999993272,
+      "detail": null
+    },
+    {
+      "name": "Согласованы состояния случая и контроллера",
+      "passed": true,
+      "category": "regression",
+      "finding": "F12",
+      "seconds": 0.03776549300005172,
+      "detail": null
+    },
+    {
+      "name": "Ремонт не возобновляет остановленный запуск",
+      "passed": true,
+      "category": "regression",
+      "finding": "F12",
+      "seconds": 0.03531748299997162,
+      "detail": null
+    },
+    {
+      "name": "Номер ревизии не создаёт новый вход для повтора",
+      "passed": true,
+      "category": "regression",
+      "finding": "F12",
+      "seconds": 0.03963560700003654,
+      "detail": null
+    },
+    {
+      "name": "Принудительный общий бюджет и резерв завершения",
+      "passed": true,
+      "category": "regression",
+      "finding": "F21",
+      "seconds": 0.05913348700005372,
+      "detail": null
+    },
+    {
+      "name": "Неизменный снимок восстанавливается",
+      "passed": true,
+      "category": "positive",
+      "finding": "F13",
+      "seconds": 0.0949275549999129,
+      "detail": null
+    },
+    {
+      "name": "Подмена снимка при прежнем доверенном журнале отвергается",
+      "passed": true,
+      "category": "regression",
+      "finding": "F13",
+      "seconds": 0.078053170999965,
+      "detail": null
+    },
+    {
+      "name": "Подмена плана в контрольной записи отвергается",
+      "passed": true,
+      "category": "negative",
+      "finding": "F13",
+      "seconds": 0.0702690639998309,
+      "detail": null
+    },
+    {
+      "name": "Недоверенное восстановление не разрешает исполнение",
+      "passed": true,
+      "category": "negative",
+      "finding": "F13",
+      "seconds": 0.06189650500004973,
+      "detail": null
+    },
+    {
+      "name": "Близкий допустимый договор действия без исполнения",
+      "passed": true,
+      "category": "positive",
+      "finding": "F16",
+      "seconds": 0.021147552999991603,
+      "detail": null
+    },
+    {
+      "name": "Допуск: allowed_use",
+      "passed": true,
+      "category": "regression",
+      "finding": "F16",
+      "seconds": 0.007483839000087755,
+      "detail": [
+        "ACTION_REVIEW_STALE",
+        "BASIS_USE_FORBIDDEN"
+      ]
+    },
+    {
+      "name": "Допуск: target",
+      "passed": true,
+      "category": "regression",
+      "finding": "F17",
+      "seconds": 0.007224330000099144,
+      "detail": [
+        "ACTION_REVIEW_BINDING",
+        "ACTION_REVIEW_STALE",
+        "AUTHORITY_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "name": "Допуск: parameters",
+      "passed": true,
+      "category": "regression",
+      "finding": "F17",
+      "seconds": 0.007084964000114269,
+      "detail": [
+        "ACTION_REVIEW_BINDING",
+        "ACTION_REVIEW_STALE",
+        "AUTHORITY_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "name": "Допуск: recipient",
+      "passed": true,
+      "category": "regression",
+      "finding": "F17",
+      "seconds": 0.007084013999929084,
+      "detail": [
+        "ACTION_REVIEW_BINDING",
+        "ACTION_REVIEW_STALE",
+        "AUTHORITY_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "name": "Допуск: expired",
+      "passed": true,
+      "category": "regression",
+      "finding": "F17",
+      "seconds": 0.007642423000106646,
+      "detail": [
+        "ACTION_REVIEW_STALE",
+        "AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "name": "Допуск: denial",
+      "passed": true,
+      "category": "regression",
+      "finding": "F16",
+      "seconds": 0.007800502999998571,
+      "detail": [
+        "UNRESOLVED_DENIAL"
+      ]
+    },
+    {
+      "name": "Один ID не создаёт доверенное полномочие",
+      "passed": true,
+      "category": "negative",
+      "finding": "F18",
+      "seconds": 0.14397826000003988,
+      "detail": null
+    },
+    {
+      "name": "Отзыв политики достигает Authority и Decision",
+      "passed": true,
+      "category": "regression",
+      "finding": "F10",
+      "seconds": 0.0014414820000183681,
+      "detail": [
+        "AUTH1"
+      ]
+    },
+    {
+      "name": "Исключение не принимает просроченное непроверенное право",
+      "passed": true,
+      "category": "regression",
+      "finding": "F18",
+      "seconds": 0.008314820999885342,
+      "detail": null
+    },
+    {
+      "name": "Пустая модель не получает сильную метку",
+      "passed": true,
+      "category": "regression",
+      "finding": "F20",
+      "seconds": 0.005088161000003311,
+      "detail": null
+    },
+    {
+      "name": "Все семь непустых режимов без скрытого компонента",
+      "passed": true,
+      "category": "composition",
+      "finding": "F01",
+      "seconds": 0.11777704599990102,
+      "detail": {
+        "G": {
+          "G": "awaiting_validation"
+        },
+        "S": {
+          "S": "ComparisonReview"
+        },
+        "D": {
+          "D": "partial"
+        },
+        "GS": {
+          "G": "awaiting_validation",
+          "S": "ComparisonReview"
+        },
+        "GD": {
+          "G": "awaiting_validation",
+          "D": "partial"
+        },
+        "SD": {
+          "S": "ComparisonReview",
+          "D": "bounded_comparison"
+        },
+        "GSD": {
+          "G": "awaiting_validation",
+          "S": "ComparisonReview",
+          "D": "bounded_comparison"
+        }
+      }
+    },
+    {
+      "name": "Новый различитель меняет сравнительный результат",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F26",
+      "seconds": 0.03356199299992113,
+      "detail": {
+        "before": [
+          "K1",
+          "K2"
+        ],
+        "after": [
+          "K1"
+        ]
+      }
+    },
+    {
+      "name": "Пересказ одного источника не умножает поддержку",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F26",
+      "seconds": 0.003949049000084415,
+      "detail": null
+    },
+    {
+      "name": "Ненаблюдаемое оставляет версии неразличимыми",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F14",
+      "seconds": 0.0039156580000963,
+      "detail": null
+    },
+    {
+      "name": "Данные построения не считаются независимым подтверждением",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F26",
+      "seconds": 0.0038554609998300293,
+      "detail": null
+    },
+    {
+      "name": "D отдельно принимает свежий внешний проверочный пакет",
+      "passed": true,
+      "category": "composition",
+      "finding": "F01",
+      "seconds": 0.021539043999837304,
+      "detail": null
+    },
+    {
+      "name": "Вопрос-кандидат не становится фактом ответа",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F06",
+      "seconds": 0.002588376999938191,
+      "detail": null
+    },
+    {
+      "name": "Генератор не повышает статус до установленного",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 5.433599994830729e-05,
+      "detail": null
+    },
+    {
+      "name": "Новая подпись не создаёт новую объявленную структуру",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F26",
+      "seconds": 0.006594234000203869,
+      "detail": null
+    },
+    {
+      "name": "Комбинирование уважает объявленную несовместимость",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F04",
+      "seconds": 0.006852279000213457,
+      "detail": null
+    },
+    {
+      "name": "Комбинаторный поиск ограничен до исчерпания произведения",
+      "passed": true,
+      "category": "resource",
+      "finding": "F24",
+      "seconds": 0.006505756000024121,
+      "detail": null
+    },
+    {
+      "name": "Аналогия требует отображения и точки разрыва",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.0019240090000494092,
+      "detail": null
+    },
+    {
+      "name": "S выполняет вывод, но не утверждение основания по следствию",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F01",
+      "seconds": 4.956500015396159e-05,
+      "detail": {
+        "valid_derivation": "modus_ponens",
+        "affirming_consequent_rejected": true
+      }
+    },
+    {
+      "name": "Общая отметка GA не закрывает двенадцать приёмов",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.004060154999933729,
+      "detail": null
+    },
+    {
+      "name": "GA-01: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004621756000005917,
+      "detail": null
+    },
+    {
+      "name": "GA-02: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004507521000050474,
+      "detail": null
+    },
+    {
+      "name": "GA-03: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.00454097300007561,
+      "detail": null
+    },
+    {
+      "name": "GA-04: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004542105999917112,
+      "detail": null
+    },
+    {
+      "name": "GA-05: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004546804000028715,
+      "detail": null
+    },
+    {
+      "name": "GA-06: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.0045655530000203726,
+      "detail": null
+    },
+    {
+      "name": "GA-07: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.00449217100003807,
+      "detail": null
+    },
+    {
+      "name": "GA-08: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004665091999868309,
+      "detail": null
+    },
+    {
+      "name": "GA-09: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.00456514799998331,
+      "detail": null
+    },
+    {
+      "name": "GA-10: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004530390000127227,
+      "detail": null
+    },
+    {
+      "name": "GA-11: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004501096000012694,
+      "detail": null
+    },
+    {
+      "name": "GA-12: индивидуальное исполнение и отрицательный случай",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.004522225000073377,
+      "detail": null
+    },
+    {
+      "name": "Маршруты по точной операции, не словам решения",
+      "passed": true,
+      "category": "corpus",
+      "finding": "F02",
+      "seconds": 0.0069869930000550085,
+      "detail": {
+        "exact_source_routes_checked": 5,
+        "previously_unaddressed_families": 5
+      }
+    },
+    {
+      "name": "Сырой вход принимается до ValidatedCase",
+      "passed": true,
+      "category": "positive",
+      "finding": "F07",
+      "seconds": 3.2559999908698956e-05,
+      "detail": null
+    },
+    {
+      "name": "Передача и повтор не обнуляют общий ресурс",
+      "passed": true,
+      "category": "resource",
+      "finding": "F21",
+      "seconds": 3.1591999913871405e-05,
+      "detail": null
+    },
+    {
+      "name": "План, результат и пустой завершённый тест различаются",
+      "passed": true,
+      "category": "regression",
+      "finding": "F14",
+      "seconds": 0.028499653000153558,
+      "detail": null
+    },
+    {
+      "name": "Агент не импортирует собственную запись как исполнение контроллера",
+      "passed": true,
+      "category": "regression",
+      "finding": "F19",
+      "seconds": 0.05093213199984348,
+      "detail": null
+    },
+    {
+      "name": "applied связан с действительным запуском, целью и результатом",
+      "passed": true,
+      "category": "regression",
+      "finding": "F19",
+      "seconds": 0.8834933169998749,
+      "detail": {
+        "actual_receipt_id": "RUN.54",
+        "targets": 3
+      }
+    },
+    {
+      "name": "Все исходные разделы и адресованные определения сохраняют текст",
+      "passed": true,
+      "category": "corpus",
+      "finding": "F03",
+      "seconds": 7.062988170999915,
+      "detail": {
+        "named_entries": 1728,
+        "full_sections": 297
+      }
+    },
+    {
+      "name": "Самостоятельный G загружает общее ядро, свой договор и точный источник",
+      "passed": true,
+      "category": "positive",
+      "finding": "F23",
+      "seconds": 0.05366312899991499,
+      "detail": 5
+    },
+    {
+      "name": "Замыкание контекста отклоняет missing_file",
+      "passed": true,
+      "category": "negative",
+      "finding": "F23",
+      "seconds": 0.05469121200007976,
+      "detail": null
+    },
+    {
+      "name": "Замыкание контекста отклоняет missing_parent",
+      "passed": true,
+      "category": "negative",
+      "finding": "F23",
+      "seconds": 0.052941126999940025,
+      "detail": null
+    },
+    {
+      "name": "Замыкание контекста отклоняет changed_digest",
+      "passed": true,
+      "category": "negative",
+      "finding": "F23",
+      "seconds": 0.027209683999899426,
+      "detail": null
+    },
+    {
+      "name": "Замыкание контекста отклоняет wrong_component",
+      "passed": true,
+      "category": "negative",
+      "finding": "F23",
+      "seconds": 0.054527150000012625,
+      "detail": null
+    },
+    {
+      "name": "Передача повторяется без нового расхода, но проверяет срок до повтора",
+      "passed": true,
+      "category": "composition",
+      "finding": "F17",
+      "seconds": 0.014042422000102306,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет payload",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.003936000000066997,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет dependency",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0021645289998559747,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет context",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0019652099999802886,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет standard",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0018716219999532768,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет risk",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0017045839999809687,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет protocol",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0016918359999635868,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет residual",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0017030550000072253,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет effects",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0018393789998754073,
+      "detail": null
+    },
+    {
+      "name": "Граница передачи отклоняет reservation",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.0021803890001592663,
+      "detail": null
+    },
+    {
+      "name": "Специальная грамматика строгого принципа отделена от обычного факта",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F03",
+      "seconds": 0.0042676630000642035,
+      "detail": "requires_independent_content_review"
+    },
+    {
+      "name": "Грамматика принципа отклоняет missing_C",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0012660190000133298,
+      "detail": null
+    },
+    {
+      "name": "Грамматика принципа отклоняет missing_D",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0029057579999971495,
+      "detail": null
+    },
+    {
+      "name": "Грамматика принципа отклоняет missing_M",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0035217170000123588,
+      "detail": null
+    },
+    {
+      "name": "Грамматика принципа отклоняет wrong_E",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0023205659999803174,
+      "detail": null
+    },
+    {
+      "name": "Грамматика принципа отклоняет hook_validates",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.004048410999985208,
+      "detail": null
+    },
+    {
+      "name": "Грамматика принципа отклоняет negative_hit",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.004080984999973225,
+      "detail": null
+    },
+    {
+      "name": "Ограниченный результат принимается только указанным потребителем",
+      "passed": true,
+      "category": "regression",
+      "finding": "F22",
+      "seconds": 0.0424053310000545,
+      "detail": null
+    },
+    {
+      "name": "Повтор запуска не начинает вычисление без нового резерва",
+      "passed": true,
+      "category": "resource",
+      "finding": "F21",
+      "seconds": 0.018612206999932823,
+      "detail": null
+    },
+    {
+      "name": "Фактическая сборка включает ядро и отвергает скрытую обрезку",
+      "passed": true,
+      "category": "integration",
+      "finding": "F23",
+      "seconds": 0.15154167199989388,
+      "detail": {
+        "delivered_bytes": 253757,
+        "mandatory_source_sections": 3
+      }
+    },
+    {
+      "name": "Группировка сохраняет полное содержание и прежнюю новизну",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.014601879000110785,
+      "detail": null
+    },
+    {
+      "name": "Тип GQ1 не заменяет порождающую операцию",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0018831229999705101,
+      "detail": null
+    },
+    {
+      "name": "Тип GM1 не заменяет порождающую операцию",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0018439670000134356,
+      "detail": null
+    },
+    {
+      "name": "Тип GS01 не заменяет порождающую операцию",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0019449649998932728,
+      "detail": null
+    },
+    {
+      "name": "Тип GG01 не заменяет порождающую операцию",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0017822370000430965,
+      "detail": null
+    },
+    {
+      "name": "Тип GC-A008 не заменяет порождающую операцию",
+      "passed": true,
+      "category": "negative",
+      "finding": "F03",
+      "seconds": 0.0020005110000056447,
+      "detail": null
+    },
+    {
+      "name": "Сообщение не повышает статус кандидата полем заголовка",
+      "passed": true,
+      "category": "negative",
+      "finding": "F04",
+      "seconds": 0.001995054999952117,
+      "detail": null
+    },
+    {
+      "name": "Самостоятельный S выводит следствие без DDx и защищает идентичность посылок",
+      "passed": true,
+      "category": "composition",
+      "finding": "F01",
+      "seconds": 0.0004952640001647524,
+      "detail": null
+    },
+    {
+      "name": "Отзыв приемки ограниченного входа блокирует его прежнего потребителя",
+      "passed": true,
+      "category": "regression",
+      "finding": "F22",
+      "seconds": 0.07852748699997392,
+      "detail": null
+    },
+    {
+      "name": "GS/GP различают получение, порождение, передачу и внешнюю валидацию",
+      "passed": true,
+      "category": "semantic_contract",
+      "finding": "F04",
+      "seconds": 0.00621346299999459,
+      "detail": null
+    },
+    {
+      "name": "S не отождествляет логическое true и числовую единицу",
+      "passed": true,
+      "category": "semantic_finite_model",
+      "finding": "F14",
+      "seconds": 0.004295926999930089,
+      "detail": null
+    },
+    {
+      "name": "S запрещает необъявленный перенос в чужой контекст",
+      "passed": true,
+      "category": "negative",
+      "finding": "F15",
+      "seconds": 0.00190691800003151,
+      "detail": null
+    }
+  ]
+}

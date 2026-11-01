@@ -1,0 +1,9 @@
+{
+  "source": "pre-existing Hermes BN changes before GSD",
+  "paths": [
+    "tools/tool_search.py",
+    "tests/tools/test_tool_discovery_batch_contract.py"
+  ],
+  "sha256": "59d89661c857a074149a85e6a3b4896396ae7194185de2de9774f2fe22cf1a2c",
+  "not_new_gsd_functionality": true
+}

@@ -1,0 +1,152 @@
+{
+  "components": "GSD",
+  "request": {
+    "generation": {
+      "id": "GREQ1",
+      "task": "Породить объяснения изменения отчёта",
+      "product_kind": "hypothesis",
+      "seed": "Отчёт показывает замедление",
+      "scope": "Учебная очередь",
+      "frame": "Несколько моделей",
+      "constraints": [],
+      "method": "supplied",
+      "max_candidates": 10,
+      "scan_budget": 20,
+      "supplied_candidates": [
+        {
+          "id": "K1",
+          "version": 1,
+          "kind": "hypothesis",
+          "content": {
+            "text": "Изменилась формула измерения",
+            "structure": {
+              "mechanism": "Изменилась формула измерения"
+            }
+          },
+          "seed": "Изменился отчёт",
+          "operator_id": "GC-C001",
+          "axis": "механизм",
+          "frame": "Измеритель",
+          "distinguishing_features": [
+            "Изменилась формула измерения"
+          ],
+          "conditions": [],
+          "claim_ids": [],
+          "status": "candidate",
+          "expectations": {
+            "report": "slow",
+            "raw": "same"
+          },
+          "scope": "Учебная очередь",
+          "parent_ids": [],
+          "miss_risk": "ordinary",
+          "projections": {}
+        },
+        {
+          "id": "K2",
+          "version": 1,
+          "kind": "hypothesis",
+          "content": {
+            "text": "Реальное замедление процесса",
+            "structure": {
+              "mechanism": "Реальное замедление процесса"
+            }
+          },
+          "seed": "Изменился отчёт",
+          "operator_id": "GC-C001",
+          "axis": "механизм",
+          "frame": "Объект",
+          "distinguishing_features": [
+            "Реальное замедление процесса"
+          ],
+          "conditions": [],
+          "claim_ids": [],
+          "status": "candidate",
+          "expectations": {
+            "report": "slow",
+            "raw": "slow"
+          },
+          "scope": "Учебная очередь",
+          "parent_ids": [],
+          "miss_risk": "ordinary",
+          "projections": {}
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "K1",
+        "version": 1,
+        "kind": "hypothesis",
+        "content": {
+          "text": "Изменилась формула измерения",
+          "structure": {
+            "mechanism": "Изменилась формула измерения"
+          }
+        },
+        "seed": "Изменился отчёт",
+        "operator_id": "GC-C001",
+        "axis": "механизм",
+        "frame": "Измеритель",
+        "distinguishing_features": [
+          "Изменилась формула измерения"
+        ],
+        "conditions": [],
+        "claim_ids": [],
+        "status": "candidate",
+        "expectations": {
+          "report": "slow",
+          "raw": "same"
+        },
+        "scope": "Учебная очередь",
+        "parent_ids": [],
+        "miss_risk": "ordinary",
+        "projections": {}
+      },
+      {
+        "id": "K2",
+        "version": 1,
+        "kind": "hypothesis",
+        "content": {
+          "text": "Реальное замедление процесса",
+          "structure": {
+            "mechanism": "Реальное замедление процесса"
+          }
+        },
+        "seed": "Изменился отчёт",
+        "operator_id": "GC-C001",
+        "axis": "механизм",
+        "frame": "Объект",
+        "distinguishing_features": [
+          "Реальное замедление процесса"
+        ],
+        "conditions": [],
+        "claim_ids": [],
+        "status": "candidate",
+        "expectations": {
+          "report": "slow",
+          "raw": "slow"
+        },
+        "scope": "Учебная очередь",
+        "parent_ids": [],
+        "miss_risk": "ordinary",
+        "projections": {}
+      }
+    ],
+    "observations": [
+      {
+        "id": "O1",
+        "key": "report",
+        "value": "slow",
+        "source_id": "synthetic/log1",
+        "origin_group": "source1",
+        "state": "observed",
+        "method_valid": true,
+        "used_for_generation": false
+      }
+    ],
+    "scope": "Учебная очередь",
+    "question": "Изменилось измерение или сам процесс?"
+  },
+  "request_id": "example-GSD-supplied-1"
+}

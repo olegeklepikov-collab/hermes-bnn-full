@@ -1,0 +1,607 @@
+{
+  "contract": "gsd.integration-acceptance/1.1",
+  "target": {
+    "product": null,
+    "version_or_commit": null,
+    "os": null,
+    "python": null,
+    "model_provider": null,
+    "model": null,
+    "approved_scope": null
+  },
+  "status_meaning": {
+    "local_verified": "Локальный механизм проверен; не автоматически реальный хост.",
+    "host_required": "Необходимо испытать и принять в реальной целевой среде."
+  },
+  "requirements": [
+    {
+      "id": "PKG-01",
+      "requirement": "Исходное ядро и документация сохранены побайтово",
+      "mechanism": "verification/source_preservation.json",
+      "status": "local_verified",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "PKG-02",
+      "requirement": "Полный список и контрольные суммы единой поставки",
+      "mechanism": "gsd.py verify",
+      "status": "local_verified",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "DEF-01",
+      "requirement": "Каталог содержит адресуемые определения, не выдуманные исполнители",
+      "mechanism": "contracts/catalog.json",
+      "status": "local_verified",
+      "local_tests": [
+        "test_catalog_counts_and_pagination",
+        "test_catalog_exact_contract"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "DEF-02",
+      "requirement": "Единая схема входов для CLI, MCP и Hermes",
+      "mechanism": "contracts/tools.json",
+      "status": "local_verified",
+      "local_tests": [
+        "test_tools_schema_single_source"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "CTX-01",
+      "requirement": "Обязательное замыкание и отказ вместо усечения",
+      "mechanism": "gsd_context",
+      "status": "local_verified",
+      "local_tests": [
+        "test_context_closure",
+        "test_context_budget_rejects_not_truncates"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "CTX-02",
+      "requirement": "Экспорт полного текста с отпечатком",
+      "mechanism": "scripts/export_context.py",
+      "status": "local_verified",
+      "local_tests": [
+        "test_export_context_full_file"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "CTX-03",
+      "requirement": "Полный контекст фактически получен моделью",
+      "mechanism": "Механизм контекста реального хоста",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "EXE-01",
+      "requirement": "Семь сочетаний конечных операций соблюдают состав и состояние зависимостей; ожидание не считается выполнением",
+      "mechanism": "gsd_execute",
+      "status": "local_verified",
+      "local_tests": [
+        "test_all_seven_modes_actual_outputs"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "EXE-02",
+      "requirement": "Конечные комбинации G действительно вычислены",
+      "mechanism": "variation/morphological",
+      "status": "local_verified",
+      "local_tests": [
+        "test_finite_generation_computes_four"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "EXE-03",
+      "requirement": "Условный вывод не превращается в доказательство посылок",
+      "mechanism": "StrictComponent.derive",
+      "status": "local_verified",
+      "local_tests": [
+        "test_strict_derivation_conditional"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "EXE-04",
+      "requirement": "D сохраняет неопределённость и различитель",
+      "mechanism": "DiagnosticComponent.run",
+      "status": "local_verified",
+      "local_tests": [
+        "test_gsd_finite_discriminator",
+        "test_d_without_review_partial"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "EXE-05",
+      "requirement": "supplied и отсутствие поставщика не объявляются порождением",
+      "mechanism": "GenerationComponent",
+      "status": "local_verified",
+      "local_tests": [
+        "test_supplied_is_not_claimed_generated",
+        "test_missing_provider_explicit"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "EXE-06",
+      "requirement": "Содержательные процедуры G/S/D исполняются реальным агентом",
+      "mechanism": "Сценарии SEM-01–SEM-08",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "STATE-01",
+      "requirement": "Повтор не исполняется заново; конфликт ID отвергается",
+      "mechanism": "SQLite requests",
+      "status": "local_verified",
+      "local_tests": [
+        "test_execute_idempotent",
+        "test_execute_idempotency_collision",
+        "test_unknown_outcome_not_reexecuted"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "STATE-02",
+      "requirement": "Редакции проверяются; состояние сохраняется",
+      "mechanism": "gsd_case_*",
+      "status": "local_verified",
+      "local_tests": [
+        "test_case_next_advances_store_not_case_revision",
+        "test_case_stale_store_revision"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "STATE-03",
+      "requirement": "Адресный результат существует до commit",
+      "mechanism": "ProcedureEngine.commit",
+      "status": "local_verified",
+      "local_tests": [
+        "test_case_actual_boot_artifact_and_commit",
+        "test_case_forged_commit_rejected"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "STATE-04",
+      "requirement": "Нельзя увеличить бюджет через обновление модели",
+      "mechanism": "gsd_case_change/update",
+      "status": "local_verified",
+      "local_tests": [
+        "test_case_agent_cannot_raise_budget"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "STATE-05",
+      "requirement": "Остановка не возобновляется сама",
+      "mechanism": "resume только через операторскую команду",
+      "status": "local_verified",
+      "local_tests": [
+        "test_case_stop_persists_and_host_resume"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Операторский путь должен быть изолирован ОС; флаг сам не удостоверяет оператора"
+    },
+    {
+      "id": "STATE-06",
+      "requirement": "Несогласованное состояние/иной ключ отвергается",
+      "mechanism": "HMAC хранилища",
+      "status": "local_verified",
+      "local_tests": [
+        "test_case_state_tampering_rejected",
+        "test_case_wrong_key_rejected",
+        "test_missing_key_not_automatically_replaced"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "STATE-07",
+      "requirement": "Сессии реального хоста не читают чужие случаи",
+      "mechanism": "Изоляция или авторизующий посредник хоста",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "RESOURCE-01",
+      "requirement": "Конечный локальный бюджет блокирует превышение",
+      "mechanism": "SharedBudget",
+      "status": "local_verified",
+      "local_tests": [
+        "test_local_budget_exhaustion"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "RESOURCE-02",
+      "requirement": "Общий бюджет моделей, инструментов и дочерних задач",
+      "mechanism": "Учёт и резервирование хоста",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "HANDOFF-01",
+      "requirement": "Полная передача сохраняет договор 3.0.3",
+      "mechanism": "ProductRegistry.deliver + исходный HandoffChannel",
+      "status": "local_verified",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Локальный приём, не сеть и не независимая предметная проверка"
+    },
+    {
+      "id": "HANDOFF-02",
+      "requirement": "Надёжная межагентная доставка с общей транзакцией ресурса",
+      "mechanism": "Система хоста, не один validate_header",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "PROVIDER-01",
+      "requirement": "Команда запускается; форма/ошибка/срок проверяются",
+      "mechanism": "Командный адаптер на искусственной программе",
+      "status": "local_verified",
+      "local_tests": [
+        "test_provider_command_real_process_synthetic_output",
+        "test_provider_extra_output_field_rejected",
+        "test_provider_nonzero_fails",
+        "test_provider_timeout_has_no_auto_retry"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "PROVIDER-02",
+      "requirement": "Настроена реальная модель и учтён её расход",
+      "mechanism": "Доверенный поставщик реальной среды",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "MCP-01",
+      "requirement": "Реальный отдельный процесс проходит handshake/list/call/read/prompt",
+      "mechanism": "MCP stdio 2025-06-18",
+      "status": "local_verified",
+      "local_tests": [
+        "test_mcp_actual_subprocess_lifecycle_tools_resources",
+        "test_mcp_requires_handshake",
+        "test_mcp_unknown_tool_reports_error",
+        "test_mcp_all_resources_readable"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "HERMES-01",
+      "requirement": "Документируемая форма регистрации и отдельный обработчик",
+      "mechanism": "Подставной PluginContext, не Hermes",
+      "status": "local_verified",
+      "local_tests": [
+        "test_hermes_contract_registration_and_actual_handler"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "HERMES-02",
+      "requirement": "Реальная версия Hermes запускает модуль и цикл GSD",
+      "mechanism": "Изолированный профиль установленного Hermes",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "IDE-01",
+      "requirement": "Фрагменты настроек корректно создаются без перезаписи",
+      "mechanism": "configure.py: шесть целей",
+      "status": "local_verified",
+      "local_tests": [
+        "test_generated_settings_all_targets",
+        "test_configuration_refuses_overwrite"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "IDE-02",
+      "requirement": "Конкретная IDE передаёт вызовы и читает инструкции",
+      "mechanism": "Реальная сессия каждого заявленного продукта",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "ACTION-01",
+      "requirement": "Пример допуска не выполняет эффект при запрете/ошибке",
+      "mechanism": "GuardedDispatcher + наблюдаемый файл",
+      "status": "local_verified",
+      "local_tests": [
+        "test_guard_denies_before_file_effect",
+        "test_guard_error_denies_before_file_effect",
+        "test_guard_exact_arguments_required",
+        "test_guard_authorized_dispatch_and_input_freezing"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "ACTION-02",
+      "requirement": "Проверка обязательна во всех действительных путях хоста",
+      "mechanism": "Диспетчер, дочерние агенты, задания, каналы",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "CHANNEL-01",
+      "requirement": "Telegram работает от входящего сообщения до результата",
+      "mechanism": "Отдельный тестовый бот/диалог и реальный шлюз",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "OPS-01",
+      "requirement": "Резервирование, восстановление, отзыв и откат проверены",
+      "mechanism": "Новая область состояния и настройки реального хоста",
+      "status": "host_required",
+      "local_tests": [],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": null
+    },
+    {
+      "id": "GSD-I01",
+      "requirement": "Проверка зависимостей до S/D; сохранение входных кандидатов; явная ветвь без G; вызов не приравнивается к исполнению.",
+      "mechanism": "gsd_bridge/composition.py",
+      "status": "local_verified",
+      "local_tests": [
+        "test_I01_D_without_review_not_invoked",
+        "test_I01_empty_fallback_does_not_invoke_dependents",
+        "test_I01_explicit_fallback_keeps_G_open_and_preserves_inputs",
+        "test_I01_invalid_policy_rejected",
+        "test_I01_missing_G_blocks_before_S_D_invocation",
+        "test_I01_supplied_data_not_new_semantic_generation"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Реальный содержательный исполнитель G/S/D и критерии результата принимает целевая среда."
+    },
+    {
+      "id": "GSD-I02",
+      "requirement": "Справочные источники не активируют чужую роль; полные договоры зависимостей; однозначные краткие адреса GA; отказ при неполноте.",
+      "mechanism": "gsd_bridge/context.py",
+      "status": "local_verified",
+      "local_tests": [
+        "test_I02_all_four_cross_component_references",
+        "test_I02_ambiguous_source_identifier_not_guessed",
+        "test_I02_foreign_active_instruction_remains_forbidden",
+        "test_I02_forged_incomplete_manifest_rejected_even_with_rehashed_body",
+        "test_I02_incomplete_delivery_receipt_rejected",
+        "test_I02_procedure_contract_and_dependencies_delivered",
+        "test_I02_short_generative_anchors_resolve_uniquely"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Реальная доставка полного текста модели должна быть подтверждена отдельно."
+    },
+    {
+      "id": "GSD-I03",
+      "requirement": "Все семь составов сохраняют исходный план; готовые внешние обязательства запрашиваются и принимаются только по действительной подписанной квитанции.",
+      "mechanism": "gsd_bridge/routes.py",
+      "status": "local_verified",
+      "local_tests": [
+        "test_I03_external_expired_or_stale_context_rejected",
+        "test_I03_external_not_exposed_to_model",
+        "test_I03_external_output_substitution_rejected",
+        "test_I03_external_replay_not_double_counted",
+        "test_I03_external_requires_context_delivery_attestation",
+        "test_I03_external_revocation_checked_before_duplicate",
+        "test_I03_external_signature_tamper_rejected",
+        "test_I03_external_wrong_component_rejected",
+        "test_I03_missing_host_policy_does_not_accept_foreign_product",
+        "test_I03_seven_procedure_routes_keep_all_obligations",
+        "test_I03_signed_external_product_makes_real_procedural_progress"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Это не семь автономных реализаций полного каталога. Без доверенного внешнего исполнителя и предметного результата процесс остаётся открытым."
+    },
+    {
+      "id": "GSD-I04",
+      "requirement": "305 адресов, 69 верхних разделов; инженерный профиль доставляет полный исходник с обязательной основой и зависимостями; переполнение отклоняется.",
+      "mechanism": "contracts/engineering_sections.json; gsd_bridge/context.py",
+      "status": "local_verified",
+      "local_tests": [
+        "test_I04_engineering_context_has_entire_source_and_core",
+        "test_I04_engineering_index_all_sections_match_source",
+        "test_I04_engineering_key_without_profile_rejected",
+        "test_I04_exact_byte_limit_not_silent_truncation",
+        "test_I04_section_address_resolves_exact_text",
+        "test_I04_standard_G_does_not_load_engineering_by_default"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Замыкание не является минимальным по объёму; достаточное окно модели и применение норм принимает среда."
+    },
+    {
+      "id": "GSD-I05",
+      "requirement": "Устойчивая идентичность, целые версии, неизменённый исходный объект, входные хеши, статус без повышения; действительная локальная передача через HandoffChannel.",
+      "mechanism": "gsd_bridge/products.py",
+      "status": "local_verified",
+      "local_tests": [
+        "test_I05_ambiguous_or_invalid_status_rejected",
+        "test_I05_boolean_version_rejected",
+        "test_I05_caller_cannot_override_transport_status",
+        "test_I05_changed_content_requires_expected_current_version",
+        "test_I05_changed_input_rejected_before_transfer",
+        "test_I05_description_M_not_promoted",
+        "test_I05_history_preserved_but_stale_product_not_transferable",
+        "test_I05_native_formal_principle_diagnostic_products_are_transmitted",
+        "test_I05_registration_same_content_new_request_is_idempotent",
+        "test_I05_registration_survives_process_store_reopen"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Заявленное происхождение не удостоверяется одной регистрацией; надёжная сеть, стороны и общий резерв принадлежат принимающей среде."
+    },
+    {
+      "id": "GSD-I06",
+      "requirement": "Повторная инициализация случая запрещена; продолжение через restore; явный связанный запуск не сбрасывает расход; однозначный перенос подписанного снимка.",
+      "mechanism": "gsd_bridge/lifecycle.py",
+      "status": "local_verified",
+      "local_tests": [
+        "test_I06_ambiguous_legacy_runs_require_explicit_reconciliation",
+        "test_I06_closed_degraded_constructor_rejected",
+        "test_I06_concurrent_create_cannot_duplicate_case",
+        "test_I06_explicit_new_run_cannot_increase_budget",
+        "test_I06_explicit_new_run_keeps_family_spend_and_stops_previous",
+        "test_I06_family_budget_enforced_across_two_runs",
+        "test_I06_family_record_tamper_rejected",
+        "test_I06_legacy_migration_preserves_exact_snapshot_and_counters",
+        "test_I06_legacy_state_cannot_be_bypassed_by_create",
+        "test_I06_new_request_id_same_case_rejected",
+        "test_I06_restore_keeps_counters",
+        "test_I06_same_new_run_authorization_is_idempotent"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Общий бюджет Hermes и защита от отката всей базы внешние. Несколько старых запусков одного case_id требуют отдельного сверенного переноса."
+    },
+    {
+      "id": "GSD-I07",
+      "requirement": "Исходный архив/манифест установлены; Git и отсутствующий адаптер не выдуманы; аналитический запрет нельзя снять настройкой.",
+      "mechanism": "provenance/identity.json; docs/integration/ADAPTER_REQUIREMENTS.md",
+      "status": "local_verified",
+      "local_tests": [
+        "test_I07_cli_external_acceptance_uses_real_subprocess",
+        "test_I07_invalid_top_level_and_nested_request_fail_without_provider",
+        "test_I07_native_analysis_guard_cannot_be_disabled_by_configuration",
+        "test_I07_no_false_original_adapter_or_effect_capability_claim",
+        "test_I07_upstream_manifest_still_exact"
+      ],
+      "host_evidence": null,
+      "reviewer": null,
+      "accepted_at": null,
+      "limitations": "Подлинная поставка адаптера 1.2 отсутствует. Для внешних действий нужны защищённые функции и целевая приёмка, не заявление об эквивалентности."
+    }
+  ],
+  "integration_version": "1.1.0"
+}

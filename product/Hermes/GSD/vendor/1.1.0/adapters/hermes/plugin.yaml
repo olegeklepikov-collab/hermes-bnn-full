@@ -1,0 +1,24 @@
+name: gsd-integration
+version: 1.1.0
+description: Исполняемое подключение исходного GSD Engine через отдельный процесс.
+python_runtime: external
+provides_tools:
+  - gsd_status
+  - gsd_catalog
+  - gsd_contract
+  - gsd_context
+  - gsd_intake
+  - gsd_validate_case
+  - gsd_execute
+  - gsd_case_create
+  - gsd_case_get
+  - gsd_case_next
+  - gsd_case_change
+  - gsd_handoff_validate
+  - gsd_action_check
+  - gsd_product_register
+  - gsd_product_get
+  - gsd_product_handoff
+provides_hooks:
+  - pre_llm_call
+  - pre_tool_call

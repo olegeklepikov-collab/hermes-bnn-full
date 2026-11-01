@@ -1,0 +1,17 @@
+{
+  "first_candidate": {
+    "correct_sets": 2,
+    "case_count": 6,
+    "total_elapsed_ns": 4770
+  },
+  "simple_program": {
+    "correct_sets": 6,
+    "case_count": 6,
+    "total_elapsed_ns": 38619
+  },
+  "GSD": {
+    "correct_sets": 6,
+    "case_count": 6,
+    "total_elapsed_ns": 73217475
+  }
+}

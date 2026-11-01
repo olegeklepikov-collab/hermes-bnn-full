@@ -1,0 +1,458 @@
+[
+  {
+    "name": "gsd_status",
+    "description": "Состав, версии и границы доступного GSD.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_catalog",
+    "description": "Поиск адресуемых определений; количество не означает исполнение.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "all",
+            "procedure",
+            "protocol",
+            "leaf",
+            "element"
+          ]
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_contract",
+    "description": "Полный договор процедуры, протокола, отдельного результата или исходного элемента.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_context",
+    "description": "Собрать исходные инструкции с полным обязательным контекстом; не обрезать.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "string",
+          "enum": [
+            "G",
+            "S",
+            "D",
+            "GS",
+            "GD",
+            "SD",
+            "GSD"
+          ]
+        },
+        "entry_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "byte_limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8388608
+        },
+        "procedure_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "profile": {
+          "enum": [
+            "standard",
+            "engineering"
+          ]
+        }
+      },
+      "required": [
+        "components"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_intake",
+    "description": "Зарегистрировать сырой запрос как недоверенные данные, не создавать факты и права.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "components": {
+          "type": "string",
+          "enum": [
+            "G",
+            "S",
+            "D",
+            "GS",
+            "GD",
+            "SD",
+            "GSD"
+          ]
+        }
+      },
+      "required": [
+        "text",
+        "components"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_validate_case",
+    "description": "Проверить схему случая и межобъектные условия; не предметную истинность.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "case": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "case"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_execute",
+    "description": "Выполнить исходные конечные операции G/S/D. Смысловые операции требуют агента.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "string",
+          "enum": [
+            "G",
+            "S",
+            "D",
+            "GS",
+            "GD",
+            "SD",
+            "GSD"
+          ]
+        },
+        "request": {
+          "type": "object"
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "components",
+        "request",
+        "request_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_case_create",
+    "description": "Создать сохраняемый случай исходного контроллера процедур.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "case": {
+          "type": "object"
+        },
+        "triggers": {
+          "type": "object"
+        },
+        "components": {
+          "type": "string",
+          "enum": [
+            "G",
+            "S",
+            "D",
+            "GS",
+            "GD",
+            "SD",
+            "GSD"
+          ]
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "case",
+        "triggers",
+        "components",
+        "request_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_case_get",
+    "description": "Получить сохранённый случай и проверенный снимок.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "run_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_case_next",
+    "description": "Получить следующую процедуру и её фактические входные обязательства.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "run_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_case_change",
+    "description": "Транзакционно обновить случай, зафиксировать результат, остановить или закрыть его.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_store_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "operation": {
+          "enum": [
+            "update",
+            "commit",
+            "stop",
+            "close",
+            "accept_limited",
+            "insert_repair",
+            "refresh"
+          ]
+        },
+        "payload": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "run_id",
+        "request_id",
+        "expected_store_revision",
+        "operation",
+        "payload"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_handoff_validate",
+    "description": "Проверить заголовок передачи. Не доставляет продукт и не резервирует ресурс.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_action_check",
+    "description": "Проверить границу решения без доверенного полномочия. Не даёт разрешение и не исполняет действие.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "case": {
+          "type": "object"
+        },
+        "decision_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "case",
+        "decision_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_product_register",
+    "description": "Зарегистрировать исходный продукт без повышения статуса и с сохранением входов.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logical_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "product": {
+          "type": "object"
+        },
+        "input_objects": {
+          "type": "object"
+        },
+        "origin_component": {
+          "enum": [
+            "G",
+            "S",
+            "D"
+          ]
+        },
+        "origin_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_version": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "namespace",
+        "logical_key",
+        "product",
+        "input_objects",
+        "origin_component",
+        "origin_ref",
+        "expected_version",
+        "request_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_product_get",
+    "description": "Получить зарегистрированный продукт; история не считается текущим результатом.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "current_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "product_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "gsd_product_handoff",
+    "description": "Собрать полный пакет передачи из текущего зарегистрированного продукта. Не выполняет доставку.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "product_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "header": {
+          "type": "object"
+        },
+        "input_objects": {
+          "type": "object"
+        },
+        "context": {
+          "type": "object"
+        },
+        "standard": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "product_id",
+        "product_version",
+        "header",
+        "input_objects",
+        "context",
+        "standard"
+      ],
+      "additionalProperties": false
+    }
+  }
+]

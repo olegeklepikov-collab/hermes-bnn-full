@@ -1,0 +1,460 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Keenable Search API",
+    "version": "0.1.18",
+    "description": "Web search and page fetching for AI agents. Two endpoints, both authenticated with an API key in the `X-API-Key` header: `POST /v1/search` returns ranked results with page text and publish dates, and `GET /v1/fetch` returns a page as markdown.\n\nEach successful request costs one credit. Authenticated requests are rate limited per organization (10 requests per second by default; higher limits are available on some plans). Full documentation: https://docs.keenable.ai",
+    "termsOfService": "https://keenable.ai/terms",
+    "contact": {
+      "name": "Keenable",
+      "url": "https://keenable.ai",
+      "email": "support@keenable.ai"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.keenable.ai",
+      "description": "Production"
+    }
+  ],
+  "security": [
+    {
+      "apiKey": []
+    }
+  ],
+  "paths": {
+    "/v1/search": {
+      "post": {
+        "operationId": "search_post",
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search the web",
+        "description": "Perform a web search using a JSON request body. Supports site restriction, publish and index date filters, and a query_time reference timestamp for point-in-time search.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKey": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "402": {
+            "$ref": "#/components/responses/InsufficientCredits"
+          },
+          "422": {
+            "description": "Search failed with an unretryable upstream error — see `message`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitExceeded"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "529": {
+            "description": "Search is temporarily overloaded. Retry after the delay in `Retry-After`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/fetch": {
+      "get": {
+        "operationId": "fetch",
+        "tags": [
+          "Fetch"
+        ],
+        "summary": "Fetch page content",
+        "description": "Extract clean content (markdown) from a web page URL.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "URL of the page to fetch"
+          },
+          {
+            "name": "max_chars",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 50000
+            },
+            "description": "Maximum number of characters of content to return. Content longer than this is truncated. Defaults to 50000 when omitted."
+          },
+          {
+            "name": "live",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Fetch the page live from the source instead of Keenable's indexed copy. Needed for pages Keenable has not indexed, which otherwise return 404. Defaults to false."
+          }
+        ],
+        "security": [
+          {
+            "apiKey": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Extracted page content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FetchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "402": {
+            "$ref": "#/components/responses/InsufficientCredits"
+          },
+          "403": {
+            "description": "The target server refused the fetch (responded 401, 403, or a vendor block code such as LinkedIn's 999) — a bot-wall or access restriction on the target, not an authentication problem with your API key. Deterministic: retrying will not help.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The target page does not exist — the target server responded 404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The page was reached but contains no extractable content.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited. Either your own quota, or the target server throttled the fetch — see `message`. Honour `Retry-After`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error, including a failure inside our own fetcher infrastructure. Not caused by the requested URL; retrying the same URL later is reasonable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "The fetcher could not reach the target page (DNS/TLS/connection failure, unreachable host, or a target 5xx). Distinct from 422 — the page was never reached, and from 403 — the target never refused. Often transient; a retry is reasonable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "The upstream fetch to the target page timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key",
+        "description": "API key from the Keenable console (https://app.keenable.ai/console)."
+      }
+    },
+    "schemas": {
+      "ApiError": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error category (e.g. \"Bad request\", \"Not found\")"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable detail about what went wrong"
+          },
+          "details": {
+            "description": "Structured details (validation errors, etc.)"
+          }
+        }
+      },
+      "FetchResponse": {
+        "type": "object",
+        "required": [
+          "url",
+          "content"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Fetched URL (may differ from input after redirects)"
+          },
+          "title": {
+            "type": "string",
+            "description": "Page title"
+          },
+          "content": {
+            "type": "string",
+            "description": "Extracted content in markdown"
+          },
+          "description": {
+            "type": "string",
+            "description": "Always empty; read `content`. Kept for compatibility.",
+            "deprecated": true
+          },
+          "author": {
+            "type": "string",
+            "description": "Author name"
+          },
+          "published_at": {
+            "type": "string",
+            "description": "Publish date (ISO 8601)"
+          }
+        }
+      },
+      "SearchRequest": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "acquired_after": {
+            "type": "string",
+            "description": "Filter: pages acquired after this date (YYYY-MM-DD, ISO 8601, or relative like \"7d\")"
+          },
+          "acquired_before": {
+            "type": "string",
+            "description": "Filter: pages acquired before this date"
+          },
+          "published_after": {
+            "type": "string",
+            "description": "Filter: pages published after this date"
+          },
+          "published_before": {
+            "type": "string",
+            "description": "Filter: pages published before this date"
+          },
+          "site": {
+            "type": "string",
+            "description": "Restrict results to a specific domain"
+          },
+          "query_time": {
+            "type": "string",
+            "description": "Point-in-time reference for the search. Results are limited to pages available on or before this timestamp; newer pages are excluded. Accepts an ISO 8601 datetime (e.g. \"2026-09-20T00:00:00Z\"), a YYYY-MM-DD date, a Unix epoch, or a relative offset back from now (e.g. \"7d\", \"2w\", \"30min\"). Units: min, h, d, w, mo, y."
+          },
+          "snippet_max_length": {
+            "type": "integer",
+            "minimum": 180,
+            "maximum": 10000,
+            "description": "Maximum length, in characters, of the snippet returned per result. When omitted, a default snippet length is used."
+          },
+          "max_results": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "description": "Maximum number of results to return. When omitted, a default count (10) is used."
+          }
+        }
+      },
+      "SearchResponse": {
+        "type": "object",
+        "required": [
+          "query",
+          "results"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Echo of the search query"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResult"
+            }
+          },
+          "warning": {
+            "type": "string",
+            "description": "Present when the request was not answered as a plain search. Either the query was a URL, so the page was fetched directly, or the query carried only a site: operator with no search terms, so the site name was used as the search term."
+          }
+        }
+      },
+      "SearchResult": {
+        "type": "object",
+        "required": [
+          "title",
+          "url"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Page title"
+          },
+          "url": {
+            "type": "string",
+            "description": "Page URL"
+          },
+          "description": {
+            "type": "string",
+            "description": "Always empty; read `snippet` for the page text. Kept for compatibility.",
+            "deprecated": true
+          },
+          "snippet": {
+            "type": "string",
+            "description": "Search snippet with query-relevant highlights; falls back to the page description"
+          },
+          "published_at": {
+            "type": "string",
+            "description": "When the page was published (ISO 8601)"
+          },
+          "acquired_at": {
+            "type": "string",
+            "description": "When the page was indexed (ISO 8601)"
+          }
+        }
+      }
+    },
+    "responses": {
+      "RateLimitExceeded": {
+        "description": "Rate limit exceeded — slow down or upgrade your plan",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      },
+      "InsufficientCredits": {
+        "description": "No credits available — upgrade your plan or purchase more credits",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "Internal server error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      },
+      "BadRequest": {
+        "description": "Invalid request parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Missing or invalid API key – update your API key or contact support",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      }
+    }
+  }
+}

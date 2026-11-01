@@ -1,0 +1,494 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return a list of clients (repositories).
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "clients",
+      "description": "Clients"
+    }
+  ],
+  "paths": {
+    "/clients": {
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Return a list of clients (repositories).",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "description": "The year the client was created.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/providerIdParam"
+          },
+          {
+            "in": "query",
+            "name": "software",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client-type",
+            "schema": {
+              "$ref": "#/components/schemas/client-type"
+            }
+          },
+          {
+            "in": "query",
+            "name": "repository-type",
+            "schema": {
+              "$ref": "#/components/schemas/repositoryType"
+            }
+          },
+          {
+            "in": "query",
+            "name": "certificate",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/certificate"
+              }
+            },
+            "explode": false,
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/pageNumberParam"
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/pageSizeParam"
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "provider"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "relevance",
+                "name",
+                "-name",
+                "created",
+                "-created"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of clients.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Client"
+                      }
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/MetaCore"
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "years": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "providers": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "software": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "certificates": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "repository_types": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "clientTypes": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Links"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "clients"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "year": {
+                "type": "number"
+              },
+              "contactEmail": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "string"
+              },
+              "alternateName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "language": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "clientType": {
+                "$ref": "#/components/schemas/client-type"
+              },
+              "domains": {
+                "type": "string"
+              },
+              "re3data": {
+                "type": "string"
+              },
+              "opendoar": {
+                "type": "string"
+              },
+              "issn": {
+                "type": "object",
+                "properties": {
+                  "issnl": {
+                    "type": "string"
+                  },
+                  "print": {
+                    "type": "string"
+                  },
+                  "electronic": {
+                    "type": "string"
+                  }
+                }
+              },
+              "url": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string",
+                "readOnly": true
+              },
+              "updated": {
+                "type": "string",
+                "readOnly": true
+              },
+              "isActive": {
+                "type": "boolean"
+              },
+              "hasPassword": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "boolean"
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "provider": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataObject"
+                  }
+                }
+              },
+              "consortium": {
+                "type": "object",
+                "description": "Returned only when the client is associated with a Consortium.",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataObject"
+                  }
+                }
+              },
+              "prefixes": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "attributes - name - symbol - contactEmail"
+        ]
+      },
+      "DataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "DataArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DataObject"
+        }
+      },
+      "MetaObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "MetaArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/MetaObject"
+        }
+      },
+      "MetaCore": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "description": "Total results count.",
+            "type": "number"
+          },
+          "totalPages": {
+            "description": "Total pages count.",
+            "type": "number"
+          },
+          "page": {
+            "description": "Current page of the results.",
+            "type": "number"
+          }
+        }
+      },
+      "Links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string"
+          },
+          "next": {
+            "type": "string"
+          }
+        }
+      },
+      "repositoryType": {
+        "type": "string",
+        "enum": [
+          "disciplinary",
+          "governmental",
+          "institutional",
+          "multidisciplinary",
+          "project-related",
+          "other"
+        ]
+      },
+      "certificate": {
+        "type": "string",
+        "enum": [
+          "CLARIN",
+          "CoreTrustSeal",
+          "DIN 31644",
+          "DINI",
+          "DSA",
+          "RatSWD",
+          "WDS"
+        ]
+      },
+      "client-type": {
+        "type": "string",
+        "enum": [
+          "repository",
+          "periodical",
+          "igsnCatalog",
+          "raidRegistry"
+        ]
+      }
+    },
+    "parameters": {
+      "providerIdParam": {
+        "name": "provider-id",
+        "in": "query",
+        "description": "Filter by a specific DataCite provider (Direct Member or Consortium Organization). Use commas to include multiple providers.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "cern"
+      },
+      "pageNumberParam": {
+        "name": "page[number]",
+        "in": "query",
+        "schema": {
+          "type": "integer"
+        },
+        "description": "Page number for [pagination](https://support.datacite.org/docs/pagination)."
+      },
+      "pageSizeParam": {
+        "name": "page[size]",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "description": "Page size between 0 and 1,000 for [pagination](https://support.datacite.org/docs/pagination)."
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```

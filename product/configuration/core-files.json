@@ -1,0 +1,19 @@
+[
+  "agent/subagent_lifecycle.py",
+  "hermes_cli/execution_control.py",
+  "agent/auxiliary_hooks.py",
+  "agent/conversation_compression.py",
+  "agent/auxiliary_attempt.py",
+  "agent/compression_checkpoint.py",
+  "agent/tool_attempt.py",
+  "agent/tool_executor.py",
+  "hermes_cli/middleware.py",
+  "model_tools.py",
+  "tools/connectors/dispatch.py",
+  "agent/identity_provider.py",
+  "agent/system_prompt.py",
+  "agent/history_preservation.py",
+  "agent/context_compressor.py",
+  "agent/turn_preflight.py",
+  "tools/registry.py"
+]

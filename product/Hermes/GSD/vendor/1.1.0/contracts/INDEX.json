@@ -1,0 +1,23 @@
+{
+  "engine_release": "3.0.3",
+  "protocol": "3.0",
+  "comparison_contract": "3.0.2",
+  "comparison_record_version": 2,
+  "schemas": {
+    "case": "engine/data/case.schema.json",
+    "comparison_review": "engine/data/comparison_review.schema.json",
+    "handoff": "engine/data/handoff.schema.json"
+  },
+  "registry_authority": "engine/data",
+  "documentation_registries": "presentation_only_not_runtime_input",
+  "integration_version": "1.1.0",
+  "integration_contracts": {
+    "tools": "contracts/tools.json",
+    "product": "contracts/registered_product.schema.json",
+    "external_receipt": "contracts/external_receipt.schema.json",
+    "host_policy": "contracts/host_policy.schema.json",
+    "engineering_index": "contracts/engineering_sections.json",
+    "modes": "contracts/modes.json"
+  },
+  "authority_rule": "engine/data определяет исходные предметные договоры; contracts/ определяет отдельный договор интеграционных границ. Документационные схемы не подменяют исполняемые."
+}

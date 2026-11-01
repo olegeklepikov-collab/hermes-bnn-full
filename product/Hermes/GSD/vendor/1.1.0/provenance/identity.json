@@ -1,0 +1,15 @@
+{
+  "canonical_engine_identifier": {
+    "release": "3.0.3",
+    "archive_sha256": "597ddd8bae43ae8d4d73cc1ca76526ba85a995afeb48c75fe38f807fa3507c3b",
+    "manifest_sha256": "f2c9af730d0b2a4b06b451c16b15cd019c0b3359e2ee9236348dd7a3f6382738"
+  },
+  "upstream_git_commit": null,
+  "upstream_git_tag": null,
+  "missing_adapter_1_2_included": false,
+  "integration_version": "1.1.0",
+  "upstream_equivalence_claimed": false,
+  "integration_entrypoint": "gsd.py / gsd_bridge",
+  "direct_upstream_entrypoints_remain_original": true,
+  "external_web_verification_performed_for_remediation": false
+}

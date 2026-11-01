@@ -1,0 +1,6326 @@
+{
+  "created_at": "2026-09-18T10:27:24.431108+00:00",
+  "subject": "GSD 3.0.2",
+  "method": "exploratory_property_and_metamorphic_tests",
+  "seed": 20260918,
+  "tests": 545,
+  "passed": 545,
+  "failed": 0,
+  "rows": [
+    {
+      "id": "EV-000",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 5,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 1.5612862079999559
+    },
+    {
+      "id": "EV-001",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 3,
+        "statuses": [
+          "contradicted_prediction",
+          "conflicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.02234770799987018
+    },
+    {
+      "id": "EV-002",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011326769999868702
+    },
+    {
+      "id": "EV-003",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.006620729000132997
+    },
+    {
+      "id": "EV-004",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.02260232300000098
+    },
+    {
+      "id": "EV-005",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.02205518999994638
+    },
+    {
+      "id": "EV-006",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.0066899590001412435
+    },
+    {
+      "id": "EV-007",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 3,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.017734750000045096
+    },
+    {
+      "id": "EV-008",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011199376999911692
+    },
+    {
+      "id": "EV-009",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.017148199999837743
+    },
+    {
+      "id": "EV-010",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.022907595000106085
+    },
+    {
+      "id": "EV-011",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.017974559000094814
+    },
+    {
+      "id": "EV-012",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.02285289700012072
+    },
+    {
+      "id": "EV-013",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022854712000025756
+    },
+    {
+      "id": "EV-014",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 6,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022395732999939355
+    },
+    {
+      "id": "EV-015",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.017550308000181758
+    },
+    {
+      "id": "EV-016",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016596572000025844
+    },
+    {
+      "id": "EV-017",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 5,
+        "statuses": [
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.006200542999977188
+    },
+    {
+      "id": "EV-018",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 2,
+        "statuses": [
+          "contradicted_prediction",
+          "compatible_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.018223971999987043
+    },
+    {
+      "id": "EV-019",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.012209591000100772
+    },
+    {
+      "id": "EV-020",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 7,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011746518000109063
+    },
+    {
+      "id": "EV-021",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01179823600000418
+    },
+    {
+      "id": "EV-022",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 4,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.011529393000046184
+    },
+    {
+      "id": "EV-023",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 0,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.005817873000069085
+    },
+    {
+      "id": "EV-024",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 6,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01756820999980846
+    },
+    {
+      "id": "EV-025",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 5,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.011688105000075666
+    },
+    {
+      "id": "EV-026",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011961223000071186
+    },
+    {
+      "id": "EV-027",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 4,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01698332799992386
+    },
+    {
+      "id": "EV-028",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.021794492000026366
+    },
+    {
+      "id": "EV-029",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016519587000175306
+    },
+    {
+      "id": "EV-030",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011613372000056188
+    },
+    {
+      "id": "EV-031",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.021915532000093663
+    },
+    {
+      "id": "EV-032",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 3,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.006317497000054573
+    },
+    {
+      "id": "EV-033",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "compatible_prediction"
+        ]
+      },
+      "seconds": 0.012594129000035537
+    },
+    {
+      "id": "EV-034",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.026061030000164465
+    },
+    {
+      "id": "EV-035",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 3,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.017079851000062263
+    },
+    {
+      "id": "EV-036",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.006307141000206684
+    },
+    {
+      "id": "EV-037",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 3,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022490446999881897
+    },
+    {
+      "id": "EV-038",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 4,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011728772000196841
+    },
+    {
+      "id": "EV-039",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 3,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016688252999983888
+    },
+    {
+      "id": "EV-040",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 4,
+        "statuses": [
+          "contradicted_prediction",
+          "compatible_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.016816984999877604
+    },
+    {
+      "id": "EV-041",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.02273784399994838
+    },
+    {
+      "id": "EV-042",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 3,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011489904999962164
+    },
+    {
+      "id": "EV-043",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011557814999832772
+    },
+    {
+      "id": "EV-044",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "conflicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.017617626000173914
+    },
+    {
+      "id": "EV-045",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022139187999982823
+    },
+    {
+      "id": "EV-046",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 4,
+        "statuses": [
+          "compatible_prediction"
+        ]
+      },
+      "seconds": 0.006335555999839926
+    },
+    {
+      "id": "EV-047",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 1,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.005871550999927422
+    },
+    {
+      "id": "EV-048",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 2,
+        "statuses": [
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.00601532199993926
+    },
+    {
+      "id": "EV-049",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016355699999849094
+    },
+    {
+      "id": "EV-050",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.0063400129999990895
+    },
+    {
+      "id": "EV-051",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022438233000002583
+    },
+    {
+      "id": "EV-052",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 7,
+        "statuses": [
+          "contradicted_prediction",
+          "compatible_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.02286257600007957
+    },
+    {
+      "id": "EV-053",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 6,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011955847999843172
+    },
+    {
+      "id": "EV-054",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01675026800012347
+    },
+    {
+      "id": "EV-055",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016545407999956296
+    },
+    {
+      "id": "EV-056",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 3,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.023568512000110786
+    },
+    {
+      "id": "EV-057",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 5,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.006176881000101275
+    },
+    {
+      "id": "EV-058",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016465646000142442
+    },
+    {
+      "id": "EV-059",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 7,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.011819428000080734
+    },
+    {
+      "id": "EV-060",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 5,
+        "statuses": [
+          "compatible_prediction"
+        ]
+      },
+      "seconds": 0.0061520440001459065
+    },
+    {
+      "id": "EV-061",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.01684901700014052
+    },
+    {
+      "id": "EV-062",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016537309000113964
+    },
+    {
+      "id": "EV-063",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 4,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011427714000092237
+    },
+    {
+      "id": "EV-064",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 3,
+        "statuses": [
+          "contradicted_prediction",
+          "conflicted_prediction"
+        ]
+      },
+      "seconds": 0.01144047100001444
+    },
+    {
+      "id": "EV-065",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011101531000122122
+    },
+    {
+      "id": "EV-066",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 4,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.01676522399998248
+    },
+    {
+      "id": "EV-067",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 7,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.022794203000103153
+    },
+    {
+      "id": "EV-068",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 8,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022451529999898412
+    },
+    {
+      "id": "EV-069",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.02182234400015659
+    },
+    {
+      "id": "EV-070",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01136638299999504
+    },
+    {
+      "id": "EV-071",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 3,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011779502000081266
+    },
+    {
+      "id": "EV-072",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 3,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.006038459000137664
+    },
+    {
+      "id": "EV-073",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.021653682999840385
+    },
+    {
+      "id": "EV-074",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 5,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.0060829589999684686
+    },
+    {
+      "id": "EV-075",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.023313967000149205
+    },
+    {
+      "id": "EV-076",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.016822998999941774
+    },
+    {
+      "id": "EV-077",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011871793999944202
+    },
+    {
+      "id": "EV-078",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 4,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.011492243000020608
+    },
+    {
+      "id": "EV-079",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011270186000047033
+    },
+    {
+      "id": "EV-080",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 0,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.005835738999849127
+    },
+    {
+      "id": "EV-081",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 1,
+        "statuses": [
+          "contradicted_prediction",
+          "compatible_prediction"
+        ]
+      },
+      "seconds": 0.011681550000048446
+    },
+    {
+      "id": "EV-082",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.011550594000027559
+    },
+    {
+      "id": "EV-083",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 7,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022448670000130733
+    },
+    {
+      "id": "EV-084",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 8,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01740531599989481
+    },
+    {
+      "id": "EV-085",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 7,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.012470452000115984
+    },
+    {
+      "id": "EV-086",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 4,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.020117800000207353
+    },
+    {
+      "id": "EV-087",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 1,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.03728097600014735
+    },
+    {
+      "id": "EV-088",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 4,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.0282192600000144
+    },
+    {
+      "id": "EV-089",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 3,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.019712501999947563
+    },
+    {
+      "id": "EV-090",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.038742517999935444
+    },
+    {
+      "id": "EV-091",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 7,
+        "statuses": [
+          "conflicted_prediction"
+        ]
+      },
+      "seconds": 0.010782616999904349
+    },
+    {
+      "id": "EV-092",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.0381976900000609
+    },
+    {
+      "id": "EV-093",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 3,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.027825588000041535
+    },
+    {
+      "id": "EV-094",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 7,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.024213312000028964
+    },
+    {
+      "id": "EV-095",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.022644227000000683
+    },
+    {
+      "id": "EV-096",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.031831409000005806
+    },
+    {
+      "id": "EV-097",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 2,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.00968487299996923
+    },
+    {
+      "id": "EV-098",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.018506970000089495
+    },
+    {
+      "id": "EV-099",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 7,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.02472184099997321
+    },
+    {
+      "id": "EV-100",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.012693273999957455
+    },
+    {
+      "id": "EV-101",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 0,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.006060247000050367
+    },
+    {
+      "id": "EV-102",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.014560093999989476
+    },
+    {
+      "id": "EV-103",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.017907776999891212
+    },
+    {
+      "id": "EV-104",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01244291200009684
+    },
+    {
+      "id": "EV-105",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 4,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.0239984810000351
+    },
+    {
+      "id": "EV-106",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 5,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.01781641499997022
+    },
+    {
+      "id": "EV-107",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.006647774000157369
+    },
+    {
+      "id": "EV-108",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.018151586000158204
+    },
+    {
+      "id": "EV-109",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 5,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.0226759370000309
+    },
+    {
+      "id": "EV-110",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 6,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.013162514999976338
+    },
+    {
+      "id": "EV-111",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 7,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.006297609999819542
+    },
+    {
+      "id": "EV-112",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 1,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01697007100005976
+    },
+    {
+      "id": "EV-113",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 2,
+        "statuses": [
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.012690630999941277
+    },
+    {
+      "id": "EV-114",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 4,
+        "statuses": [
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.023165336999909414
+    },
+    {
+      "id": "EV-115",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 0,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.02207017000000633
+    },
+    {
+      "id": "EV-116",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 2,
+        "observations": 2,
+        "statuses": [
+          "compatible_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.0125765779998801
+    },
+    {
+      "id": "EV-117",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 4,
+        "observations": 8,
+        "statuses": [
+          "contradicted_prediction",
+          "compatible_prediction",
+          "contradicted_prediction",
+          "contradicted_prediction"
+        ]
+      },
+      "seconds": 0.022957800000085626
+    },
+    {
+      "id": "EV-118",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 1,
+        "observations": 0,
+        "statuses": [
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.006124805999888849
+    },
+    {
+      "id": "EV-119",
+      "group": "evidence_properties",
+      "criterion": "Статус соответствует пригодным входам; порядок не влияет; ID сохранены",
+      "outcome": "pass",
+      "detail": {
+        "candidates": 3,
+        "observations": 4,
+        "statuses": [
+          "underdetermined",
+          "underdetermined",
+          "underdetermined"
+        ]
+      },
+      "seconds": 0.01795980400015651
+    },
+    {
+      "id": "TYPE-0-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.0114033490001475
+    },
+    {
+      "id": "TYPE-0-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01163690399994266
+    },
+    {
+      "id": "TYPE-0-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011999384000091595
+    },
+    {
+      "id": "TYPE-0-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011877970999876197
+    },
+    {
+      "id": "TYPE-0-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01290464199996677
+    },
+    {
+      "id": "TYPE-0-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011901188999900114
+    },
+    {
+      "id": "TYPE-0-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012072216999968077
+    },
+    {
+      "id": "TYPE-0-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.016575644999875294
+    },
+    {
+      "id": "TYPE-0-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.04196487700005491
+    },
+    {
+      "id": "TYPE-0-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.016943447000130618
+    },
+    {
+      "id": "TYPE-0-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01161558600006174
+    },
+    {
+      "id": "TYPE-0-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011599095000065063
+    },
+    {
+      "id": "TYPE-0-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012314572000150292
+    },
+    {
+      "id": "TYPE-0-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01516904400000385
+    },
+    {
+      "id": "TYPE-0-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012022797000099672
+    },
+    {
+      "id": "TYPE-0-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01182692199995472
+    },
+    {
+      "id": "TYPE-1-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011996831000033126
+    },
+    {
+      "id": "TYPE-1-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011636192999958439
+    },
+    {
+      "id": "TYPE-1-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012319127000182561
+    },
+    {
+      "id": "TYPE-1-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01233925199994701
+    },
+    {
+      "id": "TYPE-1-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011738601000160998
+    },
+    {
+      "id": "TYPE-1-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011390753000114273
+    },
+    {
+      "id": "TYPE-1-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011385616000097798
+    },
+    {
+      "id": "TYPE-1-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011385216000007858
+    },
+    {
+      "id": "TYPE-1-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011427868000055241
+    },
+    {
+      "id": "TYPE-1-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.016382135999947423
+    },
+    {
+      "id": "TYPE-1-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012261684999884892
+    },
+    {
+      "id": "TYPE-1-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01168436600005407
+    },
+    {
+      "id": "TYPE-1-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011660261000088212
+    },
+    {
+      "id": "TYPE-1-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011506607999990592
+    },
+    {
+      "id": "TYPE-1-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011713254000142115
+    },
+    {
+      "id": "TYPE-1-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011384066999880815
+    },
+    {
+      "id": "TYPE-2-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011339912000039476
+    },
+    {
+      "id": "TYPE-2-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011280256999953053
+    },
+    {
+      "id": "TYPE-2-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011161003999859531
+    },
+    {
+      "id": "TYPE-2-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01153166000017336
+    },
+    {
+      "id": "TYPE-2-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011169899999913468
+    },
+    {
+      "id": "TYPE-2-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011741392999965683
+    },
+    {
+      "id": "TYPE-2-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011337262000097326
+    },
+    {
+      "id": "TYPE-2-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011531993000062357
+    },
+    {
+      "id": "TYPE-2-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011318980999931227
+    },
+    {
+      "id": "TYPE-2-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011235524000085206
+    },
+    {
+      "id": "TYPE-2-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011331407999932708
+    },
+    {
+      "id": "TYPE-2-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011440606999940428
+    },
+    {
+      "id": "TYPE-2-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012237374999813255
+    },
+    {
+      "id": "TYPE-2-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01701376899995921
+    },
+    {
+      "id": "TYPE-2-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.016424096000037025
+    },
+    {
+      "id": "TYPE-2-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.017994998999938616
+    },
+    {
+      "id": "TYPE-3-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.013290373000018008
+    },
+    {
+      "id": "TYPE-3-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01367552900001101
+    },
+    {
+      "id": "TYPE-3-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.02101405300004444
+    },
+    {
+      "id": "TYPE-3-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.024784962000012456
+    },
+    {
+      "id": "TYPE-3-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01150261199995839
+    },
+    {
+      "id": "TYPE-3-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011288509999985763
+    },
+    {
+      "id": "TYPE-3-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01199643599989031
+    },
+    {
+      "id": "TYPE-3-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011231559000179914
+    },
+    {
+      "id": "TYPE-3-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011662907000072664
+    },
+    {
+      "id": "TYPE-3-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011757118000105038
+    },
+    {
+      "id": "TYPE-3-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011375394999959099
+    },
+    {
+      "id": "TYPE-3-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011679581999942457
+    },
+    {
+      "id": "TYPE-3-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011025649999965026
+    },
+    {
+      "id": "TYPE-3-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.018212081999990914
+    },
+    {
+      "id": "TYPE-3-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.018050654000035138
+    },
+    {
+      "id": "TYPE-3-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.018705073000091943
+    },
+    {
+      "id": "TYPE-4-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01871110199999748
+    },
+    {
+      "id": "TYPE-4-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.016958064999926137
+    },
+    {
+      "id": "TYPE-4-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011434232000056
+    },
+    {
+      "id": "TYPE-4-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011347298999908162
+    },
+    {
+      "id": "TYPE-4-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011218589999998585
+    },
+    {
+      "id": "TYPE-4-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011123130999976638
+    },
+    {
+      "id": "TYPE-4-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011145632000079786
+    },
+    {
+      "id": "TYPE-4-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01111015500009671
+    },
+    {
+      "id": "TYPE-4-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011113187000091784
+    },
+    {
+      "id": "TYPE-4-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011091894999935903
+    },
+    {
+      "id": "TYPE-4-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011342054999886386
+    },
+    {
+      "id": "TYPE-4-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011110120000012103
+    },
+    {
+      "id": "TYPE-4-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01123978099985834
+    },
+    {
+      "id": "TYPE-4-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01355073500008075
+    },
+    {
+      "id": "TYPE-4-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01452987400011807
+    },
+    {
+      "id": "TYPE-4-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011421033000033276
+    },
+    {
+      "id": "TYPE-5-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011320506999936697
+    },
+    {
+      "id": "TYPE-5-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011049085999957242
+    },
+    {
+      "id": "TYPE-5-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011233269000058499
+    },
+    {
+      "id": "TYPE-5-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011466179000080956
+    },
+    {
+      "id": "TYPE-5-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011461858000075154
+    },
+    {
+      "id": "TYPE-5-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011257449999902747
+    },
+    {
+      "id": "TYPE-5-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01122943900008977
+    },
+    {
+      "id": "TYPE-5-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011526049999929455
+    },
+    {
+      "id": "TYPE-5-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012377265000168336
+    },
+    {
+      "id": "TYPE-5-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011205773000028785
+    },
+    {
+      "id": "TYPE-5-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011375544999964404
+    },
+    {
+      "id": "TYPE-5-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011757033000094452
+    },
+    {
+      "id": "TYPE-5-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011433618000182832
+    },
+    {
+      "id": "TYPE-5-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011478154999849721
+    },
+    {
+      "id": "TYPE-5-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012873776999867914
+    },
+    {
+      "id": "TYPE-5-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012017414999945686
+    },
+    {
+      "id": "TYPE-6-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01197589399998833
+    },
+    {
+      "id": "TYPE-6-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011629358000163847
+    },
+    {
+      "id": "TYPE-6-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011444490000030783
+    },
+    {
+      "id": "TYPE-6-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011512519999996584
+    },
+    {
+      "id": "TYPE-6-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01317520600014177
+    },
+    {
+      "id": "TYPE-6-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011819268999943233
+    },
+    {
+      "id": "TYPE-6-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011722743000063929
+    },
+    {
+      "id": "TYPE-6-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011631899000121848
+    },
+    {
+      "id": "TYPE-6-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.016065066999999544
+    },
+    {
+      "id": "TYPE-6-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.013907635999885315
+    },
+    {
+      "id": "TYPE-6-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.016978914999981498
+    },
+    {
+      "id": "TYPE-6-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011207152999986647
+    },
+    {
+      "id": "TYPE-6-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011268437999888192
+    },
+    {
+      "id": "TYPE-6-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011152131000017107
+    },
+    {
+      "id": "TYPE-6-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01119630900006996
+    },
+    {
+      "id": "TYPE-6-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011350911999898017
+    },
+    {
+      "id": "TYPE-7-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011448059000031208
+    },
+    {
+      "id": "TYPE-7-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011576448999903732
+    },
+    {
+      "id": "TYPE-7-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011825676999933421
+    },
+    {
+      "id": "TYPE-7-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.015119163000008484
+    },
+    {
+      "id": "TYPE-7-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01636420999989241
+    },
+    {
+      "id": "TYPE-7-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011219743000083326
+    },
+    {
+      "id": "TYPE-7-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011468440000044211
+    },
+    {
+      "id": "TYPE-7-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011172916000077748
+    },
+    {
+      "id": "TYPE-7-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011051953000105641
+    },
+    {
+      "id": "TYPE-7-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011165912000024036
+    },
+    {
+      "id": "TYPE-7-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011344586999939565
+    },
+    {
+      "id": "TYPE-7-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011154283999985637
+    },
+    {
+      "id": "TYPE-7-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01125308199993924
+    },
+    {
+      "id": "TYPE-7-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011221613999850888
+    },
+    {
+      "id": "TYPE-7-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01124739499982752
+    },
+    {
+      "id": "TYPE-7-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011396865000051548
+    },
+    {
+      "id": "TYPE-8-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011529350000046179
+    },
+    {
+      "id": "TYPE-8-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011099922999846967
+    },
+    {
+      "id": "TYPE-8-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011288931000080993
+    },
+    {
+      "id": "TYPE-8-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011133449999988443
+    },
+    {
+      "id": "TYPE-8-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011078100000077029
+    },
+    {
+      "id": "TYPE-8-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011520419999897058
+    },
+    {
+      "id": "TYPE-8-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011171971999829111
+    },
+    {
+      "id": "TYPE-8-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.0110971450001216
+    },
+    {
+      "id": "TYPE-8-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011071318000176689
+    },
+    {
+      "id": "TYPE-8-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011082256000008783
+    },
+    {
+      "id": "TYPE-8-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01138985100010359
+    },
+    {
+      "id": "TYPE-8-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011594789000128003
+    },
+    {
+      "id": "TYPE-8-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011146549999921262
+    },
+    {
+      "id": "TYPE-8-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01157027699991886
+    },
+    {
+      "id": "TYPE-8-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01112189699983901
+    },
+    {
+      "id": "TYPE-8-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011088748000020132
+    },
+    {
+      "id": "TYPE-9-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011480862000098568
+    },
+    {
+      "id": "TYPE-9-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011199387000033312
+    },
+    {
+      "id": "TYPE-9-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011128624000093623
+    },
+    {
+      "id": "TYPE-9-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011232838999831074
+    },
+    {
+      "id": "TYPE-9-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011169731000109095
+    },
+    {
+      "id": "TYPE-9-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011148739000191199
+    },
+    {
+      "id": "TYPE-9-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011177913999972588
+    },
+    {
+      "id": "TYPE-9-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011177612999972553
+    },
+    {
+      "id": "TYPE-9-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011079812000161837
+    },
+    {
+      "id": "TYPE-9-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011128120999956082
+    },
+    {
+      "id": "TYPE-9-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011150327999985166
+    },
+    {
+      "id": "TYPE-9-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011503499000127704
+    },
+    {
+      "id": "TYPE-9-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011125301999982184
+    },
+    {
+      "id": "TYPE-9-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011051421000047412
+    },
+    {
+      "id": "TYPE-9-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011173100000178238
+    },
+    {
+      "id": "TYPE-9-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011119727999812312
+    },
+    {
+      "id": "TYPE-10-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011211990999981936
+    },
+    {
+      "id": "TYPE-10-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011091568000210827
+    },
+    {
+      "id": "TYPE-10-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011214182999992772
+    },
+    {
+      "id": "TYPE-10-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011114296999949147
+    },
+    {
+      "id": "TYPE-10-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01109983999981523
+    },
+    {
+      "id": "TYPE-10-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011086294000051566
+    },
+    {
+      "id": "TYPE-10-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011089897999909226
+    },
+    {
+      "id": "TYPE-10-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011211048999939521
+    },
+    {
+      "id": "TYPE-10-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011097536999841395
+    },
+    {
+      "id": "TYPE-10-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011430676999907519
+    },
+    {
+      "id": "TYPE-10-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011099944999841682
+    },
+    {
+      "id": "TYPE-10-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011050295000131882
+    },
+    {
+      "id": "TYPE-10-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011241595000001325
+    },
+    {
+      "id": "TYPE-10-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011479511000061393
+    },
+    {
+      "id": "TYPE-10-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01130835300000399
+    },
+    {
+      "id": "TYPE-10-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011297737999939272
+    },
+    {
+      "id": "TYPE-11-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011223719000099663
+    },
+    {
+      "id": "TYPE-11-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011185057999909986
+    },
+    {
+      "id": "TYPE-11-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011218116999998529
+    },
+    {
+      "id": "TYPE-11-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011125988000003417
+    },
+    {
+      "id": "TYPE-11-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011538036000047214
+    },
+    {
+      "id": "TYPE-11-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011102258000164511
+    },
+    {
+      "id": "TYPE-11-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011423881999917285
+    },
+    {
+      "id": "TYPE-11-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01117630600015218
+    },
+    {
+      "id": "TYPE-11-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011064785999906235
+    },
+    {
+      "id": "TYPE-11-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011396188999924561
+    },
+    {
+      "id": "TYPE-11-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011117831999854388
+    },
+    {
+      "id": "TYPE-11-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011890687999994043
+    },
+    {
+      "id": "TYPE-11-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011633886000026905
+    },
+    {
+      "id": "TYPE-11-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011826507000023412
+    },
+    {
+      "id": "TYPE-11-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011317212999983894
+    },
+    {
+      "id": "TYPE-11-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011131937999834918
+    },
+    {
+      "id": "TYPE-12-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011349911000024804
+    },
+    {
+      "id": "TYPE-12-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012145485000019107
+    },
+    {
+      "id": "TYPE-12-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.012416730000040843
+    },
+    {
+      "id": "TYPE-12-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011988599999995131
+    },
+    {
+      "id": "TYPE-12-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011419914000043718
+    },
+    {
+      "id": "TYPE-12-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011649648999991769
+    },
+    {
+      "id": "TYPE-12-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011754250000194588
+    },
+    {
+      "id": "TYPE-12-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011318353999968167
+    },
+    {
+      "id": "TYPE-12-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011152993999985483
+    },
+    {
+      "id": "TYPE-12-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011162781999928484
+    },
+    {
+      "id": "TYPE-12-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011160546999917642
+    },
+    {
+      "id": "TYPE-12-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011255656999992425
+    },
+    {
+      "id": "TYPE-12-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011378287000070486
+    },
+    {
+      "id": "TYPE-12-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011337001999891072
+    },
+    {
+      "id": "TYPE-12-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011505744000032792
+    },
+    {
+      "id": "TYPE-12-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011312612999972771
+    },
+    {
+      "id": "TYPE-13-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01147995900009846
+    },
+    {
+      "id": "TYPE-13-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011044045000062397
+    },
+    {
+      "id": "TYPE-13-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011163506000002599
+    },
+    {
+      "id": "TYPE-13-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011012392000111504
+    },
+    {
+      "id": "TYPE-13-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011079182999992554
+    },
+    {
+      "id": "TYPE-13-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011027480000166179
+    },
+    {
+      "id": "TYPE-13-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011049007000110578
+    },
+    {
+      "id": "TYPE-13-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011018909000085841
+    },
+    {
+      "id": "TYPE-13-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011206766999976026
+    },
+    {
+      "id": "TYPE-13-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01134747200012498
+    },
+    {
+      "id": "TYPE-13-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011219456000162609
+    },
+    {
+      "id": "TYPE-13-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011192945999937365
+    },
+    {
+      "id": "TYPE-13-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011059837999937372
+    },
+    {
+      "id": "TYPE-13-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011239054000043325
+    },
+    {
+      "id": "TYPE-13-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011108139000043593
+    },
+    {
+      "id": "TYPE-13-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011078464000092936
+    },
+    {
+      "id": "TYPE-14-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.0111686949999239
+    },
+    {
+      "id": "TYPE-14-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011178283999925043
+    },
+    {
+      "id": "TYPE-14-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011127513000019462
+    },
+    {
+      "id": "TYPE-14-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011092069999904197
+    },
+    {
+      "id": "TYPE-14-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011488708999877417
+    },
+    {
+      "id": "TYPE-14-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011180826999861893
+    },
+    {
+      "id": "TYPE-14-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01109779300008995
+    },
+    {
+      "id": "TYPE-14-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01112161199989714
+    },
+    {
+      "id": "TYPE-14-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01107099199998629
+    },
+    {
+      "id": "TYPE-14-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011105751000059172
+    },
+    {
+      "id": "TYPE-14-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011115344000018013
+    },
+    {
+      "id": "TYPE-14-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011080800999934581
+    },
+    {
+      "id": "TYPE-14-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011074555999812219
+    },
+    {
+      "id": "TYPE-14-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011157949000107692
+    },
+    {
+      "id": "TYPE-14-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.011085347000062029
+    },
+    {
+      "id": "TYPE-14-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011031693999939307
+    },
+    {
+      "id": "TYPE-15-0",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011066375999917
+    },
+    {
+      "id": "TYPE-15-1",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01124948200003928
+    },
+    {
+      "id": "TYPE-15-2",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011157000999901356
+    },
+    {
+      "id": "TYPE-15-3",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011062718999937715
+    },
+    {
+      "id": "TYPE-15-4",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01107225800001288
+    },
+    {
+      "id": "TYPE-15-5",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011082681999823762
+    },
+    {
+      "id": "TYPE-15-6",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011087225999972361
+    },
+    {
+      "id": "TYPE-15-7",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011146468999868375
+    },
+    {
+      "id": "TYPE-15-8",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011100702000021556
+    },
+    {
+      "id": "TYPE-15-9",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011299040999801946
+    },
+    {
+      "id": "TYPE-15-10",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.0115620779999972
+    },
+    {
+      "id": "TYPE-15-11",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01158393600007912
+    },
+    {
+      "id": "TYPE-15-12",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011156172999790215
+    },
+    {
+      "id": "TYPE-15-13",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.011378623999917181
+    },
+    {
+      "id": "TYPE-15-14",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": true
+      },
+      "seconds": 0.01110565800013319
+    },
+    {
+      "id": "TYPE-15-15",
+      "group": "typed_discrimination",
+      "criterion": "В DDx сохраняется различимость канонических JSON-значений при отсутствующем пригодном измерении",
+      "outcome": "pass",
+      "detail": {
+        "distinguishable": false
+      },
+      "seconds": 0.01111345899994376
+    },
+    {
+      "id": "LOGIC-0",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 3,
+        "cycle_terminated": true
+      },
+      "seconds": 4.577699996843876e-05
+    },
+    {
+      "id": "LOGIC-1",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 4,
+        "cycle_terminated": true
+      },
+      "seconds": 2.8433999887056416e-05
+    },
+    {
+      "id": "LOGIC-2",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 5,
+        "cycle_terminated": true
+      },
+      "seconds": 2.7373999955671025e-05
+    },
+    {
+      "id": "LOGIC-3",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 6,
+        "cycle_terminated": true
+      },
+      "seconds": 2.875500013033161e-05
+    },
+    {
+      "id": "LOGIC-4",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 7,
+        "cycle_terminated": true
+      },
+      "seconds": 2.9963999850224354e-05
+    },
+    {
+      "id": "LOGIC-5",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 8,
+        "cycle_terminated": true
+      },
+      "seconds": 3.0115000072328257e-05
+    },
+    {
+      "id": "LOGIC-6",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 9,
+        "cycle_terminated": true
+      },
+      "seconds": 3.4849000030590105e-05
+    },
+    {
+      "id": "LOGIC-7",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 10,
+        "cycle_terminated": true
+      },
+      "seconds": 3.766000008909032e-05
+    },
+    {
+      "id": "LOGIC-8",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 11,
+        "cycle_terminated": true
+      },
+      "seconds": 4.2371000063212705e-05
+    },
+    {
+      "id": "LOGIC-9",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 12,
+        "cycle_terminated": true
+      },
+      "seconds": 4.23779999891849e-05
+    },
+    {
+      "id": "LOGIC-10",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 13,
+        "cycle_terminated": true
+      },
+      "seconds": 4.7993999942264054e-05
+    },
+    {
+      "id": "LOGIC-11",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 14,
+        "cycle_terminated": true
+      },
+      "seconds": 5.099800000607502e-05
+    },
+    {
+      "id": "LOGIC-12",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 15,
+        "cycle_terminated": true
+      },
+      "seconds": 5.498799987435632e-05
+    },
+    {
+      "id": "LOGIC-13",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 3,
+        "cycle_terminated": true
+      },
+      "seconds": 1.6051000102379476e-05
+    },
+    {
+      "id": "LOGIC-14",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 4,
+        "cycle_terminated": true
+      },
+      "seconds": 1.786100006029301e-05
+    },
+    {
+      "id": "LOGIC-15",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 5,
+        "cycle_terminated": true
+      },
+      "seconds": 2.0554999991873046e-05
+    },
+    {
+      "id": "LOGIC-16",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 6,
+        "cycle_terminated": true
+      },
+      "seconds": 2.3621000082130195e-05
+    },
+    {
+      "id": "LOGIC-17",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 7,
+        "cycle_terminated": true
+      },
+      "seconds": 2.703300015127752e-05
+    },
+    {
+      "id": "LOGIC-18",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 8,
+        "cycle_terminated": true
+      },
+      "seconds": 2.8408999924067757e-05
+    },
+    {
+      "id": "LOGIC-19",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 9,
+        "cycle_terminated": true
+      },
+      "seconds": 3.257099979236955e-05
+    },
+    {
+      "id": "LOGIC-20",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 10,
+        "cycle_terminated": true
+      },
+      "seconds": 3.568400006770389e-05
+    },
+    {
+      "id": "LOGIC-21",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 11,
+        "cycle_terminated": true
+      },
+      "seconds": 5.7884999932866776e-05
+    },
+    {
+      "id": "LOGIC-22",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 12,
+        "cycle_terminated": true
+      },
+      "seconds": 8.050700012063317e-05
+    },
+    {
+      "id": "LOGIC-23",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 13,
+        "cycle_terminated": true
+      },
+      "seconds": 4.893300001640455e-05
+    },
+    {
+      "id": "LOGIC-24",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 14,
+        "cycle_terminated": true
+      },
+      "seconds": 4.9472999990030075e-05
+    },
+    {
+      "id": "LOGIC-25",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 15,
+        "cycle_terminated": true
+      },
+      "seconds": 5.426300003819051e-05
+    },
+    {
+      "id": "LOGIC-26",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 3,
+        "cycle_terminated": true
+      },
+      "seconds": 1.5993000033631688e-05
+    },
+    {
+      "id": "LOGIC-27",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 4,
+        "cycle_terminated": true
+      },
+      "seconds": 1.7454000044381246e-05
+    },
+    {
+      "id": "LOGIC-28",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 5,
+        "cycle_terminated": true
+      },
+      "seconds": 1.9646000055217883e-05
+    },
+    {
+      "id": "LOGIC-29",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 6,
+        "cycle_terminated": true
+      },
+      "seconds": 2.3607999992236728e-05
+    },
+    {
+      "id": "LOGIC-30",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 7,
+        "cycle_terminated": true
+      },
+      "seconds": 2.57829999554815e-05
+    },
+    {
+      "id": "LOGIC-31",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 8,
+        "cycle_terminated": true
+      },
+      "seconds": 2.8807000035158126e-05
+    },
+    {
+      "id": "LOGIC-32",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 9,
+        "cycle_terminated": true
+      },
+      "seconds": 3.154000000904489e-05
+    },
+    {
+      "id": "LOGIC-33",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 10,
+        "cycle_terminated": true
+      },
+      "seconds": 3.4881000146924634e-05
+    },
+    {
+      "id": "LOGIC-34",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 11,
+        "cycle_terminated": true
+      },
+      "seconds": 3.8394000057451194e-05
+    },
+    {
+      "id": "LOGIC-35",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 12,
+        "cycle_terminated": true
+      },
+      "seconds": 4.179400002612965e-05
+    },
+    {
+      "id": "LOGIC-36",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 13,
+        "cycle_terminated": true
+      },
+      "seconds": 4.813100008504989e-05
+    },
+    {
+      "id": "LOGIC-37",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 14,
+        "cycle_terminated": true
+      },
+      "seconds": 5.0817000101233134e-05
+    },
+    {
+      "id": "LOGIC-38",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 15,
+        "cycle_terminated": true
+      },
+      "seconds": 5.5732999953761464e-05
+    },
+    {
+      "id": "LOGIC-39",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 3,
+        "cycle_terminated": true
+      },
+      "seconds": 1.6003000155251357e-05
+    },
+    {
+      "id": "LOGIC-40",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 4,
+        "cycle_terminated": true
+      },
+      "seconds": 1.7354999954477535e-05
+    },
+    {
+      "id": "LOGIC-41",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 5,
+        "cycle_terminated": true
+      },
+      "seconds": 2.0314000039434177e-05
+    },
+    {
+      "id": "LOGIC-42",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 6,
+        "cycle_terminated": true
+      },
+      "seconds": 2.2850000050311792e-05
+    },
+    {
+      "id": "LOGIC-43",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 7,
+        "cycle_terminated": true
+      },
+      "seconds": 4.591099991557712e-05
+    },
+    {
+      "id": "LOGIC-44",
+      "group": "formal_closure",
+      "criterion": "Корректное условное замыкание с циклом и занятыми DERIVED-ID",
+      "outcome": "pass",
+      "detail": {
+        "facts": 8,
+        "cycle_terminated": true
+      },
+      "seconds": 2.8548000045702793e-05
+    },
+    {
+      "id": "G-ARCHIVE-0-0",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE0"
+        ]
+      },
+      "seconds": 0.004506920000039827
+    },
+    {
+      "id": "G-RISK-0-0",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH0"
+        ]
+      },
+      "seconds": 0.010164095000163798
+    },
+    {
+      "id": "G-ARCHIVE-0-1",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE1"
+        ]
+      },
+      "seconds": 0.004156061999992744
+    },
+    {
+      "id": "G-RISK-0-1",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH1"
+        ]
+      },
+      "seconds": 0.010298307000084606
+    },
+    {
+      "id": "G-ARCHIVE-0-2",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE2"
+        ]
+      },
+      "seconds": 0.004070576999993136
+    },
+    {
+      "id": "G-RISK-0-2",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH2"
+        ]
+      },
+      "seconds": 0.010103846999982125
+    },
+    {
+      "id": "G-ARCHIVE-0-3",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE3"
+        ]
+      },
+      "seconds": 0.004228229000091233
+    },
+    {
+      "id": "G-RISK-0-3",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH3"
+        ]
+      },
+      "seconds": 0.010670949000086694
+    },
+    {
+      "id": "G-ARCHIVE-1-0",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE0"
+        ]
+      },
+      "seconds": 0.0039600079999218
+    },
+    {
+      "id": "G-RISK-1-0",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH0"
+        ]
+      },
+      "seconds": 0.010064599000088492
+    },
+    {
+      "id": "G-ARCHIVE-1-1",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE1"
+        ]
+      },
+      "seconds": 0.003979286999992837
+    },
+    {
+      "id": "G-RISK-1-1",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH1"
+        ]
+      },
+      "seconds": 0.010047840000197539
+    },
+    {
+      "id": "G-ARCHIVE-1-2",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE2"
+        ]
+      },
+      "seconds": 0.004105047999928502
+    },
+    {
+      "id": "G-RISK-1-2",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH2"
+        ]
+      },
+      "seconds": 0.01016554000011638
+    },
+    {
+      "id": "G-ARCHIVE-1-3",
+      "group": "generation_lifecycle",
+      "criterion": "Архивный структурный дубль не вытесняет отдельный активный кандидат",
+      "outcome": "pass",
+      "detail": {
+        "selected": [
+          "LIVE3"
+        ]
+      },
+      "seconds": 0.003994195000132095
+    },
+    {
+      "id": "G-RISK-1-3",
+      "group": "generation_risk",
+      "criterion": "Объединение дублей не снимает известный высокий приоритет пропуска в G→S→D",
+      "outcome": "pass",
+      "detail": {
+        "priority": [
+          "HIGH3"
+        ]
+      },
+      "seconds": 0.01001192099988657
+    },
+    {
+      "id": "G-MORPH-0",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 1,
+        "retained": 1
+      },
+      "seconds": 0.002199920000066413
+    },
+    {
+      "id": "G-MORPH-1",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 2,
+        "retained": 2
+      },
+      "seconds": 0.003976808000061283
+    },
+    {
+      "id": "G-MORPH-2",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 3,
+        "retained": 3
+      },
+      "seconds": 0.005770467999809625
+    },
+    {
+      "id": "G-MORPH-3",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 4,
+        "retained": 4
+      },
+      "seconds": 0.007624859999850742
+    },
+    {
+      "id": "G-MORPH-4",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 5,
+        "retained": 5
+      },
+      "seconds": 0.00948178899989216
+    },
+    {
+      "id": "G-MORPH-5",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 6,
+        "retained": 6
+      },
+      "seconds": 0.011434881000013775
+    },
+    {
+      "id": "G-MORPH-6",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 1,
+        "retained": 1
+      },
+      "seconds": 0.002074434999940422
+    },
+    {
+      "id": "G-MORPH-7",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 2,
+        "retained": 2
+      },
+      "seconds": 0.004003029999921637
+    },
+    {
+      "id": "G-MORPH-8",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 3,
+        "retained": 3
+      },
+      "seconds": 0.005699905000028593
+    },
+    {
+      "id": "G-MORPH-9",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 4,
+        "retained": 4
+      },
+      "seconds": 0.00799913000014385
+    },
+    {
+      "id": "G-MORPH-10",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 5,
+        "retained": 5
+      },
+      "seconds": 0.009474706999981208
+    },
+    {
+      "id": "G-MORPH-11",
+      "group": "generation_budget",
+      "criterion": "Морфологическая генерация ограничена объявленными ресурсами",
+      "outcome": "pass",
+      "detail": {
+        "attempted": 6,
+        "retained": 6
+      },
+      "seconds": 0.011462709000170435
+    },
+    {
+      "id": "REVIEW-support-missing",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005816061000132322
+    },
+    {
+      "id": "REVIEW-support-duplicated",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005804285000067466
+    },
+    {
+      "id": "REVIEW-support-wrong_role",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005774958000074548
+    },
+    {
+      "id": "REVIEW-opposition-missing",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005786982000017815
+    },
+    {
+      "id": "REVIEW-opposition-duplicated",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005989879999788172
+    },
+    {
+      "id": "REVIEW-opposition-wrong_role",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005666653000162114
+    },
+    {
+      "id": "REVIEW-unknown-missing",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0057162799998877745
+    },
+    {
+      "id": "REVIEW-unknown-duplicated",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005675185999962196
+    },
+    {
+      "id": "REVIEW-unknown-wrong_role",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005743379000023197
+    },
+    {
+      "id": "REVIEW-dependent-missing",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005729054000084943
+    },
+    {
+      "id": "REVIEW-dependent-duplicated",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005724668000084421
+    },
+    {
+      "id": "REVIEW-dependent-wrong_role",
+      "group": "review_contract",
+      "criterion": "Несуществующие, повторные, переставленные и удалённые основания отклоняются",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.005765152000094531
+    },
+    {
+      "id": "CTX-G-G",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 216909
+      },
+      "seconds": 0.06044576099998267
+    },
+    {
+      "id": "CTX-G-S",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.009329140000090774
+    },
+    {
+      "id": "CTX-G-D",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.009108231000027445
+    },
+    {
+      "id": "CTX-S-G",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.025878596999973524
+    },
+    {
+      "id": "CTX-S-S",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 263932
+      },
+      "seconds": 0.1132643169999028
+    },
+    {
+      "id": "CTX-S-D",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.020193741999946724
+    },
+    {
+      "id": "CTX-D-G",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0007002360000569752
+    },
+    {
+      "id": "CTX-D-S",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0006416759999865462
+    },
+    {
+      "id": "CTX-D-D",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 152480
+      },
+      "seconds": 0.004345231999877797
+    },
+    {
+      "id": "CTX-GS-G",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 347824
+      },
+      "seconds": 0.16024022900001
+    },
+    {
+      "id": "CTX-GS-S",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 347824
+      },
+      "seconds": 0.15294335799990222
+    },
+    {
+      "id": "CTX-GS-D",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.030069520999859378
+    },
+    {
+      "id": "CTX-GD-G",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 236372
+      },
+      "seconds": 0.05182263100005002
+    },
+    {
+      "id": "CTX-GD-S",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.009458098999857611
+    },
+    {
+      "id": "CTX-GD-D",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 236372
+      },
+      "seconds": 0.050979543999801535
+    },
+    {
+      "id": "CTX-SD-G",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.020508364000079382
+    },
+    {
+      "id": "CTX-SD-S",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 283395
+      },
+      "seconds": 0.10630032200015194
+    },
+    {
+      "id": "CTX-SD-D",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 283395
+      },
+      "seconds": 0.10741926900004728
+    },
+    {
+      "id": "CTX-GSD-G",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 367287
+      },
+      "seconds": 0.15923364900004344
+    },
+    {
+      "id": "CTX-GSD-S",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 367287
+      },
+      "seconds": 0.1549710970000433
+    },
+    {
+      "id": "CTX-GSD-D",
+      "group": "component_membership",
+      "criterion": "Дополнительная активная инструкция относится к объявленному составу",
+      "outcome": "pass",
+      "detail": {
+        "bytes": 367287
+      },
+      "seconds": 0.15463861399985035
+    },
+    {
+      "id": "MODE-G-eMVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "G",
+        "profile": "eMVP",
+        "external_action": false
+      },
+      "seconds": 0.005373663999989731
+    },
+    {
+      "id": "MODE-G-MVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "G",
+        "profile": "MVP",
+        "external_action": false
+      },
+      "seconds": 0.00435700100001668
+    },
+    {
+      "id": "MODE-G-Standard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "G",
+        "profile": "Standard",
+        "external_action": false
+      },
+      "seconds": 0.0042849710000609775
+    },
+    {
+      "id": "MODE-G-eStandard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "G",
+        "profile": "eStandard",
+        "external_action": false
+      },
+      "seconds": 0.0043299369999658666
+    },
+    {
+      "id": "MODE-G-High Stakes",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "G",
+        "profile": "High Stakes",
+        "external_action": false
+      },
+      "seconds": 0.004239242000039667
+    },
+    {
+      "id": "MODE-G-Critical Infrastructure",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "G",
+        "profile": "Critical Infrastructure",
+        "external_action": false
+      },
+      "seconds": 0.004326302999970721
+    },
+    {
+      "id": "MODE-S-eMVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "S",
+        "profile": "eMVP",
+        "external_action": false
+      },
+      "seconds": 0.003976288999865574
+    },
+    {
+      "id": "MODE-S-MVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "S",
+        "profile": "MVP",
+        "external_action": false
+      },
+      "seconds": 0.003944610000189641
+    },
+    {
+      "id": "MODE-S-Standard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "S",
+        "profile": "Standard",
+        "external_action": false
+      },
+      "seconds": 0.003978434999908131
+    },
+    {
+      "id": "MODE-S-eStandard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "S",
+        "profile": "eStandard",
+        "external_action": false
+      },
+      "seconds": 0.004047828000011577
+    },
+    {
+      "id": "MODE-S-High Stakes",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "S",
+        "profile": "High Stakes",
+        "external_action": false
+      },
+      "seconds": 0.004022666000082609
+    },
+    {
+      "id": "MODE-S-Critical Infrastructure",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "S",
+        "profile": "Critical Infrastructure",
+        "external_action": false
+      },
+      "seconds": 0.004094232999932501
+    },
+    {
+      "id": "MODE-D-eMVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "D",
+        "profile": "eMVP",
+        "external_action": false
+      },
+      "seconds": 0.004301027999872531
+    },
+    {
+      "id": "MODE-D-MVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "D",
+        "profile": "MVP",
+        "external_action": false
+      },
+      "seconds": 0.0040541609998854256
+    },
+    {
+      "id": "MODE-D-Standard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "D",
+        "profile": "Standard",
+        "external_action": false
+      },
+      "seconds": 0.003713809999908335
+    },
+    {
+      "id": "MODE-D-eStandard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "D",
+        "profile": "eStandard",
+        "external_action": false
+      },
+      "seconds": 0.003797829000177444
+    },
+    {
+      "id": "MODE-D-High Stakes",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "D",
+        "profile": "High Stakes",
+        "external_action": false
+      },
+      "seconds": 0.003777219000085097
+    },
+    {
+      "id": "MODE-D-Critical Infrastructure",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "D",
+        "profile": "Critical Infrastructure",
+        "external_action": false
+      },
+      "seconds": 0.003741042000001471
+    },
+    {
+      "id": "MODE-GS-eMVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GS",
+        "profile": "eMVP",
+        "external_action": false
+      },
+      "seconds": 0.00793992699982482
+    },
+    {
+      "id": "MODE-GS-MVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GS",
+        "profile": "MVP",
+        "external_action": false
+      },
+      "seconds": 0.007886847999998281
+    },
+    {
+      "id": "MODE-GS-Standard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GS",
+        "profile": "Standard",
+        "external_action": false
+      },
+      "seconds": 0.007792850999976508
+    },
+    {
+      "id": "MODE-GS-eStandard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GS",
+        "profile": "eStandard",
+        "external_action": false
+      },
+      "seconds": 0.00790344000006371
+    },
+    {
+      "id": "MODE-GS-High Stakes",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GS",
+        "profile": "High Stakes",
+        "external_action": false
+      },
+      "seconds": 0.007938933000104953
+    },
+    {
+      "id": "MODE-GS-Critical Infrastructure",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GS",
+        "profile": "Critical Infrastructure",
+        "external_action": false
+      },
+      "seconds": 0.007847850999951334
+    },
+    {
+      "id": "MODE-GD-eMVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GD",
+        "profile": "eMVP",
+        "external_action": false
+      },
+      "seconds": 0.007763340999872526
+    },
+    {
+      "id": "MODE-GD-MVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GD",
+        "profile": "MVP",
+        "external_action": false
+      },
+      "seconds": 0.007702482000013333
+    },
+    {
+      "id": "MODE-GD-Standard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GD",
+        "profile": "Standard",
+        "external_action": false
+      },
+      "seconds": 0.007665449000114677
+    },
+    {
+      "id": "MODE-GD-eStandard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GD",
+        "profile": "eStandard",
+        "external_action": false
+      },
+      "seconds": 0.009421979000080682
+    },
+    {
+      "id": "MODE-GD-High Stakes",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GD",
+        "profile": "High Stakes",
+        "external_action": false
+      },
+      "seconds": 0.008297956999967937
+    },
+    {
+      "id": "MODE-GD-Critical Infrastructure",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GD",
+        "profile": "Critical Infrastructure",
+        "external_action": false
+      },
+      "seconds": 0.00781210199988891
+    },
+    {
+      "id": "MODE-SD-eMVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "SD",
+        "profile": "eMVP",
+        "external_action": false
+      },
+      "seconds": 0.011855948999937027
+    },
+    {
+      "id": "MODE-SD-MVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "SD",
+        "profile": "MVP",
+        "external_action": false
+      },
+      "seconds": 0.011636468999995486
+    },
+    {
+      "id": "MODE-SD-Standard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "SD",
+        "profile": "Standard",
+        "external_action": false
+      },
+      "seconds": 0.012526637000064511
+    },
+    {
+      "id": "MODE-SD-eStandard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "SD",
+        "profile": "eStandard",
+        "external_action": false
+      },
+      "seconds": 0.011808856000016021
+    },
+    {
+      "id": "MODE-SD-High Stakes",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "SD",
+        "profile": "High Stakes",
+        "external_action": false
+      },
+      "seconds": 0.011737705999848913
+    },
+    {
+      "id": "MODE-SD-Critical Infrastructure",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "SD",
+        "profile": "Critical Infrastructure",
+        "external_action": false
+      },
+      "seconds": 0.011631987000100708
+    },
+    {
+      "id": "MODE-GSD-eMVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GSD",
+        "profile": "eMVP",
+        "external_action": false
+      },
+      "seconds": 0.015712620999920546
+    },
+    {
+      "id": "MODE-GSD-MVP",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GSD",
+        "profile": "MVP",
+        "external_action": false
+      },
+      "seconds": 0.015604740000071615
+    },
+    {
+      "id": "MODE-GSD-Standard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GSD",
+        "profile": "Standard",
+        "external_action": false
+      },
+      "seconds": 0.015740293000135352
+    },
+    {
+      "id": "MODE-GSD-eStandard",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GSD",
+        "profile": "eStandard",
+        "external_action": false
+      },
+      "seconds": 0.015614696000056938
+    },
+    {
+      "id": "MODE-GSD-High Stakes",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GSD",
+        "profile": "High Stakes",
+        "external_action": false
+      },
+      "seconds": 0.015582429999994929
+    },
+    {
+      "id": "MODE-GSD-Critical Infrastructure",
+      "group": "mode_profiles",
+      "criterion": "Состав/профиль сохраняются; узкие алгоритмы не заявляют внешнего допуска",
+      "outcome": "pass",
+      "detail": {
+        "mode": "GSD",
+        "profile": "Critical Infrastructure",
+        "external_action": false
+      },
+      "seconds": 0.01565288500000861
+    },
+    {
+      "id": "MSG-VERSION-True",
+      "group": "handoff_typed_identity",
+      "criterion": "Версия передачи — положительное целое, не bool, float или строка",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.010264361000054123
+    },
+    {
+      "id": "MSG-VERSION-1.0",
+      "group": "handoff_typed_identity",
+      "criterion": "Версия передачи — положительное целое, не bool, float или строка",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0005165249999663502
+    },
+    {
+      "id": "MSG-VERSION-'1'",
+      "group": "handoff_typed_identity",
+      "criterion": "Версия передачи — положительное целое, не bool, float или строка",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00033141299991257256
+    },
+    {
+      "id": "MSG-VERSION-None",
+      "group": "handoff_typed_identity",
+      "criterion": "Версия передачи — положительное целое, не bool, float или строка",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00028344899988042016
+    },
+    {
+      "id": "MSG-VERSION-0",
+      "group": "handoff_typed_identity",
+      "criterion": "Версия передачи — положительное целое, не bool, float или строка",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00030531199990946334
+    },
+    {
+      "id": "MSG-VERSION--1",
+      "group": "handoff_typed_identity",
+      "criterion": "Версия передачи — положительное целое, не bool, float или строка",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00027026100019611476
+    },
+    {
+      "id": "MSG-ID-''",
+      "group": "handoff_typed_identity",
+      "criterion": "Идентификатор передачи не пуст и не состоит из пробелов",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0002767419998690457
+    },
+    {
+      "id": "MSG-ID-' '",
+      "group": "handoff_typed_identity",
+      "criterion": "Идентификатор передачи не пуст и не состоит из пробелов",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0002904929999658634
+    },
+    {
+      "id": "MSG-ID-'\\t'",
+      "group": "handoff_typed_identity",
+      "criterion": "Идентификатор передачи не пуст и не состоит из пробелов",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00026541200008978194
+    },
+    {
+      "id": "MSG-INNER-ID",
+      "group": "handoff_typed_identity",
+      "criterion": "Ключ объекта, payload_id и собственный id обозначают один объект",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00041151300001729396
+    },
+    {
+      "id": "MSG-CONTROL-input_status",
+      "group": "handoff_working_guards",
+      "criterion": "Несовместимая версия, статус, эффект, срок или отпечаток не принимается",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0003719280000495928
+    },
+    {
+      "id": "MSG-CONTROL-risk_floor",
+      "group": "handoff_working_guards",
+      "criterion": "Несовместимая версия, статус, эффект, срок или отпечаток не принимается",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0002841350001290266
+    },
+    {
+      "id": "MSG-CONTROL-protocol_version",
+      "group": "handoff_working_guards",
+      "criterion": "Несовместимая версия, статус, эффект, срок или отпечаток не принимается",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00026137999998354644
+    },
+    {
+      "id": "MSG-CONTROL-allowed_effects",
+      "group": "handoff_working_guards",
+      "criterion": "Несовместимая версия, статус, эффект, срок или отпечаток не принимается",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00026401500008432777
+    },
+    {
+      "id": "MSG-CONTROL-payload_digest",
+      "group": "handoff_working_guards",
+      "criterion": "Несовместимая версия, статус, эффект, срок или отпечаток не принимается",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0003511959998832026
+    },
+    {
+      "id": "MSG-CONTROL-deadline",
+      "group": "handoff_working_guards",
+      "criterion": "Несовместимая версия, статус, эффект, срок или отпечаток не принимается",
+      "outcome": "pass",
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00026823700000022654
+    },
+    {
+      "id": "MSG-REPLAY",
+      "group": "handoff_working_guards",
+      "criterion": "Неизменный повтор сохраняет единственное обязательство бюджета",
+      "outcome": "pass",
+      "detail": {
+        "one_reservation": true
+      },
+      "seconds": 0.0007013179999830754
+    },
+    {
+      "id": "BUDGET-2",
+      "group": "budget_concurrency",
+      "criterion": "Конкурирующие ветви не расходуют резерв завершения",
+      "outcome": "pass",
+      "detail": {
+        "attempts": 2,
+        "accepted": 2,
+        "spent": 2
+      },
+      "seconds": 0.00261262600020018
+    },
+    {
+      "id": "BUDGET-8",
+      "group": "budget_concurrency",
+      "criterion": "Конкурирующие ветви не расходуют резерв завершения",
+      "outcome": "pass",
+      "detail": {
+        "attempts": 8,
+        "accepted": 8,
+        "spent": 8
+      },
+      "seconds": 0.0024044070000854845
+    },
+    {
+      "id": "BUDGET-32",
+      "group": "budget_concurrency",
+      "criterion": "Конкурирующие ветви не расходуют резерв завершения",
+      "outcome": "pass",
+      "detail": {
+        "attempts": 32,
+        "accepted": 32,
+        "spent": 32
+      },
+      "seconds": 0.005938654000146926
+    },
+    {
+      "id": "BUDGET-80",
+      "group": "budget_concurrency",
+      "criterion": "Конкурирующие ветви не расходуют резерв завершения",
+      "outcome": "pass",
+      "detail": {
+        "attempts": 80,
+        "accepted": 50,
+        "spent": 50
+      },
+      "seconds": 0.01326187800009393
+    }
+  ],
+  "model_calls": 0,
+  "limitations": [
+    "Случаи созданы после просмотра кода; не независимый закрытый набор",
+    "Наборы пересекаются по проверяемым требованиям",
+    "Проверка структурного инварианта не подтверждает предметную компетенцию LLM"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "base": "0.2.13-hermes-0.22.2-r4",
+  "canonical_engine_changed": false,
+  "proof_contract": "GSDIsolatedComputeReceiptV1",
+  "no_observation_fabrication": true
+}

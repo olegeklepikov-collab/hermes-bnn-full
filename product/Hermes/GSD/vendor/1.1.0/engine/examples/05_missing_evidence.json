@@ -1,0 +1,187 @@
+{
+  "case_id": "SYNTHETIC_CASE_5",
+  "version": "3.0",
+  "revision": 0,
+  "data_kind": "synthetic",
+  "requested_profile": "eMVP",
+  "risk": {
+    "assessed": null,
+    "critical_operational_use": false,
+    "safety_related_decision": false,
+    "substantial_irreversible_consequences": false,
+    "complex_identification": false
+  },
+  "contract": {
+    "question": "Чем объясняется учебная задержка?",
+    "intended_use": "analysis_only",
+    "scope": "Искусственный пример; без воздействия",
+    "decision_owner": null,
+    "budget_policy": "Один учебный цикл",
+    "closure_criterion": "Ограниченное объяснение и следующий различитель",
+    "budget": {
+      "step_limit": 1000,
+      "reserve_steps": 2,
+      "cost_limit": 1000,
+      "deadline": "2099-01-01T00:00:00Z"
+    }
+  },
+  "contexts": [
+    {
+      "id": "CTX1",
+      "version": 1,
+      "semantic_context": "Искусственный технический пример для проверки договора, не реальные измерения.",
+      "object_scope": "Очередь обработки заявок в демонстрационной системе",
+      "population": "Учебные заявки одного экземпляра",
+      "environment": "Изолированная учебная среда",
+      "regime": "Учебный режим",
+      "time_scope": {
+        "start": "2026-09-01T00:00:00Z",
+        "end": "2026-09-12T00:00:00Z",
+        "timezone": "UTC",
+        "resolution": "Одна минута"
+      },
+      "epistemic_standard": "Поддержанный описательный тезис требует проверенных V/A/R и G01; причинная версия требует дополнительного G02.",
+      "required_dimensions": [
+        "V",
+        "A",
+        "R"
+      ],
+      "intended_use": "discovery",
+      "expires_at": null,
+      "reopen_trigger": "Изменение исходного учебного материала",
+      "standard_source_ids": []
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "claims": [
+    {
+      "id": "H0",
+      "version": 1,
+      "P": {
+        "text": "Предметное объяснение пока не определено.",
+        "subject": "Учебная система",
+        "predicate": "имеет указанное свойство",
+        "arguments": [],
+        "quantifier": "one",
+        "polarity": "positive",
+        "kind": "descriptive",
+        "condition": "Только искусственный пример",
+        "time_scope": "Учебный интервал"
+      },
+      "T": {
+        "truth_condition": "Указанное положение дел имеет место в учебных исходных данных.",
+        "truthmaker_candidate": "Указанная учебная запись",
+        "truthmaker_state": "candidate",
+        "truthmaker_basis": "Требуется отдельное основание для переноса на реальный объект.",
+        "verification": {
+          "method": "Сверка искусственного исходника",
+          "acceptance_criterion": "Совпадают объект, смысл и значения",
+          "rejection_criterion": "Обнаружено релевантное несовпадение",
+          "inconclusive_condition": "Недостаточно записи",
+          "invalid_condition": "Источник повреждён или относится к другому объекту",
+          "status": "planned",
+          "outcome": null,
+          "result_evidence_ids": []
+        }
+      },
+      "J": {
+        "premise_ids": [],
+        "evidence_ids": [],
+        "inference_rule": "Объяснительная гипотеза, не доказательство",
+        "V": {
+          "state": "unknown",
+          "basis_evidence_ids": [],
+          "explanation": "Нет достаточного основания; требуется проверка.",
+          "limitations": [
+            "Искусственный пример"
+          ],
+          "required_for_use": true
+        },
+        "A": {
+          "state": "unknown",
+          "basis_evidence_ids": [],
+          "explanation": "Нет достаточного основания; требуется проверка.",
+          "limitations": [
+            "Искусственный пример"
+          ],
+          "required_for_use": true
+        },
+        "R": {
+          "state": "unknown",
+          "basis_evidence_ids": [],
+          "explanation": "Нет достаточного основания; требуется проверка.",
+          "limitations": [
+            "Искусственный пример"
+          ],
+          "required_for_use": true
+        },
+        "defeater_ids": [],
+        "unresolved_defeater_ids": [],
+        "alternative_claim_ids": []
+      },
+      "S": {
+        "source_ids": []
+      },
+      "M": {
+        "epistemic_status": "hypothesis",
+        "modality": "possible",
+        "evidence_state": "neither",
+        "probability": null,
+        "allowed_use": "discovery",
+        "uncertainties": [
+          "Реальное применение не исследовано"
+        ]
+      },
+      "C": {
+        "context_id": "CTX1",
+        "transport_from_claim_id": null,
+        "transport_review_id": null
+      }
+    }
+  ],
+  "relations": [],
+  "models": [],
+  "positions": [],
+  "genesis": [],
+  "tests": [],
+  "authorities": [],
+  "reviews": [],
+  "artifacts": [],
+  "source_applications": [],
+  "decisions": [],
+  "residuals": {
+    "unsearched": {
+      "content": "Иные механизмы остаются открытыми",
+      "impact": "Ограничивает перенос на реальные системы",
+      "owner_or_unassigned": "Не назначен для учебного примера",
+      "next_step": "Получить независимые реальные данные до применения",
+      "reopen_trigger": "Появление реальных наблюдений"
+    },
+    "unexplained": {
+      "content": "Наблюдение не объясняет причины задержки",
+      "impact": "Ограничивает перенос на реальные системы",
+      "owner_or_unassigned": "Не назначен для учебного примера",
+      "next_step": "Получить независимые реальные данные до применения",
+      "reopen_trigger": "Появление реальных наблюдений"
+    },
+    "unknown": {
+      "content": "Нет данных о внутренних процессах",
+      "impact": "Ограничивает перенос на реальные системы",
+      "owner_or_unassigned": "Не назначен для учебного примера",
+      "next_step": "Получить независимые реальные данные до применения",
+      "reopen_trigger": "Появление реальных наблюдений"
+    },
+    "risk": {
+      "content": "Реальные последствия не оценены",
+      "impact": "Ограничивает перенос на реальные системы",
+      "owner_or_unassigned": "Не назначен для учебного примера",
+      "next_step": "Получить независимые реальные данные до применения",
+      "reopen_trigger": "Появление реальных наблюдений"
+    }
+  },
+  "status": "awaiting_evidence",
+  "action_proposals": [],
+  "action_reviews": [],
+  "procedure_runs": []
+}

@@ -1,0 +1,1328 @@
+{
+  "engine": "3.0.3",
+  "source_definitions": 1948,
+  "operation_skills": [
+    {
+      "source_key": "procedure:BOOT.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-boot-01",
+      "path": "skills/gsd-procedure-boot-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:BOOT.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-boot-02",
+      "path": "skills/gsd-procedure-boot-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:BOOT.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-boot-03",
+      "path": "skills/gsd-procedure-boot-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:BOOT.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-boot-04",
+      "path": "skills/gsd-procedure-boot-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:BOOT.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-boot-05",
+      "path": "skills/gsd-procedure-boot-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:BOOT.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-boot-06",
+      "path": "skills/gsd-procedure-boot-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-01",
+      "path": "skills/gsd-procedure-contract-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-02",
+      "path": "skills/gsd-procedure-contract-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-03",
+      "path": "skills/gsd-procedure-contract-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-04",
+      "path": "skills/gsd-procedure-contract-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-05",
+      "path": "skills/gsd-procedure-contract-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-06",
+      "path": "skills/gsd-procedure-contract-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.07",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-07",
+      "path": "skills/gsd-procedure-contract-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.08",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-08",
+      "path": "skills/gsd-procedure-contract-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CONTRACT.09",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-contract-09",
+      "path": "skills/gsd-procedure-contract-09/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-01",
+      "path": "skills/gsd-procedure-ingest-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-02",
+      "path": "skills/gsd-procedure-ingest-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-03",
+      "path": "skills/gsd-procedure-ingest-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-04",
+      "path": "skills/gsd-procedure-ingest-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-05",
+      "path": "skills/gsd-procedure-ingest-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-06",
+      "path": "skills/gsd-procedure-ingest-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.07",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-07",
+      "path": "skills/gsd-procedure-ingest-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.08",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-08",
+      "path": "skills/gsd-procedure-ingest-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:INGEST.09",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-ingest-09",
+      "path": "skills/gsd-procedure-ingest-09/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.01",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-01",
+      "path": "skills/gsd-procedure-atom-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.02",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-02",
+      "path": "skills/gsd-procedure-atom-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-03",
+      "path": "skills/gsd-procedure-atom-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-04",
+      "path": "skills/gsd-procedure-atom-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.05",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-05",
+      "path": "skills/gsd-procedure-atom-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.06",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-06",
+      "path": "skills/gsd-procedure-atom-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.07",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-07",
+      "path": "skills/gsd-procedure-atom-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.08",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-08",
+      "path": "skills/gsd-procedure-atom-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.09",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-09",
+      "path": "skills/gsd-procedure-atom-09/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.10",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-10",
+      "path": "skills/gsd-procedure-atom-10/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.11",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-11",
+      "path": "skills/gsd-procedure-atom-11/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.12",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-12",
+      "path": "skills/gsd-procedure-atom-12/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.13",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-13",
+      "path": "skills/gsd-procedure-atom-13/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.14",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-14",
+      "path": "skills/gsd-procedure-atom-14/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.15",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-15",
+      "path": "skills/gsd-procedure-atom-15/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.16",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-16",
+      "path": "skills/gsd-procedure-atom-16/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.17",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-17",
+      "path": "skills/gsd-procedure-atom-17/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ATOM.18",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-atom-18",
+      "path": "skills/gsd-procedure-atom-18/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-structure-01",
+      "path": "skills/gsd-procedure-structure-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.02",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-02",
+      "path": "skills/gsd-procedure-structure-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-03",
+      "path": "skills/gsd-procedure-structure-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.04",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-structure-04",
+      "path": "skills/gsd-procedure-structure-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.05",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-05",
+      "path": "skills/gsd-procedure-structure-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.06",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-06",
+      "path": "skills/gsd-procedure-structure-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.07",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-07",
+      "path": "skills/gsd-procedure-structure-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.08",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-08",
+      "path": "skills/gsd-procedure-structure-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.09",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-structure-09",
+      "path": "skills/gsd-procedure-structure-09/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.10",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-10",
+      "path": "skills/gsd-procedure-structure-10/SKILL.md"
+    },
+    {
+      "source_key": "procedure:STRUCTURE.11",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-structure-11",
+      "path": "skills/gsd-procedure-structure-11/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-genesis-01",
+      "path": "skills/gsd-procedure-genesis-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-genesis-02",
+      "path": "skills/gsd-procedure-genesis-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.03",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-03",
+      "path": "skills/gsd-procedure-genesis-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.04",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-04",
+      "path": "skills/gsd-procedure-genesis-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.05",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-05",
+      "path": "skills/gsd-procedure-genesis-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.06",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-06",
+      "path": "skills/gsd-procedure-genesis-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.07",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-07",
+      "path": "skills/gsd-procedure-genesis-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.08",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-08",
+      "path": "skills/gsd-procedure-genesis-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.09",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-09",
+      "path": "skills/gsd-procedure-genesis-09/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.10",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-genesis-10",
+      "path": "skills/gsd-procedure-genesis-10/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENESIS.11",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-genesis-11",
+      "path": "skills/gsd-procedure-genesis-11/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.01",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-01",
+      "path": "skills/gsd-procedure-generate-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.02",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-02",
+      "path": "skills/gsd-procedure-generate-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.03",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-03",
+      "path": "skills/gsd-procedure-generate-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.04",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-04",
+      "path": "skills/gsd-procedure-generate-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.05",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-05",
+      "path": "skills/gsd-procedure-generate-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.06",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-06",
+      "path": "skills/gsd-procedure-generate-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.07",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-07",
+      "path": "skills/gsd-procedure-generate-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.08",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-08",
+      "path": "skills/gsd-procedure-generate-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.09",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-09",
+      "path": "skills/gsd-procedure-generate-09/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.10",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-10",
+      "path": "skills/gsd-procedure-generate-10/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.11",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-11",
+      "path": "skills/gsd-procedure-generate-11/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.12",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-12",
+      "path": "skills/gsd-procedure-generate-12/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.13",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-13",
+      "path": "skills/gsd-procedure-generate-13/SKILL.md"
+    },
+    {
+      "source_key": "procedure:GENERATE.14",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-generate-14",
+      "path": "skills/gsd-procedure-generate-14/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-model-01",
+      "path": "skills/gsd-procedure-model-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-model-02",
+      "path": "skills/gsd-procedure-model-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.03",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-model-03",
+      "path": "skills/gsd-procedure-model-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-model-04",
+      "path": "skills/gsd-procedure-model-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.05",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-model-05",
+      "path": "skills/gsd-procedure-model-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-model-06",
+      "path": "skills/gsd-procedure-model-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.07",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-model-07",
+      "path": "skills/gsd-procedure-model-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MODEL.08",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-model-08",
+      "path": "skills/gsd-procedure-model-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.01",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-01",
+      "path": "skills/gsd-procedure-verify-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.02",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-02",
+      "path": "skills/gsd-procedure-verify-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-03",
+      "path": "skills/gsd-procedure-verify-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-04",
+      "path": "skills/gsd-procedure-verify-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.05",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-05",
+      "path": "skills/gsd-procedure-verify-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.06",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-06",
+      "path": "skills/gsd-procedure-verify-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.07",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-07",
+      "path": "skills/gsd-procedure-verify-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.08",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-08",
+      "path": "skills/gsd-procedure-verify-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.09",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-09",
+      "path": "skills/gsd-procedure-verify-09/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.10",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-10",
+      "path": "skills/gsd-procedure-verify-10/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.11",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-11",
+      "path": "skills/gsd-procedure-verify-11/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.12",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-12",
+      "path": "skills/gsd-procedure-verify-12/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.13",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-13",
+      "path": "skills/gsd-procedure-verify-13/SKILL.md"
+    },
+    {
+      "source_key": "procedure:VERIFY.14",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-verify-14",
+      "path": "skills/gsd-procedure-verify-14/SKILL.md"
+    },
+    {
+      "source_key": "procedure:COMPARE.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-compare-01",
+      "path": "skills/gsd-procedure-compare-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:COMPARE.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-compare-02",
+      "path": "skills/gsd-procedure-compare-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:COMPARE.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-compare-03",
+      "path": "skills/gsd-procedure-compare-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:COMPARE.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-compare-04",
+      "path": "skills/gsd-procedure-compare-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:COMPARE.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-compare-05",
+      "path": "skills/gsd-procedure-compare-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:COMPARE.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-compare-06",
+      "path": "skills/gsd-procedure-compare-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:COMPARE.07",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-compare-07",
+      "path": "skills/gsd-procedure-compare-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:TEST.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-test-01",
+      "path": "skills/gsd-procedure-test-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:TEST.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-test-02",
+      "path": "skills/gsd-procedure-test-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:TEST.03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-test-03",
+      "path": "skills/gsd-procedure-test-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:TEST.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-test-04",
+      "path": "skills/gsd-procedure-test-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:TEST.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-test-05",
+      "path": "skills/gsd-procedure-test-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:TEST.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-test-06",
+      "path": "skills/gsd-procedure-test-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:TEST.07",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-test-07",
+      "path": "skills/gsd-procedure-test-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:SYNTHESIS.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-synthesis-01",
+      "path": "skills/gsd-procedure-synthesis-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:SYNTHESIS.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-synthesis-02",
+      "path": "skills/gsd-procedure-synthesis-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:SYNTHESIS.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-synthesis-03",
+      "path": "skills/gsd-procedure-synthesis-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:SYNTHESIS.04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-synthesis-04",
+      "path": "skills/gsd-procedure-synthesis-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:SYNTHESIS.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-synthesis-05",
+      "path": "skills/gsd-procedure-synthesis-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:DECISION.01",
+      "role": "G",
+      "skill": "bn-gsd:gsd-procedure-decision-01",
+      "path": "skills/gsd-procedure-decision-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:DECISION.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-decision-02",
+      "path": "skills/gsd-procedure-decision-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:DECISION.03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-decision-03",
+      "path": "skills/gsd-procedure-decision-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:DECISION.04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-decision-04",
+      "path": "skills/gsd-procedure-decision-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:DECISION.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-decision-05",
+      "path": "skills/gsd-procedure-decision-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:DECISION.06",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-decision-06",
+      "path": "skills/gsd-procedure-decision-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:DECISION.07",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-decision-07",
+      "path": "skills/gsd-procedure-decision-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MONITOR.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-monitor-01",
+      "path": "skills/gsd-procedure-monitor-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MONITOR.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-monitor-02",
+      "path": "skills/gsd-procedure-monitor-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MONITOR.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-monitor-03",
+      "path": "skills/gsd-procedure-monitor-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MONITOR.04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-monitor-04",
+      "path": "skills/gsd-procedure-monitor-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MONITOR.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-monitor-05",
+      "path": "skills/gsd-procedure-monitor-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MONITOR.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-monitor-06",
+      "path": "skills/gsd-procedure-monitor-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:MONITOR.07",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-monitor-07",
+      "path": "skills/gsd-procedure-monitor-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.01",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-01",
+      "path": "skills/gsd-procedure-assurance-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.02",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-02",
+      "path": "skills/gsd-procedure-assurance-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-03",
+      "path": "skills/gsd-procedure-assurance-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-04",
+      "path": "skills/gsd-procedure-assurance-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.05",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-05",
+      "path": "skills/gsd-procedure-assurance-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.06",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-06",
+      "path": "skills/gsd-procedure-assurance-06/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.07",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-07",
+      "path": "skills/gsd-procedure-assurance-07/SKILL.md"
+    },
+    {
+      "source_key": "procedure:ASSURANCE.08",
+      "role": "S",
+      "skill": "bn-gsd:gsd-procedure-assurance-08",
+      "path": "skills/gsd-procedure-assurance-08/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CORPUS.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-corpus-01",
+      "path": "skills/gsd-procedure-corpus-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CORPUS.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-corpus-02",
+      "path": "skills/gsd-procedure-corpus-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CORPUS.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-corpus-03",
+      "path": "skills/gsd-procedure-corpus-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CORPUS.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-corpus-04",
+      "path": "skills/gsd-procedure-corpus-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:CORPUS.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-corpus-05",
+      "path": "skills/gsd-procedure-corpus-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:LIFECYCLE.01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-lifecycle-01",
+      "path": "skills/gsd-procedure-lifecycle-01/SKILL.md"
+    },
+    {
+      "source_key": "procedure:LIFECYCLE.02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-lifecycle-02",
+      "path": "skills/gsd-procedure-lifecycle-02/SKILL.md"
+    },
+    {
+      "source_key": "procedure:LIFECYCLE.03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-lifecycle-03",
+      "path": "skills/gsd-procedure-lifecycle-03/SKILL.md"
+    },
+    {
+      "source_key": "procedure:LIFECYCLE.04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-lifecycle-04",
+      "path": "skills/gsd-procedure-lifecycle-04/SKILL.md"
+    },
+    {
+      "source_key": "procedure:LIFECYCLE.05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-lifecycle-05",
+      "path": "skills/gsd-procedure-lifecycle-05/SKILL.md"
+    },
+    {
+      "source_key": "procedure:LIFECYCLE.06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-procedure-lifecycle-06",
+      "path": "skills/gsd-procedure-lifecycle-06/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G01",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g01",
+      "path": "skills/gsd-protocol-3c-g01/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G02",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g02",
+      "path": "skills/gsd-protocol-3c-g02/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G03",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g03",
+      "path": "skills/gsd-protocol-3c-g03/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G04",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g04",
+      "path": "skills/gsd-protocol-3c-g04/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G05",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g05",
+      "path": "skills/gsd-protocol-3c-g05/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G06",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g06",
+      "path": "skills/gsd-protocol-3c-g06/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G07",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g07",
+      "path": "skills/gsd-protocol-3c-g07/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G08",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g08",
+      "path": "skills/gsd-protocol-3c-g08/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G09",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g09",
+      "path": "skills/gsd-protocol-3c-g09/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G10",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g10",
+      "path": "skills/gsd-protocol-3c-g10/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.G11",
+      "role": "G",
+      "skill": "bn-gsd:gsd-protocol-3c-g11",
+      "path": "skills/gsd-protocol-3c-g11/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S01",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s01",
+      "path": "skills/gsd-protocol-3c-s01/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S02",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s02",
+      "path": "skills/gsd-protocol-3c-s02/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s03",
+      "path": "skills/gsd-protocol-3c-s03/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s04",
+      "path": "skills/gsd-protocol-3c-s04/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S05",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s05",
+      "path": "skills/gsd-protocol-3c-s05/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S06",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s06",
+      "path": "skills/gsd-protocol-3c-s06/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S07",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s07",
+      "path": "skills/gsd-protocol-3c-s07/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S08",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s08",
+      "path": "skills/gsd-protocol-3c-s08/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S09",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s09",
+      "path": "skills/gsd-protocol-3c-s09/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S10",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s10",
+      "path": "skills/gsd-protocol-3c-s10/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S11",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s11",
+      "path": "skills/gsd-protocol-3c-s11/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S12",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s12",
+      "path": "skills/gsd-protocol-3c-s12/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.S13",
+      "role": "S",
+      "skill": "bn-gsd:gsd-protocol-3c-s13",
+      "path": "skills/gsd-protocol-3c-s13/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D01",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d01",
+      "path": "skills/gsd-protocol-3c-d01/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D02",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d02",
+      "path": "skills/gsd-protocol-3c-d02/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D03",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d03",
+      "path": "skills/gsd-protocol-3c-d03/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D04",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d04",
+      "path": "skills/gsd-protocol-3c-d04/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D05",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d05",
+      "path": "skills/gsd-protocol-3c-d05/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D06",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d06",
+      "path": "skills/gsd-protocol-3c-d06/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D07",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d07",
+      "path": "skills/gsd-protocol-3c-d07/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D08",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d08",
+      "path": "skills/gsd-protocol-3c-d08/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D09",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d09",
+      "path": "skills/gsd-protocol-3c-d09/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D10",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d10",
+      "path": "skills/gsd-protocol-3c-d10/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D11",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d11",
+      "path": "skills/gsd-protocol-3c-d11/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D12",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d12",
+      "path": "skills/gsd-protocol-3c-d12/SKILL.md"
+    },
+    {
+      "source_key": "protocol:3C.D13",
+      "role": "D",
+      "skill": "bn-gsd:gsd-protocol-3c-d13",
+      "path": "skills/gsd-protocol-3c-d13/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S06.V",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s06-v",
+      "path": "skills/gsd-leaf-3c-s06-v/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S06.A",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s06-a",
+      "path": "skills/gsd-leaf-3c-s06-a/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S06.R",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s06-r",
+      "path": "skills/gsd-leaf-3c-s06-r/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG01",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg01",
+      "path": "skills/gsd-leaf-3c-g06-gg01/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG02",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg02",
+      "path": "skills/gsd-leaf-3c-g06-gg02/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG03",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg03",
+      "path": "skills/gsd-leaf-3c-g06-gg03/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG04",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg04",
+      "path": "skills/gsd-leaf-3c-g06-gg04/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG05",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg05",
+      "path": "skills/gsd-leaf-3c-g06-gg05/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG06",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg06",
+      "path": "skills/gsd-leaf-3c-g06-gg06/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG07",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg07",
+      "path": "skills/gsd-leaf-3c-g06-gg07/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G06.GG08",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g06-gg08",
+      "path": "skills/gsd-leaf-3c-g06-gg08/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-01",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-01",
+      "path": "skills/gsd-leaf-3c-g07-ga-01/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-02",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-02",
+      "path": "skills/gsd-leaf-3c-g07-ga-02/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-03",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-03",
+      "path": "skills/gsd-leaf-3c-g07-ga-03/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-04",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-04",
+      "path": "skills/gsd-leaf-3c-g07-ga-04/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-05",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-05",
+      "path": "skills/gsd-leaf-3c-g07-ga-05/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-06",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-06",
+      "path": "skills/gsd-leaf-3c-g07-ga-06/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-07",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-07",
+      "path": "skills/gsd-leaf-3c-g07-ga-07/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-08",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-08",
+      "path": "skills/gsd-leaf-3c-g07-ga-08/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-09",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-09",
+      "path": "skills/gsd-leaf-3c-g07-ga-09/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-10",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-10",
+      "path": "skills/gsd-leaf-3c-g07-ga-10/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-11",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-11",
+      "path": "skills/gsd-leaf-3c-g07-ga-11/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.G07.GA-12",
+      "role": "G",
+      "skill": "bn-gsd:gsd-leaf-3c-g07-ga-12",
+      "path": "skills/gsd-leaf-3c-g07-ga-12/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G01",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g01",
+      "path": "skills/gsd-leaf-3c-s07-g01/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G02",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g02",
+      "path": "skills/gsd-leaf-3c-s07-g02/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G03",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g03",
+      "path": "skills/gsd-leaf-3c-s07-g03/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G04",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g04",
+      "path": "skills/gsd-leaf-3c-s07-g04/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G05",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g05",
+      "path": "skills/gsd-leaf-3c-s07-g05/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G06",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g06",
+      "path": "skills/gsd-leaf-3c-s07-g06/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G07",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g07",
+      "path": "skills/gsd-leaf-3c-s07-g07/SKILL.md"
+    },
+    {
+      "source_key": "leaf:3C.S07.G08",
+      "role": "S",
+      "skill": "bn-gsd:gsd-leaf-3c-s07-g08",
+      "path": "skills/gsd-leaf-3c-s07-g08/SKILL.md"
+    }
+  ],
+  "reference_elements": 1728,
+  "automatic_prompt_listing": false
+}

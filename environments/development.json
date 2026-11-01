@@ -1,0 +1,9 @@
+{
+  "environment": "development",
+  "role": "isolated",
+  "port_base": 65300,
+  "production_mutation_allowed": false,
+  "provider_credentials_inherited": false,
+  "gateway_autostart": false,
+  "multiplex_across_environments": false
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "service": "firecrawl",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-openapi.json",
+    "source_sha256": "49afc368bf971b2321857409d18ac32915f07abf73596905e97be52b2f397cfb",
+    "paths": 45,
+    "read_entire_spec": true,
+    "algorithm": "JSON/YAML parsed in full, every path/operation/parameter/body schema included; not all operations executed."
+  },
+  {
+    "service": "exa",
+    "url": "https://exa.ai/docs/exa-spec.json",
+    "source_sha256": "611c48df459fae13fd33ef869ff1bcb4dac2b724b63f7fc8c73528de16583a14",
+    "paths": 42,
+    "read_entire_spec": true,
+    "algorithm": "JSON/YAML parsed in full, every path/operation/parameter/body schema included; not all operations executed."
+  },
+  {
+    "service": "tavily",
+    "url": "https://docs.tavily.com/documentation/api-reference/openapi.json",
+    "source_sha256": "4958dc0b567ec857892acd088d9a664bb2b35ea501dccc656401c0049986a03a",
+    "paths": 10,
+    "read_entire_spec": true,
+    "algorithm": "JSON/YAML parsed in full, every path/operation/parameter/body schema included; not all operations executed."
+  },
+  {
+    "service": "nimble",
+    "url": "https://docs.nimbleway.com/api-reference/openapi.json",
+    "source_sha256": "fcd4c532dee827b98ab92a95a997abdfa8a4bcac9a8e41fd2211d828c76a8364",
+    "paths": 48,
+    "read_entire_spec": true,
+    "algorithm": "JSON/YAML parsed in full, every path/operation/parameter/body schema included; not all operations executed."
+  },
+  {
+    "service": "parallel-task",
+    "url": "https://docs.parallel.ai/docs-latest-openapi.json",
+    "source_sha256": "9be668eecb5d11ed31972823b7082fad5a056eef16eb44aa39f3784b057f16cc",
+    "paths": 36,
+    "read_entire_spec": true,
+    "algorithm": "JSON/YAML parsed in full, every path/operation/parameter/body schema included; not all operations executed."
+  },
+  {
+    "service": "keenable",
+    "url": "https://docs.keenable.ai/api-reference/search-api.json",
+    "source_sha256": "61325f498063f03522dbc7a9819b942a6e211199aa7170019077b9c6151bf710",
+    "paths": 2,
+    "read_entire_spec": true,
+    "algorithm": "JSON/YAML parsed in full, every path/operation/parameter/body schema included; not all operations executed."
+  }
+]

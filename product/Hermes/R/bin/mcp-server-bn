@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+R_BNN_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+exec "$R_BNN_ROOT/bin/Rscript-bn" "$R_BNN_ROOT/scripts/server.R"

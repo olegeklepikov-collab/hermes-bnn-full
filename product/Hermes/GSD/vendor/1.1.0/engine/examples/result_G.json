@@ -1,0 +1,346 @@
+{
+  "profile": {
+    "requested": "eMVP",
+    "selected": "eMVP",
+    "required_floor": "eMVP",
+    "risk_incomplete": true,
+    "reasons": [
+      "Оценка риска неполна; самостоятельное действие не разрешено"
+    ],
+    "action_authority": "not_granted"
+  },
+  "protocol_version": "3.0",
+  "active_components": [
+    "G"
+  ],
+  "executed_components": [
+    "G"
+  ],
+  "outputs": {
+    "G": {
+      "id": "GREQ1.G",
+      "version": 1,
+      "component": "G",
+      "type": "CandidateSet",
+      "protocol_version": "3.0",
+      "status": "awaiting_validation",
+      "request_digest": "baa034e1e2df40835cd2931e10e1078c6c96d7fa13420a31a24884e195a9fc90",
+      "scope": "Учебная очередь",
+      "candidates": [
+        {
+          "id": "K1",
+          "version": 1,
+          "kind": "hypothesis",
+          "content": {
+            "text": "Изменилась формула измерения",
+            "structure": {
+              "mechanism": "Изменилась формула измерения"
+            }
+          },
+          "seed": "Изменился отчёт",
+          "operator_id": "GC-C001",
+          "axis": "механизм",
+          "frame": "Измеритель",
+          "distinguishing_features": [
+            "Изменилась формула измерения"
+          ],
+          "conditions": [],
+          "claim_ids": [],
+          "status": "candidate",
+          "expectations": {
+            "report": "slow",
+            "raw": "same"
+          },
+          "scope": "Учебная очередь",
+          "parent_ids": [],
+          "miss_risk": "ordinary",
+          "projections": {}
+        },
+        {
+          "id": "K2",
+          "version": 1,
+          "kind": "hypothesis",
+          "content": {
+            "text": "Реальное замедление процесса",
+            "structure": {
+              "mechanism": "Реальное замедление процесса"
+            }
+          },
+          "seed": "Изменился отчёт",
+          "operator_id": "GC-C001",
+          "axis": "механизм",
+          "frame": "Объект",
+          "distinguishing_features": [
+            "Реальное замедление процесса"
+          ],
+          "conditions": [],
+          "claim_ids": [],
+          "status": "candidate",
+          "expectations": {
+            "report": "slow",
+            "raw": "slow"
+          },
+          "scope": "Учебная очередь",
+          "parent_ids": [],
+          "miss_risk": "ordinary",
+          "projections": {}
+        }
+      ],
+      "archived_candidates": [],
+      "known_candidate_bindings": {},
+      "applications": [
+        {
+          "operator_id": "GC-C001",
+          "input_id": "GREQ1",
+          "candidate_ids": [
+            "K1"
+          ],
+          "witness": [
+            "Изменилась формула измерения"
+          ],
+          "status": "candidate_received_not_generated_here"
+        },
+        {
+          "operator_id": "GC-C001",
+          "input_id": "GREQ1",
+          "candidate_ids": [
+            "K2"
+          ],
+          "witness": [
+            "Реальное замедление процесса"
+          ],
+          "status": "candidate_received_not_generated_here"
+        }
+      ],
+      "ga_results": [],
+      "reviews": [
+        {
+          "id": "GREQ1.GG01",
+          "version": 1,
+          "gate": "GG01",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Есть различимый результат по объявленной структуре",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        },
+        {
+          "id": "GREQ1.GG02",
+          "version": 1,
+          "gate": "GG02",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Различимость рамок; одна заданная рамка сохраняется как ограничение",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        },
+        {
+          "id": "GREQ1.GG03",
+          "version": 1,
+          "gate": "GG03",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Несколько объяснений и различимые следствия",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        },
+        {
+          "id": "GREQ1.GG04",
+          "version": 1,
+          "gate": "GG04",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Для заявленной аналогии проверено наличие отображения и точки разрыва",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        },
+        {
+          "id": "GREQ1.GG05",
+          "version": 1,
+          "gate": "GG05",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Переименование одинаковой объявленной структуры не считается новизной",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        },
+        {
+          "id": "GREQ1.GG06",
+          "version": 1,
+          "gate": "GG06",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Пространство и остаток сохранены; нет заявления об исчерпании мира",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        },
+        {
+          "id": "GREQ1.GG07",
+          "version": 1,
+          "gate": "GG07",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Отводы адресованы; отбор не назван опровержением",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        },
+        {
+          "id": "GREQ1.GG08",
+          "version": 1,
+          "gate": "GG08",
+          "candidate_bindings": {
+            "K1": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+            "K2": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db"
+          },
+          "outcome": "pass",
+          "criterion": "Передаются кандидаты, не установленное знание",
+          "scope": "declared_structure_only",
+          "semantic_validation": "requires_agent_or_domain_review"
+        }
+      ],
+      "selection": {
+        "selected_ids": [
+          "K1",
+          "K2"
+        ],
+        "not_selected": [],
+        "criterion": "Различимость по объявленной структуре; без ранга истинности"
+      },
+      "residuals": {
+        "unsearched": "Не рассмотрены все возможные оси и механизмы",
+        "unexplained": "Относится к последующему предметному сравнению",
+        "unknown": "Предметная истинность кандидатов не установлена генератором",
+        "risk": "Остаточная опасность оценивается отдельно от числа кандидатов"
+      },
+      "resource": {
+        "attempted": 2,
+        "retained": 2,
+        "count_is_not_quality": true
+      },
+      "generation_run": {
+        "id": "GREQ1.RUN",
+        "version": 1,
+        "type": "GenerationRun",
+        "mode": "supplied",
+        "request_digest": "baa034e1e2df40835cd2931e10e1078c6c96d7fa13420a31a24884e195a9fc90",
+        "local_effects_only": true,
+        "phase_records": [
+          {
+            "sequence": 0,
+            "source_status_id": "GS01",
+            "state": "registered_request",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 1,
+            "source_status_id": "GS02",
+            "state": "declared_frames",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 2,
+            "source_status_id": "GS03",
+            "state": "declared_seed",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 3,
+            "source_status_id": "GS04",
+            "state": "received_variations_not_created_here",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 4,
+            "source_status_id": "GS05",
+            "state": "typed_candidates",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 5,
+            "source_status_id": "GS06",
+            "state": "grouped_declared_structures",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 6,
+            "source_status_id": "GS07",
+            "state": "selected_candidates_not_truth",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 7,
+            "source_status_id": "GS08",
+            "state": "prepared_not_delivered",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 8,
+            "source_status_id": "GS09",
+            "state": "not_performed_by_generator",
+            "scope": "declared_generation_structure"
+          },
+          {
+            "sequence": 9,
+            "source_status_id": "GS10",
+            "state": "open_residual",
+            "scope": "declared_generation_structure"
+          }
+        ],
+        "protocol_records": [
+          {
+            "protocol_id": "GP01",
+            "status": "checked_structural_boundary",
+            "truth_promoted": false
+          },
+          {
+            "protocol_id": "GP02",
+            "status": "declared_local_steps",
+            "truth_promoted": false
+          },
+          {
+            "protocol_id": "GP03",
+            "status": "checked_structural_boundary",
+            "truth_promoted": false
+          },
+          {
+            "protocol_id": "GP04",
+            "status": "checked_structural_boundary",
+            "truth_promoted": false
+          },
+          {
+            "protocol_id": "GP05",
+            "status": "handoff_prepared_not_delivered",
+            "truth_promoted": false
+          }
+        ]
+      }
+    }
+  },
+  "resource": {
+    "spent_local_units": 2,
+    "reserve_steps": 1,
+    "measure": "Число ограниченных локальных операций; не токены и не денежная стоимость"
+  },
+  "unmet_profile_obligations": []
+}

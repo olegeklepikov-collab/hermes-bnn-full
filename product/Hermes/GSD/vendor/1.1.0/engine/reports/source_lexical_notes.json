@@ -1,0 +1,41 @@
+{
+  "scope": "Отдельные обнаруженные опечатки дословных источников; исходники не изменены, полный редакционный пересмотр их содержания не заявлен",
+  "notes": [
+    {
+      "source_path": "sources/Генератор мышления (монолит).md",
+      "line": 200,
+      "source_sha256": "915006a5d2114048f90fd377298c3c95469640d05be79d6822d0e91faa88a0b4",
+      "exact_fragment": "неприменeнные",
+      "editorial_reading": "неприменённые",
+      "status": "original_preserved",
+      "reason": "Орфография"
+    },
+    {
+      "source_path": "sources/Генератор мышления (монолит).md",
+      "line": 860,
+      "source_sha256": "915006a5d2114048f90fd377298c3c95469640d05be79d6822d0e91faa88a0b4",
+      "exact_fragment": "плодотравности",
+      "editorial_reading": "плодотворности",
+      "status": "original_preserved",
+      "reason": "Орфография"
+    },
+    {
+      "source_path": "sources/Генератор мышления (монолит).md",
+      "line": 984,
+      "source_sha256": "915006a5d2114048f90fd377298c3c95469640d05be79d6822d0e91faa88a0b4",
+      "exact_fragment": "Тип задача генерации",
+      "editorial_reading": "Тип задачи генерации",
+      "status": "original_preserved",
+      "reason": "Орфография"
+    },
+    {
+      "source_path": "sources/deep_agent_personality_project_management.md",
+      "line": 1428,
+      "source_sha256": "7bcfd6ccd3c31c1a9ac70e0766b261d84593d41f2efe81239dfc54f46a406d6f",
+      "exact_fragment": "по четырем осям: содержание, срок, стоимость, риск и качество",
+      "editorial_reading": "по пяти осям: содержание, срок, стоимость, риск и качество",
+      "status": "original_preserved",
+      "reason": "Число перечисленных позиций не совпадает с указанным числом осей"
+    }
+  ]
+}

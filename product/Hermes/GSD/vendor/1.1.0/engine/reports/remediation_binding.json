@@ -1,0 +1,26 @@
+{
+  "release": "3.0.2",
+  "created_at": "2026-09-18T08:49:35.572160+00:00",
+  "files": {
+    "tools/triad.py": "c019c59d73c3e3a3d0db7dc11e42928292001ff24aaf96bbca45055f1061050b",
+    "tools/corpus.py": "d42c3af28a741adc44a29b9a4e893aeeaa9b6be6f8470890a96a1623b44cda32",
+    "data/comparison_review.schema.json": "d30393dd9f8d3fcbdb82117e4d1958781f2e173de4179f69b8beb213c2be4a8e",
+    "data/instruction_file_roles.json": "05456d63fc1c9563a713797878a3afd66f07f9a009d05f95fa621dd0a43152dc",
+    "COMMON.md": "b70f53d1338af45227e3ffa7544463c26eab30b77349625d135d69ead4427f63",
+    "components/G_SYSTEM.md": "9c18e871bdf6a00132b96aec51a5015010e1e1d587bccfe18b1e58b38e0f099c",
+    "components/S_SYSTEM.md": "23a11423e0986a1bc60e99822b679b3f8f868de37e4674f77a368b0304c62d92",
+    "components/D_SYSTEM.md": "fdbc228acfb63b150443cddcb3b30da39b950f6f65a7a912e08032346b196b7c",
+    "data/component_contracts.json": "51477d120377943d0dbe8c07c9ae8bc35e07a43bc9400c13426dcb90dc5753f5",
+    "data/instruction_build_manifest.json": "4e4e41cfefd81ab5f18c7116e31177a141d01e3d6dcbc68aebee4f9b19523a1e",
+    "tests/test_remediation.py": "eb7288e3530de3cc15e08b6dc88f84ef10162ba1691decadfba1fe970ebad9cb"
+  },
+  "reports": {
+    "verification_report.json": "38c52d06f4fe6746356378b629b9ece79c5390ab7863554997d6e2be996d8e67",
+    "remediation_tests.json": "8e556b895db22403f54b8220180c7cd2101b1e19de3acb8f81cae8d0bb502e5e",
+    "remediation_before_extended.json": "985a4675e31ca4c9760b094d37061db79355fa3ea35776dcd6a5cac4e77e211e",
+    "remediation_after_extended.json": "ae2b9c277538d1a8e60172772906e93698659fa36f0b09d542e2d507ac420a65",
+    "remediation_after_independent.json": "52aeabf2aabc3f89455af517973b2f2366dc2676f86ee6c44db47bf717d5f463"
+  },
+  "execution": "reports/remediation_execution.json",
+  "important": "Исторические программы содержат дату и имя 3.0.1; актуальная испытуемая версия определяется отпечатками этой записи, не текстом шаблонного заголовка."
+}

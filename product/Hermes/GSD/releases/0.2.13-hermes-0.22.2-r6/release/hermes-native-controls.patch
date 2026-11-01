@@ -1,0 +1,1079 @@
+diff --git a/agent/auxiliary_client.py b/agent/auxiliary_client.py
+index 4df052c093..35b604cc93 100644
+--- a/agent/auxiliary_client.py
++++ b/agent/auxiliary_client.py
+@@ -1494,6 +1494,10 @@ class _CodexCompletionsAdapter:
+         if isinstance(kwargs.get("extra_headers"), dict) and kwargs["extra_headers"]:
+             resp_kwargs["extra_headers"] = dict(kwargs["extra_headers"])
+         # The Codex endpoint rejects max_output_tokens/temperature (400) — omit.
++        # A host may explicitly require an output bound after validating its actual
++        # route. Preserve that explicit Responses field instead of silently dropping it.
++        if type(kwargs.get("max_output_tokens")) is int and kwargs["max_output_tokens"] > 0:
++            resp_kwargs["max_output_tokens"] = kwargs["max_output_tokens"]
+         extra_body = kwargs.get("extra_body") or {}
+         if isinstance(extra_body, dict):
+             # service_tier (fast mode) is a top-level Responses field; xAI's endpoint rejects it.
+@@ -2644,20 +2648,26 @@ def _relay_sync_completion(
+     # Isolate only the provider callback so the owning thread can unwind its lease/DB
+     # transaction on hard cancel without touching the shared client.
+     if route is None:
+-        return _run_protected_sync_provider_call(callback, kwargs)
++        from agent.auxiliary_hooks import controlled_auxiliary_request
++        return _run_protected_sync_provider_call(callback, controlled_auxiliary_request(kwargs,
++            metadata={}, provider=str(provider or "auxiliary"), model=str(kwargs.get("model") or ""),
++            api_mode=str(api_mode or "")))
+     provider_name, fallback_model, metadata = route
+     from agent import relay_llm
+-    from agent.auxiliary_hooks import run_with_aux_hooks
++    from agent.auxiliary_hooks import run_with_aux_hooks, controlled_auxiliary_request
+     model_name = str(kwargs.get("model") or fallback_model)
+     try:
+         return run_with_aux_hooks(
+             lambda: relay_llm.execute_current(
+-                kwargs, lambda request: _run_protected_sync_provider_call(callback, request),
++                kwargs, lambda request: _run_protected_sync_provider_call(callback, controlled_auxiliary_request(
++                    request, metadata=metadata, provider=provider_name, model=model_name,
++                    api_mode=str(metadata.get("api_mode") or ""))),
+                 name=provider_name, model_name=model_name, metadata=metadata,
+                 defer_logical_completion=True,
+             ),
+             aux_task=str(metadata.get("auxiliary_task") or ""), metadata=metadata, client=client, kwargs=kwargs,
+             provider=provider_name, model=model_name, api_mode=str(metadata.get("api_mode") or ""),
++            execution_control_at_terminal=True,
+         )
+     except Exception as exc:
+         _note_relay_auxiliary_error(exc)
+@@ -2675,19 +2685,24 @@ async def _relay_async_completion(
+     callback = create or (lambda request: _acreate_with_progress(client, request))
+     route = _relay_auxiliary_metadata(provider=provider, api_mode=api_mode)
+     if route is None:
+-        return await callback(kwargs)
++        from agent.auxiliary_hooks import controlled_auxiliary_request
++        return await callback(controlled_auxiliary_request(kwargs, metadata={},
++            provider=str(provider or "auxiliary"), model=str(kwargs.get("model") or ""), api_mode=str(api_mode or "")))
+     provider_name, fallback_model, metadata = route
+     from agent import relay_llm
+-    from agent.auxiliary_hooks import arun_with_aux_hooks
++    from agent.auxiliary_hooks import arun_with_aux_hooks, controlled_auxiliary_request
+     model_name = str(kwargs.get("model") or fallback_model)
+     try:
+         return await arun_with_aux_hooks(
+             lambda: relay_llm.execute_current_async(
+-                kwargs, callback, name=provider_name, model_name=model_name,
++                kwargs, lambda request: callback(controlled_auxiliary_request(request,
++                    metadata=metadata, provider=provider_name, model=model_name,
++                    api_mode=str(metadata.get("api_mode") or ""))), name=provider_name, model_name=model_name,
+                 metadata=metadata, defer_logical_completion=True,
+             ),
+             aux_task=str(metadata.get("auxiliary_task") or ""), metadata=metadata, client=client, kwargs=kwargs,
+             provider=provider_name, model=model_name, api_mode=str(metadata.get("api_mode") or ""),
++            execution_control_at_terminal=True,
+         )
+     except Exception as exc:
+         _note_relay_auxiliary_error(exc)
+@@ -2705,18 +2720,23 @@ def _relay_sync_stream(
+     create = lambda request: client.chat.completions.create(**bypass_chat_sdk_request_transform(request, client))
+     route = _relay_auxiliary_metadata(provider=provider, api_mode=api_mode)
+     if route is None:
+-        return create(kwargs)
++        from agent.auxiliary_hooks import controlled_auxiliary_request
++        return create(controlled_auxiliary_request(kwargs, metadata={}, provider=str(provider or "auxiliary"),
++            model=str(kwargs.get("model") or ""), api_mode=str(api_mode or "")))
+     provider_name, fallback_model, metadata = route
+     from agent import relay_llm
+-    from agent.auxiliary_hooks import run_with_aux_hooks
++    from agent.auxiliary_hooks import run_with_aux_hooks, controlled_auxiliary_request
+     model_name = str(kwargs.get("model") or fallback_model)
+     return run_with_aux_hooks(
+         lambda: relay_llm.stream_current(
+-            kwargs, create, name=provider_name, model_name=model_name, finalizer=dict,
++            kwargs, lambda request: create(controlled_auxiliary_request(request,
++                metadata=metadata, provider=provider_name, model=model_name,
++                api_mode=str(metadata.get("api_mode") or ""))), name=provider_name, model_name=model_name, finalizer=dict,
+             metadata=metadata, completed_response_predicate=lambda value: hasattr(value, "choices"),
+         ),
+         aux_task=str(metadata.get("auxiliary_task") or ""), metadata=metadata, client=client, kwargs=kwargs,
+         provider=provider_name, model=model_name, api_mode=str(metadata.get("api_mode") or ""), streaming=True,
++        execution_control_at_terminal=True,
+     )
+ 
+ 
+diff --git a/agent/auxiliary_hooks.py b/agent/auxiliary_hooks.py
+index 30008bf13d..3317af64c0 100644
+--- a/agent/auxiliary_hooks.py
++++ b/agent/auxiliary_hooks.py
+@@ -33,6 +33,10 @@ def _parent_turn_identity() -> dict[str, str]:
+     except Exception:
+         return ident
+     if turn is None:
++        # Off-turn work (for example a title upgrade) captures its owner in the
++        # profile-scoped auxiliary runtime; it must not be charged to an ambient session.
++        from agent.auxiliary_client import _runtime_main_value
++        ident["session_id"] = str(_runtime_main_value("session_id") or "")
+         return ident
+     lease = getattr(turn, "lease", None)
+     ident["session_id"] = str(getattr(lease, "session_id", "") or "")
+@@ -222,9 +226,15 @@ def _post_safely(hooks: Optional[_AuxCallHooks], response: Any = None, error: An
+ def run_with_aux_hooks(
+     call: Callable[[], Any], *, aux_task: str, metadata: dict[str, Any], client: Any,
+     kwargs: dict[str, Any], provider: str, model: str, api_mode: str, streaming: bool = False,
++    execution_control_at_terminal: bool = False,
+ ) -> Any:
+     """Run one synchronous provider attempt between ``pre_auxiliary_call`` and
+     ``post_auxiliary_call``; the exception (if any) is reported in ``post`` and re-raised."""
++    from hermes_cli.execution_control import authorize
++    identity = {**_parent_turn_identity(), **metadata, "aux_task": aux_task,
++                "provider": provider, "model": model, "api_mode": api_mode, "streaming": streaming}
++    if not execution_control_at_terminal:
++        authorize("auxiliary", {"request": kwargs}, **identity)
+     hooks = _hooks_or_none(aux_task=aux_task, metadata=metadata, client=client, kwargs=kwargs,
+                            provider=provider, model=model, api_mode=api_mode, streaming=streaming)
+     try:
+@@ -239,8 +249,14 @@ def run_with_aux_hooks(
+ async def arun_with_aux_hooks(
+     call: Callable[[], Awaitable[Any]], *, aux_task: str, metadata: dict[str, Any], client: Any,
+     kwargs: dict[str, Any], provider: str, model: str, api_mode: str,
++    execution_control_at_terminal: bool = False,
+ ) -> Any:
+     """Async twin of :func:`run_with_aux_hooks`."""
++    from hermes_cli.execution_control import authorize
++    identity = {**_parent_turn_identity(), **metadata, "aux_task": aux_task,
++                "provider": provider, "model": model, "api_mode": api_mode, "streaming": False}
++    if not execution_control_at_terminal:
++        authorize("auxiliary", {"request": kwargs}, **identity)
+     hooks = _hooks_or_none(aux_task=aux_task, metadata=metadata, client=client, kwargs=kwargs,
+                            provider=provider, model=model, api_mode=api_mode, streaming=False)
+     try:
+@@ -250,3 +266,15 @@ async def arun_with_aux_hooks(
+         raise
+     _post_safely(hooks, response=response)
+     return response
++
++
++def controlled_auxiliary_request(request, *, metadata, provider, model, api_mode):
++    """Apply native request middleware and mandatory control AFTER relay rewriting."""
++    from hermes_cli.middleware import apply_llm_request_middleware
++    from hermes_cli.execution_control import authorize
++    identity = {**_parent_turn_identity(), **metadata, "provider": provider, "model": model,
++                "api_mode": api_mode, "aux_task": str(metadata.get("auxiliary_task") or "")}
++    changed = apply_llm_request_middleware(request, **identity)
++    final_request = changed.payload
++    authorize("auxiliary", {"request": final_request}, boundary="auxiliary_terminal", **identity)
++    return final_request
+diff --git a/agent/subagent_lifecycle.py b/agent/subagent_lifecycle.py
+index 658654717f..d4149815b1 100644
+--- a/agent/subagent_lifecycle.py
++++ b/agent/subagent_lifecycle.py
+@@ -301,7 +301,7 @@ class SubagentLifecycleService:
+             raise SubagentLifecycleError(str(exc)) from exc
+         child = _build_child_preserving_parent_tools(
+             task_index=0, goal=request.goal, context=request.context,
+-            toolsets=list(request.allowed_toolsets) if request.allowed_toolsets else None,
++            toolsets=list(request.allowed_toolsets) if request.allowed_toolsets is not None else None,
+             model=request.model or creds["model"], max_iterations=DEFAULT_MAX_ITERATIONS,
+             task_count=1, parent_agent=parent, role=request.role, **_credential_overrides(creds, routing_cfg),
+         )
+@@ -429,6 +429,7 @@ class SubagentLifecycleService:
+                 state = SubagentState.SUCCEEDED if status == "completed" else SubagentState.FAILED
+             fields: dict[str, Any] = dict(
+                 summary=_clip(raw.get("summary")), error_message=_clip(raw.get("error") or None),
++                structured_payload=raw.get('summary_product'),
+                 error_classification=None if state == SubagentState.SUCCEEDED else status.upper(),
+                 usage_metadata={"api_calls": raw.get("api_calls", 0)} if is_dict else {},
+                 tool_execution_summary={"duration_seconds": raw.get("duration_seconds", 0)} if is_dict else {},
+@@ -460,11 +461,11 @@ class SubagentLifecycleService:
+             raise SubagentLifecycleError("metadata must be JSON-serializable.") from exc
+         if metadata_bytes > _MAX_METADATA_BYTES:
+             raise SubagentLifecycleError("metadata exceeds 8192 bytes.")
+-        if not request.allowed_toolsets:
++        if request.allowed_toolsets is None:
+             return
+-        # Plugin and registry-alias toolsets count as known, as they do for delegate_task.
+         from toolsets import validate_toolset
+-        unknown = {name for name in request.allowed_toolsets if not validate_toolset(name)}
++        unknown = {name for name in request.allowed_toolsets
++                   if name in {"all", "*"} or not validate_toolset(name)}
+         if unknown:
+             raise SubagentLifecycleError(f"Unknown toolsets: {', '.join(sorted(unknown))}.")
+         enabled = getattr(parent, "enabled_toolsets", None)
+diff --git a/agent/turn_api_call.py b/agent/turn_api_call.py
+index ef08530846..82df6457a5 100644
+--- a/agent/turn_api_call.py
++++ b/agent/turn_api_call.py
+@@ -134,7 +134,8 @@ def perform_api_call(
+             task_id=effective_task_id, turn_id=turn_id, api_request_id=api_request_id,
+             session_id=agent.session_id or "", platform=agent.platform or "", model=agent.model,
+             provider=agent.provider, base_url=agent.base_url, api_mode=agent.api_mode,
+-            api_call_count=api_call_count, middleware_trace=list(_llm_middleware_trace),
++            api_call_count=api_call_count, retry_count=retry_count,
++            middleware_trace=list(_llm_middleware_trace),
+         )
+     finally:
+         with _bracket:
+diff --git a/agent/turn_api_error.py b/agent/turn_api_error.py
+index d0ffa40730..b43c01285b 100644
+--- a/agent/turn_api_error.py
++++ b/agent/turn_api_error.py
+@@ -79,6 +79,14 @@ def handle_api_error(
+     if agent.thinking_callback:
+         agent.thinking_callback("")
+ 
++    from hermes_cli.execution_control import ExecutionControlDenied
++    if isinstance(api_error, ExecutionControlDenied):
++        return _verdict("return", {
++            "final_response": f"Execution blocked: {api_error}", "messages": messages,
++            "failed": True, "error": str(api_error), "failure_reason": "execution_control_denied",
++            "failure_retryable": False, "api_calls": api_call_count,
++        })
++
+     _recovered, active_system_prompt = recover_before_classification(
+         agent, api_error, messages=messages, api_messages=api_messages, api_kwargs=api_kwargs,
+         active_system_prompt=active_system_prompt,
+diff --git a/hermes_cli/middleware.py b/hermes_cli/middleware.py
+index 753b6643ab..8d38e2255a 100644
+--- a/hermes_cli/middleware.py
++++ b/hermes_cli/middleware.py
+@@ -164,12 +164,25 @@ def _run_execution_chain(kind: str, terminal_call: Callable[[Any], Any], **kwarg
+     payload_key = "request" if "request" in kwargs else "args"
+     manager = _delivery_manager()
+     callbacks = list(manager._middleware.get(kind, []))
++    def controlled_terminal(payload: Any) -> Any:
++        from hermes_cli.execution_control import authorize
++        control_kind = "llm" if kind == LLM_EXECUTION_MIDDLEWARE else "tool"
++        details = {"request": payload} if control_kind == "llm" else {
++            "tool_name": kwargs.get("tool_name"), "args": payload,
++        }
++        identity = {k: v for k, v in kwargs.items() if k not in {"request", "args", "original_request", "original_args", "tool_name"}}
++        authorize(control_kind, details, boundary="execution_middleware", **identity)
++        result = terminal_call(payload)
++        if control_kind == "tool":
++            authorize("tool_result", {"tool_name": kwargs.get("tool_name"), "args": payload, "result": result},
++                      boundary="execution_middleware", **identity)
++        return result
+     if not callbacks:
+-        return terminal_call(kwargs[payload_key])
++        return controlled_terminal(kwargs[payload_key])
+ 
+     def call_at(index: int, payload: Any) -> Any:
+         if index >= len(callbacks):
+-            return terminal_call(payload)
++            return controlled_terminal(payload)
+ 
+         callback = callbacks[index]
+         next_called = False
+diff --git a/hermes_cli/oneshot.py b/hermes_cli/oneshot.py
+index cfddfc975c..7dd95df4cf 100644
+--- a/hermes_cli/oneshot.py
++++ b/hermes_cli/oneshot.py
+@@ -583,6 +583,10 @@ def _run_agent(
+             model=choice.model,
+             enabled_toolsets=toolsets_list,
+             quiet_mode=True,
++            # A one-shot process cannot own an unjoined background review. Managed
++            # UDR/GSD reviews remain explicit persisted work; long-lived callers
++            # keep their native background review behavior.
++            skip_background_review=True,
+             platform="cli",
+             session_db=session_db,
+             session_id=resume_sid,
+@@ -637,6 +641,8 @@ def _close_agent(agent, session_db, relay_session_id=None) -> None:
+     """Teardown mirroring gateway/run.py:_cleanup_agent_resources (NOT cli.py:_run_cleanup):
+     oneshot has no _active_agent_ref and the hard-exit path skips finalizers."""
+     if agent is not None:
++        from agent.shutdown_control import cancel_and_acknowledge_review
++        cancel_and_acknowledge_review(agent)
+         # Linger (bounded) for notify_on_complete background processes BEFORE agent.close():
+         # close() kill_all()s the task and the dying parent owns the children's stdout pipes, so
+         # exiting now destroys in-flight deliveries (e.g. Bot Mode handoff replies).
+diff --git a/hermes_cli/plugins.py b/hermes_cli/plugins.py
+index a652179cd4..8960dfeb38 100644
+--- a/hermes_cli/plugins.py
++++ b/hermes_cli/plugins.py
+@@ -941,6 +941,18 @@ class PluginContext:
+             "middleware", kind, callback, self._manager._middleware, VALID_MIDDLEWARE
+         )
+ 
++    def register_execution_control(self, kind: str, callback: Callable) -> PluginRegistration:
++        """Register an opt-in mandatory control; absence/error/timeout denies execution.
++
++        The operator chooses required plugin IDs in execution-controls.json. Registration
++        alone never turns a plugin into an obligatory policy or grants an external effect.
++        """
++        from hermes_cli.execution_control import register_control
++        if self._load_abandoned:
++            raise RuntimeError("Cannot register a controller from an abandoned plugin load")
++        remove = register_control(self.plugin_id, kind, callback)
++        return self._track("execution_control", kind, remove)
++
+     def _track_callback(
+         self, kind: str, key: str, callback: Callable, mapping: dict[str, list[Callable]],
+         valid: set[str],
+diff --git a/hermes_cli/update_cmd.py b/hermes_cli/update_cmd.py
+index 8595344bdf..08bbd6ac5f 100644
+--- a/hermes_cli/update_cmd.py
++++ b/hermes_cli/update_cmd.py
+@@ -1795,6 +1795,11 @@ def _update_run_channel(args) -> str:
+ 
+ def _cmd_update_impl(args, gateway_mode: bool):
+     """Apply the update; the command boundary owns errors, receipts and stdio."""
++    from hermes_cli.update_contract import evaluate_update_admission, record_refusal_receipt
++    refusal = evaluate_update_admission(_m().PROJECT_ROOT)
++    if refusal is not None:
++        record_refusal_receipt(refusal)
++        raise SystemExit(refusal.message)
+     # Marks this frame as the CURRENT updater for
+     # _old_updater.in_historical_update(); historical on-disk updaters do not
+     # declare this local, so only they hand off through retired shims.
+diff --git a/hermes_cli/update_contract.py b/hermes_cli/update_contract.py
+index 18c64ade20..0f94a280d8 100644
+--- a/hermes_cli/update_contract.py
++++ b/hermes_cli/update_contract.py
+@@ -8,6 +8,7 @@ use <command>" instead of a silent non-update), and exits 2 on CLI surfaces.
+ from __future__ import annotations
+ 
+ import logging
++import json
+ from dataclasses import dataclass
+ from pathlib import Path
+ from typing import Callable, Optional
+@@ -85,6 +86,28 @@ def evaluate_update_admission(project_root: Path) -> Optional[UpdateRefusal]:
+     ``None`` means the install is eligible for in-place update (git checkout or unknown-but-
+     mutable). Never raises; on any internal error it falls back to the heuristic layer only.
+     """
++    # Operator-owned runtime bindings are independent of model prompts and the
++    # inferred deployment kind. An unreadable binding cannot permit mutation.
++    from hermes_constants import get_hermes_home
++    marker = get_hermes_home() / "runtime-manager.json"
++    try:
++        exists = marker.exists() or marker.is_symlink()
++    except OSError:
++        exists = True
++    if exists:
++        command = "Contact the configured runtime manager; do not update this checkout in place."
++        try:
++            if marker.is_symlink() or marker.stat().st_size > 16384:
++                raise ValueError("unsafe manager binding")
++            value = json.loads(marker.read_text())
++            if set(value) - {"version", "manager", "update_command", "execution_policy_required"} or not {"version", "manager", "update_command"} <= set(value) or type(value["version"]) is not int or value["version"] != 1 or ("execution_policy_required" in value and value["execution_policy_required"] is not True):
++                raise ValueError("invalid manager schema")
++            if any(not isinstance(value[k], str) or not value[k].strip() or "\n" in value[k] for k in ("manager", "update_command")):
++                raise ValueError("invalid manager instruction")
++            command = value["update_command"]
++            return UpdateRefusal("external-runtime-manager", "In-place update is disabled by " + value["manager"] + ". Use: " + command, command)
++        except Exception:
++            return UpdateRefusal("external-runtime-manager-invalid", "Runtime manager binding is invalid; in-place update is disabled. " + command, command)
+     if is_commit_build(project_root):
+         return UpdateRefusal("commit-build", COMMIT_BUILD_UPDATE_MESSAGE, "")
+ 
+diff --git a/model_tools.py b/model_tools.py
+index 8566c62842..97c9ff140b 100644
+--- a/model_tools.py
++++ b/model_tools.py
+@@ -835,7 +835,7 @@ def _execute_tool(function_name: str, function_args: dict[str, Any], original_ar
+     def _dispatch(next_args: dict[str, Any]) -> Any:
+         from tools.connectors import dispatch_connector_call, is_connector_name
+         if is_connector_name(function_name):
+-            return dispatch_connector_call(function_name, next_args, ids.tool_call_id, ids.turn_id, ids.task_id)
++            return dispatch_connector_call(function_name, next_args, ids.tool_call_id, ids.turn_id, ids.task_id, session_id=ids.session_id)
+         return registry.dispatch(function_name, next_args, **dispatch_kwargs)
+ 
+     with _approval_observability(ids):
+diff --git a/tools/connectors/dispatch.py b/tools/connectors/dispatch.py
+index af04ad5d47..5a72fa9734 100644
+--- a/tools/connectors/dispatch.py
++++ b/tools/connectors/dispatch.py
+@@ -8,9 +8,12 @@ from tools.connectors.gateway.config import MAX_CALLS_PER_DISPATCH
+ from tools.connectors.gateway.merge import assemble_results, fill_remote_failure, partition_calls
+ 
+ 
+-def dispatch_connector_call(name, arguments, tool_call_id, turn_id=None, task_id=None):
++def dispatch_connector_call(name, arguments, tool_call_id, turn_id=None, task_id=None, **identity):
+     from tools.connectors.gateway.bridge import run_remote
++    from hermes_cli.execution_control import authorize
+ 
++    authorize("tool", {"tool_name": name, "args": arguments},
++              boundary="connector_dispatch", tool_call_id=tool_call_id, **identity)
+     partition = partition_calls([{"name": name, "arguments": arguments}])
+     entries = run_remote(partition.remote, tool_call_id, availability=None, client_factory=None, turn_id=turn_id,
+                          task_id=task_id)
+diff --git a/tools/delegate_tool_results.py b/tools/delegate_tool_results.py
+index e771e4dc1f..8df5b4d5a9 100644
+--- a/tools/delegate_tool_results.py
++++ b/tools/delegate_tool_results.py
+@@ -271,6 +271,9 @@ def _apply_summary_budget(results: list[dict[str, Any]], parent_agent) -> None:
+     summaries = [r for r in results if isinstance(r, dict) and isinstance(r.get("summary"), str) and r["summary"]]
+     if not summaries:
+         return
++    from agent.subagent_products import preserve_text_product
++    for entry in summaries:
++        entry['summary_product']=preserve_text_product(entry['summary'])
+     try:
+         static_ceiling = int(_load_config().get("max_summary_chars", DEFAULT_MAX_SUMMARY_CHARS))
+     except (TypeError, ValueError):
+diff --git a/tools/delegate_tool_toolsets.py b/tools/delegate_tool_toolsets.py
+index 25ec633153..ec6351031f 100644
+--- a/tools/delegate_tool_toolsets.py
++++ b/tools/delegate_tool_toolsets.py
+@@ -95,10 +95,10 @@ def _resolve_child_toolsets(
+     else:
+         parent_toolsets = set(DEFAULT_TOOLSETS)
+ 
+-    if toolsets:
++    if toolsets is not None:
+         expanded_parent = _expand_parent_toolsets(parent_toolsets)
+         child_toolsets = [t for t in toolsets if t in expanded_parent]
+-        if _get_inherit_mcp_toolsets():
++        if toolsets and _get_inherit_mcp_toolsets():
+             # Append any parent MCP toolsets missing from the narrowed child.
+             child_toolsets += [
+                 name for name in sorted(parent_toolsets) if _is_mcp_toolset_name(name) and name not in child_toolsets
+diff --git a/tools/registry.py b/tools/registry.py
+index 30ec01a9f3..002140a41c 100644
+--- a/tools/registry.py
++++ b/tools/registry.py
+@@ -898,6 +898,8 @@ class ToolRegistry:
+         if not entry:
+             return tool_error(f"Unknown tool: {name}")
+         try:
++            from hermes_cli.execution_control import authorize
++            authorize("tool", {"tool_name": name, "args": args}, boundary="registry", **kwargs)
+             # Plugin contract (plugins/AGENTS.md): optional context kwargs (task_id, session_id, user_task,
+             # parent_agent, ...) are signature-inspected like hook payloads, so a narrow ``handle(args)``
+             # plugin handler is not broken by every field the dispatcher injects (#68318).
+diff --git a/toolsets.py b/toolsets.py
+index 7572ad1285..1429113acc 100644
+--- a/toolsets.py
++++ b/toolsets.py
+@@ -315,7 +315,11 @@ def get_toolset(name: str, *, include_registry: bool = True) -> Optional[dict[st
+         if not registry_toolset:
+             return None
+         description = f"MCP server '{name}' tools"
+-    return {"description": description, "tools": registry.get_tool_names_for_toolset(registry_toolset), "includes": []}
++    merged_tools = set(registry.get_tool_names_for_toolset(registry_toolset))
++    alias_target = registry.get_toolset_alias_target(name)
++    if alias_target and alias_target != registry_toolset:
++        merged_tools |= set(registry.get_tool_names_for_toolset(alias_target))
++    return {"description": description, "tools": sorted(merged_tools), "includes": []}
+ 
+ 
+ def bundle_non_core_tools(toolset_name: str) -> set[str]:
+diff --git a/agent/shutdown_control.py b/agent/shutdown_control.py
+new file mode 100644
+index 0000000000..ff4df6ee7d
+--- /dev/null
++++ b/agent/shutdown_control.py
+@@ -0,0 +1,11 @@
++"""Call the native background-review cancellation protocol before owner teardown."""
++def cancel_and_acknowledge_review(agent):
++    from agent.background_review import cancel_background_review_for_live_turn
++    run=getattr(agent,'_background_review_run',None)
++    legacy=getattr(agent,'_background_review_agent',None)
++    if run is None and legacy is None:return
++    cancel_background_review_for_live_turn(agent,message='owning agent is closing',tool_reason='owner shutdown')
++    if run is None and legacy is not None:
++        raise RuntimeError('legacy_background_review_has_no_acknowledgement; outcome unknown')
++    if run is not None and not run.request_done.is_set():
++        raise RuntimeError('background_review_shutdown_not_acknowledged; usage remains unsettled')
+diff --git a/agent/subagent_products.py b/agent/subagent_products.py
+new file mode 100644
+index 0000000000..e88411d7be
+--- /dev/null
++++ b/agent/subagent_products.py
+@@ -0,0 +1,41 @@
++"""Full, profile-scoped child products; display summaries may be shortened separately."""
++import hashlib
++from pathlib import Path
++
++MAX_PRODUCT_BYTES=8*1024*1024
++
++def preserve_text_product(text):
++    from hermes_constants import get_hermes_home
++    from tools.spill_safety import write_text_exclusive
++    raw=text.encode('utf-8');digest=hashlib.sha256(raw).hexdigest()
++    if len(raw)>MAX_PRODUCT_BYTES:
++        return {'contract':'SubagentTextProductV1','error':'split_product_required','bytes':len(raw)}
++    root=get_hermes_home()/'cache/subagent-products'
++    root.mkdir(parents=True,exist_ok=True,mode=0o700)
++    if root.is_symlink():raise PermissionError('unsafe_subagent_product_root')
++    root.chmod(0o700)
++    path=root/(digest+'.txt')
++    if path.exists():
++        if path.is_symlink() or path.read_bytes()!=raw:raise PermissionError('subagent_product_collision')
++    else:
++        try:write_text_exclusive(path,text,private=True)
++        except FileExistsError:
++            if path.is_symlink() or path.read_bytes()!=raw:raise PermissionError('subagent_product_collision')
++    return {'contract':'SubagentTextProductV1','path':str(path),'sha256':digest,'bytes':len(raw)}
++
++def read_text_product(result):
++    """Read an immutable native result, without using its display summary as a contract."""
++    from hermes_constants import get_hermes_home
++    product=result.structured_payload
++    if not isinstance(product,dict) or product.get('contract')!='SubagentTextProductV1':
++        raise ValueError('full_subagent_product_required')
++    if product.get('error'):raise ValueError(product['error'])
++    path=Path(product.get('path',''));root=get_hermes_home()/'cache/subagent-products'
++    if path.is_symlink() or not path.is_file() or not path.resolve().is_relative_to(root.resolve()):
++        raise PermissionError('subagent_product_outside_profile')
++    size=product.get('bytes')
++    if type(size) is not int or not 0<=size<=MAX_PRODUCT_BYTES or path.stat().st_size!=size:
++        raise ValueError('subagent_product_size_mismatch')
++    raw=path.read_bytes()
++    if hashlib.sha256(raw).hexdigest()!=product.get('sha256'):raise ValueError('subagent_product_hash_mismatch')
++    return raw.decode('utf-8')
+diff --git a/hermes_cli/execution_control.py b/hermes_cli/execution_control.py
+new file mode 100644
+index 0000000000..40272ef0ac
+--- /dev/null
++++ b/hermes_cli/execution_control.py
+@@ -0,0 +1,184 @@
++"""Opt-in mandatory execution controls, separate from fail-open observers.
++
++Controls inspect the final payload immediately before its executor. A configured
++controller must exist, finish, and explicitly allow; it cannot mutate the payload.
++The file is operator state and is scoped through get_hermes_home on every call.
++"""
++from __future__ import annotations
++
++import contextvars
++import copy
++import json
++import math
++import threading
++import time
++import logging
++from dataclasses import dataclass, field
++from pathlib import Path
++from typing import Any, Callable
++
++CONTRACT_VERSION = 1
++KINDS = frozenset({"tool", "tool_result", "llm", "auxiliary"})
++_lock = threading.RLock()
++_callbacks: dict[tuple[str, str, str], Callable] = {}
++_required_homes: set[str] = set()
++_slots = threading.BoundedSemaphore(8)
++_pool = None
++
++
++class ExecutionControlDenied(PermissionError):
++    status_code = 403
++    non_retryable = True
++
++
++@dataclass(frozen=True)
++class ExecutionDecision:
++    allow: bool
++    reason: str = ""
++    reservation_id: str | None = None
++    on_abort: Callable[[str], None] | None = field(default=None,repr=False,compare=False)
++
++
++def _abort_decision(decision, reason):
++    if isinstance(decision,ExecutionDecision) and callable(decision.on_abort):
++        try:decision.on_abort(reason)
++        except Exception:
++            logging.getLogger(__name__).exception('Execution admission cleanup failed; dependent path remains closed')
++
++
++def _home() -> Path:
++    from hermes_constants import get_hermes_home
++    return get_hermes_home().resolve()
++
++
++def _policy() -> tuple[str, dict] | None:
++    home = _home()
++    key = str(home)
++    path = home / "execution-controls.json"
++    if not path.exists():
++        with _lock:
++            if key in _required_homes:
++                raise ExecutionControlDenied("Required execution control policy disappeared")
++        try:
++            manager=home/"runtime-manager.json"
++            if manager.exists():
++                value=json.loads(manager.read_text())
++                if value.get("execution_policy_required") is True:
++                    raise ExecutionControlDenied("Managed runtime requires its execution control policy before startup")
++            config=home/"config.yaml"
++            if config.exists():
++                import yaml
++                value=yaml.safe_load(config.read_text()) or {}
++                if value.get("execution_controls_required") is True:
++                    raise ExecutionControlDenied("Configured mandatory execution policy is missing")
++        except ExecutionControlDenied:
++            raise
++        except Exception as exc:
++            raise ExecutionControlDenied("Cannot verify whether execution policy is required") from exc
++        return None
++    with _lock:
++        _required_homes.add(key)
++    try:
++        if path.is_symlink() or path.stat().st_size > 65536:
++            raise ValueError("Unsafe execution control policy")
++        def unique(items):
++            d = {}
++            for k, v in items:
++                if k in d:
++                    raise ValueError("Duplicate policy key")
++                d[k] = v
++            return d
++        value = json.loads(path.read_text(), object_pairs_hook=unique)
++        if set(value) != {"version", "required", "timeout_seconds"} or type(value["version"]) is not int or value["version"] != CONTRACT_VERSION:
++            raise ValueError("Unsupported execution control policy")
++        required = value["required"]
++        if not isinstance(required, dict) or not set(required) <= KINDS:
++            raise ValueError("Invalid execution control kinds")
++        for controllers in required.values():
++            if not isinstance(controllers, list) or not controllers or any(
++                not isinstance(x, str) or not x.strip() or x != x.strip() for x in controllers
++            ) or len(set(controllers)) != len(controllers):
++                raise ValueError("Invalid required controllers")
++        timeout = value["timeout_seconds"]
++        if isinstance(timeout, bool) or not isinstance(timeout, (float, int)) or not math.isfinite(timeout) or not 0 < timeout <= 60:
++            raise ValueError("Invalid execution control timeout")
++        return key, value
++    except Exception as exc:
++        raise ExecutionControlDenied("Required execution control policy is unreadable or invalid") from exc
++
++
++def register_control(plugin_id: str, kind: str, callback: Callable) -> Callable[[], None]:
++    if kind not in KINDS or not plugin_id or not callable(callback):
++        raise ValueError("Invalid execution control registration")
++    key = (str(_home()), kind, plugin_id)
++    with _lock:
++        if key in _callbacks:
++            raise ValueError("Execution controller already registered")
++        _callbacks[key] = callback
++    def remove():
++        with _lock:
++            if _callbacks.get(key) is callback:
++                _callbacks.pop(key)
++    return remove
++
++
++def _bounded(callback: Callable, payload: dict, timeout: float) -> Any:
++    global _pool
++    if not _slots.acquire(blocking=False):
++        raise ExecutionControlDenied("Required execution controllers are still busy")
++    context = contextvars.copy_context()
++    deadline=time.time()+timeout
++    def invoke():
++        try:
++            return context.run(callback, **{**payload,'execution_control_deadline':deadline})
++        finally:
++            _slots.release()
++    with _lock:
++        if _pool is None:
++            from tools.daemon_pool import DaemonThreadPoolExecutor
++            _pool = DaemonThreadPoolExecutor(max_workers=8, thread_name_prefix="execution-control")
++        future = _pool.submit(invoke)
++    try:
++        return future.result(timeout=timeout)
++    except BaseException as exc:
++        logging.getLogger(__name__).error("Required controller failed (%s)",type(exc).__name__,exc_info=True)
++        # A late allow is never execution authority. Close its own reservation
++        # after it appears; do not infer zero usage for an executed request.
++        def discard_late(done):
++            try:context.run(_abort_decision,done.result(),'controller_wait_aborted_before_executor')
++            except BaseException:pass
++        future.add_done_callback(discard_late)
++        # The worker owns release: a timed-out worker cannot create unbounded replacements.
++        raise ExecutionControlDenied("Required execution controller failed or timed out") from exc
++
++
++def authorize(kind: str, payload: dict, **identity: Any) -> tuple[ExecutionDecision, ...]:
++    policy = _policy()
++    if policy is None:
++        return ()
++    home, settings = policy
++    decisions = []
++    for controller in settings["required"].get(kind, []):
++        with _lock:
++            callback = _callbacks.get((home, kind, controller))
++        if callback is None:
++            for earlier in decisions:_abort_decision(earlier,'required_controller_unavailable_before_executor')
++            raise ExecutionControlDenied(f"Required {kind} execution controller '{controller}' is unavailable")
++        try:
++            detached = copy.deepcopy(payload)
++            data = {**identity, "execution_kind": kind, "payload": detached,
++                    "execution_control_version": CONTRACT_VERSION}
++            decision = _bounded(callback, data, settings["timeout_seconds"])
++        except ExecutionControlDenied:
++            for earlier in decisions:_abort_decision(earlier,'admission_rejected_before_executor')
++            raise
++        except BaseException as exc:
++            for earlier in decisions:_abort_decision(earlier,'admission_failed_before_executor')
++            raise ExecutionControlDenied("Required execution controller could not inspect the payload") from exc
++        if not isinstance(decision, ExecutionDecision) or decision.allow is not True:
++            _abort_decision(decision,'admission_rejected_before_executor')
++            for earlier in decisions:_abort_decision(earlier,'admission_rejected_before_executor')
++            reason = decision.reason if isinstance(decision, ExecutionDecision) else "No explicit execution decision"
++            raise ExecutionControlDenied(reason or "Execution denied by required controller")
++        decisions.append(decision)
++    return tuple(decisions)
+diff --git a/tests/agent/test_auxiliary_required_terminal.py b/tests/agent/test_auxiliary_required_terminal.py
+new file mode 100644
+index 0000000000..54883fed4d
+--- /dev/null
++++ b/tests/agent/test_auxiliary_required_terminal.py
+@@ -0,0 +1,46 @@
++"""Required policy observes the real post-relay auxiliary request."""
++from types import SimpleNamespace
++import json
++import pytest
++
++
++def test_auxiliary_rewrite_is_checked_before_observed_provider(tmp_path, monkeypatch):
++    from agent import auxiliary_client as aux, relay_llm
++    from hermes_cli.execution_control import ExecutionDecision, register_control
++    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
++    (tmp_path / "execution-controls.json").write_text(json.dumps({"version": 1,
++        "required": {"auxiliary": ["fixture"]}, "timeout_seconds": 1}))
++    monkeypatch.setattr(aux, "_relay_auxiliary_metadata", lambda **kw: ("fixture", "model", {
++        "api_request_id": "physical", "auxiliary_task": "test"}))
++    monkeypatch.setattr(relay_llm, "execute_current", lambda request, callback, **kw: callback({**request, "rewritten": True}))
++    observed = []
++    remove = register_control("fixture", "auxiliary", lambda payload, **kw: observed.append(payload) or ExecutionDecision(False))
++    marker = tmp_path / "provider-effect"
++    try:
++        with pytest.raises(PermissionError):
++            aux._relay_sync_completion(SimpleNamespace(), {"model": "model", "messages": []},
++                create=lambda request: marker.write_text("executed"))
++        assert observed[0]["request"]["rewritten"] is True
++        assert not marker.exists()
++    finally:
++        remove()
++
++
++def test_explicit_codex_output_bound_survives_real_adapter_conversion():
++    from agent.auxiliary_client import _CodexCompletionsAdapter
++    client = SimpleNamespace(base_url="https://chatgpt.com/backend-api/codex", _hermes_aux_effective_provider="openai-codex")
++    adapter = _CodexCompletionsAdapter(client, "gpt-6.1-sol")
++    request, _, _ = adapter._build_responses_kwargs({"model": "gpt-6.1-sol", "messages": [{"role": "user", "content": "bounded"}],
++                                                    "max_output_tokens": 512})
++    assert request["max_output_tokens"] == 512
++
++
++def test_unattributed_auxiliary_cannot_bypass_missing_control(tmp_path, monkeypatch):
++    from agent import auxiliary_client as aux
++    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
++    (tmp_path / "execution-controls.json").write_text(json.dumps({"version": 1,
++        "required": {"auxiliary": ["absent"]}, "timeout_seconds": 1}))
++    marker = tmp_path / "effect"
++    with pytest.raises(PermissionError):
++        aux._relay_sync_completion(SimpleNamespace(), {"messages": []}, create=lambda request: marker.write_text("executed"))
++    assert not marker.exists()
+diff --git a/tests/agent/test_subagent_plugin_toolsets.py b/tests/agent/test_subagent_plugin_toolsets.py
+new file mode 100644
+index 0000000000..ab79ffd30d
+--- /dev/null
++++ b/tests/agent/test_subagent_plugin_toolsets.py
+@@ -0,0 +1,41 @@
++"""Public child narrowing must use the same live toolset registry as the parent."""
++from types import SimpleNamespace
++
++import pytest
++
++
++def test_explicit_empty_toolsets_do_not_inherit_parent_or_mcp(monkeypatch):
++    from types import SimpleNamespace
++    from tools import delegate_tool_toolsets as m
++    monkeypatch.setattr(m, "_get_inherit_mcp_toolsets", lambda: True)
++    parent = SimpleNamespace(enabled_toolsets=["terminal", "mcp_vendor"], disabled_toolsets=[])
++    narrowed, _ = m._resolve_child_toolsets(parent, [], "leaf")
++    assert narrowed == []
++    inherited, _ = m._resolve_child_toolsets(parent, None, "leaf")
++    assert "terminal" in inherited
++
++from agent.subagent_lifecycle import SubagentLaunchRequest, SubagentLifecycleService, SubagentLifecycleError
++from tools.registry import ToolRegistry
++
++
++def test_registered_plugin_toolset_is_accepted_without_parent_broadening(monkeypatch):
++    registry = ToolRegistry()
++    monkeypatch.setattr("tools.registry.registry", registry)
++    registry.register(name="fixture_plugin_read", toolset="fixture_plugin_scope", schema={
++        "name": "fixture_plugin_read", "description": "A registered read tool.",
++        "parameters": {"type": "object"},
++    }, handler=lambda args: "{}")
++    parent = SimpleNamespace(enabled_toolsets=["fixture_plugin_scope"])
++    request = SubagentLaunchRequest(goal="Inspect", allowed_toolsets=("fixture_plugin_scope",))
++    SubagentLifecycleService._validate_request(request, parent)
++    with pytest.raises(SubagentLifecycleError, match="broaden"):
++        SubagentLifecycleService._validate_request(request, SimpleNamespace(enabled_toolsets=["file"]))
++
++
++@pytest.mark.parametrize("name", ["all", "*", "unregistered_fixture_scope"])
++def test_global_or_unknown_toolset_is_not_a_child_narrowing(name):
++    with pytest.raises(SubagentLifecycleError):
++        SubagentLifecycleService._validate_request(
++            SubagentLaunchRequest(goal="Inspect", allowed_toolsets=(name,)),
++            SimpleNamespace(enabled_toolsets=None),
++        )
+diff --git a/tests/hermes_cli/test_external_runtime_management.py b/tests/hermes_cli/test_external_runtime_management.py
+new file mode 100644
+index 0000000000..b615981ddd
+--- /dev/null
++++ b/tests/hermes_cli/test_external_runtime_management.py
+@@ -0,0 +1,34 @@
++"""Managed source runtimes refuse mutation before updater side effects."""
++import json
++from types import SimpleNamespace
++import pytest
++
++
++@pytest.mark.parametrize("invalid", [False, True])
++def test_external_manager_refuses_direct_apply_before_backup(tmp_path, monkeypatch, invalid):
++    from hermes_cli import update_cmd
++    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
++    (tmp_path / "runtime-manager.json").write_text("broken" if invalid else json.dumps({
++        "version": 1, "manager": "fixture", "update_command": "reviewed-stage-command"}))
++    marker = tmp_path / "updater_side_effect"
++    monkeypatch.setattr(update_cmd, "_resolve_update_options", lambda *args: marker.write_text("changed"))
++    with pytest.raises(SystemExit):
++        update_cmd._cmd_update_impl(SimpleNamespace(), False)
++    assert not marker.exists()
++
++
++def test_runtime_manager_follows_actual_profile_context(tmp_path, monkeypatch):
++    from hermes_cli.update_contract import evaluate_update_admission
++    from hermes_constants import set_hermes_home_override, reset_hermes_home_override
++    a, b = tmp_path / "A", tmp_path / "B"
++    a.mkdir(); b.mkdir(); monkeypatch.setenv("HERMES_HOME", str(a))
++    (a / "runtime-manager.json").write_text(json.dumps({"version": 1, "manager": "A", "update_command": "A-stage"}))
++    monkeypatch.setattr("hermes_cli.image_provenance.read_image_provenance", lambda: None)
++    monkeypatch.setattr("hermes_cli.config.detect_install_method", lambda *_: "git")
++    for home, expected in [(a, "A-stage"), (b, None), (a, "A-stage")]:
++        token = set_hermes_home_override(home)
++        try:
++            result = evaluate_update_admission(tmp_path)
++            assert (result.update_command if result else None) == expected
++        finally:
++            reset_hermes_home_override(token)
+diff --git a/tests/plugins/test_required_execution_control.py b/tests/plugins/test_required_execution_control.py
+new file mode 100644
+index 0000000000..e1deffd0b1
+--- /dev/null
++++ b/tests/plugins/test_required_execution_control.py
+@@ -0,0 +1,199 @@
++"""Required execution policy must survive missing plugins and observer failures."""
++import json
++from pathlib import Path
++
++import pytest
++
++from tools.registry import ToolRegistry
++
++
++def configure(home, kind="tool", controller="fixture"):
++    home.mkdir(parents=True, exist_ok=True)
++    (home / "execution-controls.json").write_text(json.dumps({
++        "version": 1, "required": {kind: [controller]}, "timeout_seconds": 0.05,
++    }))
++
++
++def marker_registry(path):
++    registry = ToolRegistry()
++    def effect(args):
++        path.write_text(args["value"])
++        return json.dumps({"written": True})
++    registry.register(name="controlled_effect", toolset="fixture", schema={
++        "name": "controlled_effect", "description": "Local controlled effect.",
++        "parameters": {"type": "object"},
++    }, handler=effect)
++    return registry
++
++
++def test_missing_required_controller_prevents_real_effect(tmp_path, monkeypatch):
++    home = tmp_path / "profile"
++    monkeypatch.setenv("HERMES_HOME", str(home))
++    marker = tmp_path / "effect.txt"
++    registry = marker_registry(marker)
++    # Positive control: the actual executor works before policy is required.
++    assert json.loads(registry.dispatch("controlled_effect", {"value": "control"}))["written"]
++    assert marker.read_text() == "control"
++    marker.unlink()
++    configure(home)
++    result = json.loads(registry.dispatch("controlled_effect", {"value": "forbidden"}))
++    assert "error" in result
++    assert not marker.exists()
++
++
++def test_context_scoped_multiplex_A_B_A_uses_own_controller(tmp_path, monkeypatch):
++    from hermes_constants import set_hermes_home_override, reset_hermes_home_override
++    from hermes_cli.execution_control import ExecutionDecision, register_control
++    a, b = tmp_path / "A", tmp_path / "B"
++    configure(a); configure(b); monkeypatch.setenv("HERMES_HOME", str(a))
++    observations, removers = [], []
++    for home, label in [(a, "A"), (b, "B")]:
++        token = set_hermes_home_override(home)
++        try:
++            removers.append(register_control("fixture", "tool", lambda _label=label, **kw: observations.append(_label) or ExecutionDecision(True)))
++        finally:
++            reset_hermes_home_override(token)
++    marker = tmp_path / "real-effect"
++    registry = marker_registry(marker)
++    try:
++        for home, label in [(a, "A"), (b, "B"), (a, "A")]:
++            token = set_hermes_home_override(home)
++            try:
++                assert json.loads(registry.dispatch("controlled_effect", {"value": label}))["written"]
++                assert marker.read_text() == label
++            finally:
++                reset_hermes_home_override(token)
++        assert observations == ["A", "B", "A"]
++    finally:
++        for remove in removers: remove()
++
++
++def test_direct_connector_dispatch_cannot_bypass_required_control(tmp_path, monkeypatch):
++    from tools.connectors.dispatch import dispatch_connector_call
++    monkeypatch.setenv("HERMES_HOME", str(tmp_path)); configure(tmp_path)
++    marker = tmp_path / "remote-side-effect"
++    monkeypatch.setattr("tools.connectors.gateway.bridge.run_remote", lambda *a, **k: marker.write_text("called"))
++    with pytest.raises(PermissionError):
++        dispatch_connector_call("connectors__fixture_write", {"value": "no"}, "call1", session_id="owner")
++    assert not marker.exists()
++
++
++def test_required_model_controller_prevents_provider_fallback(tmp_path, monkeypatch):
++    from hermes_cli.middleware import run_llm_execution_middleware
++    home = tmp_path / "profile"
++    monkeypatch.setenv("HERMES_HOME", str(home))
++    configure(home, "llm")
++    effect = tmp_path / "provider_was_called"
++    def provider(request):
++        effect.write_text("called")
++        return {"response": "ok"}
++    with pytest.raises(PermissionError):
++        run_llm_execution_middleware({"messages": []}, provider, session_id="s")
++    assert not effect.exists()
++
++
++@pytest.mark.parametrize("failure", ["deny", "raise", "timeout", "invalid_return", "system_exit"])
++def test_failed_required_controller_never_falls_through(tmp_path, monkeypatch, failure):
++    import time
++    from hermes_cli.execution_control import ExecutionDecision, register_control
++    home = tmp_path / "profile"
++    monkeypatch.setenv("HERMES_HOME", str(home))
++    configure(home)
++    marker = tmp_path / "effect.txt"
++    registry = marker_registry(marker)
++    def control(**kw):
++        if failure == "raise":
++            raise RuntimeError("synthetic controller failure")
++        if failure == "system_exit":
++            raise SystemExit(0)
++        if failure == "timeout":
++            time.sleep(0.2)
++            return ExecutionDecision(True)
++        if failure == "invalid_return":
++            return {"allow": True}
++        return ExecutionDecision(False, "denied")
++    remove = register_control("fixture", "tool", control)
++    try:
++        result = json.loads(registry.dispatch("controlled_effect", {"value": "forbidden"}))
++        assert "error" in result
++        assert not marker.exists()
++    finally:
++        remove()
++
++
++def test_registration_is_profile_scoped_and_removal_is_closed(tmp_path, monkeypatch):
++    from hermes_cli.execution_control import ExecutionDecision, register_control
++    a, b = tmp_path / "A", tmp_path / "B"
++    configure(a)
++    configure(b)
++    marker = tmp_path / "effect.txt"
++    registry = marker_registry(marker)
++    monkeypatch.setenv("HERMES_HOME", str(a))
++    remove = register_control("fixture", "tool", lambda **kw: ExecutionDecision(True))
++    try:
++        assert json.loads(registry.dispatch("controlled_effect", {"value": "A"}))["written"]
++        marker.unlink()
++        monkeypatch.setenv("HERMES_HOME", str(b))
++        assert "error" in json.loads(registry.dispatch("controlled_effect", {"value": "B"}))
++        assert not marker.exists()
++        monkeypatch.setenv("HERMES_HOME", str(a))
++        assert json.loads(registry.dispatch("controlled_effect", {"value": "A-again"}))["written"]
++        marker.unlink()
++    finally:
++        remove()
++    assert "error" in json.loads(registry.dispatch("controlled_effect", {"value": "unloaded"}))
++    assert not marker.exists()
++
++
++def test_middleware_failure_cannot_remove_terminal_control(tmp_path, monkeypatch):
++    from hermes_cli.plugins import _delivery_manager
++    from hermes_cli.middleware import run_tool_execution_middleware
++    home = tmp_path / "profile"
++    monkeypatch.setenv("HERMES_HOME", str(home))
++    configure(home)
++    manager = _delivery_manager()
++    def broken(**kw):
++        raise ValueError("fault injected before next_call")
++    monkeypatch.setitem(manager._middleware, "tool_execution", [broken])
++    marker = tmp_path / "effect"
++    with pytest.raises(PermissionError):
++        run_tool_execution_middleware("controlled_effect", {}, lambda args: marker.write_text("bad"))
++    assert not marker.exists()
++
++
++def test_auxiliary_provider_cannot_bypass_required_control(tmp_path, monkeypatch):
++    from agent.auxiliary_hooks import run_with_aux_hooks
++    home = tmp_path / "profile"
++    monkeypatch.setenv("HERMES_HOME", str(home))
++    configure(home, "auxiliary")
++    marker = tmp_path / "effect"
++    with pytest.raises(PermissionError):
++        run_with_aux_hooks(lambda: marker.write_text("bad"), aux_task="test", metadata={},
++                           client=None, kwargs={"messages": []}, provider="synthetic",
++                           model="synthetic", api_mode="chat_completions")
++    assert not marker.exists()
++
++
++def test_required_result_control_closes_evidence_delivery_after_real_executor(tmp_path,monkeypatch):
++    from hermes_cli.middleware import run_tool_execution_middleware
++    from hermes_cli.execution_control import ExecutionDecision,register_control
++    monkeypatch.setenv('HERMES_HOME',str(tmp_path));configure(tmp_path,'tool_result')
++    calls=[]
++    with pytest.raises(PermissionError):
++        run_tool_execution_middleware('read_source',{},lambda args:calls.append('actual') or 'evidence')
++    assert calls==['actual']
++    remove=register_control('fixture','tool_result',lambda **kw:ExecutionDecision(True))
++    try:
++        assert run_tool_execution_middleware('read_source',{},lambda args:'checked-delivery')=='checked-delivery'
++    finally:remove()
++
++
++def test_missing_policy_is_closed_in_fresh_process_from_operator_declaration(tmp_path):
++    import os,subprocess,sys
++    home=tmp_path/'new-profile';home.mkdir()
++    (home/'config.yaml').write_text('execution_controls_required: true\n')
++    marker=tmp_path/'must-not-run'
++    code='from hermes_cli.middleware import run_tool_execution_middleware\nfrom pathlib import Path\nrun_tool_execution_middleware("effect",{},lambda args:Path('+repr(str(marker))+').write_text("bad"))'
++    p=subprocess.run([sys.executable,'-c',code],env={**os.environ,'HERMES_HOME':str(home)},capture_output=True,text=True)
++    assert p.returncode!=0 and not marker.exists()
++    assert 'mandatory execution policy is missing' in p.stderr
+diff --git a/tests/tools/test_dynamic_toolset_alias_union.py b/tests/tools/test_dynamic_toolset_alias_union.py
+new file mode 100644
+index 0000000000..9e2198bff8
+--- /dev/null
++++ b/tests/tools/test_dynamic_toolset_alias_union.py
+@@ -0,0 +1,16 @@
++from types import SimpleNamespace
++from unittest.mock import patch
++import toolsets
++
++def test_dynamic_plugin_and_mcp_alias_share_surface_without_shadowing():
++    names={'udr':['bn_deliver_report'],'mcp-udr':['mcp__udr__udr_research','mcp__udr__udr_status']}
++    fake=SimpleNamespace(get_tool_names_for_toolset=lambda n:names.get(n,[]),get_toolset_alias_target=lambda n:'mcp-udr' if n=='udr' else None)
++    with patch.object(toolsets,'_registry',return_value=fake),patch.object(toolsets,'_get_plugin_toolset_names',return_value=set(names)),patch.object(toolsets,'_get_registry_toolset_aliases',return_value={'udr':'mcp-udr'}):
++        result=toolsets.get_toolset('udr')
++    assert set(result['tools'])=={'bn_deliver_report','mcp__udr__udr_research','mcp__udr__udr_status'}
++
++def test_alias_does_not_add_unrelated_tools_or_change_static_only_lookup():
++    fake=SimpleNamespace(get_tool_names_for_toolset=lambda n:['own'] if n=='my-plugin' else ['unrelated'],get_toolset_alias_target=lambda n:None)
++    with patch.object(toolsets,'_registry',return_value=fake),patch.object(toolsets,'_get_plugin_toolset_names',return_value={'my-plugin'}),patch.object(toolsets,'_get_registry_toolset_aliases',return_value={}):
++        assert toolsets.get_toolset('my-plugin')['tools']==['own']
++        assert toolsets.get_toolset('my-plugin',include_registry=False) is None

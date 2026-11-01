@@ -1,0 +1,15 @@
+[
+  "tests/agent/test_auxiliary_required_terminal.py",
+  "tests/agent/test_subagent_plugin_toolsets.py",
+  "tests/hermes_cli/test_external_runtime_management.py",
+  "tests/plugins/test_required_execution_control.py",
+  "tests/agent/test_subagent_lifecycle.py",
+  "tests/agent/test_auxiliary_hooks.py",
+  "tests/tools/test_connector_dispatch_policy.py",
+  "tests/hermes_cli/test_update_contract.py",
+  "tests/gateway/test_multiplex_transport_matrix.py",
+  "tests/tools/test_dynamic_toolset_alias_union.py",
+  "tests/hermes_cli/test_oneshot_exit_contract.py",
+  "tests/hermes_cli/test_oneshot_usage_file.py",
+  "tests/hermes_cli/test_oneshot_resumed_session_persist.py"
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "GSD_Engine_v3_0_3.zip",
+    "sha256": "597ddd8bae43ae8d4d73cc1ca76526ba85a995afeb48c75fe38f807fa3507c3b",
+    "bytes": 2947125,
+    "purpose": "Оригинальная исполняемая поставка"
+  },
+  {
+    "file": "GSD_Документация.zip",
+    "sha256": "6548efa11ac8d4eade90b0f2a1dd2dc1ee8ea095b1425fdb7feb2877a6dd1fb1",
+    "bytes": 1410913,
+    "purpose": "Оригинальная документация"
+  },
+  {
+    "file": "GSD_Единый_пакет_интеграции.zip",
+    "sha256": "9fea05969af6400109a9034d9b24e91560ad67b28bb4229e0cc8456c312b8595",
+    "bytes": 4711555,
+    "purpose": "Входная единая поставка слоя 1.0.0"
+  },
+  {
+    "file": "gsd-author-findings-v0.1.md",
+    "sha256": "e10396f9b775f51cb9e706fa3024d2cb057fc2b591d5a101c968051390ac2be1",
+    "bytes": 17370,
+    "purpose": "Вопросы GSD-I01–I07"
+  },
+  {
+    "file": "GSD_Ответ_на_находки.md",
+    "sha256": "c9fcd250320d4aa397007b2a496aee37be1e72ee93352c9c5fce57a3eacaa3e6",
+    "bytes": 42440,
+    "purpose": "Предоставленный разбор и критерии"
+  },
+  {
+    "file": "GSD_Проверка_находок.zip",
+    "sha256": "f6d829ceba403b2627d053cb2843845f5522106e1c2e08db224aaf3066c10d5e",
+    "bytes": 95064,
+    "purpose": "Предоставленные материалы воспроизведения"
+  }
+]

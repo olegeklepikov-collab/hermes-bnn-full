@@ -1,0 +1,52 @@
+{
+  "consulted_on": "2026-09-23",
+  "sources": [
+    {
+      "id": "hermes-plugin",
+      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/plugins",
+      "used_for": "Нативные модули, регистрация инструментов и обработчиков; ошибка обработчика не означает обязательную блокировку."
+    },
+    {
+      "id": "hermes-mcp",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp",
+      "used_for": "Настройка mcp_servers."
+    },
+    {
+      "id": "mcp-lifecycle",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle",
+      "used_for": "Согласование и завершение инициализации."
+    },
+    {
+      "id": "mcp-stdio",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports",
+      "used_for": "Строковые JSON-RPC сообщения в стандартных потоках."
+    },
+    {
+      "id": "vscode-mcp",
+      "url": "https://code.visualstudio.com/docs/agent-customization/mcp-servers",
+      "used_for": "Параметры servers и stdio."
+    },
+    {
+      "id": "cursor-mcp",
+      "url": "https://cursor.com/docs/mcp",
+      "used_for": "Параметры mcpServers."
+    },
+    {
+      "id": "claude-mcp",
+      "url": "https://code.claude.com/docs/en/mcp",
+      "used_for": "Проектная .mcp.json."
+    },
+    {
+      "id": "codex-mcp",
+      "url": "https://developers.openai.com/codex/mcp",
+      "used_for": "Таблицы mcp_servers в TOML."
+    },
+    {
+      "id": "agent-skills",
+      "url": "https://agentskills.io/specification",
+      "used_for": "SKILL.md с name и description."
+    }
+  ],
+  "host_repository_commit": null,
+  "host_execution_verified": false
+}

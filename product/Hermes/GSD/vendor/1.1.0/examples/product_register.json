@@ -1,0 +1,20 @@
+{
+  "namespace": "example.case",
+  "logical_key": "formal-result",
+  "product": {
+    "type": "FormalDerivation",
+    "M": "Учебный пример формы; вывод здесь не выполнялся",
+    "steps": []
+  },
+  "input_objects": {
+    "INPUT.1": {
+      "id": "INPUT.1",
+      "version": 1,
+      "text": "Учебный вход"
+    }
+  },
+  "origin_component": "S",
+  "origin_ref": "EXAMPLE.NOT_EXECUTED",
+  "expected_version": 0,
+  "request_id": "example.registration"
+}

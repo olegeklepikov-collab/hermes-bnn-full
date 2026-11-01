@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "python": "/Volumes/AgentRuntime2/active-runtime/Hermes BNN/DocumentRuntime/venv/bin/python",
+  "python_roots": [
+    "/Volumes/AgentRuntime2/active-runtime/Hermes BNN/DocumentRuntime/venv",
+    "/Volumes/AgentRuntime2/active-runtime/Hermes BNN/runtime/python/cpython-3.13.14-macos-aarch64-none"
+  ],
+  "python_binary_hash": "1a2e543a5426f665b9f321d391995b46e985fbea8df2a5bea86d7210c603460a",
+  "ocr_binary_hash": "307d399a93f13559092859ebf4210d41b228d103d6061541b72b4358a7890e89",
+  "platform": "macos-arm64",
+  "os_isolation": "sandbox-exec",
+  "profile_id": "parser"
+}

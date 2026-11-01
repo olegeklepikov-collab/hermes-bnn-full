@@ -1,0 +1,12 @@
+{
+  "contract": "gsd.host-policy/1",
+  "procedure_executors": {
+    "external-D": {
+      "enabled": false,
+      "components": [
+        "D"
+      ],
+      "key_file": "/secure/gsd/external-d.key"
+    }
+  }
+}

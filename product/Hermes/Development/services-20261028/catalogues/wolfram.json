@@ -1,0 +1,114 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "WolframContext",
+      "title": null,
+      "description": "Uses semantic search to retrieve any relevant information from Wolfram.\nAlways use this tool at the start of new conversations or if the topic changes to ensure you have up-to-date relevant information.\nThis uses semantic search, so the context argument should be written in natural language (not a search query) and contain as much detail as possible (up to 250 words).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "type": "string",
+            "description": "A detailed summary of what the user is trying to achieve or learn about."
+          }
+        },
+        "required": [
+          "context"
+        ]
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Wolfram Context",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "WolframLanguageEvaluator",
+      "title": null,
+      "description": "Evaluates Wolfram Language code for the user in a Wolfram Language kernel.\nIf a formatted result is provided as a markdown link, use that in your response instead of typing out the output.\nParse natural language input with `\\[FreeformPrompt][\"query\"]`, which is analogous to ctrl+= input in notebooks.\nNatural language input is parsed before evaluation, so it works like macro expansion.\nYou should ALWAYS use this natural language input to obtain things like `Quantity`, `DateObject`, `Entity`, etc.\nThis is a stateless kernel, so you cannot reuse definitions from previous evaluations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The Wolfram Language code to evaluate."
+          },
+          "timeConstraint": {
+            "type": "number",
+            "description": "The time constraint for the evaluation (default is 60 seconds)."
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Wolfram Language Evaluator",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "WolframAlpha",
+      "title": null,
+      "description": "Use natural language queries with Wolfram|Alpha to get up-to-date computational results about entities in chemistry, physics, geography, history, art, astronomy, and more.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Wolfram Alpha query"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Wolfram|Alpha",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": null
+    }
+  ],
+  "instructions": null,
+  "serverInfo": {
+    "name": "Wolfram",
+    "title": null,
+    "version": "2026.09.15",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": null,
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": true
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

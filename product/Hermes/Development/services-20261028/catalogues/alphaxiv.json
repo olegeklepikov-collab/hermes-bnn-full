@@ -1,0 +1,1180 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "answer_pdf_queries",
+      "title": "answer_pdf_queries",
+      "description": "Returns raw filtered page content from one PDF as XML (<paper id=\"...\"><page num=\"N\">...</page>...</paper>). An ordinary webpage URL returns its readable text, like read_webpage; only PDFs use page ranking. Takes a paper ID, a URL, or a title — naming a paper you have not located yet is fine, so there is no need to look up its URL first. To read multiple papers, issue multiple tool calls in parallel; they resolve as one search round. Every claim you take from returned PDF <page> text carries a citation tag built out of it. PDF calls return the most relevant pages up to a fixed size, so extra queries about the same paper are nearly free — batch every question you have for that paper into one call rather than spending a second call on it. Supports arXiv, alphaXiv, and Semantic Scholar abstract pages.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "paper": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The paper to read, as an ID ('2307.12307'), a URL ('https://arxiv.org/pdf/2307.12307', 'https://www.alphaxiv.org/abs/2307.12307'), or a full title ('Attention Is All You Need'). Titles require a unique exact match; ambiguous names and missing titles do not read a substitute paper. Use lookup_paper to inspect candidates and then pass the chosen ID."
+          },
+          "queries": {
+            "description": "What you are looking for in the paper, as one string per question — ['What datasets were used?', 'What are the ablation results?'], not several questions joined into one string. Every question about this paper belongs in this one call.",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "paper",
+          "queries"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_paper_content",
+      "title": "get_paper_content",
+      "description": "Get the content of an arXiv/alphaXiv paper as text. By default returns a structured AI-generated intermediate report (optimized for LLM consumption). If no report is available, automatically falls back to the full extracted text. Use the fullText option to skip the report and get the raw extracted text directly.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "An arXiv or alphaXiv URL (e.g., 'https://arxiv.org/abs/2307.12307', 'https://arxiv.org/pdf/2401.12345', 'https://www.alphaxiv.org/abs/2307.12307')"
+          },
+          "fullText": {
+            "default": false,
+            "description": "If true, return the full extracted text instead of the intermediate report. Useful when you need raw paper content or the report is insufficient.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "read_files_from_github_repository",
+      "title": "read_files_from_github_repository",
+      "description": "Reads files or directories from a GitHub repository, including a paper's project website source. For owner.github.io sites, try owner/owner.github.io; for owner.github.io/project/, try owner/project first. These are candidates, not guaranteed source repositories. For project videos, read the webpage first. Inspect website source only when the page omits a playable URL for a needed demo; do not recheck assets the page already exposes. Look in HTML, components, and asset manifests. Special behaviors:\n1. When path is '/', returns repository structure and the contents of top-level files. Large repositories may be limited to top-level entries.\n2. When path points to a directory, returns a list of files and directories, with contents of readable files fetched in parallel. Omitted files include a reason and raw URL when available.\n3. When path points to a file, returns its contents. Binary files are rejected with a raw URL; PDFs should be queried with answer_pdf_queries.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "githubUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "The GitHub repository URL, including project website repositories."
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The path to the file or directory. Use '/' to get the entire repository structure."
+          }
+        },
+        "required": [
+          "githubUrl",
+          "path"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "discover_papers",
+      "title": "discover_papers",
+      "description": "Discovers and ranks multiple candidate papers for a research topic. Use this for literature discovery, related work, broad topical coverage, or what is newest on a topic. Do not use it to locate one known paper — name that paper to a PDF tool directly. You get 2 searches per message, so cover every facet of the request in one broad call rather than spending them on several narrow ones.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "keywords": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Only terms stated by the user or seen in other tool results, spelled as they appear. For \"compare grpo and dapo\" the keywords are [\"GRPO\", \"DAPO\"] and nothing more — never a guessed expansion like \"group relative policy optimization\", even when confident in it: short names collide, and the expansion buries the sense actually asked about. Focused terms are all you need; general-purpose terms, unlike most keyword searches, reduce result quality. The index is in English, so a term written in another language goes in translated (\"具身智能\" -> \"embodied intelligence\") while acronyms and names stay as written."
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What the person is asking for, in their terms, written in English. Length is not the goal here; a short query in their words beats a padded one in yours. For example, do not add the extra clause \"in the context of\" unless the prior tool results indicate such."
+          },
+          "difficulty": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "A 1-10 estimate of how much retrieval effort this request warrants. Higher values take longer, but trigger multi-round searches."
+          },
+          "published_after": {
+            "description": "Only return papers first published on or after this date (YYYY-MM-DD). Omit it unless the request names a real boundary, e.g. 'since 2024' — this excludes papers outright, so to merely favour new work set prioritize to 'recency' instead of guessing a cutoff.",
+            "type": "string",
+            "format": "date",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+          },
+          "published_before": {
+            "description": "Only return papers first published on or before this date (YYYY-MM-DD). Omit it unless the request names a historical window, e.g. 'before AlexNet' or 'papers from 2025'. Results thin out the further back and narrower the window is; report what comes back rather than retrying the same window.",
+            "type": "string",
+            "format": "date",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+          },
+          "prioritize": {
+            "default": "default",
+            "description": "What to weigh once topical relevance is accounted for. Omit it for the default, which grounds results in roughly the past year of work while letting strong older matches through. Use 'recency' when the request is about what is new — 'latest work', 'what has X been up to', 'recent papers' — which ranks the newest plausible matches first, needing no date bound and excluding nothing. Use 'historical' for seminal, foundational, or best-known work, where lifetime standing outweighs freshness. Use 'popular' only where the request names popularity, votes, or community standing — 'best' on its own asks which work is strongest, not which is most upvoted — which gives community votes the dominant weight among the topically relevant matches and mostly ignores age; for a pure most-popular list with no subject to search for, browse_paper_feed is the better tool.",
+            "type": "string",
+            "enum": [
+              "historical",
+              "default",
+              "recency",
+              "popular"
+            ]
+          }
+        },
+        "required": [
+          "keywords",
+          "question",
+          "difficulty"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "find_researchers",
+      "title": "find_researchers",
+      "description": "The first tool for researcher affiliations, organization rosters, who left an organization, career moves, and what researchers are doing now. It composes name or subject relevance, current affiliation or role, citation range, position history, and verified coauthorship. Never use this tool merely to resolve a name for another call; pass the name directly to that profile or relationship call. Advising and lab-membership questions are answered here: coauthored_with returns the joint-work record behind each candidate, and require_position_overlap narrows it to people who were at the same place at the same time. Position constraints bind to one LinkedIn experience row. Returns [SLUG=...] handles.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "query": {
+            "description": "A person's name only when identifying that person is the final task, or a research subject ('mechanistic interpretability'). Never use this to resolve an anchor for another call; pass the name directly there. Omit for structured roster, relationship, or career queries.",
+            "type": "string",
+            "maxLength": 200
+          },
+          "topic": {
+            "description": "Research subject to answer from authorship of papers on it, for 'who works on X' and 'who does prominent work on X'. One concept in the vocabulary its own papers use — name the architecture, benchmark, or subfield, and spell out an acronym alongside it. Never concatenate several related concepts to widen the net: that lands between all of them and matches none, and 'generalist robotic policies evaluation benchmarking robot foundation models embodied AI' returned none of the field's benchmark authors where 'evaluating and benchmarking generalist robotic policies' returned four in the top five. Prefer this over `query` for any subject question, since `query` matches profile prose and far fewer researchers describe their work there than publish it.",
+            "type": "string",
+            "maxLength": 200
+          },
+          "topic_authors": {
+            "default": "lead",
+            "description": "Which byline slot `topic` weights: 'lead' for the students and postdocs who drive the work, 'senior' for the PIs who close the author list, 'any' for both.",
+            "type": "string",
+            "enum": [
+              "lead",
+              "senior",
+              "any"
+            ]
+          },
+          "affiliation": {
+            "description": "Current organization ('DeepSeek', 'UC Berkeley'). Every indexed spelling of it is matched, so write the name plainly and never spell out variants yourself. For a historical organization use position.affiliation, or include_past_affiliations as shorthand.",
+            "type": "string",
+            "maxLength": 100
+          },
+          "include_past_affiliations": {
+            "default": false,
+            "description": "Shorthand for a past position at `affiliation`, excluding researchers whose current affiliation still matches. Use `position` for role or date constraints.",
+            "type": "boolean"
+          },
+          "position": {
+            "description": "Composable LinkedIn position-history filter. Affiliation, role, status, and every date bound apply to the same experience row. For a recent departure use a past position with ended_after and end-date ordering; combine with top-level affiliation or role for transitions.",
+            "type": "object",
+            "properties": {
+              "affiliation": {
+                "description": "Organization for this position, matched against the same experience row under every indexed spelling.",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "role": {
+                "description": "Title or role for this position, token-matched against the same experience row.",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "status": {
+                "default": "any",
+                "description": "Whether the matching position is ongoing, ended, or either.",
+                "type": "string",
+                "enum": [
+                  "current",
+                  "past",
+                  "any"
+                ]
+              },
+              "exclude_current_matches": {
+                "default": [],
+                "description": "Historical dimensions that must no longer match a current position. For who-left-X use ['affiliation']; include 'role' only when the title must also have changed.",
+                "maxItems": 2,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "affiliation",
+                    "role"
+                  ]
+                }
+              },
+              "started_after": {
+                "description": "Position began on or after this date, inclusive (YYYY-MM-DD).",
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "started_before": {
+                "description": "Position began on or before this date, inclusive (YYYY-MM-DD).",
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "ended_after": {
+                "description": "Position ended on or after this date, inclusive (YYYY-MM-DD).",
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "ended_before": {
+                "description": "Position ended on or before this date, inclusive (YYYY-MM-DD).",
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "order_by": {
+                "description": "Order matching positions newest-first by their start or end date.",
+                "type": "string",
+                "enum": [
+                  "start_date",
+                  "end_date"
+                ]
+              }
+            }
+          },
+          "relationship": {
+            "description": "Coauthorship evidence from linked public alphaXiv papers, one line per coauthor: shared papers, what share of that person's own output the collaboration is, how often they lead a paper the anchor closes, the years it ran, and their current position. Judge each row yourself — a senior collaborator and a student both share many papers, and only the share and lead counts tell them apart. require_position_overlap composes it with position history to add shared time; an exact title comes from a source that states one.",
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "const": "coauthored_with"
+              },
+              "researcher": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120,
+                "description": "The anchor researcher's full name or exact raw [SLUG=...] handle."
+              },
+              "require_position_overlap": {
+                "description": "When true, the candidate's matching position must overlap a dated position the anchor held at position.affiliation, using indexed year/month precision. Narrows student and lab-member candidates to shared time; if the anchor has no dated position there, the results say so and stand on coauthorship.",
+                "type": "boolean"
+              },
+              "min_shared_papers": {
+                "description": "Optional shared-paper floor. Omit for roster discovery, which defaults to 1; set it only when the user asks for frequent or close collaborators.",
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "kind",
+              "researcher"
+            ]
+          },
+          "role": {
+            "description": "Current role to filter by, token-matched ('professor' matches assistant and associate professors; 'phd student'). Only current roles are indexed. Omit or leave empty when not filtering by role.",
+            "type": "string",
+            "maxLength": 60
+          },
+          "min_citations": {
+            "description": "Citation floor, to keep a roster to established researchers.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "max_citations": {
+            "description": "Citation ceiling, e.g. to find rising researchers who are not yet famous.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "sort": {
+            "default": "relevance",
+            "description": "'relevance' ranks a query, or relationship strength for a relationship-only search, otherwise citations. 'recent_activity' ranks by latest linked paper. 'relationship_strength' requires relationship.",
+            "type": "string",
+            "enum": [
+              "relevance",
+              "citations",
+              "recent_activity",
+              "relationship_strength"
+            ]
+          },
+          "limit": {
+            "description": "Results per page. Defaults to 12, or 50 for a relationship search, whose rows are one line each.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "page": {
+            "default": 1,
+            "description": "1-based page over the same ordering. Every result says whether more matched beyond it, so page on when the answer needs the tail rather than re-running a narrower search. A page that reports no total is not a count of the roster; only the last page of a search establishes one.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_researcher",
+      "title": "get_researcher",
+      "description": "Gets compact profiles for one or many researchers. Pass full names or exact raw [SLUG=...] handles together in `researchers`; each name resolves to the best-matching indexed researcher, tolerating a misspelling. Never use get_researcher merely before get_researcher_papers; a larger or date-bounded paper question goes directly there. Current positions and up to five curated past positions are returned by default; request additional sections with `include`. Papers are independently opt-in for small profile context. For compact current-role enrichment of names extracted from a webpage, use resolve_researchers.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "researchers": {
+            "minItems": 1,
+            "maxItems": 25,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "description": "One to 25 researcher full names or exact raw slugs. Names resolve to the best-matching indexed researcher; a corrected spelling is reported inline."
+          },
+          "include": {
+            "default": [],
+            "description": "Additional sections to return. Available sections: bio, full curated position_history, raw linkedin_experience, education, citation_trajectory, coauthors, alphaxiv_account, and links.",
+            "maxItems": 8,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "bio",
+                "position_history",
+                "linkedin_experience",
+                "education",
+                "citation_trajectory",
+                "coauthors",
+                "alphaxiv_account",
+                "links"
+              ]
+            }
+          },
+          "papers": {
+            "default": "none",
+            "description": "Optional paper context. notable selects high-attention work and one cross-organization paper when available; recent orders by publication date.",
+            "type": "string",
+            "enum": [
+              "none",
+              "notable",
+              "recent"
+            ]
+          },
+          "paper_limit": {
+            "description": "Papers per researcher. Defaults to 3.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "researchers"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_researcher_papers",
+      "title": "get_researcher_papers",
+      "description": "Papers on alphaXiv for one or many researchers, grouped per researcher. Pass full names or exact raw [SLUG=...] handles together in `researchers`; each name resolves to the best-matching indexed researcher, tolerating a misspelling. Never call get_researcher or find_researchers first for one named person's papers. Sort 'recent' with published_after answers what-are-they-doing-now; 'cited' answers best-known work. Paper [ID=...] handles chain into the paper tools.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "researchers": {
+            "minItems": 1,
+            "maxItems": 25,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "description": "One to 25 researcher full names or exact raw slugs. Names resolve to the best-matching indexed researcher; a corrected spelling is reported inline."
+          },
+          "sort": {
+            "default": "cited",
+            "description": "'cited' for notable work, 'recent' for current activity, 'viewed' for alphaXiv attention.",
+            "type": "string",
+            "enum": [
+              "recent",
+              "cited",
+              "viewed"
+            ]
+          },
+          "published_after": {
+            "description": "Only papers first published on or after this date (YYYY-MM-DD). Use with sort 'recent' for activity windows; omit unless the request names one.",
+            "type": "string",
+            "format": "date",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+          },
+          "limit_per_researcher": {
+            "default": 10,
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25
+          }
+        },
+        "required": [
+          "researchers"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "resolve_researchers",
+      "title": "resolve_researchers",
+      "description": "Turns a list of people extracted from a webpage or other external source into current, citeable alphaXiv researcher entries. Use this once after reading a roster, team page, award list, or similar source, before repeating its possibly stale affiliations. Pass every person in one batch. Optional personal URLs and related researchers disambiguate names; related anchors are matching context, not proof of the source's claimed relationship.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "people": {
+            "minItems": 1,
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120,
+                  "description": "The person's full name as printed by the external source."
+                },
+                "url": {
+                  "description": "An optional personal, institutional-profile, Scholar, LinkedIn, or social-profile URL associated with this person. Do not pass the shared roster page URL.",
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "description": "Up to 50 externally named people to identify in one call."
+          },
+          "related_researchers": {
+            "description": "Optional full names or exact raw slugs related to the whole list; coauthorship only disambiguates.",
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            }
+          }
+        },
+        "required": [
+          "people"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_paper_notes",
+      "title": "get_paper_notes",
+      "description": "Reads the user's own private notes on one paper: their freeform notes, and every passage they highlighted with the note attached to it. Each highlight says where it sits (a PDF page, the abstract, the AI overview as overview/<language>, or the blog post), the paper version, the user's chosen highlight color, and the date. Colors are the user's own system and can carry meaning, such as one color for disagreement. Use it whenever the user mentions their notes, highlights, or what they found important in a paper. The notes are the user's words, not the paper's.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "paper_id_or_url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The paper's arXiv id or alphaXiv/arXiv URL."
+          }
+        },
+        "required": [
+          "paper_id_or_url"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "list_annotated_papers",
+      "title": "list_annotated_papers",
+      "description": "Lists the papers the user has written private notes or highlights on, most recently annotated first, 25 per page. Each row gives the paper id, title, highlight count, whether there are notes, and when it was last annotated. Use it to find which papers to read with get_paper_notes, for example when the user asks about their notes across papers or what they have been reading.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991,
+            "description": "1 for the most recently annotated papers."
+          }
+        },
+        "required": [
+          "page"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "list_library",
+      "title": "list_library",
+      "description": "List the user's alphaXiv library: their folders (bookmark collections) with folder_id, name, type, parent_id, sharing_status, and paper_count. Set include_papers to also list papers per folder, each with its id, title, publication date, and whether it is a public arXiv paper or one the user uploaded themselves. Pass paper_ids_or_urls to check which folders already contain specific papers. The default folders 'default-to-read', 'default-reading', and 'default-completed' represent reading status; a paper may belong to any number of folders at once.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "include_papers": {
+            "default": false,
+            "description": "Also list the papers inside each folder (capped per folder).",
+            "type": "boolean"
+          },
+          "paper_ids_or_urls": {
+            "description": "Report which folders already contain each of these papers.",
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "save_papers_to_folder",
+      "title": "save_papers_to_folder",
+      "description": "Add one or more papers (by arXiv id or alphaXiv/arXiv URL) to a folder in the user's library. Papers not yet in the database are fetched from arXiv. Omit folder_id to save to the 'Want to read' folder. Get folder_id from list_library. Adding is idempotent and never removes a paper from its other folders.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "paper_ids_or_urls": {
+            "minItems": 1,
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "folder_id": {
+            "description": "Target folder. Defaults to the user's 'Want to read' folder.",
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$"
+          }
+        },
+        "required": [
+          "paper_ids_or_urls"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "remove_papers_from_folder",
+      "title": "remove_papers_from_folder",
+      "description": "Remove one or more papers from a single folder in the user's library. Only affects the given folder; the paper stays in any others. Get folder_id from list_library.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "paper_ids_or_urls": {
+            "minItems": 1,
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "folder_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$"
+          }
+        },
+        "required": [
+          "paper_ids_or_urls",
+          "folder_id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "move_papers_between_folders",
+      "title": "move_papers_between_folders",
+      "description": "Move papers from a source folder to a destination folder in a single atomic operation: each paper is added to the destination and removed from the source. A paper already in the destination is reported as a duplicate and still removed from the source. Get folder ids from list_library.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "paper_ids_or_urls": {
+            "minItems": 1,
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "from_folder_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$"
+          },
+          "to_folder_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$"
+          }
+        },
+        "required": [
+          "paper_ids_or_urls",
+          "from_folder_id",
+          "to_folder_id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "create_folder",
+      "title": "create_folder",
+      "description": "Create a new custom folder in the user's library. Optionally nest it under parent_folder_id (from list_library). Returns the new folder_id.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "parent_folder_id": {
+            "description": "Nest the new folder under this existing folder.",
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "rename_folder",
+      "title": "rename_folder",
+      "description": "Rename a custom folder. Only custom folders can be renamed, not the default reading-status or publications folders. Get folder_id from list_library.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "folder_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "folder_id",
+          "name"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "delete_folder",
+      "title": "delete_folder",
+      "description": "Delete a folder and its paper memberships (the papers themselves are not deleted). The publications and private-papers folders cannot be deleted. Get folder_id from list_library.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "folder_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$"
+          }
+        },
+        "required": [
+          "folder_id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_for_you_feed",
+      "title": "get_for_you_feed",
+      "description": "Returns the authenticated user's unfiltered For You first page in app order as {papers: [{universal_paper_id}]}. Includes link blogs; may be empty. No pagination or assistant quota charge.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 20,
+            "description": "First-page size (1–200; default 20).",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          }
+        },
+        "additionalProperties": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_hot_feed",
+      "title": "get_hot_feed",
+      "description": "Returns the app's unfiltered Hot first page over 30 Days in app order as {papers: [{universal_paper_id}]}. Includes link blogs; may be empty. No pagination or assistant quota charge.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 20,
+            "description": "First-page size (1–200; default 20).",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          }
+        },
+        "additionalProperties": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "edit_private_paper_metadata",
+      "title": "edit_private_paper_metadata",
+      "description": "Edit the metadata of a paper the user uploaded to alphaXiv themselves (a private paper). Papers from arXiv cannot be edited. Only the fields you pass change; the rest keep their current values. authors and categories replace the whole list when given. Uploads default to the upload date as their publication date, so this is how an agent that has looked up a paper's real publication date corrects it. Get the paper id from list_library.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "paper_id_or_url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The paper's id as returned by list_library, or its alphaXiv URL."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "abstract": {
+            "type": "string",
+            "maxLength": 50000
+          },
+          "authors": {
+            "description": "Full author names in byline order. Replaces the current list entirely.",
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            }
+          },
+          "publication_date": {
+            "description": "The date the paper was originally published (YYYY-MM-DD), not the upload date.",
+            "type": "string",
+            "format": "date",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+          },
+          "categories": {
+            "description": "Subject categories such as 'cs.LG'. Replaces the current list entirely.",
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          },
+          "bibtex": {
+            "description": "BibTeX citation for the paper, or null to clear it.",
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "paper_id_or_url"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "list_followed_researchers",
+      "title": "list_followed_researchers",
+      "description": "List the researcher profiles the user follows, with each one's slug, name, current headline or affiliation, and citation count. Following a researcher surfaces their new papers in the user's alphaXiv feed. Pass a slug from here to get_researcher or get_researcher_papers for the full profile.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "follow_researcher",
+      "title": "follow_researcher",
+      "description": "Follow a researcher so their new papers reach the user's feed. Idempotent: following someone already followed changes nothing. Get the slug from find_researchers, get_researcher, or a /@<slug> profile URL.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "slug": {
+            "description": "Researcher slug, as returned in [SLUG=...] handles and rendered at /@<slug>.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "unfollow_researcher",
+      "title": "unfollow_researcher",
+      "description": "Stop following a researcher. Idempotent: unfollowing someone not followed changes nothing. Get the slug from list_followed_researchers.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "slug": {
+            "description": "Researcher slug, as returned in [SLUG=...] handles and rendered at /@<slug>.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    }
+  ],
+  "instructions": "alphaXiv provides access to a database of over 2.5 million academic research papers from arXiv. (computer science, mathematics, physics, statistics, quantitative biology/finance, electrical engineering, NOT biomedical, clinical, or life science papers from PubMed, Cell, Nature) These tools are useful when the user asks about, references, or discusses academic papers, scientific research, scholarly literature, citations, research topics, or anything related to academic work. If the user mentions a research area, methodology, scientific concept, asks for literature reviews, wants to find related work, or asks questions that could benefit from academic sources, consider using the search tools. When the user references a specific paper or asks about its content, the paper content and PDF query tools can help. Prefer searching for and citing real papers over relying on memory alone for research questions. The library tools manage the user's own folders of bookmarked papers: a paper can live in several folders at once, and 'to read', 'reading', and 'completed' are just the default folders rather than exclusive states. The notes tools read the user's own private notes and highlights on papers. The researcher tools answer questions about people: who works on a subject, an organization's roster, where someone is now, who they publish with, and the user's own follows. Results address papers as [ID=<id>] and researchers as [SLUG=<slug>]; pass those values back to the tools that take a paper id or a researcher slug, and render them as https://www.alphaxiv.org/abs/<id> and https://www.alphaxiv.org/@<slug> rather than showing the bracketed handle to the user.",
+  "serverInfo": {
+    "name": "alphaxiv-assistant",
+    "title": null,
+    "version": "1.0.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": null,
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": true
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  },
+  "independent_BNN_oauth": true
+}

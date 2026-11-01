@@ -1,0 +1,147 @@
+{
+  "integration_version": "1.1.0",
+  "scope": "Локальная реализация и проверяемые предусловия; не приёмка установленного Hermes",
+  "findings": [
+    {
+      "id": "GSD-I01",
+      "resolution": "Исправлено в интеграционном коде",
+      "mechanism": "gsd_bridge/composition.py",
+      "implemented": "Проверка зависимостей до S/D; сохранение входных кандидатов; явная ветвь без G; вызов не приравнивается к исполнению.",
+      "local_test_results": "verification/integration/results.json",
+      "local_tests": [
+        "test_remediation.RemediationTests.test_I01_D_without_review_not_invoked",
+        "test_remediation.RemediationTests.test_I01_empty_fallback_does_not_invoke_dependents",
+        "test_remediation.RemediationTests.test_I01_explicit_fallback_keeps_G_open_and_preserves_inputs",
+        "test_remediation.RemediationTests.test_I01_invalid_policy_rejected",
+        "test_remediation.RemediationTests.test_I01_missing_G_blocks_before_S_D_invocation",
+        "test_remediation.RemediationTests.test_I01_supplied_data_not_new_semantic_generation"
+      ],
+      "all_listed_tests_passed": true,
+      "host_required": "Реальный содержательный исполнитель G/S/D и критерии результата принимает целевая среда.",
+      "target_acceptance_complete": false
+    },
+    {
+      "id": "GSD-I02",
+      "resolution": "Исправлено в сборщике интеграционного слоя",
+      "mechanism": "gsd_bridge/context.py",
+      "implemented": "Справочные источники не активируют чужую роль; полные договоры зависимостей; однозначные краткие адреса GA; отказ при неполноте.",
+      "local_test_results": "verification/integration/results.json",
+      "local_tests": [
+        "test_remediation.RemediationTests.test_I02_all_four_cross_component_references",
+        "test_remediation.RemediationTests.test_I02_ambiguous_source_identifier_not_guessed",
+        "test_remediation.RemediationTests.test_I02_foreign_active_instruction_remains_forbidden",
+        "test_remediation.RemediationTests.test_I02_forged_incomplete_manifest_rejected_even_with_rehashed_body",
+        "test_remediation.RemediationTests.test_I02_incomplete_delivery_receipt_rejected",
+        "test_remediation.RemediationTests.test_I02_procedure_contract_and_dependencies_delivered",
+        "test_remediation.RemediationTests.test_I02_short_generative_anchors_resolve_uniquely"
+      ],
+      "all_listed_tests_passed": true,
+      "host_required": "Реальная доставка полного текста модели должна быть подтверждена отдельно.",
+      "target_acceptance_complete": false
+    },
+    {
+      "id": "GSD-I03",
+      "resolution": "Реализован маршрут с явным внешним предусловием",
+      "mechanism": "gsd_bridge/routes.py",
+      "implemented": "Все семь составов сохраняют исходный план; готовые внешние обязательства запрашиваются и принимаются только по действительной подписанной квитанции.",
+      "local_test_results": "verification/integration/results.json",
+      "local_tests": [
+        "test_remediation.RemediationTests.test_I03_external_expired_or_stale_context_rejected",
+        "test_remediation.RemediationTests.test_I03_external_not_exposed_to_model",
+        "test_remediation.RemediationTests.test_I03_external_output_substitution_rejected",
+        "test_remediation.RemediationTests.test_I03_external_replay_not_double_counted",
+        "test_remediation.RemediationTests.test_I03_external_requires_context_delivery_attestation",
+        "test_remediation.RemediationTests.test_I03_external_revocation_checked_before_duplicate",
+        "test_remediation.RemediationTests.test_I03_external_signature_tamper_rejected",
+        "test_remediation.RemediationTests.test_I03_external_wrong_component_rejected",
+        "test_remediation.RemediationTests.test_I03_missing_host_policy_does_not_accept_foreign_product",
+        "test_remediation.RemediationTests.test_I03_seven_procedure_routes_keep_all_obligations",
+        "test_remediation.RemediationTests.test_I03_signed_external_product_makes_real_procedural_progress"
+      ],
+      "all_listed_tests_passed": true,
+      "host_required": "Это не семь автономных реализаций полного каталога. Без доверенного внешнего исполнителя и предметного результата процесс остаётся открытым.",
+      "target_acceptance_complete": false
+    },
+    {
+      "id": "GSD-I04",
+      "resolution": "Реализовано консервативное полное замыкание",
+      "mechanism": "contracts/engineering_sections.json; gsd_bridge/context.py",
+      "implemented": "305 адресов, 69 верхних разделов; инженерный профиль доставляет полный исходник с обязательной основой и зависимостями; переполнение отклоняется.",
+      "local_test_results": "verification/integration/results.json",
+      "local_tests": [
+        "test_remediation.RemediationTests.test_I04_engineering_context_has_entire_source_and_core",
+        "test_remediation.RemediationTests.test_I04_engineering_index_all_sections_match_source",
+        "test_remediation.RemediationTests.test_I04_engineering_key_without_profile_rejected",
+        "test_remediation.RemediationTests.test_I04_exact_byte_limit_not_silent_truncation",
+        "test_remediation.RemediationTests.test_I04_section_address_resolves_exact_text",
+        "test_remediation.RemediationTests.test_I04_standard_G_does_not_load_engineering_by_default"
+      ],
+      "all_listed_tests_passed": true,
+      "host_required": "Замыкание не является минимальным по объёму; достаточное окно модели и применение норм принимает среда.",
+      "target_acceptance_complete": false
+    },
+    {
+      "id": "GSD-I05",
+      "resolution": "Реализован регистратор и локальный транспортный переход",
+      "mechanism": "gsd_bridge/products.py",
+      "implemented": "Устойчивая идентичность, целые версии, неизменённый исходный объект, входные хеши, статус без повышения; действительная локальная передача через HandoffChannel.",
+      "local_test_results": "verification/integration/results.json",
+      "local_tests": [
+        "test_remediation.RemediationTests.test_I05_ambiguous_or_invalid_status_rejected",
+        "test_remediation.RemediationTests.test_I05_boolean_version_rejected",
+        "test_remediation.RemediationTests.test_I05_caller_cannot_override_transport_status",
+        "test_remediation.RemediationTests.test_I05_changed_content_requires_expected_current_version",
+        "test_remediation.RemediationTests.test_I05_changed_input_rejected_before_transfer",
+        "test_remediation.RemediationTests.test_I05_description_M_not_promoted",
+        "test_remediation.RemediationTests.test_I05_history_preserved_but_stale_product_not_transferable",
+        "test_remediation.RemediationTests.test_I05_native_formal_principle_diagnostic_products_are_transmitted",
+        "test_remediation.RemediationTests.test_I05_registration_same_content_new_request_is_idempotent",
+        "test_remediation.RemediationTests.test_I05_registration_survives_process_store_reopen"
+      ],
+      "all_listed_tests_passed": true,
+      "host_required": "Заявленное происхождение не удостоверяется одной регистрацией; надёжная сеть, стороны и общий резерв принадлежат принимающей среде.",
+      "target_acceptance_complete": false
+    },
+    {
+      "id": "GSD-I06",
+      "resolution": "Исправлен локальный жизненный цикл",
+      "mechanism": "gsd_bridge/lifecycle.py",
+      "implemented": "Повторная инициализация случая запрещена; продолжение через restore; явный связанный запуск не сбрасывает расход; однозначный перенос подписанного снимка.",
+      "local_test_results": "verification/integration/results.json",
+      "local_tests": [
+        "test_remediation.RemediationTests.test_I06_ambiguous_legacy_runs_require_explicit_reconciliation",
+        "test_remediation.RemediationTests.test_I06_closed_degraded_constructor_rejected",
+        "test_remediation.RemediationTests.test_I06_concurrent_create_cannot_duplicate_case",
+        "test_remediation.RemediationTests.test_I06_explicit_new_run_cannot_increase_budget",
+        "test_remediation.RemediationTests.test_I06_explicit_new_run_keeps_family_spend_and_stops_previous",
+        "test_remediation.RemediationTests.test_I06_family_budget_enforced_across_two_runs",
+        "test_remediation.RemediationTests.test_I06_family_record_tamper_rejected",
+        "test_remediation.RemediationTests.test_I06_legacy_migration_preserves_exact_snapshot_and_counters",
+        "test_remediation.RemediationTests.test_I06_legacy_state_cannot_be_bypassed_by_create",
+        "test_remediation.RemediationTests.test_I06_new_request_id_same_case_rejected",
+        "test_remediation.RemediationTests.test_I06_restore_keeps_counters",
+        "test_remediation.RemediationTests.test_I06_same_new_run_authorization_is_idempotent"
+      ],
+      "all_listed_tests_passed": true,
+      "host_required": "Общий бюджет Hermes и защита от отката всей базы внешние. Несколько старых запусков одного case_id требуют отдельного сверенного переноса.",
+      "target_acceptance_complete": false
+    },
+    {
+      "id": "GSD-I07",
+      "resolution": "Происхождение закреплено; отсутствующие способности запрещены",
+      "mechanism": "provenance/identity.json; docs/integration/ADAPTER_REQUIREMENTS.md",
+      "implemented": "Исходный архив/манифест установлены; Git и отсутствующий адаптер не выдуманы; аналитический запрет нельзя снять настройкой.",
+      "local_test_results": "verification/integration/results.json",
+      "local_tests": [
+        "test_remediation.RemediationTests.test_I07_cli_external_acceptance_uses_real_subprocess",
+        "test_remediation.RemediationTests.test_I07_invalid_top_level_and_nested_request_fail_without_provider",
+        "test_remediation.RemediationTests.test_I07_native_analysis_guard_cannot_be_disabled_by_configuration",
+        "test_remediation.RemediationTests.test_I07_no_false_original_adapter_or_effect_capability_claim",
+        "test_remediation.RemediationTests.test_I07_upstream_manifest_still_exact"
+      ],
+      "all_listed_tests_passed": true,
+      "host_required": "Подлинная поставка адаптера 1.2 отсутствует. Для внешних действий нужны защищённые функции и целевая приёмка, не заявление об эквивалентности.",
+      "target_acceptance_complete": false
+    }
+  ]
+}

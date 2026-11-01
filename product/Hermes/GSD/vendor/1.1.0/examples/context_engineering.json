@@ -1,0 +1,8 @@
+{
+  "components": "GSD",
+  "profile": "engineering",
+  "entry_keys": [
+    "engineering:section:24.90"
+  ],
+  "byte_limit": 1500000
+}

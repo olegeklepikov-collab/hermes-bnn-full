@@ -1,0 +1,2606 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "verify_paper",
+      "title": "Verify a citation",
+      "description": "Verify that a cited paper actually exists and return its canonical metadata, DOI, and retraction status. Accepts a DOI, a Pendar paper ID, a title, a full citation string, or a journal-style abbreviated reference with no title (journal, volume, page, year). When the input is too ambiguous to resolve, returns candidates instead of guessing. Also reports the paper's citation percentile among papers from the same year, whether the record is an erratum or notice, and facts about its venue. Use it to check a citation before relying on it, including one taken from an AI-generated answer. Takes about a second.",
+      "inputSchema": {
+        "properties": {
+          "citation": {
+            "description": "A DOI, a Pendar paper ID returned by an earlier call, a paper title, a full citation string, or a journal-style reference such as 'E. Brown and H. M. Jaeger, Phys. Rev. Lett. 103, 086001 (2009)'.",
+            "title": "Citation",
+            "type": "string"
+          }
+        },
+        "required": [
+          "citation"
+        ],
+        "title": "verify_paperArguments",
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "$defs": {
+          "Candidate": {
+            "description": "A possible match when an input string is too ambiguous to resolve.",
+            "properties": {
+              "paper": {
+                "$ref": "#/$defs/PaperRef"
+              },
+              "match_confidence": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "title": "Match Confidence",
+                "type": "number"
+              }
+            },
+            "required": [
+              "paper",
+              "match_confidence"
+            ],
+            "title": "Candidate",
+            "type": "object"
+          },
+          "PaperRef": {
+            "description": "A single paper as returned by any Pendar MCP tool.",
+            "properties": {
+              "paper_id": {
+                "default": "",
+                "title": "Paper Id",
+                "type": "string"
+              },
+              "title": {
+                "default": "",
+                "title": "Title",
+                "type": "string"
+              },
+              "authors": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Authors",
+                "type": "array"
+              },
+              "author_count": {
+                "default": 0,
+                "title": "Author Count",
+                "type": "integer"
+              },
+              "year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Year"
+              },
+              "venue": {
+                "default": "",
+                "title": "Venue",
+                "type": "string"
+              },
+              "doi": {
+                "default": "",
+                "title": "Doi",
+                "type": "string"
+              },
+              "work_type": {
+                "default": "",
+                "title": "Work Type",
+                "type": "string"
+              },
+              "subfield": {
+                "default": "",
+                "title": "Subfield",
+                "type": "string"
+              },
+              "citation_count": {
+                "default": 0,
+                "title": "Citation Count",
+                "type": "integer"
+              },
+              "abstract_snippet": {
+                "default": "",
+                "title": "Abstract Snippet",
+                "type": "string"
+              },
+              "landing_url": {
+                "default": "",
+                "title": "Landing Url",
+                "type": "string"
+              },
+              "pdf_url": {
+                "default": "",
+                "title": "Pdf Url",
+                "type": "string"
+              },
+              "is_open_access": {
+                "default": false,
+                "title": "Is Open Access",
+                "type": "boolean"
+              },
+              "is_retracted": {
+                "default": false,
+                "title": "Is Retracted",
+                "type": "boolean"
+              },
+              "semantic_similarity": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Semantic Similarity"
+              },
+              "topic_match_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Topic Match Pct"
+              },
+              "impact_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Pct"
+              },
+              "impact_percentile": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Percentile"
+              }
+            },
+            "title": "PaperRef",
+            "type": "object"
+          },
+          "VenueFacts": {
+            "properties": {
+              "venue_id": {
+                "default": "",
+                "title": "Venue Id",
+                "type": "string"
+              },
+              "name": {
+                "default": "",
+                "title": "Name",
+                "type": "string"
+              },
+              "venue_type": {
+                "default": "",
+                "title": "Venue Type",
+                "type": "string"
+              },
+              "publisher": {
+                "default": "",
+                "title": "Publisher",
+                "type": "string"
+              },
+              "issn": {
+                "default": "",
+                "title": "Issn",
+                "type": "string"
+              },
+              "is_oa": {
+                "default": false,
+                "title": "Is Oa",
+                "type": "boolean"
+              },
+              "is_in_doaj": {
+                "default": false,
+                "title": "Is In Doaj",
+                "type": "boolean"
+              },
+              "apc_usd": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Apc Usd"
+              },
+              "works_count": {
+                "default": 0,
+                "title": "Works Count",
+                "type": "integer"
+              },
+              "h_index": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "H Index"
+              },
+              "mean_citedness_2yr": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Mean Citedness 2Yr"
+              },
+              "venue_metadata_incomplete": {
+                "default": false,
+                "title": "Venue Metadata Incomplete",
+                "type": "boolean"
+              }
+            },
+            "title": "VenueFacts",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "found": {
+            "title": "Found",
+            "type": "boolean"
+          },
+          "paper": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/PaperRef"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "match_confidence": {
+            "default": 0.0,
+            "title": "Match Confidence",
+            "type": "number"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/$defs/Candidate"
+            },
+            "title": "Candidates",
+            "type": "array"
+          },
+          "resolved_by": {
+            "default": "",
+            "title": "Resolved By",
+            "type": "string"
+          },
+          "reason": {
+            "default": "",
+            "title": "Reason",
+            "type": "string"
+          },
+          "retraction_warning": {
+            "default": "",
+            "title": "Retraction Warning",
+            "type": "string"
+          },
+          "matched_on_fields": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Matched On Fields",
+            "type": "array"
+          },
+          "metadata_mismatch": {
+            "default": false,
+            "title": "Metadata Mismatch",
+            "type": "boolean"
+          },
+          "is_paratext": {
+            "default": false,
+            "title": "Is Paratext",
+            "type": "boolean"
+          },
+          "venue": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/VenueFacts"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "found"
+        ],
+        "title": "VerifyPaperOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "graph_hopper",
+      "title": "Trace a paper's citation impact",
+      "description": "Walk the citation graph around a paper and assess its impact: who cited it, what it cited, and how those papers connect to each other. Returns whether citations are accelerating or declining (from the exact per-year history), which research fields the citing work comes from and which fields are taking a growing share of it, which kinds of institution are citing (universities, industry, hospitals, government labs), the work types and funders of the citing papers, and the authors of citing papers. The breakdowns count every citing paper, not a sample. Use this to judge whether a paper is still influential, which fields picked it up, and where it is being used now. Takes a few seconds.",
+      "inputSchema": {
+        "properties": {
+          "paper": {
+            "description": "The paper to start from: a DOI, a Pendar paper ID returned by an earlier call, a title, or a full citation string.",
+            "title": "Paper",
+            "type": "string"
+          },
+          "direction": {
+            "default": "both",
+            "description": "'forward' for papers citing it, 'backward' for papers it cites, 'both' for the full neighbourhood.",
+            "enum": [
+              "forward",
+              "backward",
+              "both"
+            ],
+            "title": "Direction",
+            "type": "string"
+          },
+          "analyze_citers": {
+            "default": 50,
+            "description": "How many of the most-cited citing papers to fetch for the graph and for example institution names. The breakdowns themselves count every citing paper, so the default is almost always right.",
+            "maximum": 100,
+            "minimum": 10,
+            "title": "Analyze Citers",
+            "type": "integer"
+          },
+          "papers_per_direction": {
+            "default": 10,
+            "description": "How many individual papers to list per direction, most-cited first. Keep this small; the breakdowns already summarise the rest. Set 0 for the analysis only.",
+            "maximum": 50,
+            "minimum": 0,
+            "title": "Papers Per Direction",
+            "type": "integer"
+          },
+          "include_graph": {
+            "default": false,
+            "description": "Include the raw citation graph of nodes and edges. Only useful for drawing a diagram — it is large and carries no information the breakdowns do not already summarise.",
+            "title": "Include Graph",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "paper"
+        ],
+        "title": "graph_hopperArguments",
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "$defs": {
+          "Candidate": {
+            "description": "A possible match when an input string is too ambiguous to resolve.",
+            "properties": {
+              "paper": {
+                "$ref": "#/$defs/PaperRef"
+              },
+              "match_confidence": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "title": "Match Confidence",
+                "type": "number"
+              }
+            },
+            "required": [
+              "paper",
+              "match_confidence"
+            ],
+            "title": "Candidate",
+            "type": "object"
+          },
+          "CitingAuthor": {
+            "properties": {
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "author_id": {
+                "default": "",
+                "title": "Author Id",
+                "type": "string"
+              },
+              "paper_count": {
+                "default": 0,
+                "title": "Paper Count",
+                "type": "integer"
+              },
+              "total_citations": {
+                "default": 0,
+                "title": "Total Citations",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "title": "CitingAuthor",
+            "type": "object"
+          },
+          "CitingSegment": {
+            "description": "One slice of the citing papers — a work type or a funder.",
+            "properties": {
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "citer_count": {
+                "default": 0,
+                "title": "Citer Count",
+                "type": "integer"
+              },
+              "share_pct": {
+                "default": 0,
+                "title": "Share Pct",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "label"
+            ],
+            "title": "CitingSegment",
+            "type": "object"
+          },
+          "CitingVenue": {
+            "description": "How many citing papers in the sample appeared in one venue.",
+            "properties": {
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "citer_count": {
+                "default": 0,
+                "title": "Citer Count",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "label"
+            ],
+            "title": "CitingVenue",
+            "type": "object"
+          },
+          "EgoNetwork": {
+            "description": "The seed paper's citation neighbourhood, one hop in each direction.",
+            "properties": {
+              "nodes": {
+                "items": {
+                  "$ref": "#/$defs/GraphNode"
+                },
+                "title": "Nodes",
+                "type": "array"
+              },
+              "edges": {
+                "items": {
+                  "$ref": "#/$defs/GraphEdge"
+                },
+                "title": "Edges",
+                "type": "array"
+              },
+              "seed_id": {
+                "default": "",
+                "title": "Seed Id",
+                "type": "string"
+              }
+            },
+            "title": "EgoNetwork",
+            "type": "object"
+          },
+          "FieldDrift": {
+            "description": "One research area's share of the citing papers, then and now.\n\nShares rather than counts carry the signal: a paper whose citations are\ngrowing gains citers in every field, so the question is which fields are\ntaking a larger part of them.",
+            "properties": {
+              "subfield": {
+                "title": "Subfield",
+                "type": "string"
+              },
+              "recent_citers": {
+                "default": 0,
+                "title": "Recent Citers",
+                "type": "integer"
+              },
+              "prior_citers": {
+                "default": 0,
+                "title": "Prior Citers",
+                "type": "integer"
+              },
+              "recent_share_pct": {
+                "default": 0,
+                "title": "Recent Share Pct",
+                "type": "integer"
+              },
+              "prior_share_pct": {
+                "default": 0,
+                "title": "Prior Share Pct",
+                "type": "integer"
+              },
+              "share_trend": {
+                "default": "steady",
+                "title": "Share Trend",
+                "type": "string"
+              }
+            },
+            "required": [
+              "subfield"
+            ],
+            "title": "FieldDrift",
+            "type": "object"
+          },
+          "FieldSegment": {
+            "properties": {
+              "subfield": {
+                "title": "Subfield",
+                "type": "string"
+              },
+              "field": {
+                "default": "",
+                "title": "Field",
+                "type": "string"
+              },
+              "citer_count": {
+                "default": 0,
+                "title": "Citer Count",
+                "type": "integer"
+              },
+              "share_pct": {
+                "default": 0,
+                "title": "Share Pct",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "subfield"
+            ],
+            "title": "FieldSegment",
+            "type": "object"
+          },
+          "GraphEdge": {
+            "description": "A citation, always directed citing -> cited.",
+            "properties": {
+              "source": {
+                "title": "Source",
+                "type": "string"
+              },
+              "target": {
+                "title": "Target",
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "target"
+            ],
+            "title": "GraphEdge",
+            "type": "object"
+          },
+          "GraphNode": {
+            "properties": {
+              "id": {
+                "title": "Id",
+                "type": "string"
+              },
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "title": {
+                "default": "",
+                "title": "Title",
+                "type": "string"
+              },
+              "url": {
+                "default": "",
+                "title": "Url",
+                "type": "string"
+              },
+              "year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Year"
+              },
+              "citation_count": {
+                "default": 0,
+                "title": "Citation Count",
+                "type": "integer"
+              },
+              "role": {
+                "title": "Role",
+                "type": "string"
+              },
+              "authors": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Authors",
+                "type": "array"
+              },
+              "author_count": {
+                "default": 0,
+                "title": "Author Count",
+                "type": "integer"
+              },
+              "cite_authors": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Cite Authors",
+                "type": "array"
+              },
+              "venue": {
+                "default": "",
+                "title": "Venue",
+                "type": "string"
+              },
+              "publication_date": {
+                "default": "",
+                "title": "Publication Date",
+                "type": "string"
+              },
+              "volume": {
+                "default": "",
+                "title": "Volume",
+                "type": "string"
+              },
+              "issue": {
+                "default": "",
+                "title": "Issue",
+                "type": "string"
+              },
+              "first_page": {
+                "default": "",
+                "title": "First Page",
+                "type": "string"
+              },
+              "last_page": {
+                "default": "",
+                "title": "Last Page",
+                "type": "string"
+              },
+              "publisher": {
+                "default": "",
+                "title": "Publisher",
+                "type": "string"
+              },
+              "work_type": {
+                "default": "",
+                "title": "Work Type",
+                "type": "string"
+              },
+              "doi": {
+                "default": "",
+                "title": "Doi",
+                "type": "string"
+              },
+              "pdf_url": {
+                "default": "",
+                "title": "Pdf Url",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "role"
+            ],
+            "title": "GraphNode",
+            "type": "object"
+          },
+          "InstitutionSegment": {
+            "properties": {
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "citer_count": {
+                "default": 0,
+                "title": "Citer Count",
+                "type": "integer"
+              },
+              "share_pct": {
+                "default": 0,
+                "title": "Share Pct",
+                "type": "integer"
+              },
+              "representative_institutions": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Representative Institutions",
+                "type": "array"
+              }
+            },
+            "required": [
+              "label"
+            ],
+            "title": "InstitutionSegment",
+            "type": "object"
+          },
+          "Momentum": {
+            "description": "Is this paper still being cited, and is the rate rising or falling?\n\nExact per-year counts over the paper's whole citation history, not a sample.",
+            "properties": {
+              "counts_by_year": {
+                "items": {
+                  "$ref": "#/$defs/YearCount"
+                },
+                "title": "Counts By Year",
+                "type": "array"
+              },
+              "recent_3y_citations": {
+                "default": 0,
+                "title": "Recent 3Y Citations",
+                "type": "integer"
+              },
+              "prior_3y_citations": {
+                "default": 0,
+                "title": "Prior 3Y Citations",
+                "type": "integer"
+              },
+              "peak_year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Peak Year"
+              },
+              "trend": {
+                "default": "unknown",
+                "title": "Trend",
+                "type": "string"
+              },
+              "interpretation": {
+                "default": "",
+                "title": "Interpretation",
+                "type": "string"
+              }
+            },
+            "title": "Momentum",
+            "type": "object"
+          },
+          "PaperRef": {
+            "description": "A single paper as returned by any Pendar MCP tool.",
+            "properties": {
+              "paper_id": {
+                "default": "",
+                "title": "Paper Id",
+                "type": "string"
+              },
+              "title": {
+                "default": "",
+                "title": "Title",
+                "type": "string"
+              },
+              "authors": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Authors",
+                "type": "array"
+              },
+              "author_count": {
+                "default": 0,
+                "title": "Author Count",
+                "type": "integer"
+              },
+              "year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Year"
+              },
+              "venue": {
+                "default": "",
+                "title": "Venue",
+                "type": "string"
+              },
+              "doi": {
+                "default": "",
+                "title": "Doi",
+                "type": "string"
+              },
+              "work_type": {
+                "default": "",
+                "title": "Work Type",
+                "type": "string"
+              },
+              "subfield": {
+                "default": "",
+                "title": "Subfield",
+                "type": "string"
+              },
+              "citation_count": {
+                "default": 0,
+                "title": "Citation Count",
+                "type": "integer"
+              },
+              "abstract_snippet": {
+                "default": "",
+                "title": "Abstract Snippet",
+                "type": "string"
+              },
+              "landing_url": {
+                "default": "",
+                "title": "Landing Url",
+                "type": "string"
+              },
+              "pdf_url": {
+                "default": "",
+                "title": "Pdf Url",
+                "type": "string"
+              },
+              "is_open_access": {
+                "default": false,
+                "title": "Is Open Access",
+                "type": "boolean"
+              },
+              "is_retracted": {
+                "default": false,
+                "title": "Is Retracted",
+                "type": "boolean"
+              },
+              "semantic_similarity": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Semantic Similarity"
+              },
+              "topic_match_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Topic Match Pct"
+              },
+              "impact_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Pct"
+              },
+              "impact_percentile": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Percentile"
+              }
+            },
+            "title": "PaperRef",
+            "type": "object"
+          },
+          "YearCount": {
+            "properties": {
+              "year": {
+                "title": "Year",
+                "type": "integer"
+              },
+              "citations": {
+                "title": "Citations",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "year",
+              "citations"
+            ],
+            "title": "YearCount",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "found": {
+            "default": false,
+            "title": "Found",
+            "type": "boolean"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/PaperRef"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/$defs/Candidate"
+            },
+            "title": "Candidates",
+            "type": "array"
+          },
+          "reason": {
+            "default": "",
+            "title": "Reason",
+            "type": "string"
+          },
+          "cited_by": {
+            "items": {
+              "$ref": "#/$defs/PaperRef"
+            },
+            "title": "Cited By",
+            "type": "array"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/$defs/PaperRef"
+            },
+            "title": "References",
+            "type": "array"
+          },
+          "graph": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/EgoNetwork"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "momentum": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Momentum"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "field_mix": {
+            "items": {
+              "$ref": "#/$defs/FieldSegment"
+            },
+            "title": "Field Mix",
+            "type": "array"
+          },
+          "institution_mix": {
+            "items": {
+              "$ref": "#/$defs/InstitutionSegment"
+            },
+            "title": "Institution Mix",
+            "type": "array"
+          },
+          "top_citing_authors": {
+            "items": {
+              "$ref": "#/$defs/CitingAuthor"
+            },
+            "title": "Top Citing Authors",
+            "type": "array"
+          },
+          "top_citing_venues": {
+            "items": {
+              "$ref": "#/$defs/CitingVenue"
+            },
+            "title": "Top Citing Venues",
+            "type": "array"
+          },
+          "citer_sample_size": {
+            "default": 0,
+            "title": "Citer Sample Size",
+            "type": "integer"
+          },
+          "citing_papers_total": {
+            "default": 0,
+            "title": "Citing Papers Total",
+            "type": "integer"
+          },
+          "breakdowns_exact": {
+            "default": false,
+            "title": "Breakdowns Exact",
+            "type": "boolean"
+          },
+          "field_drift": {
+            "items": {
+              "$ref": "#/$defs/FieldDrift"
+            },
+            "title": "Field Drift",
+            "type": "array"
+          },
+          "drift_window": {
+            "default": "",
+            "title": "Drift Window",
+            "type": "string"
+          },
+          "citing_work_types": {
+            "items": {
+              "$ref": "#/$defs/CitingSegment"
+            },
+            "title": "Citing Work Types",
+            "type": "array"
+          },
+          "citing_funders": {
+            "items": {
+              "$ref": "#/$defs/CitingSegment"
+            },
+            "title": "Citing Funders",
+            "type": "array"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          }
+        },
+        "title": "GraphHopperOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "survey_literature",
+      "title": "Survey a research field",
+      "description": "Survey the published literature on a topic and return the shape of the field alongside the most relevant papers. Gives the exact number of papers that exist, how many were published each year and whether output is growing or fading, which sub-areas the work divides into and which of them are growing fastest, which disciplines and countries it comes from, the institutions, sectors, and funders behind it, the most prolific authors, the journals or repositories it appears in, how much is peer-reviewed versus preprints or theses, how much is uncited, and how many papers are retracted. Every count is exact over the whole corpus rather than estimated from a sample. Use it to size and characterise a research area, to judge whether a field is active before entering it, or to find papers on a subject. Pass a short noun phrase, not a question. Takes a few seconds.",
+      "inputSchema": {
+        "properties": {
+          "topic": {
+            "description": "The subject to survey, as a short noun phrase of two to six words such as 'solid state electrolytes lithium metal' — not a question. Question words are stripped before searching, and a long sentence narrows the corpus to almost nothing.",
+            "title": "Topic",
+            "type": "string"
+          },
+          "year_from": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Earliest publication year to include. Omit for all years.",
+            "title": "Year From"
+          },
+          "year_to": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Latest publication year to include. Omit for all years.",
+            "title": "Year To"
+          },
+          "papers": {
+            "default": 10,
+            "description": "How many individual papers to return alongside the survey, most relevant first. Set 0 for the survey alone.",
+            "maximum": 25,
+            "minimum": 0,
+            "title": "Papers",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "title": "survey_literatureArguments",
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "$defs": {
+          "CitationProfile": {
+            "description": "How much of the corpus has never been cited.",
+            "properties": {
+              "uncited_papers": {
+                "default": 0,
+                "title": "Uncited Papers",
+                "type": "integer"
+              },
+              "uncited_pct": {
+                "default": 0,
+                "title": "Uncited Pct",
+                "type": "integer"
+              }
+            },
+            "title": "CitationProfile",
+            "type": "object"
+          },
+          "LiteratureCorpus": {
+            "description": "The shape of a body of literature, every number an exact count.",
+            "properties": {
+              "total_papers": {
+                "default": 0,
+                "title": "Total Papers",
+                "type": "integer"
+              },
+              "searched_for": {
+                "default": "",
+                "title": "Searched For",
+                "type": "string"
+              },
+              "matched_on": {
+                "default": "title_and_abstract",
+                "title": "Matched On",
+                "type": "string"
+              },
+              "trend": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/PublicationTrend"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "topics": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Topics",
+                "type": "array"
+              },
+              "disciplines": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Disciplines",
+                "type": "array"
+              },
+              "institutions": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Institutions",
+                "type": "array"
+              },
+              "countries": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Countries",
+                "type": "array"
+              },
+              "venues": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Venues",
+                "type": "array"
+              },
+              "work_types": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Work Types",
+                "type": "array"
+              },
+              "retracted_papers": {
+                "default": 0,
+                "title": "Retracted Papers",
+                "type": "integer"
+              },
+              "segment_window": {
+                "default": "",
+                "title": "Segment Window",
+                "type": "string"
+              },
+              "funders": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Funders",
+                "type": "array"
+              },
+              "organization_types": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Organization Types",
+                "type": "array"
+              },
+              "top_authors": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Top Authors",
+                "type": "array"
+              },
+              "citation_profile": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/CitationProfile"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "title": "LiteratureCorpus",
+            "type": "object"
+          },
+          "PaperRef": {
+            "description": "A single paper as returned by any Pendar MCP tool.",
+            "properties": {
+              "paper_id": {
+                "default": "",
+                "title": "Paper Id",
+                "type": "string"
+              },
+              "title": {
+                "default": "",
+                "title": "Title",
+                "type": "string"
+              },
+              "authors": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Authors",
+                "type": "array"
+              },
+              "author_count": {
+                "default": 0,
+                "title": "Author Count",
+                "type": "integer"
+              },
+              "year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Year"
+              },
+              "venue": {
+                "default": "",
+                "title": "Venue",
+                "type": "string"
+              },
+              "doi": {
+                "default": "",
+                "title": "Doi",
+                "type": "string"
+              },
+              "work_type": {
+                "default": "",
+                "title": "Work Type",
+                "type": "string"
+              },
+              "subfield": {
+                "default": "",
+                "title": "Subfield",
+                "type": "string"
+              },
+              "citation_count": {
+                "default": 0,
+                "title": "Citation Count",
+                "type": "integer"
+              },
+              "abstract_snippet": {
+                "default": "",
+                "title": "Abstract Snippet",
+                "type": "string"
+              },
+              "landing_url": {
+                "default": "",
+                "title": "Landing Url",
+                "type": "string"
+              },
+              "pdf_url": {
+                "default": "",
+                "title": "Pdf Url",
+                "type": "string"
+              },
+              "is_open_access": {
+                "default": false,
+                "title": "Is Open Access",
+                "type": "boolean"
+              },
+              "is_retracted": {
+                "default": false,
+                "title": "Is Retracted",
+                "type": "boolean"
+              },
+              "semantic_similarity": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Semantic Similarity"
+              },
+              "topic_match_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Topic Match Pct"
+              },
+              "impact_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Pct"
+              },
+              "impact_percentile": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Percentile"
+              }
+            },
+            "title": "PaperRef",
+            "type": "object"
+          },
+          "PublicationTrend": {
+            "description": "Whether the field is growing, told from exact per-year publication counts.",
+            "properties": {
+              "papers_by_year": {
+                "items": {
+                  "$ref": "#/$defs/YearPapers"
+                },
+                "title": "Papers By Year",
+                "type": "array"
+              },
+              "recent_3y_papers": {
+                "default": 0,
+                "title": "Recent 3Y Papers",
+                "type": "integer"
+              },
+              "prior_3y_papers": {
+                "default": 0,
+                "title": "Prior 3Y Papers",
+                "type": "integer"
+              },
+              "peak_year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Peak Year"
+              },
+              "trend": {
+                "default": "unknown",
+                "title": "Trend",
+                "type": "string"
+              },
+              "interpretation": {
+                "default": "",
+                "title": "Interpretation",
+                "type": "string"
+              }
+            },
+            "title": "PublicationTrend",
+            "type": "object"
+          },
+          "Segment": {
+            "description": "One slice of a corpus — a discipline, country, venue, or work type.\n\nShares need not sum to 100. A paper has one publication year and one type,\nbut authors at four institutions in three countries count once in each, so\nthose breakdowns overlap by design.\n\nTopics, disciplines, and venues also carry `recent_papers` (last three\ncomplete years), `prior_papers` (the three before), and a `trend`.",
+            "properties": {
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "papers": {
+                "default": 0,
+                "title": "Papers",
+                "type": "integer"
+              },
+              "share_pct": {
+                "default": 0,
+                "title": "Share Pct",
+                "type": "integer"
+              },
+              "recent_papers": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Recent Papers"
+              },
+              "prior_papers": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Prior Papers"
+              },
+              "trend": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Trend"
+              }
+            },
+            "required": [
+              "label"
+            ],
+            "title": "Segment",
+            "type": "object"
+          },
+          "YearPapers": {
+            "properties": {
+              "year": {
+                "title": "Year",
+                "type": "integer"
+              },
+              "papers": {
+                "title": "Papers",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "year",
+              "papers"
+            ],
+            "title": "YearPapers",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "found": {
+            "default": false,
+            "title": "Found",
+            "type": "boolean"
+          },
+          "corpus": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/LiteratureCorpus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "papers": {
+            "items": {
+              "$ref": "#/$defs/PaperRef"
+            },
+            "title": "Papers",
+            "type": "array"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          }
+        },
+        "title": "SurveyLiteratureOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "audit_bibliography",
+      "title": "Check a reference list",
+      "description": "Check a whole reference list against the published record in one call: for each reference, whether the paper exists, whether it is retracted, whether the citation's details match, or whether it cannot be confirmed. Accepts up to 25 references as written — full citations, titles, DOIs, or journal-style abbreviated references with no title. Returns a verdict per reference in the order given and a tally. A reference that cannot be confirmed is reported as not found, never replaced with a similar paper. It checks references; it does not reformat them. Costs 1 credit per started block of 5 references checked.",
+      "inputSchema": {
+        "properties": {
+          "citations": {
+            "description": "The references to check, one string per reference, exactly as written — full citations, bare titles, DOIs, or journal-style references such as 'Phys. Rev. Lett. 103, 086001 (2009)'. At most 25; send a longer list in several calls.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 25,
+            "minItems": 1,
+            "title": "Citations",
+            "type": "array"
+          },
+          "context": {
+            "default": "draft",
+            "description": "'draft' for the user's own manuscript or sources from an AI answer; 'published' for the reference list of an already published paper.",
+            "enum": [
+              "draft",
+              "published"
+            ],
+            "title": "Context",
+            "type": "string"
+          }
+        },
+        "required": [
+          "citations"
+        ],
+        "title": "audit_bibliographyArguments",
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "$defs": {
+          "AuditEntry": {
+            "properties": {
+              "index": {
+                "title": "Index",
+                "type": "integer"
+              },
+              "citation": {
+                "title": "Citation",
+                "type": "string"
+              },
+              "verdict": {
+                "enum": [
+                  "verified",
+                  "retracted",
+                  "ambiguous",
+                  "metadata_mismatch",
+                  "not_found",
+                  "not_checked"
+                ],
+                "title": "Verdict",
+                "type": "string"
+              },
+              "paper": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/PaperRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "resolved_by": {
+                "default": "",
+                "title": "Resolved By",
+                "type": "string"
+              },
+              "match_confidence": {
+                "default": 0.0,
+                "title": "Match Confidence",
+                "type": "number"
+              },
+              "matched_on_fields": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Matched On Fields",
+                "type": "array"
+              },
+              "candidates": {
+                "items": {
+                  "$ref": "#/$defs/Candidate"
+                },
+                "title": "Candidates",
+                "type": "array"
+              },
+              "reason": {
+                "default": "",
+                "title": "Reason",
+                "type": "string"
+              },
+              "is_paratext": {
+                "default": false,
+                "title": "Is Paratext",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "index",
+              "citation",
+              "verdict"
+            ],
+            "title": "AuditEntry",
+            "type": "object"
+          },
+          "AuditTally": {
+            "properties": {
+              "verified": {
+                "default": 0,
+                "title": "Verified",
+                "type": "integer"
+              },
+              "retracted": {
+                "default": 0,
+                "title": "Retracted",
+                "type": "integer"
+              },
+              "ambiguous": {
+                "default": 0,
+                "title": "Ambiguous",
+                "type": "integer"
+              },
+              "metadata_mismatch": {
+                "default": 0,
+                "title": "Metadata Mismatch",
+                "type": "integer"
+              },
+              "not_found": {
+                "default": 0,
+                "title": "Not Found",
+                "type": "integer"
+              },
+              "not_checked": {
+                "default": 0,
+                "title": "Not Checked",
+                "type": "integer"
+              }
+            },
+            "title": "AuditTally",
+            "type": "object"
+          },
+          "Candidate": {
+            "description": "A possible match when an input string is too ambiguous to resolve.",
+            "properties": {
+              "paper": {
+                "$ref": "#/$defs/PaperRef"
+              },
+              "match_confidence": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "title": "Match Confidence",
+                "type": "number"
+              }
+            },
+            "required": [
+              "paper",
+              "match_confidence"
+            ],
+            "title": "Candidate",
+            "type": "object"
+          },
+          "PaperRef": {
+            "description": "A single paper as returned by any Pendar MCP tool.",
+            "properties": {
+              "paper_id": {
+                "default": "",
+                "title": "Paper Id",
+                "type": "string"
+              },
+              "title": {
+                "default": "",
+                "title": "Title",
+                "type": "string"
+              },
+              "authors": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Authors",
+                "type": "array"
+              },
+              "author_count": {
+                "default": 0,
+                "title": "Author Count",
+                "type": "integer"
+              },
+              "year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Year"
+              },
+              "venue": {
+                "default": "",
+                "title": "Venue",
+                "type": "string"
+              },
+              "doi": {
+                "default": "",
+                "title": "Doi",
+                "type": "string"
+              },
+              "work_type": {
+                "default": "",
+                "title": "Work Type",
+                "type": "string"
+              },
+              "subfield": {
+                "default": "",
+                "title": "Subfield",
+                "type": "string"
+              },
+              "citation_count": {
+                "default": 0,
+                "title": "Citation Count",
+                "type": "integer"
+              },
+              "abstract_snippet": {
+                "default": "",
+                "title": "Abstract Snippet",
+                "type": "string"
+              },
+              "landing_url": {
+                "default": "",
+                "title": "Landing Url",
+                "type": "string"
+              },
+              "pdf_url": {
+                "default": "",
+                "title": "Pdf Url",
+                "type": "string"
+              },
+              "is_open_access": {
+                "default": false,
+                "title": "Is Open Access",
+                "type": "boolean"
+              },
+              "is_retracted": {
+                "default": false,
+                "title": "Is Retracted",
+                "type": "boolean"
+              },
+              "semantic_similarity": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Semantic Similarity"
+              },
+              "topic_match_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Topic Match Pct"
+              },
+              "impact_pct": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Pct"
+              },
+              "impact_percentile": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Impact Percentile"
+              }
+            },
+            "title": "PaperRef",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "entries": {
+            "items": {
+              "$ref": "#/$defs/AuditEntry"
+            },
+            "title": "Entries",
+            "type": "array"
+          },
+          "tally": {
+            "$ref": "#/$defs/AuditTally"
+          },
+          "checked": {
+            "default": 0,
+            "title": "Checked",
+            "type": "integer"
+          },
+          "context": {
+            "default": "draft",
+            "title": "Context",
+            "type": "string"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          }
+        },
+        "title": "AuditBibliographyOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "profile_researcher",
+      "title": "Profile a researcher",
+      "description": "Summarise a researcher's published work from the public publication record: the topics they publish on and which are growing, where they publish, papers and citations per year, affiliations as they appear on papers, and frequent co-authors. Accepts a name (add the institution when known), an ORCID, or an author id. When a name matches several people, returns candidates instead of guessing. Returns no contact details and does not rank or judge researchers. Takes a few seconds.",
+      "inputSchema": {
+        "properties": {
+          "researcher": {
+            "description": "The researcher's name as the user gave it, an ORCID, or a Pendar author id from an earlier result.",
+            "title": "Researcher",
+            "type": "string"
+          },
+          "institution": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The researcher's institution, if the user mentioned one. The most reliable way to tell researchers with the same name apart.",
+            "title": "Institution"
+          }
+        },
+        "required": [
+          "researcher"
+        ],
+        "title": "profile_researcherArguments",
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "$defs": {
+          "Affiliation": {
+            "properties": {
+              "institution": {
+                "title": "Institution",
+                "type": "string"
+              },
+              "first_year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "First Year"
+              },
+              "last_year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Last Year"
+              }
+            },
+            "required": [
+              "institution"
+            ],
+            "title": "Affiliation",
+            "type": "object"
+          },
+          "Coauthor": {
+            "properties": {
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "author_id": {
+                "default": "",
+                "title": "Author Id",
+                "type": "string"
+              },
+              "shared_papers": {
+                "default": 0,
+                "title": "Shared Papers",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "title": "Coauthor",
+            "type": "object"
+          },
+          "ResearcherCandidate": {
+            "properties": {
+              "author_id": {
+                "title": "Author Id",
+                "type": "string"
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "affiliation": {
+                "default": "",
+                "title": "Affiliation",
+                "type": "string"
+              },
+              "works_count": {
+                "default": 0,
+                "title": "Works Count",
+                "type": "integer"
+              },
+              "cited_by_count": {
+                "default": 0,
+                "title": "Cited By Count",
+                "type": "integer"
+              },
+              "main_topic": {
+                "default": "",
+                "title": "Main Topic",
+                "type": "string"
+              }
+            },
+            "required": [
+              "author_id",
+              "name"
+            ],
+            "title": "ResearcherCandidate",
+            "type": "object"
+          },
+          "ResearcherProfile": {
+            "properties": {
+              "author_id": {
+                "title": "Author Id",
+                "type": "string"
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "orcid": {
+                "default": "",
+                "title": "Orcid",
+                "type": "string"
+              },
+              "current_affiliations": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Current Affiliations",
+                "type": "array"
+              },
+              "affiliations": {
+                "items": {
+                  "$ref": "#/$defs/Affiliation"
+                },
+                "title": "Affiliations",
+                "type": "array"
+              },
+              "works_count": {
+                "default": 0,
+                "title": "Works Count",
+                "type": "integer"
+              },
+              "cited_by_count": {
+                "default": 0,
+                "title": "Cited By Count",
+                "type": "integer"
+              },
+              "h_index": {
+                "default": 0,
+                "title": "H Index",
+                "type": "integer"
+              },
+              "i10_index": {
+                "default": 0,
+                "title": "I10 Index",
+                "type": "integer"
+              },
+              "output_by_year": {
+                "items": {
+                  "$ref": "#/$defs/YearOutput"
+                },
+                "title": "Output By Year",
+                "type": "array"
+              },
+              "topics": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Topics",
+                "type": "array"
+              },
+              "segment_window": {
+                "default": "",
+                "title": "Segment Window",
+                "type": "string"
+              },
+              "venues": {
+                "items": {
+                  "$ref": "#/$defs/Segment"
+                },
+                "title": "Venues",
+                "type": "array"
+              },
+              "top_coauthors": {
+                "items": {
+                  "$ref": "#/$defs/Coauthor"
+                },
+                "title": "Top Coauthors",
+                "type": "array"
+              }
+            },
+            "required": [
+              "author_id",
+              "name"
+            ],
+            "title": "ResearcherProfile",
+            "type": "object"
+          },
+          "Segment": {
+            "description": "One slice of a corpus — a discipline, country, venue, or work type.\n\nShares need not sum to 100. A paper has one publication year and one type,\nbut authors at four institutions in three countries count once in each, so\nthose breakdowns overlap by design.\n\nTopics, disciplines, and venues also carry `recent_papers` (last three\ncomplete years), `prior_papers` (the three before), and a `trend`.",
+            "properties": {
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "papers": {
+                "default": 0,
+                "title": "Papers",
+                "type": "integer"
+              },
+              "share_pct": {
+                "default": 0,
+                "title": "Share Pct",
+                "type": "integer"
+              },
+              "recent_papers": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Recent Papers"
+              },
+              "prior_papers": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Prior Papers"
+              },
+              "trend": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Trend"
+              }
+            },
+            "required": [
+              "label"
+            ],
+            "title": "Segment",
+            "type": "object"
+          },
+          "YearOutput": {
+            "properties": {
+              "year": {
+                "title": "Year",
+                "type": "integer"
+              },
+              "papers": {
+                "default": 0,
+                "title": "Papers",
+                "type": "integer"
+              },
+              "citations": {
+                "default": 0,
+                "title": "Citations",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "year"
+            ],
+            "title": "YearOutput",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "found": {
+            "default": false,
+            "title": "Found",
+            "type": "boolean"
+          },
+          "profile": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ResearcherProfile"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/$defs/ResearcherCandidate"
+            },
+            "title": "Candidates",
+            "type": "array"
+          },
+          "reason": {
+            "default": "",
+            "title": "Reason",
+            "type": "string"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          }
+        },
+        "title": "ProfileResearcherOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "find_venues",
+      "title": "Find journals for a topic",
+      "description": "Find the journals and other venues that publish a research topic, ranked by how many papers on it each one carries, with whether that is growing. Each venue comes with facts: type (journal, repository, conference), publisher, ISSN, whether it is open access and listed in the open-access journal directory, its listed publication fee in US dollars, and citation statistics. Use it to see where work on a subject is published or to shortlist venues by open access or fees. It does not rank venues by prestige or predict acceptance. Pass a short noun phrase, not a question.",
+      "inputSchema": {
+        "properties": {
+          "topic": {
+            "description": "The subject, as a short noun phrase of two to six words such as 'solid state battery electrolytes' — not a question.",
+            "title": "Topic",
+            "type": "string"
+          },
+          "year_from": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Earliest publication year to count. Omit for all years.",
+            "title": "Year From"
+          },
+          "year_to": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Latest publication year to count. Omit for all years.",
+            "title": "Year To"
+          },
+          "venues": {
+            "default": 10,
+            "description": "How many venues to return, most papers first.",
+            "maximum": 20,
+            "minimum": 1,
+            "title": "Venues",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "title": "find_venuesArguments",
+        "type": "object"
+      },
+      "execution": null,
+      "outputSchema": {
+        "$defs": {
+          "VenueRanking": {
+            "description": "A venue's share of the topic's literature, with its facts.",
+            "properties": {
+              "venue_id": {
+                "default": "",
+                "title": "Venue Id",
+                "type": "string"
+              },
+              "name": {
+                "default": "",
+                "title": "Name",
+                "type": "string"
+              },
+              "venue_type": {
+                "default": "",
+                "title": "Venue Type",
+                "type": "string"
+              },
+              "publisher": {
+                "default": "",
+                "title": "Publisher",
+                "type": "string"
+              },
+              "issn": {
+                "default": "",
+                "title": "Issn",
+                "type": "string"
+              },
+              "is_oa": {
+                "default": false,
+                "title": "Is Oa",
+                "type": "boolean"
+              },
+              "is_in_doaj": {
+                "default": false,
+                "title": "Is In Doaj",
+                "type": "boolean"
+              },
+              "apc_usd": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Apc Usd"
+              },
+              "works_count": {
+                "default": 0,
+                "title": "Works Count",
+                "type": "integer"
+              },
+              "h_index": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "H Index"
+              },
+              "mean_citedness_2yr": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Mean Citedness 2Yr"
+              },
+              "venue_metadata_incomplete": {
+                "default": false,
+                "title": "Venue Metadata Incomplete",
+                "type": "boolean"
+              },
+              "label": {
+                "default": "",
+                "title": "Label",
+                "type": "string"
+              },
+              "papers": {
+                "default": 0,
+                "title": "Papers",
+                "type": "integer"
+              },
+              "share_pct": {
+                "default": 0,
+                "title": "Share Pct",
+                "type": "integer"
+              },
+              "recent_papers": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Recent Papers"
+              },
+              "prior_papers": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Prior Papers"
+              },
+              "trend": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Trend"
+              }
+            },
+            "title": "VenueRanking",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "found": {
+            "default": false,
+            "title": "Found",
+            "type": "boolean"
+          },
+          "searched_for": {
+            "default": "",
+            "title": "Searched For",
+            "type": "string"
+          },
+          "matched_on": {
+            "default": "title_and_abstract",
+            "title": "Matched On",
+            "type": "string"
+          },
+          "total_papers": {
+            "default": 0,
+            "title": "Total Papers",
+            "type": "integer"
+          },
+          "segment_window": {
+            "default": "",
+            "title": "Segment Window",
+            "type": "string"
+          },
+          "venues": {
+            "items": {
+              "$ref": "#/$defs/VenueRanking"
+            },
+            "title": "Venues",
+            "type": "array"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          }
+        },
+        "title": "FindVenuesOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    }
+  ],
+  "instructions": null,
+  "serverInfo": {
+    "name": "pendar",
+    "title": null,
+    "version": "1.12.4",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  },
+  "independent_BNN_oauth": true
+}

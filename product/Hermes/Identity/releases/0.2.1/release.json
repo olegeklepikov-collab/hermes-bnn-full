@@ -1,0 +1,8 @@
+{
+  "version": "0.2.1",
+  "schema": 2,
+  "deep_sections_defined": false,
+  "same_user_unrestricted_terminal_isolation": "not_accepted",
+  "runtime_signing_key_loaded": false,
+  "change": "Recognize trusted analyst leaf role; identity content and builder unchanged"
+}

@@ -1,0 +1,21 @@
+{
+  "release": "3.0.2",
+  "version": "3.0",
+  "files": {
+    "tools/_base.py": "0e7ab3d58b7050345a750e969c843a1b3426f8aaa1992a79d3358b5f393eb82e",
+    "tools/assemble_instructions.py": "8f74af2d3e8f3452dd30782aea775816ff4de895e64ca3aaaa504c4d2da26872",
+    "tools/benchmark.py": "83a1ca35e1a38d07657f8c8aa093a20af5e64379a9179b2d837d477d62fbaa7f",
+    "tools/build_contracts.py": "771a17b7aa8b9e3eb3c436bbc811c40341c7ff8c5a45c2fe2429235c59e9cdd2",
+    "tools/collect_reports.py": "316d4095bc7ccd4c34c8ee6f88c3103f11d7b0dde44beee3213d487ac923b96a",
+    "tools/corpus.py": "d42c3af28a741adc44a29b9a4e893aeeaa9b6be6f8470890a96a1623b44cda32",
+    "tools/engine.py": "85a406ae5ea4c00d36cdd8e1c2be5aa2a1a80268f1618dc9db666e7d14e560dc",
+    "tools/migrate.py": "d5c74f9bcd76730eeb9baeb2af4f806cd63708bc933b171cff62ea050eae4b84",
+    "tools/records.py": "02f56e896e0e48a73c8e10c180018a9a23967c848e0c914eb9700e39fbc2d822",
+    "tools/triad.py": "c019c59d73c3e3a3d0db7dc11e42928292001ff24aaf96bbca45055f1061050b",
+    "tools/verify_editorial.py": "dfdbb8b0cc17eb68c62632f8123f3499a815a513fd59ac6796886bd3dfb2dcff",
+    "tools/verify_package.py": "1207f1877d6d726e4bb36a0d81e4fee5f8769d650d95c93d406cf0546e8e3d60",
+    "tools/verify_remediation.py": "6147fd63bb9627a84025b061f4c0e35c5d2125523e8623336e0dfaeb9f8fe3c0"
+  },
+  "verification_report_sha256": "38c52d06f4fe6746356378b629b9ece79c5390ab7863554997d6e2be996d8e67",
+  "scope": "Фактически испытанные локальные функции и текущие файлы; не удостоверение автора или промышленный допуск."
+}

@@ -1,0 +1,25 @@
+{
+  "release": "3.0.1",
+  "base_release": "3.0",
+  "protocol_version": "3.0",
+  "date": "2026-09-12",
+  "change_class": "editorial",
+  "runtime_semantic_change": false,
+  "preserved": [
+    "sources/",
+    "reference/",
+    "exact source excerpts",
+    "API identifiers",
+    "enumerated states",
+    "JSON schema",
+    "runtime algorithms"
+  ],
+  "edited": [
+    "COMMON.md",
+    "components/",
+    "descriptive procedure fields",
+    "generated instructions",
+    "reader documentation"
+  ],
+  "external_research_performed": false
+}

@@ -1,0 +1,3495 @@
+{
+  "date": "2026-09-18T10:31:24.479547+00:00",
+  "subject": "/mnt/data/GSD_Engine_v3_0_3",
+  "tests": 470,
+  "passed": 470,
+  "failed": 0,
+  "rows": [
+    {
+      "id": "GROUP-000",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-001",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-002",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-003",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-004",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-005",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-006",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-007",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-008",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-009",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-010",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-011",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-012",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-013",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-014",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-015",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-016",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-017",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-018",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-019",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-020",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-021",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-022",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-023",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-024",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-025",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-026",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-027",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-028",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-029",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-030",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-031",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-032",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-033",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-034",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-035",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-036",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-037",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-038",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-039",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-040",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-041",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-042",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-043",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-044",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-045",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-046",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-047",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-048",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-049",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-050",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-051",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-052",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-053",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-054",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-055",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-056",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-057",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-058",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-059",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-060",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-061",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-062",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-063",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-064",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-065",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-066",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-067",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-068",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-069",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-070",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-071",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-072",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-073",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-074",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-075",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-076",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-077",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-078",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-079",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-080",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-081",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-082",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-083",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-084",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-085",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-086",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-087",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-088",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-089",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-090",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-091",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-092",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-093",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-094",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-095",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-096",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-097",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-098",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-099",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-100",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-101",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-102",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-103",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-104",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-105",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-106",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-107",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-108",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-109",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-110",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-111",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-112",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-113",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-114",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-115",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-116",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-117",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-118",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-119",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-120",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-121",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-122",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-123",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-124",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-125",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-126",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-127",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-128",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-129",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-130",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-131",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-132",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-133",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-134",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-135",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-136",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-137",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-138",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-139",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-140",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-141",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-142",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-143",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-144",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-145",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-146",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-147",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-148",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-149",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-150",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-151",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-152",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-153",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-154",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-155",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-156",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-157",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-158",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-159",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-160",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-161",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-162",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-163",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-164",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-165",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-166",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-167",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-168",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-169",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-170",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-171",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-172",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-173",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-174",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-175",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-176",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-177",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-178",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-179",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-180",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-181",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-182",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-183",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-184",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-185",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-186",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-187",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-188",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-189",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-190",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-191",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-192",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-193",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-194",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-195",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-196",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-197",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K1"
+      }
+    },
+    {
+      "id": "GROUP-198",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-199",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-200",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-201",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-202",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-203",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-204",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-205",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-206",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-207",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-208",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-209",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-210",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-211",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-212",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K2"
+      }
+    },
+    {
+      "id": "GROUP-213",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-214",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "GROUP-215",
+      "outcome": "pass",
+      "detail": {
+        "permutations": 6,
+        "representative": "K0"
+      }
+    },
+    {
+      "id": "KNOWN-00",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-01",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-02",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-03",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-04",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-05",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-06",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-07",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-08",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-09",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-10",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-11",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-12",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-13",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-14",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-15",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-16",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-17",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-18",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-19",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-20",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-21",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-22",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-23",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-24",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-25",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-26",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-27",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-28",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-29",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-30",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-31",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-32",
+      "outcome": "pass",
+      "detail": {
+        "reused": false,
+        "active_high": true
+      }
+    },
+    {
+      "id": "KNOWN-33",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-34",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "KNOWN-35",
+      "outcome": "pass",
+      "detail": {
+        "reused": true,
+        "active_high": false
+      }
+    },
+    {
+      "id": "HEADER-id-0",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-1",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-2",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-3",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-4",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-5",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-6",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-7",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-8",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-9",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-10",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-11",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-id-12",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-0",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-1",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-2",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-3",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-4",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-5",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-6",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-7",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-8",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-9",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-10",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-11",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-payload_id-12",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-0",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-1",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-2",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-3",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-4",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-5",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-6",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-7",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-8",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-9",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-10",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-11",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "HEADER-budget_reservation-12",
+      "outcome": "pass",
+      "detail": {
+        "rejected_before_resource": true
+      }
+    },
+    {
+      "id": "INTEGER-payload_version-0",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-payload_version-1",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-payload_version-2",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-payload_version-3",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-payload_version-4",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-payload_version-5",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-payload_version-6",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-budget_amount-0",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-budget_amount-1",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-budget_amount-2",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-budget_amount-3",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-budget_amount-4",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-budget_amount-5",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "INTEGER-budget_amount-6",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "BODYVERSION-0",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "BODYVERSION-1",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "BODYVERSION-2",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "BODYVERSION-3",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "BODYVERSION-4",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "BODYVERSION-5",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "UNDECLARED-STATUS-supported",
+      "outcome": "pass",
+      "detail": {
+        "status": "supported",
+        "accepted": false
+      }
+    },
+    {
+      "id": "UNDECLARED-STATUS-candidate",
+      "outcome": "pass",
+      "detail": {
+        "status": "candidate",
+        "accepted": false
+      }
+    },
+    {
+      "id": "UNDECLARED-STATUS-arbitrary",
+      "outcome": "pass",
+      "detail": {
+        "status": "arbitrary",
+        "accepted": false
+      }
+    },
+    {
+      "id": "UNDECLARED-STATUS-unreviewed",
+      "outcome": "pass",
+      "detail": {
+        "status": "unreviewed",
+        "accepted": true
+      }
+    },
+    {
+      "id": "VALID-REPLAY-0",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-1",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-2",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-3",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-4",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-5",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-6",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-7",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-8",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "VALID-REPLAY-9",
+      "outcome": "pass",
+      "detail": true
+    },
+    {
+      "id": "CONSTRAINT-0-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-0-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-1-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-2-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-3-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-4-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-5-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-6-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-7-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-8-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-9-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-10-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-0",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-1",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-2",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-3",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-4",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-5",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-6",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-7",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-8",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-9",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-10",
+      "outcome": "pass",
+      "detail": {
+        "excluded": false
+      }
+    },
+    {
+      "id": "CONSTRAINT-11-11",
+      "outcome": "pass",
+      "detail": {
+        "excluded": true
+      }
+    },
+    {
+      "id": "CONSTRAINT-ABSENT-NOT-NULL",
+      "outcome": "pass",
+      "detail": true
+    }
+  ],
+  "model_calls": 0,
+  "scope": "Closed local invariants; one GROUP row includes all 6 permutations; not independent field observations"
+}

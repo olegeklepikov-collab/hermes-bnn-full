@@ -1,0 +1,3077 @@
+{
+  "version": 1,
+  "entries": {
+    "mcp__firecrawl__firecrawl_scrape": {
+      "server": "firecrawl",
+      "operation": "firecrawl_scrape",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4614c5d9efc8df5a566f6c6f93e26d287d97b71de338898a9a00d69584fe3dc4"
+    },
+    "mcp__firecrawl__firecrawl_map": {
+      "server": "firecrawl",
+      "operation": "firecrawl_map",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2567ab0c41f46d57dedb8d2d4fcdd52fbf7265c0f88fc8f45f720737194d975c"
+    },
+    "mcp__firecrawl__firecrawl_search": {
+      "server": "firecrawl",
+      "operation": "firecrawl_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "99ed6655cdb05093c829bb37207373b981d8a582f6254a23d7d55cc58322e950"
+    },
+    "mcp__firecrawl__firecrawl_find_tools": {
+      "server": "firecrawl",
+      "operation": "firecrawl_find_tools",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c67eff1641d22b377b2abe05185e0ebe57b7df220d360b1d89e670111d6e6219"
+    },
+    "mcp__firecrawl__firecrawl_crawl": {
+      "server": "firecrawl",
+      "operation": "firecrawl_crawl",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a67fa0f35436b354b9bc48b78bd861c3cf18d6683d5de48b8c09cc6ad0046630"
+    },
+    "mcp__firecrawl__firecrawl_check_crawl_status": {
+      "server": "firecrawl",
+      "operation": "firecrawl_check_crawl_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "69a5fdeb0408ddbd949e8c6d039848f1b5bd2369f13cbf6033d319ac15317389"
+    },
+    "mcp__firecrawl__firecrawl_agent": {
+      "server": "firecrawl",
+      "operation": "firecrawl_agent",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4a5bc1211db9b3db2d3e14b87779c9b6709b7e50fec57e1fd7b3046e3def54b9"
+    },
+    "mcp__firecrawl__firecrawl_agent_status": {
+      "server": "firecrawl",
+      "operation": "firecrawl_agent_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "69a5fdeb0408ddbd949e8c6d039848f1b5bd2369f13cbf6033d319ac15317389"
+    },
+    "mcp__firecrawl__firecrawl_interact": {
+      "server": "firecrawl",
+      "operation": "firecrawl_interact",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2816e6cd56ebdbd02a521fc276faf86837cf724411edc8560f6ebd928c8256a2"
+    },
+    "mcp__firecrawl__firecrawl_interact_stop": {
+      "server": "firecrawl",
+      "operation": "firecrawl_interact_stop",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "78bd4914685cfa909301ca290743e6e2857d732047c4bf6f1448ed950ff317bd"
+    },
+    "mcp__firecrawl__firecrawl_parse": {
+      "server": "firecrawl",
+      "operation": "firecrawl_parse",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "656131d02eed904ba50745edadf0240733491bbd3ea612405d37601750a7ca4c"
+    },
+    "mcp__firecrawl__firecrawl_monitor_create": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_create",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e312d35b3e563a0e539b75a4e55db4a744a65c23953218fcff9185400dc770fd"
+    },
+    "mcp__firecrawl__firecrawl_monitor_list": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d61195a5101615e09d291ef6b5c1d0fb04107c8f6c0e724597813995a33181ab"
+    },
+    "mcp__firecrawl__firecrawl_monitor_get": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_get",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "69a5fdeb0408ddbd949e8c6d039848f1b5bd2369f13cbf6033d319ac15317389"
+    },
+    "mcp__firecrawl__firecrawl_monitor_update": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_update",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5250b9bc6a5af07ab2067956052946583098f0f9f16664c4ac087650487cda5e"
+    },
+    "mcp__firecrawl__firecrawl_monitor_delete": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_delete",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "69a5fdeb0408ddbd949e8c6d039848f1b5bd2369f13cbf6033d319ac15317389"
+    },
+    "mcp__firecrawl__firecrawl_monitor_run": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_run",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "69a5fdeb0408ddbd949e8c6d039848f1b5bd2369f13cbf6033d319ac15317389"
+    },
+    "mcp__firecrawl__firecrawl_monitor_checks": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_checks",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4114f98da5cf8d63254924a52a27d323e9a4ffdce16db8bf9e23634a97569384"
+    },
+    "mcp__firecrawl__firecrawl_monitor_check": {
+      "server": "firecrawl",
+      "operation": "firecrawl_monitor_check",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1ca031848ed5baa83c2c95bdd6e67562f245ed5d16ac7f6a12ea6466562eaa15"
+    },
+    "mcp__firecrawl__firecrawl_research_search_papers": {
+      "server": "firecrawl",
+      "operation": "firecrawl_research_search_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "33680104c1e89e04401a743cba68c4bf73823b082f2b70550c51b6ee197129c6"
+    },
+    "mcp__firecrawl__firecrawl_research_inspect_paper": {
+      "server": "firecrawl",
+      "operation": "firecrawl_research_inspect_paper",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cda683e75fd95b3d2ff3cbe439c7f0bb6f7fc6cf90fec1276510438215f4d897"
+    },
+    "mcp__firecrawl__firecrawl_research_related_papers": {
+      "server": "firecrawl",
+      "operation": "firecrawl_research_related_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "acbc14ac5abc30f6ef505f1a6c02fb7180bcbbcae116908a47868c75c5350e1b"
+    },
+    "mcp__firecrawl__firecrawl_research_read_paper": {
+      "server": "firecrawl",
+      "operation": "firecrawl_research_read_paper",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "baba062e943629ad78ed0827ceacde496fe674329de63b83acf3c6e9edbdfed1"
+    },
+    "mcp__firecrawl__firecrawl_developer_search": {
+      "server": "firecrawl",
+      "operation": "firecrawl_developer_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "62a604e0889b0d0101c630eb13b764957f9883b5e128129580ba5515d66dbc1e"
+    },
+    "mcp__firecrawl__firecrawl_gov_search": {
+      "server": "firecrawl",
+      "operation": "firecrawl_gov_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "46292b0ed327d4429233b1d8bb4018ad6daa6d1e74894b8730b63a55e9c9d749"
+    },
+    "mcp__firecrawl__firecrawl_credit_usage": {
+      "server": "firecrawl",
+      "operation": "firecrawl_credit_usage",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2e851deaf071644f32ef0976d27aa0179d515585fc21b226532734e7c4fb370e"
+    },
+    "mcp__exa__web_search_exa": {
+      "server": "exa",
+      "operation": "web_search_exa",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ea70b6dbd4ca5363f0ac82944520016e45d810ecfa332c39aa1c6ece65f2e4df"
+    },
+    "mcp__exa__web_search_advanced_exa": {
+      "server": "exa",
+      "operation": "web_search_advanced_exa",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ec712d8b0ec08cb53b911aedf6c317b55053ce8185ce8c440cd288a19f95281a"
+    },
+    "mcp__exa__web_fetch_exa": {
+      "server": "exa",
+      "operation": "web_fetch_exa",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d72ee7687517df49ee4374713985811b9a87c252590b2ef26c9218786b0f805b"
+    },
+    "mcp__exa__agent_run": {
+      "server": "exa",
+      "operation": "agent_run",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "696489bd6c3339a938227d9355f8b78acfc78fae7687c21d4eec8357b711f4b3"
+    },
+    "mcp__tavily__tavily_search": {
+      "server": "tavily",
+      "operation": "tavily_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f12bd0b7f5ccfb3400c3bcf7b5d35fefdd26b2af15d745883e265d88c4f2e676"
+    },
+    "mcp__tavily__tavily_extract": {
+      "server": "tavily",
+      "operation": "tavily_extract",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "de9f86cb1f26340e9b4112b7ad2a6ef59fdc51cfc65999a9f67a034f48e9ef28"
+    },
+    "mcp__tavily__tavily_map": {
+      "server": "tavily",
+      "operation": "tavily_map",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7e2c2894e7a6a5c3181dc492f15ef99e3f46e1c7d7735c3818dd91b57050928e"
+    },
+    "mcp__tavily__tavily_crawl": {
+      "server": "tavily",
+      "operation": "tavily_crawl",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ce40336e0c20c54976efc47137caed99653e4543b43c3a28e3ee6785b54eb6ad"
+    },
+    "mcp__tavily__tavily_research": {
+      "server": "tavily",
+      "operation": "tavily_research",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "61a432d6afd03936c3361388d836ee2990b6a19c2c6c601d3412f71860b5e71d"
+    },
+    "mcp__tavily__tavily_get_research": {
+      "server": "tavily",
+      "operation": "tavily_get_research",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "00f13eaaaa32beb86f0a28cadf1eabd69b879838f2ff7a290e9d70c44c17a263"
+    },
+    "mcp__tavily__tavily_research_stream": {
+      "server": "tavily",
+      "operation": "tavily_research_stream",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "fb2dec726ff3b097916e095d5717bfa77535c77bc759ebc50c5117711637f843"
+    },
+    "mcp__tavily__tavily_usage": {
+      "server": "tavily",
+      "operation": "tavily_usage",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "99334726611ccf58a148b0814696bfa6fe08c1b2d027e946beccf5a74331c9aa"
+    },
+    "mcp__tavily__tavily_logs": {
+      "server": "tavily",
+      "operation": "tavily_logs",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b7d674b40a1b336ad2cee41f0408e047854ca60d616a75b40af822d533f37bd6"
+    },
+    "mcp__keenable__search_web_pages": {
+      "server": "keenable",
+      "operation": "search_web_pages",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "bfc2de2d01cf42c5499b84905714a41b11910aa4843414d6a1ac7db3b05d1514"
+    },
+    "mcp__keenable__fetch_page_content": {
+      "server": "keenable",
+      "operation": "fetch_page_content",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "54f3c200c8fc14e20e1a0469f97fdab738c3fcf87bb528eda155e8e4d67aa288"
+    },
+    "mcp__keenable_select__select": {
+      "server": "keenable-select",
+      "operation": "select",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4d50fd04a85fc56f224018a46c9c2278cc37f636f3b76bc9ec1c64296360dea6"
+    },
+    "mcp__keenable_select__generate_html_report": {
+      "server": "keenable-select",
+      "operation": "generate_html_report",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ddd3ce730549b3a490cafdb46d6eaa0a69596737479073cf162253b71a236848"
+    },
+    "mcp__keenable_select__revoke_html_report": {
+      "server": "keenable-select",
+      "operation": "revoke_html_report",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3f3062ca1f0c2e6eb60cd8a2fb4b2629967cc17a70f428014fd444a76af1cf01"
+    },
+    "mcp__nimble__nimble_crawl_run": {
+      "server": "nimble",
+      "operation": "nimble_crawl_run",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cde93c623f5b8ea51a3a9c221f3b9730e3a18238648464857749838a61631f2d"
+    },
+    "mcp__nimble__nimble_crawl_status": {
+      "server": "nimble",
+      "operation": "nimble_crawl_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9e8baca52eee06d97853ee225a26f454933472c1dd8dbd41966f3f43323bc56a"
+    },
+    "mcp__nimble__nimble_crawl_list": {
+      "server": "nimble",
+      "operation": "nimble_crawl_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c5fab26ed7f18e5b9fff435cf0c81de90b741f08b60b7015d470bfc6611f949a"
+    },
+    "mcp__nimble__nimble_crawl_terminate": {
+      "server": "nimble",
+      "operation": "nimble_crawl_terminate",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9e8baca52eee06d97853ee225a26f454933472c1dd8dbd41966f3f43323bc56a"
+    },
+    "mcp__nimble__nimble_extract_templates_list": {
+      "server": "nimble",
+      "operation": "nimble_extract_templates_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a7752e4a97f87b42cb0ff2b92da648237d287ec13a02a3b878f2acc535178b48"
+    },
+    "mcp__nimble__nimble_extract_templates_get": {
+      "server": "nimble",
+      "operation": "nimble_extract_templates_get",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "acc1b6c38aa892fbebf68dfee6ff18d5086320b68322385209d77b96ee5ec44f"
+    },
+    "mcp__nimble__nimble_extract_templates_run": {
+      "server": "nimble",
+      "operation": "nimble_extract_templates_run",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "df2b5e32dcfecff4f49980c3f7482f30105b77227fdb7938f5768c35635d070b"
+    },
+    "mcp__nimble__nimble_map": {
+      "server": "nimble",
+      "operation": "nimble_map",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3f928b0c9284c2192dc50438b16f6356363381f73450ce738f99973dc68f8769"
+    },
+    "mcp__nimble__nimble_task_results": {
+      "server": "nimble",
+      "operation": "nimble_task_results",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "363bb0fce9188cb106c10525ad480d378e7f30f087e93391bd2f2bcf3e47f74e"
+    },
+    "mcp__nimble__nimble_extract_templates_run_async": {
+      "server": "nimble",
+      "operation": "nimble_extract_templates_run_async",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "966ad81e1775d02182e9e5ed0fccb0651636415f07f18ce7d0a06c31b126a5e5"
+    },
+    "mcp__nimble__nimble_search": {
+      "server": "nimble",
+      "operation": "nimble_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a9f3062616316dd100b72b95d33f1ea3a23d5562242ef1ed1ef247ac3fe3798f"
+    },
+    "mcp__nimble__nimble_extract": {
+      "server": "nimble",
+      "operation": "nimble_extract",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c1bce8f1c58a65e01a77320d960a4f3841390a295a5ddb3d994ab44278f9d1d3"
+    },
+    "mcp__nimble__nimble_extract_async": {
+      "server": "nimble",
+      "operation": "nimble_extract_async",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e92eac4f467887563601dc12db29a7db39d77f724fb1272618ed81836b2de367"
+    },
+    "mcp__nimble__nimble_agents_list": {
+      "server": "nimble",
+      "operation": "nimble_agents_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b86094887519fee7d133266c5a8e85c2d0a293d78ea2a080664430dc818eff71"
+    },
+    "mcp__nimble__nimble_agents_get": {
+      "server": "nimble",
+      "operation": "nimble_agents_get",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "648dfc9c58f0adc23c73790fe2378b711871400e465502d89f4f9e91b9d8cb58"
+    },
+    "mcp__nimble__nimble_agents_create": {
+      "server": "nimble",
+      "operation": "nimble_agents_create",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "99756d12defa368cc50880f952648b539d09d87b0c8a96094d7e2abb3fe3d326"
+    },
+    "mcp__nimble__nimble_agents_update": {
+      "server": "nimble",
+      "operation": "nimble_agents_update",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "8e267f8ee99ea999ad285003a583c54817ccda59d0508379fb1b650132d44e66"
+    },
+    "mcp__nimble__nimble_agents_run": {
+      "server": "nimble",
+      "operation": "nimble_agents_run",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f2aa771fe026545d1d8bb37c97c2ad055d0d217608f013a0d4a52f57237e2984"
+    },
+    "mcp__nimble__nimble_agents_run_status": {
+      "server": "nimble",
+      "operation": "nimble_agents_run_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4a4481e90d2bde929a8b1001939d788b3a8d20b4573102c716e57d8effdfb537"
+    },
+    "mcp__nimble__nimble_agents_runs_list": {
+      "server": "nimble",
+      "operation": "nimble_agents_runs_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b197bb46514041d3c5c3e9a97bec950464b0ba6fbf07b4919501390468f1327a"
+    },
+    "mcp__nimble__nimble_agents_run_result": {
+      "server": "nimble",
+      "operation": "nimble_agents_run_result",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4a4481e90d2bde929a8b1001939d788b3a8d20b4573102c716e57d8effdfb537"
+    },
+    "mcp__nimble__nimble_agent_templates_list": {
+      "server": "nimble",
+      "operation": "nimble_agent_templates_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cc0a9ca71121ef613625e4c82abb380d48b3d56669a0ff8fb92dabc43f7dd40a"
+    },
+    "mcp__nimble__nimble_agent_templates_get": {
+      "server": "nimble",
+      "operation": "nimble_agent_templates_get",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "327088c73ba6cc42fe98541af0c75ed4e7a8c446fd4b5677661303582916d82f"
+    },
+    "mcp__nimble_docs__search_nimble_docs": {
+      "server": "nimble-docs",
+      "operation": "search_nimble_docs",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cb69ec950d34e62627ef754878dd43b5dc3dde27cfb32012e4f98b793e6cdbc0"
+    },
+    "mcp__nimble_docs__query_docs_filesystem_nimble_docs": {
+      "server": "nimble-docs",
+      "operation": "query_docs_filesystem_nimble_docs",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ab203162be885ac70b10929e35e4d0d148aa5931350c531b1c282e652a919a66"
+    },
+    "mcp__parallel_task__createDeepResearch": {
+      "server": "parallel-task",
+      "operation": "createDeepResearch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "23c2c9bc2c75414f703e84738e1f8461a5f2eb5d9e2b54403a8e8b14b618d95b"
+    },
+    "mcp__parallel_task__createTaskGroup": {
+      "server": "parallel-task",
+      "operation": "createTaskGroup",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c9b6b4075dbcd2a0bcf78031edcf534fb60175fe2d8a12be4a3686765d15cdb5"
+    },
+    "mcp__parallel_task__getResultMarkdown": {
+      "server": "parallel-task",
+      "operation": "getResultMarkdown",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "68289dd68d012e3cdfd92dfac6377f03944dbc31ecdde913c322d2176ee7c4da"
+    },
+    "mcp__parallel_task__getStatus": {
+      "server": "parallel-task",
+      "operation": "getStatus",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b4fa7c90b10d56dddcc98ef5788bf8cdd3934fc1ceb8bf2d0ab7263c206ee941"
+    },
+    "mcp__parallel_search__web_search": {
+      "server": "parallel-search",
+      "operation": "web_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0daaf9101a92d5357ff55c3e6a89737994dc40c9f96e7930b176e3227bfc700f"
+    },
+    "mcp__parallel_search__web_fetch": {
+      "server": "parallel-search",
+      "operation": "web_fetch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5e4b444a1239999397b1feda8e6900628c988aeed94658284b4cd8cec91c5ee5"
+    },
+    "mcp__consensus__search": {
+      "server": "consensus",
+      "operation": "search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c271a689e848cdcd4926a530efb2b77d956093c71d14b7fa54efe574ed2e9a5e"
+    },
+    "mcp__consensus__create_thread": {
+      "server": "consensus",
+      "operation": "create_thread",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7a65ee429dbb4912dfe40894e98becd2b9e1623b72d91e3cd356357e8e200fbd"
+    },
+    "mcp__consensus__add_to_thread": {
+      "server": "consensus",
+      "operation": "add_to_thread",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d0114da1f1eed827111d77ba63ffd73be49e932f907bcb133f1c00c3683cf4de"
+    },
+    "mcp__consensus__get_thread": {
+      "server": "consensus",
+      "operation": "get_thread",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ea490c601d895a717c7111758e5d982771102f4e1c7f4aa448e34a22fc4d038a"
+    },
+    "mcp__consensus__find_threads": {
+      "server": "consensus",
+      "operation": "find_threads",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "248423c84802d2a8720c2397066abdf25509f6649d258eab0949b14e1404a85d"
+    },
+    "mcp__scite__search_literature": {
+      "server": "scite",
+      "operation": "search_literature",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7af856fb2ef2b6cfb4039dfd5d87992980e9386f18d45aed721b0a2e33772bcd"
+    },
+    "mcp__scite__citation_graph": {
+      "server": "scite",
+      "operation": "citation_graph",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4603508138cd1497ac708187b9c6652cdc15e41db31a9cc69804c4dbe495dc41"
+    },
+    "mcp__scite__read_fulltext": {
+      "server": "scite",
+      "operation": "read_fulltext",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6ccc6a50f7e700fc4644f0184842fe3f1f74ab3aad743c5af4d0dc300251e9ce"
+    },
+    "mcp__scite__report_citations": {
+      "server": "scite",
+      "operation": "report_citations",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d5c22a100a5e67f604d31b11fd1c2a73cbd59798c0787c9690e33ba6cc148ea2"
+    },
+    "mcp__scite__citation_report": {
+      "server": "scite",
+      "operation": "citation_report",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "eaaab5a3533fbb5d5a54162220abf53ec8d2e8e55c517c5b94c7f9307399951b"
+    },
+    "mcp__scite__search_patents": {
+      "server": "scite",
+      "operation": "search_patents",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d7c17685de973eb84f0f87807cf7a72e5ca31188c6e5c723739fea6614c00def"
+    },
+    "mcp__scite__search_clinical_trials": {
+      "server": "scite",
+      "operation": "search_clinical_trials",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "254246280395ff1ea4cf6c25ffc5ba50590f62befbfc96e015c3312b5c5700d4"
+    },
+    "mcp__scite__get_clinical_trial": {
+      "server": "scite",
+      "operation": "get_clinical_trial",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1503e50484c3ef93d3d48091dcaa3913f7611061653e97ccf2420be13b705e51"
+    },
+    "mcp__scite__search_grants": {
+      "server": "scite",
+      "operation": "search_grants",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7b4146835994c0696033c35fdea848446fa4edc29cbee083baad1336500c6c6c"
+    },
+    "mcp__scite__get_grant": {
+      "server": "scite",
+      "operation": "get_grant",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5fd5606018898a27eb1d11ebb5bce9f414b0955ee8ea68489a3bbe5beb14e5a2"
+    },
+    "mcp__scite__search_device510k": {
+      "server": "scite",
+      "operation": "search_device510k",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "8c2e9a738c6e7dc9515314605f877ec024d5102b86c8bcd89cf0162a75a00ad7"
+    },
+    "mcp__scite__get_device510k": {
+      "server": "scite",
+      "operation": "get_device510k",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5c37ab7c821619697d03d60f5844aa8bc35fdbfecf4d758de9abcb7c5d9b940e"
+    },
+    "mcp__scite__search_510k_summaries": {
+      "server": "scite",
+      "operation": "search_510k_summaries",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "26ecedef5a6430f5d01b0fd6e1f51abc470ed0508ffedf220b381e1ea112de9d"
+    },
+    "mcp__scite__get_510k_summary": {
+      "server": "scite",
+      "operation": "get_510k_summary",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a03da0c4f822db7ed7bec16f5cbf86c0d5c3cef43bcdc9368f47f86ce8fe642b"
+    },
+    "mcp__scite__search_mhra": {
+      "server": "scite",
+      "operation": "search_mhra",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3e6ba519632d585c100e0d746a47b6c43a5bed5617f8e7386175a83c7fab8f2c"
+    },
+    "mcp__scite__get_mhra_alert": {
+      "server": "scite",
+      "operation": "get_mhra_alert",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "02b81b9d01080288f0fe6167f5a570e74ce30bb9eeab775baaed6bbbb253d136"
+    },
+    "mcp__scite__search_maude": {
+      "server": "scite",
+      "operation": "search_maude",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "412af113f10f5101ae556b0f2ee09c388ad2e00cc696beb56230c752e82b651f"
+    },
+    "mcp__scite__get_maude_report": {
+      "server": "scite",
+      "operation": "get_maude_report",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "68d18d84f37b6955ed97b994b6d5741c9d2e9827e48eece34baf9ded0ac0074a"
+    },
+    "mcp__scite__search_faers": {
+      "server": "scite",
+      "operation": "search_faers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "18bc816eb94a4eaf36fe0256c272d1880518480eafcafce002a869578e1ace12"
+    },
+    "mcp__scite__get_faers_report": {
+      "server": "scite",
+      "operation": "get_faers_report",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "8edbcf19aea973ba6b5d03444a702cd03b17338c2fe98318e7498e06639a95c8"
+    },
+    "mcp__scite__search_drugs": {
+      "server": "scite",
+      "operation": "search_drugs",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f68c211854310a21e2c490fe548b7a84a12d3da563a966b46de72c94e170c717"
+    },
+    "mcp__scite__get_drug": {
+      "server": "scite",
+      "operation": "get_drug",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e20302d4c9918c48ea4064be579665ad7ba90c8504364eddc367a1e74f389105"
+    },
+    "mcp__scite__create_collection": {
+      "server": "scite",
+      "operation": "create_collection",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a64fd55bbd7b587a78232749d98093fa7fa0aaa928ca0f30058cec6c3b71b5fe"
+    },
+    "mcp__scite__get_collection": {
+      "server": "scite",
+      "operation": "get_collection",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "72bde4ca607adbeb34b317315020be058dcf5c43bbe43df60caaeb0942288bec"
+    },
+    "mcp__scite__search_collections": {
+      "server": "scite",
+      "operation": "search_collections",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cd4f639c1c44d28defaec21d33819104438ca2a7126016f46bcee4466a0afb06"
+    },
+    "mcp__scite__update_collection": {
+      "server": "scite",
+      "operation": "update_collection",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a9bf5287a73694521d87e06b4a8475bcfd491ba49979205e46e8d71d60f36bfb"
+    },
+    "mcp__scite__add_dois_to_collection": {
+      "server": "scite",
+      "operation": "add_dois_to_collection",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "30192c17e4a959f23a73e55e290057d329aa96f54da6cce663ac70f287e57f8b"
+    },
+    "mcp__scite__bibliography": {
+      "server": "scite",
+      "operation": "bibliography",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e23bff87b50f1796903de972da5ed50ddd1355a333999ad51f6fb085db3c2563"
+    },
+    "mcp__scite__list_collection_notes": {
+      "server": "scite",
+      "operation": "list_collection_notes",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d9485a42388a36ae5cb650a5ced85f5854a7e0f9e5a97a80051ac76e40560c60"
+    },
+    "mcp__scite__create_collection_note": {
+      "server": "scite",
+      "operation": "create_collection_note",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "583c58eaa78dfcc7d25f34f4bb1a80f0d0cf9a8ac40d270685f0bbaf483a8f54"
+    },
+    "mcp__scite__update_collection_note": {
+      "server": "scite",
+      "operation": "update_collection_note",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "500594a2e93a0e2a1c36b85bfe18c3d6836216642eb23ef9dd71712e1cbf0b06"
+    },
+    "mcp__scite__list_collection_files": {
+      "server": "scite",
+      "operation": "list_collection_files",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "33b5cc555c1826ea32aa6bed5eb6f7230d321d6d23f4a57c5e6f15e777703c3d"
+    },
+    "mcp__scite__upload_collection_file": {
+      "server": "scite",
+      "operation": "upload_collection_file",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "823cfab030666b60ddab7c45b0596bcfca9b8272fdf2e81c29464a307382c4f3"
+    },
+    "mcp__scite__get_collection_file": {
+      "server": "scite",
+      "operation": "get_collection_file",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "92fd9e713a84094a200733996a7959f7da64b1ea83eb6d17784bb068b9e078d2"
+    },
+    "mcp__scite__get_collection_file_download_url": {
+      "server": "scite",
+      "operation": "get_collection_file_download_url",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "92fd9e713a84094a200733996a7959f7da64b1ea83eb6d17784bb068b9e078d2"
+    },
+    "mcp__scite__get_more_tools": {
+      "server": "scite",
+      "operation": "get_more_tools",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "551cdc0dd0941d01dfe05ebf8133fcd4f54f843d42f5a9fa5619926ebbb5cb21"
+    },
+    "mcp__undermind__list_workspaces": {
+      "server": "undermind",
+      "operation": "list_workspaces",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f43e7f974cafe6e9488e7d4ba2b9abbbacca5ffad212efa90296263d22b3d223"
+    },
+    "mcp__undermind__create_workspace": {
+      "server": "undermind",
+      "operation": "create_workspace",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1047b350e9610faa909ab339858c387e731c844ca5564703ff4e67f1a6337934"
+    },
+    "mcp__undermind__get_orientation": {
+      "server": "undermind",
+      "operation": "get_orientation",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "99334726611ccf58a148b0814696bfa6fe08c1b2d027e946beccf5a74331c9aa"
+    },
+    "mcp__undermind__inspect_files": {
+      "server": "undermind",
+      "operation": "inspect_files",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3b8f97e7c77dc65d9b0aa3fa164a1737d65a816643b0187d1d7c1137f013602d"
+    },
+    "mcp__undermind__inspect_folders": {
+      "server": "undermind",
+      "operation": "inspect_folders",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f59e6557798aaf8c625fb384f07796876e2ab0ef26e2eebe0d81b2381c6531d6"
+    },
+    "mcp__undermind__inspect_deep_searches": {
+      "server": "undermind",
+      "operation": "inspect_deep_searches",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "491ba72ecaf0991c125fe9ad893dfed76b0854c7ce9b5e87a4ffee1fe17e0ab6"
+    },
+    "mcp__undermind__get_paper_info": {
+      "server": "undermind",
+      "operation": "get_paper_info",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "185f9c73e4c74da838bb78608180ce3bdaea679f68f501e8cb4f1702b81a9376"
+    },
+    "mcp__undermind__display_references": {
+      "server": "undermind",
+      "operation": "display_references",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "05eb00493a210376a1ddecb241d9fc8bb5161154d00558899fa7e52a3514b105"
+    },
+    "mcp__undermind__display_deep_search_results": {
+      "server": "undermind",
+      "operation": "display_deep_search_results",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5ae6a3d25c358dcbda3dde91743cf7c7805c1a15b32b676d2efb2305fa1fc84a"
+    },
+    "mcp__undermind__suggest_pdf_uploads": {
+      "server": "undermind",
+      "operation": "suggest_pdf_uploads",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7d802105807f5e34201090ab69ed644d0fe928ef9f46c93668d79c5725376b28"
+    },
+    "mcp__undermind__get_pdf_download_links": {
+      "server": "undermind",
+      "operation": "get_pdf_download_links",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e8cef3eb6cc842b13fc86c08d8f4d7d0e12784067fc562a4730354acee164b8a"
+    },
+    "mcp__undermind__search_papers": {
+      "server": "undermind",
+      "operation": "search_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "632e1d85af8d64c9d462dea4bf25d6350cc19080465b22c60f54f1e72acedabc"
+    },
+    "mcp__undermind__find_papers_by_author": {
+      "server": "undermind",
+      "operation": "find_papers_by_author",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3e3647b59460a91bfcbcbde3cdb1c2e04bed72525e8f3fe20ef11a6afaeea15d"
+    },
+    "mcp__undermind__lookup_papers_by_metadata": {
+      "server": "undermind",
+      "operation": "lookup_papers_by_metadata",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4f047bfb917653f37354da30371d9b4809661a6c276e8b7adffc003131c7c315"
+    },
+    "mcp__undermind__launch_deep_search": {
+      "server": "undermind",
+      "operation": "launch_deep_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3afcc97859e4cffd1bed7b56ba2c09379cb346c57a7250cff9a0a3f693aa2258"
+    },
+    "mcp__undermind__read_pdfs": {
+      "server": "undermind",
+      "operation": "read_pdfs",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7b7e01009110dec03e9d9a5094a10eca98d40620f1e10201d5b7548c1e73d511"
+    },
+    "mcp__undermind__write_file": {
+      "server": "undermind",
+      "operation": "write_file",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d93e3e34c9fc592f45f3628a51d1b42953a922c75c3d2e01daf746b7d27ff85d"
+    },
+    "mcp__undermind__move_files": {
+      "server": "undermind",
+      "operation": "move_files",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b81d6fe509901b7757db49ea6012020026f776af6aea8556784d4e6a13113693"
+    },
+    "mcp__undermind__create_folder": {
+      "server": "undermind",
+      "operation": "create_folder",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "eca1b9e3e93c703fbfa69bd37bfd1135d7eb23f0b36797c039901ea7deb7f242"
+    },
+    "mcp__undermind__move_folder": {
+      "server": "undermind",
+      "operation": "move_folder",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "799295a2e9b5ea273473e3c4d4f35873155fd0215ee288cdbe6d98cb1d840b41"
+    },
+    "mcp__undermind__add_papers_to_folder": {
+      "server": "undermind",
+      "operation": "add_papers_to_folder",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "23287fd15b80d87b8d781b92023571ab945072f3d1796a5e2250f792f582ef49"
+    },
+    "mcp__undermind__remove_papers_from_folder": {
+      "server": "undermind",
+      "operation": "remove_papers_from_folder",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "23287fd15b80d87b8d781b92023571ab945072f3d1796a5e2250f792f582ef49"
+    },
+    "mcp__undermind__star_papers": {
+      "server": "undermind",
+      "operation": "star_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5272c135506bcf03f61d721b609ec51b71580f1428fa71741690702bdcfcbc78"
+    },
+    "mcp__undermind__unstar_papers": {
+      "server": "undermind",
+      "operation": "unstar_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5272c135506bcf03f61d721b609ec51b71580f1428fa71741690702bdcfcbc78"
+    },
+    "mcp__undermind__move_deep_searches": {
+      "server": "undermind",
+      "operation": "move_deep_searches",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c21f6d53ac355dc53be70fde98ef9b44330a7f1862cbc3de708bdff4ba087299"
+    },
+    "mcp__alphaxiv__answer_pdf_queries": {
+      "server": "alphaxiv",
+      "operation": "answer_pdf_queries",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "42ec598b492546d6999f58f1a7812b1da5df5a6accbcbfb496280e5774b6764c"
+    },
+    "mcp__alphaxiv__get_paper_content": {
+      "server": "alphaxiv",
+      "operation": "get_paper_content",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "525df1190ffb493c8d36edabf2cd3ed8cc76d7e03cce3e7897e869c96a422f42"
+    },
+    "mcp__alphaxiv__read_files_from_github_repository": {
+      "server": "alphaxiv",
+      "operation": "read_files_from_github_repository",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "51c0eaa4938d0c1a5543f5edef76dcdb8f7e33ab2e41483a2c9e3fda17e49fb2"
+    },
+    "mcp__alphaxiv__discover_papers": {
+      "server": "alphaxiv",
+      "operation": "discover_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0f102622b9a39b1fea694f4b4c841fb7393d69d14ee829b4bfda4f37b3138981"
+    },
+    "mcp__alphaxiv__find_researchers": {
+      "server": "alphaxiv",
+      "operation": "find_researchers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "04375ed8955a35c180a6e4d6cf96c431f92b424a79f15c136f9612a4d273db4f"
+    },
+    "mcp__alphaxiv__get_researcher": {
+      "server": "alphaxiv",
+      "operation": "get_researcher",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "103cb3e5fd5d10880fa9ae58412534996df4d096b574ae7bcdc75ac97aa55dd3"
+    },
+    "mcp__alphaxiv__get_researcher_papers": {
+      "server": "alphaxiv",
+      "operation": "get_researcher_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0b5bd146bb8454979bd4147b8d525a26f066aea6597108b372a14a8f1678477e"
+    },
+    "mcp__alphaxiv__resolve_researchers": {
+      "server": "alphaxiv",
+      "operation": "resolve_researchers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1d4a5337eb390268cc9e439ea9d3fa1f6a498816a656345e5c4f242086de1bc5"
+    },
+    "mcp__alphaxiv__get_paper_notes": {
+      "server": "alphaxiv",
+      "operation": "get_paper_notes",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cd21f9654c8b139c2f6282b34dc44debaf77f16bd46f2f0e5b54ea68e4bf0661"
+    },
+    "mcp__alphaxiv__list_annotated_papers": {
+      "server": "alphaxiv",
+      "operation": "list_annotated_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "51936fda5ad0658ae4aae551af07e739615fd6821004872ff4f38ba8fc69948e"
+    },
+    "mcp__alphaxiv__list_library": {
+      "server": "alphaxiv",
+      "operation": "list_library",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3053bdf32e008d7e28ceb9c22b953644478a4ced1928b4a1e5a2d201105891d7"
+    },
+    "mcp__alphaxiv__save_papers_to_folder": {
+      "server": "alphaxiv",
+      "operation": "save_papers_to_folder",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "512d3f471f4f468f2d1fd55b69d4d1dac6a38bbc471a6d30ee884c066aac89a0"
+    },
+    "mcp__alphaxiv__remove_papers_from_folder": {
+      "server": "alphaxiv",
+      "operation": "remove_papers_from_folder",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a099ccdb6a31dfeee8914733870e3006c633141e86f94447c82ab35293aa3aae"
+    },
+    "mcp__alphaxiv__move_papers_between_folders": {
+      "server": "alphaxiv",
+      "operation": "move_papers_between_folders",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1e74a2846a78aa59b703bfa5ed393c0c5fc2774ccf557c5879b7c60d63f0ff21"
+    },
+    "mcp__alphaxiv__create_folder": {
+      "server": "alphaxiv",
+      "operation": "create_folder",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d3b311700ce03a0ad49eb58ff37471f83c9337bb2c9a45565cc07d78c804fee5"
+    },
+    "mcp__alphaxiv__rename_folder": {
+      "server": "alphaxiv",
+      "operation": "rename_folder",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2d94f6cdb3bb3f83abeef8e4ea41257298fc231e9bb63ca77d09b2676da8e4ad"
+    },
+    "mcp__alphaxiv__get_for_you_feed": {
+      "server": "alphaxiv",
+      "operation": "get_for_you_feed",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "74afd0d9ae608964b6d2e198627efb02dde3adf3ad58d29253026b89db71959a"
+    },
+    "mcp__alphaxiv__get_hot_feed": {
+      "server": "alphaxiv",
+      "operation": "get_hot_feed",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "74afd0d9ae608964b6d2e198627efb02dde3adf3ad58d29253026b89db71959a"
+    },
+    "mcp__alphaxiv__edit_private_paper_metadata": {
+      "server": "alphaxiv",
+      "operation": "edit_private_paper_metadata",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b3e468a06176341ee993b4d127b86d91dc50f9163090f7c92ef5b853283966c7"
+    },
+    "mcp__alphaxiv__list_followed_researchers": {
+      "server": "alphaxiv",
+      "operation": "list_followed_researchers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7a014b717a77aac971ea0ab5c0ff47bb13e6cae7ef9442d9dedb15ce36381b15"
+    },
+    "mcp__alphaxiv__follow_researcher": {
+      "server": "alphaxiv",
+      "operation": "follow_researcher",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a1cf4a39bde20b9f96c294c50ba8dfa39176deb18ac37608bd06d1c8ac73e21c"
+    },
+    "mcp__alphaxiv__unfollow_researcher": {
+      "server": "alphaxiv",
+      "operation": "unfollow_researcher",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a1cf4a39bde20b9f96c294c50ba8dfa39176deb18ac37608bd06d1c8ac73e21c"
+    },
+    "mcp__semanticscholar__author_batch": {
+      "server": "semanticscholar",
+      "operation": "author_batch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7353beca65d6d32d8fa72db03e454723afcc8c7c183d88b7aa26a52d29163287"
+    },
+    "mcp__semanticscholar__author_search": {
+      "server": "semanticscholar",
+      "operation": "author_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f5dffab274dbbaea0c27176e07ca71bfec9f2c5addf7a36f114457693a98fca2"
+    },
+    "mcp__semanticscholar__author_details": {
+      "server": "semanticscholar",
+      "operation": "author_details",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0fdb11aeeee1363374f7ddf0bee5f52813d545dbc383e20f4a0c25445b833b5f"
+    },
+    "mcp__semanticscholar__author_papers": {
+      "server": "semanticscholar",
+      "operation": "author_papers",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "30f799768b02077d6dda16092939e2c692f57125cabd88a77c3b8fddb2470549"
+    },
+    "mcp__semanticscholar__paper_autocomplete": {
+      "server": "semanticscholar",
+      "operation": "paper_autocomplete",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e1d06ea181915d78429b042d98e495f52f62bd2394033257f16250d20fb5f234"
+    },
+    "mcp__semanticscholar__paper_batch": {
+      "server": "semanticscholar",
+      "operation": "paper_batch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a06d29c346ade13aec08d9c8a1fd9ca3ad8d5b84cc851cb48c157da91248b42e"
+    },
+    "mcp__semanticscholar__paper_search": {
+      "server": "semanticscholar",
+      "operation": "paper_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e6190d6481de6887d171e22c4d31b44488890f6c3d0f1c523eb99c2a32e99760"
+    },
+    "mcp__semanticscholar__paper_bulk_search": {
+      "server": "semanticscholar",
+      "operation": "paper_bulk_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e342cbbf275a6e9d656839c16976b104d5f78f2c70dd7925ce259f048864553f"
+    },
+    "mcp__semanticscholar__paper_match_title": {
+      "server": "semanticscholar",
+      "operation": "paper_match_title",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f33c3eef0795a28877be57fd82860d7bd16179aa9fc0bee75f959f7799f75a88"
+    },
+    "mcp__semanticscholar__paper_details": {
+      "server": "semanticscholar",
+      "operation": "paper_details",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e98e1a81aaa64cf06f122fe2e02baa484aff3936086c6e1f4ea6b03ddf07241f"
+    },
+    "mcp__semanticscholar__paper_authors": {
+      "server": "semanticscholar",
+      "operation": "paper_authors",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "fd113f30eaa9964de8e276067a73842088e0752017d5d4d2e6c794a57113f03e"
+    },
+    "mcp__semanticscholar__paper_citations": {
+      "server": "semanticscholar",
+      "operation": "paper_citations",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "719c05adbbfda785a2a4de5b27108b9af41cfb5a0a9bcb8c717865a0a085249e"
+    },
+    "mcp__semanticscholar__paper_references": {
+      "server": "semanticscholar",
+      "operation": "paper_references",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a63b6ea230fcf7034e156a71605bb6c225d3d177029448c96dd3e7effd90aaff"
+    },
+    "mcp__semanticscholar__snippet_search": {
+      "server": "semanticscholar",
+      "operation": "snippet_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f6ae0d8351cccbbf2261916da83f21a0e91826255f832c48f715ea7d6e0b5603"
+    },
+    "mcp__semanticscholar__recommend_by_examples": {
+      "server": "semanticscholar",
+      "operation": "recommend_by_examples",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "57eda6b1256235fb4ab7d61f4a8386203ed74c8f5846fed03866a428bc4fa428"
+    },
+    "mcp__semanticscholar__recommend_for_paper": {
+      "server": "semanticscholar",
+      "operation": "recommend_for_paper",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c9d1f1f59da68851006cb02e22233627d582b396eb605218b08c0806dfd36c02"
+    },
+    "mcp__semanticscholar__dataset_diffs": {
+      "server": "semanticscholar",
+      "operation": "dataset_diffs",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c67eaf5a155477b2d86541532280a8eaca62c4d02d830acd655b00a029aaf320"
+    },
+    "mcp__semanticscholar__dataset_releases": {
+      "server": "semanticscholar",
+      "operation": "dataset_releases",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__semanticscholar__dataset_release": {
+      "server": "semanticscholar",
+      "operation": "dataset_release",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f61dca665f0d323677017f0c91a97923de5ef2b7719866e2308534883ada15ae"
+    },
+    "mcp__semanticscholar__dataset_manifest": {
+      "server": "semanticscholar",
+      "operation": "dataset_manifest",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4ef0b1fd551e7f0de033ef85f0d48d894527ddb6d8163cce99f2e7f2e41084d9"
+    },
+    "mcp__semanticscholar__service_status": {
+      "server": "semanticscholar",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "99334726611ccf58a148b0814696bfa6fe08c1b2d027e946beccf5a74331c9aa"
+    },
+    "mcp__pubmed__pubmed_search": {
+      "server": "pubmed",
+      "operation": "pubmed_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "99502c22e53a9d030bd78aa593c7fc4be9e6c9defcfdb1abbbb9ef3068221049"
+    },
+    "mcp__pubmed__pubmed_summary": {
+      "server": "pubmed",
+      "operation": "pubmed_summary",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "dc7bf66ec207e7afc28e7316b11662945f13cc1294d81f391b13b88cab0e86da"
+    },
+    "mcp__pubmed__pubmed_fetch": {
+      "server": "pubmed",
+      "operation": "pubmed_fetch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5bc12e1c9972a0c4960edab8336555453d3fafd5d20547c2c742cc26d4921436"
+    },
+    "mcp__pubmed__pubmed_links": {
+      "server": "pubmed",
+      "operation": "pubmed_links",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "96a0f1d3f6bc18851761e9f66a43923630f9ea5d6023974b225d060a2106ce9a"
+    },
+    "mcp__pubmed__pubmed_info": {
+      "server": "pubmed",
+      "operation": "pubmed_info",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2012fc9ab3cfafd885abd8bba2ec0cb02df7548285ce1ccb08ad41d5118e5ae2"
+    },
+    "mcp__pubmed__pubmed_spell": {
+      "server": "pubmed",
+      "operation": "pubmed_spell",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "05ef77ef79665b987285d1f19f485a27bd20b74ba0a7dc439be0c7bde479a705"
+    },
+    "mcp__pubmed__pubmed_history": {
+      "server": "pubmed",
+      "operation": "pubmed_history",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0db65d30ec49a0caae86077e4525418617686cfb5345d23b5430d024f9a43dc4"
+    },
+    "mcp__pubmed__pubmed_citation_match": {
+      "server": "pubmed",
+      "operation": "pubmed_citation_match",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3f2960235dc48af0f0cc1c77b8634cc7c592752b46f106b9e4f56f785168a845"
+    },
+    "mcp__pubmed__pmc_metadata": {
+      "server": "pubmed",
+      "operation": "pmc_metadata",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "204c2fe3e0d867a3c52780d41dc7732963d067667d66fe172fc1c71ccf4ea2c0"
+    },
+    "mcp__pubmed__pmc_sections": {
+      "server": "pubmed",
+      "operation": "pmc_sections",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "204c2fe3e0d867a3c52780d41dc7732963d067667d66fe172fc1c71ccf4ea2c0"
+    },
+    "mcp__pubmed__pmc_read": {
+      "server": "pubmed",
+      "operation": "pmc_read",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "07dec82a921d7134856dc9b56402bd4c6f2ac1c97a70daa0d51e4305ad81dd2d"
+    },
+    "mcp__pubmed__pmc_table": {
+      "server": "pubmed",
+      "operation": "pmc_table",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "da3fcb9e9400e31ca23b65d49cc2627b24184dcf8dfbc34d9b361a199c0d5d0a"
+    },
+    "mcp__pubmed__pmc_pdf_status": {
+      "server": "pubmed",
+      "operation": "pmc_pdf_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "204c2fe3e0d867a3c52780d41dc7732963d067667d66fe172fc1c71ccf4ea2c0"
+    },
+    "mcp__pubmed__pubmed_export": {
+      "server": "pubmed",
+      "operation": "pubmed_export",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "dcaeca24234fa2f69aa9a0296cf831c8ec329983edd690484fd58d15c435aa4f"
+    },
+    "mcp__pubmed__service_status": {
+      "server": "pubmed",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__russianresearch__service_status": {
+      "server": "russianresearch",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__russianresearch__source_options": {
+      "server": "russianresearch",
+      "operation": "source_options",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "871293776e718b3763bd84b5fa3fd1aece4975ff962b85c65482918ef8e0d6dc"
+    },
+    "mcp__russianresearch__query_plan": {
+      "server": "russianresearch",
+      "operation": "query_plan",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9296c9a0cb794eb08b9274d1ad2acedb9725f29b92d259eb39c10ab97c8ee88b"
+    },
+    "mcp__russianresearch__search_candidates": {
+      "server": "russianresearch",
+      "operation": "search_candidates",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3822d7bd1082c94c216e7c0b2943d711aed74f9f841622928b4f321184b3436a"
+    },
+    "mcp__russianresearch__resolve_doi": {
+      "server": "russianresearch",
+      "operation": "resolve_doi",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3e9bc19223bef17a3e1cdde6242e1a650fa445aa72ba4293447c8625e636ebb9"
+    },
+    "mcp__russianresearch__import_document": {
+      "server": "russianresearch",
+      "operation": "import_document",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "85b201a7269b47ebe93c1e41a7ddf12bd3e991771b286fb6e37622f9c33b967d"
+    },
+    "mcp__russianresearch__document_info": {
+      "server": "russianresearch",
+      "operation": "document_info",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "446885e2038ff2cb3ff6cc2dfb3e9e168885e6a8586041f92a4ebecd23debc90"
+    },
+    "mcp__russianresearch__read_pages": {
+      "server": "russianresearch",
+      "operation": "read_pages",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b91a8b59bf8f69da813cfdc4f16c7dc099093722868d6600428df892708c8c68"
+    },
+    "mcp__russianresearch__find_in_document": {
+      "server": "russianresearch",
+      "operation": "find_in_document",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3e6a702a59e93f155be23f1649491f17aaf92321c654b89f764f2a55bb8c37f1"
+    },
+    "mcp__russianresearch__export_document_metadata": {
+      "server": "russianresearch",
+      "operation": "export_document_metadata",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "816820359bd617cfb6ee257ea8e8428370ec6df2d538145a942fab85e68dffbc"
+    },
+    "mcp__russianresearch__permission_request": {
+      "server": "russianresearch",
+      "operation": "permission_request",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "871293776e718b3763bd84b5fa3fd1aece4975ff962b85c65482918ef8e0d6dc"
+    },
+    "mcp__webofscience__service_status": {
+      "server": "webofscience",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__webofscience__capability_catalog": {
+      "server": "webofscience",
+      "operation": "capability_catalog",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "54ce3e7561b08bed877d272bf827daa1f9610a77a5dceb885d749236004e5848"
+    },
+    "mcp__webofscience__query_plan": {
+      "server": "webofscience",
+      "operation": "query_plan",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "01fceab50be3b123ff956860037ffbebeeceb3e7f4c7d44a04bfd7bb463231cd"
+    },
+    "mcp__webofscience__access_request": {
+      "server": "webofscience",
+      "operation": "access_request",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__pendar__verify_paper": {
+      "server": "pendar",
+      "operation": "verify_paper",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "529f0b5a50d5b6dfd3dc767e470221f0ce6a22e4c2480949405b0e9fa6966ce5"
+    },
+    "mcp__pendar__graph_hopper": {
+      "server": "pendar",
+      "operation": "graph_hopper",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "be41c29ff6bb9e2f0856f302a4a9888bc1f0cdff87bbbcba5b973c5902a1e8f8"
+    },
+    "mcp__pendar__survey_literature": {
+      "server": "pendar",
+      "operation": "survey_literature",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9472f89173693cad4f9f5ae8e1d7df3002ad61108aa86cdab0b53edb47e4bffa"
+    },
+    "mcp__pendar__audit_bibliography": {
+      "server": "pendar",
+      "operation": "audit_bibliography",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1882eab942d2979e8c2a8df16e0c1049ccb2bccbd008e4711e3f416004524b61"
+    },
+    "mcp__pendar__profile_researcher": {
+      "server": "pendar",
+      "operation": "profile_researcher",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6776a017f99e153bbdb409387fc69264c7c99cd8fd30fcde0fe198debdaccba7"
+    },
+    "mcp__pendar__find_venues": {
+      "server": "pendar",
+      "operation": "find_venues",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "694d2c524075d2fe4bba39afa15c0d3e6d0a2fc10447591727f0ea2789a58125"
+    },
+    "mcp__scholarsidekick__verifyCitation": {
+      "server": "scholarsidekick",
+      "operation": "verifyCitation",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "507323933bba9eb79ac9796b5a9e40907544ab0dd33d46a45c31a561eb15cf2d"
+    },
+    "mcp__scholarsidekick__auditBibliography": {
+      "server": "scholarsidekick",
+      "operation": "auditBibliography",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0fbbf884751a88642a065deb9eb7514a241f66f608889bd12085b0a981724bbe"
+    },
+    "mcp__scholarsidekick__checkRetraction": {
+      "server": "scholarsidekick",
+      "operation": "checkRetraction",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e9208639b7102a6e7a26ef20a379a57463d5968b339e419f2cf19adef5e0f24f"
+    },
+    "mcp__scholarsidekick__checkOpenAccess": {
+      "server": "scholarsidekick",
+      "operation": "checkOpenAccess",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d24e29a35d3b07a0d796d2e0a1b9eb3fc87a3a0be364c1d2a618002ba5d684f4"
+    },
+    "mcp__scholarsidekick__resolveIdentifier": {
+      "server": "scholarsidekick",
+      "operation": "resolveIdentifier",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c4c8abb8f2508555f29c28e3afd2850adf04c85202e1803913e5f5759ca45788"
+    },
+    "mcp__scholarsidekick__formatCitation": {
+      "server": "scholarsidekick",
+      "operation": "formatCitation",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "00485a691f74d53d5f9c4ce7649be09ded2b12e75bd5d2aa8c21e7eb8565d99c"
+    },
+    "mcp__scholarsidekick__exportCitation": {
+      "server": "scholarsidekick",
+      "operation": "exportCitation",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c7cb3d7903dabe3cbb36bb321477aa4e8d152cc4398ee72da2f5af2fd6ee3fc7"
+    },
+    "mcp__wolfram__WolframContext": {
+      "server": "wolfram",
+      "operation": "WolframContext",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a9107280f214f8f48ed3f09ac5525ee969959e5f456de80fc825b2972d5831d7"
+    },
+    "mcp__wolfram__WolframLanguageEvaluator": {
+      "server": "wolfram",
+      "operation": "WolframLanguageEvaluator",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2a6c8191afc3ccab154d7ee2693e0744c91c0da2cffca1c9589977f829995edc"
+    },
+    "mcp__wolfram__WolframAlpha": {
+      "server": "wolfram",
+      "operation": "WolframAlpha",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "23e710bd84f476228edf0d59cde39449aa29870969bb266bea8f1bfea8345f94"
+    },
+    "mcp__rstats__btw_tool_cran_search": {
+      "server": "rstats",
+      "operation": "btw_tool_cran_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6580b6410641ea19934ec11917535c18f31a796b6641164d68ecc9bba58e5f26"
+    },
+    "mcp__rstats__btw_tool_cran_versions": {
+      "server": "rstats",
+      "operation": "btw_tool_cran_versions",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7e2331b8facdf71cf95e8a57f5016d57053a4c6258f5ce585a18b48ccd6150a4"
+    },
+    "mcp__rstats__btw_tool_cran_package": {
+      "server": "rstats",
+      "operation": "btw_tool_cran_package",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "17064ec1194519e7841b3c191384c4791a5cef1ac40f5290bf079825491be238"
+    },
+    "mcp__rstats__btw_tool_docs_package_news": {
+      "server": "rstats",
+      "operation": "btw_tool_docs_package_news",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "73f5bc26a64567be921b39ee9fd8bb13bd4a9e711578020a02cf3553c57eec69"
+    },
+    "mcp__rstats__btw_tool_docs_package_help_topics": {
+      "server": "rstats",
+      "operation": "btw_tool_docs_package_help_topics",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c89874db6b9e79588c339ae69261f8213e883ef9e6c880ad292e7631b3aef2a5"
+    },
+    "mcp__rstats__btw_tool_docs_help_page": {
+      "server": "rstats",
+      "operation": "btw_tool_docs_help_page",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1c3f7a19b5df1af0fafb35d0eb958ce7e7a504e0da14f3a2648fa214e59dc414"
+    },
+    "mcp__rstats__btw_tool_docs_available_vignettes": {
+      "server": "rstats",
+      "operation": "btw_tool_docs_available_vignettes",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "401f829cef3368ddd19764679047324dcd162e8cdc505bf50483437f352b3714"
+    },
+    "mcp__rstats__btw_tool_docs_vignette": {
+      "server": "rstats",
+      "operation": "btw_tool_docs_vignette",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3092e08c71714126529f3791ca64233a96c5a8fe40637e97b729719f327f40f9"
+    },
+    "mcp__rstats__btw_tool_env_describe_data_frame": {
+      "server": "rstats",
+      "operation": "btw_tool_env_describe_data_frame",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0cf3cc5de269967d0b7796e38ccb3b3fbb16d8dcd9a6dba65a92913581fe7c07"
+    },
+    "mcp__rstats__btw_tool_env_describe_environment": {
+      "server": "rstats",
+      "operation": "btw_tool_env_describe_environment",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "21d225ebbd2a4a3442319ed9e8c856581ffee6d6992f0f95c8bf3ce23148a799"
+    },
+    "mcp__rstats__btw_tool_run_r": {
+      "server": "rstats",
+      "operation": "btw_tool_run_r",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "11f8e2b41b24882ab6496d15599beeff6dba7b81c7bd17bc35327c07bd59b5ea"
+    },
+    "mcp__rstats__btw_tool_sessioninfo_is_package_installed": {
+      "server": "rstats",
+      "operation": "btw_tool_sessioninfo_is_package_installed",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "dad839ec7862ed664fb1d8aeed8d7806af1534bce3dc9e27e72b27b4e3b70bbe"
+    },
+    "mcp__rstats__btw_tool_sessioninfo_platform": {
+      "server": "rstats",
+      "operation": "btw_tool_sessioninfo_platform",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ecf5171705760951957ebd6581e782b877a0e8116702fe584fd6d8f493e1efcf"
+    },
+    "mcp__rstats__btw_tool_sessioninfo_package": {
+      "server": "rstats",
+      "operation": "btw_tool_sessioninfo_package",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3ce3956a32d071a0a592348187236afa621fd6a550b65e0b0557f45a5607da5e"
+    },
+    "mcp__zotero__service_status": {
+      "server": "zotero",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9996ffea328f5a5d3faf529387dd08ecd0bcc625c11ab856a668aa660c2a4801"
+    },
+    "mcp__zotero__schema": {
+      "server": "zotero",
+      "operation": "schema",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5bcd52b3261b574b11c036250249ba7868b61accc4aedfce0d0df82a755a8625"
+    },
+    "mcp__zotero__item_template": {
+      "server": "zotero",
+      "operation": "item_template",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "441fc80e19dab5c697e80b062f6e8b2561ab9393c39b580abfb466ce93276c8c"
+    },
+    "mcp__zotero__groups": {
+      "server": "zotero",
+      "operation": "groups",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9996ffea328f5a5d3faf529387dd08ecd0bcc625c11ab856a668aa660c2a4801"
+    },
+    "mcp__zotero__query_items": {
+      "server": "zotero",
+      "operation": "query_items",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "809d16fdffb1a9401ad9a98486523d3db84a59e11dfc4300855dd1fffb96a3d6"
+    },
+    "mcp__zotero__get_item": {
+      "server": "zotero",
+      "operation": "get_item",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "be8c37d2c0316123cd32c13d6cedc879bac0b8d58b89500a0d7339986e335a68"
+    },
+    "mcp__zotero__item_children": {
+      "server": "zotero",
+      "operation": "item_children",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b57b7bcb6b4852ebb5550c148de37cec89137e24eebf56046e46599614bbadbe"
+    },
+    "mcp__zotero__collections": {
+      "server": "zotero",
+      "operation": "collections",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "eef858198f620c42d956ef7db26453b63ed489892cd4c2a048bcec8e57d71e86"
+    },
+    "mcp__zotero__tags": {
+      "server": "zotero",
+      "operation": "tags",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "26683911588b3d39655f153418cee902f3e5d719392c6372a1865535b816beae"
+    },
+    "mcp__zotero__saved_searches": {
+      "server": "zotero",
+      "operation": "saved_searches",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "56b44b25936aa45675d9fe6eaf672ba709227160c79fdad408e6ca416d9a79d4"
+    },
+    "mcp__zotero__fulltext_versions": {
+      "server": "zotero",
+      "operation": "fulltext_versions",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "86f5a6656280a463d2364504e36867c20aef2a175fa73f85f90bbf538d216102"
+    },
+    "mcp__zotero__read_fulltext": {
+      "server": "zotero",
+      "operation": "read_fulltext",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9ddaed8a8b9b685ac888e58ffe7cac122580862e4425a2a86d2225783ecfcaa1"
+    },
+    "mcp__zotero__attachment_info": {
+      "server": "zotero",
+      "operation": "attachment_info",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "be8c37d2c0316123cd32c13d6cedc879bac0b8d58b89500a0d7339986e335a68"
+    },
+    "mcp__zotero__read_pdf_pages": {
+      "server": "zotero",
+      "operation": "read_pdf_pages",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "23226283ab2e7b4e765195d7c9546e6cbc1f328677384a13914a2e628e0b1dbe"
+    },
+    "mcp__zotero__render_pdf_page": {
+      "server": "zotero",
+      "operation": "render_pdf_page",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0307d471bae61a8c7c5b26288d9a369cefd9c59fe7f9fb885a274ea5a1aff2a5"
+    },
+    "mcp__zotero__export_items": {
+      "server": "zotero",
+      "operation": "export_items",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4518079826c0889cd1fee6f9ce45ac9469a8a15bfa33a6a00981bc865bfe1de1"
+    },
+    "mcp__zotero__create_items": {
+      "server": "zotero",
+      "operation": "create_items",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ad3decb94253e2cb1920b60323ff1f434ea5b82747206e4cf9aeaa865841105b"
+    },
+    "mcp__zotero__patch_item": {
+      "server": "zotero",
+      "operation": "patch_item",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5d3cd2f85dfce3ca5d5d0161eae057c6e36f5176d8aea39cc5cecc3ac68bf5c6"
+    },
+    "mcp__zotero__create_collections": {
+      "server": "zotero",
+      "operation": "create_collections",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d573610e34c58cb19a9b3e4a7396cf671314b59e9b77ee34d3ce0b35541c4111"
+    },
+    "mcp__zotero__patch_collection": {
+      "server": "zotero",
+      "operation": "patch_collection",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5d3cd2f85dfce3ca5d5d0161eae057c6e36f5176d8aea39cc5cecc3ac68bf5c6"
+    },
+    "mcp__zotero__create_saved_searches": {
+      "server": "zotero",
+      "operation": "create_saved_searches",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d5b6a2a59f3a56a57bcca32322c45b08bee80a762c38b7a4026e5a8b448a1c40"
+    },
+    "mcp__zotero__patch_saved_search": {
+      "server": "zotero",
+      "operation": "patch_saved_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5d3cd2f85dfce3ca5d5d0161eae057c6e36f5176d8aea39cc5cecc3ac68bf5c6"
+    },
+    "mcp__zotero__create_note": {
+      "server": "zotero",
+      "operation": "create_note",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d2f014fb4f1bf3b9041d62a314f726cb04255f717c8682a12e40fab5548e403c"
+    },
+    "mcp__zotero__attach_file": {
+      "server": "zotero",
+      "operation": "attach_file",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "18d83767f98d925d4a1f4817696b2aa444081e5fa915040d6835f0ea56bcaf32"
+    },
+    "mcp__zotero__create_annotation": {
+      "server": "zotero",
+      "operation": "create_annotation",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7496a44c5e7d31781dab1dfef0c71467d4f55fcad58e22a3d1452106be25d17e"
+    },
+    "mcp__zotero__index_fulltext": {
+      "server": "zotero",
+      "operation": "index_fulltext",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "be8c37d2c0316123cd32c13d6cedc879bac0b8d58b89500a0d7339986e335a68"
+    },
+    "mcp__zotero__trash_item": {
+      "server": "zotero",
+      "operation": "trash_item",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6ed18add00de5f3549c8c4277353c40d0780bbc25ae52b2c064f38225557c2e9"
+    },
+    "mcp__zotero__restore_item": {
+      "server": "zotero",
+      "operation": "restore_item",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6ed18add00de5f3549c8c4277353c40d0780bbc25ae52b2c064f38225557c2e9"
+    },
+    "mcp__crossref__service_status": {
+      "server": "crossref",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__crossref__works_search": {
+      "server": "crossref",
+      "operation": "works_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7ff8e39ce4a3bd483749c40346a5fc14513bc7f7fda8c5ba4268af011982ba97"
+    },
+    "mcp__crossref__work_get": {
+      "server": "crossref",
+      "operation": "work_get",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0225d4b487471af2f97e4d055e0b875683e12b58c7cf0d88e33dbe238bb55e9f"
+    },
+    "mcp__crossref__works_batch": {
+      "server": "crossref",
+      "operation": "works_batch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7b33c0bdcddaf146f7be354563f79afe90333bebe36887deae5a513fcea6b9ac"
+    },
+    "mcp__crossref__bibliographic_match": {
+      "server": "crossref",
+      "operation": "bibliographic_match",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "15a8ec93d13edbc6a5c7a45054412adad76c142b2d2005e66328b3c891b3af84"
+    },
+    "mcp__crossref__doi_agency": {
+      "server": "crossref",
+      "operation": "doi_agency",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2abf95bd70e08ea657e23cfce378898f553383e77e814a56368ab2de1d2337a4"
+    },
+    "mcp__crossref__doi_exists": {
+      "server": "crossref",
+      "operation": "doi_exists",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2abf95bd70e08ea657e23cfce378898f553383e77e814a56368ab2de1d2337a4"
+    },
+    "mcp__crossref__work_references": {
+      "server": "crossref",
+      "operation": "work_references",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b1d57d1d70209ae66f028485e2cf7c293a09204969b95a169f79556339f64094"
+    },
+    "mcp__crossref__work_relations": {
+      "server": "crossref",
+      "operation": "work_relations",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2abf95bd70e08ea657e23cfce378898f553383e77e814a56368ab2de1d2337a4"
+    },
+    "mcp__crossref__work_updates": {
+      "server": "crossref",
+      "operation": "work_updates",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5cb0fbd551bbee65eed80ee1f7f9bafb8f8bc28437edcfe94068c9acf1b0ab57"
+    },
+    "mcp__crossref__work_funding": {
+      "server": "crossref",
+      "operation": "work_funding",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2abf95bd70e08ea657e23cfce378898f553383e77e814a56368ab2de1d2337a4"
+    },
+    "mcp__crossref__work_licenses_links": {
+      "server": "crossref",
+      "operation": "work_licenses_links",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2abf95bd70e08ea657e23cfce378898f553383e77e814a56368ab2de1d2337a4"
+    },
+    "mcp__crossref__entities_search": {
+      "server": "crossref",
+      "operation": "entities_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e6f83454805f71d0d1a1ce459c5e157bf15fa1c14c54e6b41c0021656a531f0d"
+    },
+    "mcp__crossref__entity_get": {
+      "server": "crossref",
+      "operation": "entity_get",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "eafaae116e40a1e96ced0305f2a31d2da3f7eae0130c76d5b76ee7971c031d0f"
+    },
+    "mcp__crossref__works_facets": {
+      "server": "crossref",
+      "operation": "works_facets",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "840a94ef0cfcf25451f4ff3bd80fb645ed970094d842b64af5ef83e96ae0cfd6"
+    },
+    "mcp__crossref__works_sample": {
+      "server": "crossref",
+      "operation": "works_sample",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6bb5e8c388998249079515656d71c2e1dd9589dd3a998787f8c4f71547fc8531"
+    },
+    "mcp__crossref__metadata_transform": {
+      "server": "crossref",
+      "operation": "metadata_transform",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "59c7c9792401c372035c68a956e3e13e4a5be02263ba9cefc937ebc72938efaf"
+    },
+    "mcp__crossref__citation_styles": {
+      "server": "crossref",
+      "operation": "citation_styles",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "56b7080ef4b1165296806cbfcc011952485830e905aa565196ba7b8a7fe6c6ad"
+    },
+    "mcp__crossref__export_records": {
+      "server": "crossref",
+      "operation": "export_records",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a7e93e50b296aa93c46c452e3d7322b4d123a272ed1bc7f8b6fd93b2f3e4c13b"
+    },
+    "mcp__crossref__xml_doi_lookup": {
+      "server": "crossref",
+      "operation": "xml_doi_lookup",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6b8e16000023191e00e3ebdb3c2a7701fa0233ed38afdd3806a39c4116327299"
+    },
+    "mcp__crossref__xml_citation_match": {
+      "server": "crossref",
+      "operation": "xml_citation_match",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1a4c1e306da973ad14066c27c4c39018803d4988af681b87ad3df7282f971fd8"
+    },
+    "mcp__crossref__openurl_lookup": {
+      "server": "crossref",
+      "operation": "openurl_lookup",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "236ce0c5be0ded131e8b8828509c3785455bd3a3f0fb42f645726bc5b3f10f75"
+    },
+    "mcp__crossref__data_citations": {
+      "server": "crossref",
+      "operation": "data_citations",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a812b85ef987e4f671a38f26a3c211161c73807583111735d58d300885620cd8"
+    },
+    "mcp__crossref__oai_discovery": {
+      "server": "crossref",
+      "operation": "oai_discovery",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f9298717cd3783c996889bb1e22a7c6cca6f16fc25ef4b7d7e3740e9aeadf198"
+    },
+    "mcp__openalex_api__service_status": {
+      "server": "openalex-api",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__openalex_api__list_entities": {
+      "server": "openalex-api",
+      "operation": "list_entities",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "98e91a6a3d7ddfa2afd156482f78c6b916c3ecc1e14f25f2c0582157bf4b8fe4"
+    },
+    "mcp__openalex_api__get_entity": {
+      "server": "openalex-api",
+      "operation": "get_entity",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "bf93575423bada5a2bfe09eafdbf5b3988697f5119709bd1af79521f1ea379a1"
+    },
+    "mcp__openalex_api__batch_entities": {
+      "server": "openalex-api",
+      "operation": "batch_entities",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9eae09f4f29f768c0aa529793005f5f3280cba76e0383d6727bf535cf052f5f9"
+    },
+    "mcp__openalex_api__group_entities": {
+      "server": "openalex-api",
+      "operation": "group_entities",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "47f6f83513c085966e1880f6adbe9757fe343d9fc2f125f477916722ac90b4e4"
+    },
+    "mcp__openalex_api__semantic_search": {
+      "server": "openalex-api",
+      "operation": "semantic_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7ccd05bc6dc347a27ba133b3b4ea6ed6c222496c2676eb2ee9f23bda7cb9a0c0"
+    },
+    "mcp__openalex_api__autocomplete": {
+      "server": "openalex-api",
+      "operation": "autocomplete",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7a6d8dbc2ffd1776701ae689e257a8edceaabb03bd70a8a6735307b25e63e7c3"
+    },
+    "mcp__openalex_api__read_abstract": {
+      "server": "openalex-api",
+      "operation": "read_abstract",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1deb195774535fff6f2fbe3da8785cd6122a0879295711f567dd2f4057b635a2"
+    },
+    "mcp__openalex_api__work_links": {
+      "server": "openalex-api",
+      "operation": "work_links",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "edf9aab1fda640465c91e2a89ac6059b04e1f643957c3dd8e010e8075b5c5f95"
+    },
+    "mcp__openalex_api__work_metrics": {
+      "server": "openalex-api",
+      "operation": "work_metrics",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "edf9aab1fda640465c91e2a89ac6059b04e1f643957c3dd8e010e8075b5c5f95"
+    },
+    "mcp__openalex_api__citations": {
+      "server": "openalex-api",
+      "operation": "citations",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "fcfa7ab437b9f5b7bdc1f8e7132eedc5461bcacab8242c63a42a340b304c419d"
+    },
+    "mcp__openalex_api__translate_query": {
+      "server": "openalex-api",
+      "operation": "translate_query",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e8e119ea117110c9c5f4b96fedd24a52dd480dd807efdf98ae1df8d9ea8a96b1"
+    },
+    "mcp__openalex_api__execute_query": {
+      "server": "openalex-api",
+      "operation": "execute_query",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e8eef06b46f1cabd74d244485eed478acd284a69ca8bdcfc898ab0ee719644e9"
+    },
+    "mcp__openalex_api__classify_text": {
+      "server": "openalex-api",
+      "operation": "classify_text",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "bfe64425db5f2f4fa8f6ae5ef282afc6a3324bc2defa36e95e6a84e1c77b9cae"
+    },
+    "mcp__openalex_api__download_content": {
+      "server": "openalex-api",
+      "operation": "download_content",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3a2147125e8c7d4093b45d50702bfb20d4df6ccd029fe3b5d4adfa70317d629b"
+    },
+    "mcp__openalex_api__content_structure": {
+      "server": "openalex-api",
+      "operation": "content_structure",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "fe84c056d57a34dde9e7f1e1aacf5ee9cf724dc231ec24f8acfc29b8cabce3dc"
+    },
+    "mcp__openalex_api__read_content": {
+      "server": "openalex-api",
+      "operation": "read_content",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "44511ca85cc676c5648b71ec97ba0ce8e072d269d4b0e9c2f1dd2c1706728dc7"
+    },
+    "mcp__openalex_api__read_pdf_pages": {
+      "server": "openalex-api",
+      "operation": "read_pdf_pages",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6ad2faf01927471110a7c68286998cb13a1d846d17825a1654fe5c107becbced"
+    },
+    "mcp__openalex_api__render_pdf_page": {
+      "server": "openalex-api",
+      "operation": "render_pdf_page",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e4313e5e2caf20b748e9e8c3ad25509c6d16a7c4c01d49e755c1b0eaf7339039"
+    },
+    "mcp__openalex_api__export_results": {
+      "server": "openalex-api",
+      "operation": "export_results",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cbb1f68946707260fc8e04d3012c248e27343457010c4c6d87d182bfc6c949ed"
+    },
+    "mcp__openalex_api__save_query": {
+      "server": "openalex-api",
+      "operation": "save_query",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "72cbbdfaf9cd941786d6a77e0fdbee54a7cb977d022085cce4f44c5f0db69955"
+    },
+    "mcp__openalex__search_works": {
+      "server": "openalex",
+      "operation": "search_works",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "66ac54166696d0c6d6e845e60c8da9fb5cd9a95c7dae6cbc39d495ed28b911a3"
+    },
+    "mcp__openalex__get_work": {
+      "server": "openalex",
+      "operation": "get_work",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6664ade5fd2b9db6cb02b136180635bd26c5ca5075f0f06eea0ed02a16919171"
+    },
+    "mcp__openalex__resolve_references": {
+      "server": "openalex",
+      "operation": "resolve_references",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "aee43578dafb308fe485fc198508b4d20f99ba5d0feaad444a3d6b9e554db671"
+    },
+    "mcp__openalex__list_citations": {
+      "server": "openalex",
+      "operation": "list_citations",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3127d7b3b623f08a0bdb4bd575b38f0544edf24309656b313234712371f7ac5a"
+    },
+    "mcp__openalex__search_entities": {
+      "server": "openalex",
+      "operation": "search_entities",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3662592fb3670ec29b6a693c1a824f5c1073f34c57c545da81930348fa8d57df"
+    },
+    "mcp__openalex__get_entity": {
+      "server": "openalex",
+      "operation": "get_entity",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "076185afe972376c6cde98c95fe790e7f2f7c9d8b25f16842e9d043f6e6fd20f"
+    },
+    "mcp__openalex__group_works": {
+      "server": "openalex",
+      "operation": "group_works",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "94040c21bf4e7a24147fce8229c0c8731d34febf56e43c39697ae54d5b6f75f1"
+    },
+    "mcp__openalex__analyze_works": {
+      "server": "openalex",
+      "operation": "analyze_works",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3fa7b6321d5d515ff5dd1602cece8fb812acbed0851ffe31780a41418da2e99c"
+    },
+    "mcp__openalex__calculate_works": {
+      "server": "openalex",
+      "operation": "calculate_works",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f9e51e8142dd87402696e646e79e50cc06cf2c41bc02e86cb9b94c135e3194d6"
+    },
+    "mcp__openalex__check_oql": {
+      "server": "openalex",
+      "operation": "check_oql",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4c6bfff2c31e15949cf34f3dca651089d28152cd11020ac62e637e856f79a9d3"
+    },
+    "mcp__openalex__find_keywords": {
+      "server": "openalex",
+      "operation": "find_keywords",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c4fb1e8c2d9b055499eb7f310f48469de653e349e1e5b4e64dd0b96ac0a0b003"
+    },
+    "mcp__openalex__keyword_search": {
+      "server": "openalex",
+      "operation": "keyword_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "75dc590325534a34337bd4ce80a38273f062470aefd33cd19bb1f7f14fd8ab93"
+    },
+    "mcp__openalex__read_docs": {
+      "server": "openalex",
+      "operation": "read_docs",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b355883d005bebd2e50393b079dfbb5b1edd6faf11b7f120ef4fa0af0a1ef62"
+    },
+    "mcp__asreview__service_status": {
+      "server": "asreview",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__asreview__model_catalog": {
+      "server": "asreview",
+      "operation": "model_catalog",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__asreview__inspect_dataset": {
+      "server": "asreview",
+      "operation": "inspect_dataset",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "12f1088c044c8fbb685a7425fc5026272bb450c96675c1b36029e9648a953c66"
+    },
+    "mcp__asreview__prepare_dataset": {
+      "server": "asreview",
+      "operation": "prepare_dataset",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2a0627bb4541fd853514c7bd135b369ab948f1069303c9fc00a44cfffb4fab00"
+    },
+    "mcp__asreview__create_project": {
+      "server": "asreview",
+      "operation": "create_project",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a9e0f28400d22684a35f96033d39378543aae68525f685cd2100c6cf17900708"
+    },
+    "mcp__asreview__list_projects": {
+      "server": "asreview",
+      "operation": "list_projects",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__asreview__project_info": {
+      "server": "asreview",
+      "operation": "project_info",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__list_records": {
+      "server": "asreview",
+      "operation": "list_records",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "da94be0de9ae26e2e41e24844f0fd139a6b511f22a20c8276cc79908f8f0164a"
+    },
+    "mcp__asreview__get_record": {
+      "server": "asreview",
+      "operation": "get_record",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b30f4e7a46fad1bd80ccdfca6375e585e1131656e0d29d6d08eedcae4469dcfd"
+    },
+    "mcp__asreview__set_protocol": {
+      "server": "asreview",
+      "operation": "set_protocol",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3ca91c4a9f7f05a59be0f5d95f60a8748b75349571f96e8c243a3f47240dda43"
+    },
+    "mcp__asreview__get_protocol": {
+      "server": "asreview",
+      "operation": "get_protocol",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__configure_model": {
+      "server": "asreview",
+      "operation": "configure_model",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "1acb6ef70902b057e6b5544407be73e9d4248e97defa09694df1418948562e60"
+    },
+    "mcp__asreview__train_rank": {
+      "server": "asreview",
+      "operation": "train_rank",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__next_records": {
+      "server": "asreview",
+      "operation": "next_records",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0c1c075e75dfdc331ed264956694f34079b7455730f4f73a6cef82b325c0c01e"
+    },
+    "mcp__asreview__propose_decisions": {
+      "server": "asreview",
+      "operation": "propose_decisions",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "c456e51ef0867b7a4560d04a5a814ccc8253dc7e3860f00a84c26dd643f81efe"
+    },
+    "mcp__asreview__record_decision": {
+      "server": "asreview",
+      "operation": "record_decision",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a10c96d3fc9af40652b34f5bb2781aadb483d4e6adb3efd0f63ce8a1c19d41ee"
+    },
+    "mcp__asreview__progress": {
+      "server": "asreview",
+      "operation": "progress",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__decision_history": {
+      "server": "asreview",
+      "operation": "decision_history",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0c1c075e75dfdc331ed264956694f34079b7455730f4f73a6cef82b325c0c01e"
+    },
+    "mcp__asreview__sample_audit": {
+      "server": "asreview",
+      "operation": "sample_audit",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3bd579722672ff96f0f7f84c201a40279327574bff922574dd80792d72e9b27a"
+    },
+    "mcp__asreview__export_dataset": {
+      "server": "asreview",
+      "operation": "export_dataset",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a76fcecba765ad8a2f223012d53352200dd175030054c94cd679b049d43f2e76"
+    },
+    "mcp__asreview__export_project": {
+      "server": "asreview",
+      "operation": "export_project",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__import_project": {
+      "server": "asreview",
+      "operation": "import_project",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "07839b81d4d99aeb73a03d1eb55e3cb25f499e2e4dbad5c1a1e6972c4ca0f7a3"
+    },
+    "mcp__asreview__simulate": {
+      "server": "asreview",
+      "operation": "simulate",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "10a1ce89bf2b298d021d69b4d40ee897b34a85f735f82c42ea2dd2f912f6ebd0"
+    },
+    "mcp__asreview__simulation_report": {
+      "server": "asreview",
+      "operation": "simulation_report",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__compare_decisions": {
+      "server": "asreview",
+      "operation": "compare_decisions",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__set_review_status": {
+      "server": "asreview",
+      "operation": "set_review_status",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "235d5c196c47c2b26ec9eaf70ece1ffe673660bd96509be317a687277ef7a6f5"
+    },
+    "mcp__asreview__plot_progress": {
+      "server": "asreview",
+      "operation": "plot_progress",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__asreview__read_documentation": {
+      "server": "asreview",
+      "operation": "read_documentation",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "fe53c7f736d64983d0f7dc170c151e90c1c99abff079d1ed113fca3e1abeed0e"
+    },
+    "mcp__asreview__create_demo": {
+      "server": "asreview",
+      "operation": "create_demo",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5b0914deb8226911e5460f879b9dd6e27ea0d934aae013b615069bf5a556eecb"
+    },
+    "mcp__dolt__add_dolt_test": {
+      "server": "dolt",
+      "operation": "add_dolt_test",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6727832d09311c66667a9aee57d710fcc3d81627de0e6fe803a77d928687ed48"
+    },
+    "mcp__dolt__alter_table": {
+      "server": "dolt",
+      "operation": "alter_table",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b57ff4f73a920c866f9db71266250a8a8fa1f427b27f927683697ce82e55d485"
+    },
+    "mcp__dolt__create_dolt_branch": {
+      "server": "dolt",
+      "operation": "create_dolt_branch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f6c23a20828dd481d82cd6ba4dacd883abe7b7d7ae375808e11def2c21eb0276"
+    },
+    "mcp__dolt__create_dolt_branch_from_head": {
+      "server": "dolt",
+      "operation": "create_dolt_branch_from_head",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5f82390b46d8a5e8653dbbde9e3c759bb0ddddb9d1503cf180cfecaca84f50a4"
+    },
+    "mcp__dolt__create_dolt_commit": {
+      "server": "dolt",
+      "operation": "create_dolt_commit",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "6e2c4d3f88c47967469bf4f8121b1b8fcc7fb246343406f1ce3e96e46fc7dc21"
+    },
+    "mcp__dolt__create_table": {
+      "server": "dolt",
+      "operation": "create_table",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "fe59529d12d162e6cf8adb917da27a888c122b1e5d3ab105a6aa74d0eb415c8b"
+    },
+    "mcp__dolt__describe_table": {
+      "server": "dolt",
+      "operation": "describe_table",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9007eef54399c6f9a5b8f72e7d75142333b8deffb8b3bad349d670c40558681d"
+    },
+    "mcp__dolt__exec": {
+      "server": "dolt",
+      "operation": "exec",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "4cc077a3e680894e91126337879430c0281515acbfe404fcc5a8dc0fe7498287"
+    },
+    "mcp__dolt__get_dolt_merge_status": {
+      "server": "dolt",
+      "operation": "get_dolt_merge_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e3da38cf4360abfb05bc375f31db8e878749e2585919c7d3098738a2e63c4f0c"
+    },
+    "mcp__dolt__list_dolt_branches": {
+      "server": "dolt",
+      "operation": "list_dolt_branches",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "8fa599aca0f472d81717b0ba361550108761a952e584bd157866afa8207703ab"
+    },
+    "mcp__dolt__list_dolt_commits": {
+      "server": "dolt",
+      "operation": "list_dolt_commits",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e3da38cf4360abfb05bc375f31db8e878749e2585919c7d3098738a2e63c4f0c"
+    },
+    "mcp__dolt__list_dolt_diff_changes_by_table_name": {
+      "server": "dolt",
+      "operation": "list_dolt_diff_changes_by_table_name",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "29cd951303ece29cf8536f4aefdfe5bbe340c7cf09a2f26b0e1c394f35399ca0"
+    },
+    "mcp__dolt__list_dolt_diff_changes_in_date_range": {
+      "server": "dolt",
+      "operation": "list_dolt_diff_changes_in_date_range",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "26a0c0b59c4b67d266f8e08e39e9e235980f9de0823533df1ef0c7b65d107a97"
+    },
+    "mcp__dolt__list_dolt_diff_changes_in_working_set": {
+      "server": "dolt",
+      "operation": "list_dolt_diff_changes_in_working_set",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e3da38cf4360abfb05bc375f31db8e878749e2585919c7d3098738a2e63c4f0c"
+    },
+    "mcp__dolt__list_dolt_remotes": {
+      "server": "dolt",
+      "operation": "list_dolt_remotes",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "8fa599aca0f472d81717b0ba361550108761a952e584bd157866afa8207703ab"
+    },
+    "mcp__dolt__merge_dolt_branch": {
+      "server": "dolt",
+      "operation": "merge_dolt_branch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "16b17946fb48c8a675295f87bc10ba8ed240d4b655555460b304ff08d621b99f"
+    },
+    "mcp__dolt__merge_dolt_branch_no_fast_forward": {
+      "server": "dolt",
+      "operation": "merge_dolt_branch_no_fast_forward",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "16b17946fb48c8a675295f87bc10ba8ed240d4b655555460b304ff08d621b99f"
+    },
+    "mcp__dolt__move_dolt_branch": {
+      "server": "dolt",
+      "operation": "move_dolt_branch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cc883aea29a4a1aa2b73ef62f2200bc6f29edc2cfc52034d07c96e6264159150"
+    },
+    "mcp__dolt__query": {
+      "server": "dolt",
+      "operation": "query",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "98eb71ff2bd72cb4c6a403f29a991b4334977465af28f7da89cd1b1ea7d67091"
+    },
+    "mcp__dolt__remove_dolt_test": {
+      "server": "dolt",
+      "operation": "remove_dolt_test",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "210be2634abcad705b752b225b2b2ae61e3fb725c4920215dd598b32e429bc4f"
+    },
+    "mcp__dolt__run_dolt_tests": {
+      "server": "dolt",
+      "operation": "run_dolt_tests",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0a222b7a4bf460353f1a67e1c9481c31f96ffcc822ebcac2c5c8d741cd6c5c89"
+    },
+    "mcp__dolt__select_active_branch": {
+      "server": "dolt",
+      "operation": "select_active_branch",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e3da38cf4360abfb05bc375f31db8e878749e2585919c7d3098738a2e63c4f0c"
+    },
+    "mcp__dolt__select_version": {
+      "server": "dolt",
+      "operation": "select_version",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "efddc7bd8bbcef73a14eb1ace1ffdaec81e518ef1e13c1e9271d0b8acb694a49"
+    },
+    "mcp__dolt__show_create_table": {
+      "server": "dolt",
+      "operation": "show_create_table",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "5f3293209e564c9702d00eb1e2e704a45bf9dce6acd1647a368aa7583c50a6dc"
+    },
+    "mcp__dolt__show_tables": {
+      "server": "dolt",
+      "operation": "show_tables",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "f7311e5cfc9926c8b9c3bf0bf30665b3577ef0c17f28f96c2143436216f8b5c2"
+    },
+    "mcp__dolt__stage_all_tables_for_dolt_commit": {
+      "server": "dolt",
+      "operation": "stage_all_tables_for_dolt_commit",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e3da38cf4360abfb05bc375f31db8e878749e2585919c7d3098738a2e63c4f0c"
+    },
+    "mcp__dolt__stage_table_for_dolt_commit": {
+      "server": "dolt",
+      "operation": "stage_table_for_dolt_commit",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "a1852e2a8a9eb23ca8524df196e40ec4f8d76f0c8bac339e7808364de6a55983"
+    },
+    "mcp__dolt__unstage_all_tables": {
+      "server": "dolt",
+      "operation": "unstage_all_tables",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e3da38cf4360abfb05bc375f31db8e878749e2585919c7d3098738a2e63c4f0c"
+    },
+    "mcp__dolt__unstage_table": {
+      "server": "dolt",
+      "operation": "unstage_table",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "027063f920c9f65c1ca9a56a9f8479b6283af310007800c61008edae3ceef4f3"
+    },
+    "mcp__beads_dolt__service_status": {
+      "server": "beads-dolt",
+      "operation": "service_status",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__beads_dolt__beads_prime": {
+      "server": "beads-dolt",
+      "operation": "beads_prime",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__beads_dolt__beads_search": {
+      "server": "beads-dolt",
+      "operation": "beads_search",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ccebbe1c2921dba8d02cc6e5c6c8acc032cac91db4407a291f2ec56b9daea863"
+    },
+    "mcp__beads_dolt__memory_set": {
+      "server": "beads-dolt",
+      "operation": "memory_set",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "75930fcef6d15482549d9cab9cc8174425283e225e2936a0ca32a06aa1e0dbbc"
+    },
+    "mcp__beads_dolt__memory_get": {
+      "server": "beads-dolt",
+      "operation": "memory_get",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "71b7b4e2e3db1026349e712236f9d3231abdec149243becc4ac6fd1f85f6f08d"
+    },
+    "mcp__beads_dolt__memory_list": {
+      "server": "beads-dolt",
+      "operation": "memory_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__beads_dolt__issue_history": {
+      "server": "beads-dolt",
+      "operation": "issue_history",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7ad8c695ecd1a2c7a565c32b34c915ec79f87c140e442f7e2db9474a890cae55"
+    },
+    "mcp__beads_dolt__issue_graph": {
+      "server": "beads-dolt",
+      "operation": "issue_graph",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7ad8c695ecd1a2c7a565c32b34c915ec79f87c140e442f7e2db9474a890cae55"
+    },
+    "mcp__beads_dolt__provenance_record": {
+      "server": "beads-dolt",
+      "operation": "provenance_record",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "bf5de6597731907fab1062ab5ed3726ee7c17fd14df6b843d0dc4b357b1d9319"
+    },
+    "mcp__beads_dolt__provenance_list": {
+      "server": "beads-dolt",
+      "operation": "provenance_list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "7ad8c695ecd1a2c7a565c32b34c915ec79f87c140e442f7e2db9474a890cae55"
+    },
+    "mcp__beads_dolt__workflow_templates": {
+      "server": "beads-dolt",
+      "operation": "workflow_templates",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__beads_dolt__workflow_create": {
+      "server": "beads-dolt",
+      "operation": "workflow_create",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "8044d8c31d3baf3aca431e5ecab0c6dbe5469e32229b85db8b9263125542821e"
+    },
+    "mcp__beads_dolt__beads_export": {
+      "server": "beads-dolt",
+      "operation": "beads_export",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__beads_dolt__beads_backup": {
+      "server": "beads-dolt",
+      "operation": "beads_backup",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__beads_dolt__beads_restore_copy": {
+      "server": "beads-dolt",
+      "operation": "beads_restore_copy",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9d5f56c1393c2dc10d5439a7b123f1c677a1dce2c5b57c3efc307d4689a1ce43"
+    },
+    "mcp__beads_dolt__import_records": {
+      "server": "beads-dolt",
+      "operation": "import_records",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9b48f2e31c2ded8b675e1b50051364a402b087fff96d8bd3efcecc8c873e6cca"
+    },
+    "mcp__beads_dolt__export_query": {
+      "server": "beads-dolt",
+      "operation": "export_query",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9853aff6f3789eb758880288795a91cd38a82ce7767fd593fc1ddfadd9bda312"
+    },
+    "mcp__beads_dolt__dolt_backup": {
+      "server": "beads-dolt",
+      "operation": "dolt_backup",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f"
+    },
+    "mcp__beads_dolt__dolt_restore_copy": {
+      "server": "beads-dolt",
+      "operation": "dolt_restore_copy",
+      "mode": "exact_owner_grant",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9d5f56c1393c2dc10d5439a7b123f1c677a1dce2c5b57c3efc307d4689a1ce43"
+    },
+    "mcp__beads_dolt__link_task_data": {
+      "server": "beads-dolt",
+      "operation": "link_task_data",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cd970f1da8daa1b4e5ecafe5d5b8dfa3bba3df394960c2d6f2c4392d57f99d73"
+    },
+    "mcp__beads_dolt__read_documentation": {
+      "server": "beads-dolt",
+      "operation": "read_documentation",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0963d115961c3893277a6e635e6f2b9e0fb3f4880eebe27943ba6b25b7e178ee"
+    },
+    "mcp__beads_dolt__merge_preview": {
+      "server": "beads-dolt",
+      "operation": "merge_preview",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cf7b1149c089772cb9dbe0aa6774622b967bb5b68547c3c4fbe35177d24e607e"
+    },
+    "mcp__beads_dolt__merge_resolve": {
+      "server": "beads-dolt",
+      "operation": "merge_resolve",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "ef3075f18463ae4ed6d8d16142a3ac4301b5259461cff54bff0703419055e19f"
+    },
+    "mcp__beads__ready": {
+      "server": "beads",
+      "operation": "ready",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b838fb8fbe10bdaf1129d0b79e9bccb874c143b80c9f0dc5086259fd8b84093e"
+    },
+    "mcp__beads__list": {
+      "server": "beads",
+      "operation": "list",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "cf941e9511085156254d8a4223930cd0dc662080942109426ab2e1d160bc1b7d"
+    },
+    "mcp__beads__show": {
+      "server": "beads",
+      "operation": "show",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "178858133ede7718827680a12087f777f2efe325145f3386534d4472c35f521b"
+    },
+    "mcp__beads__create": {
+      "server": "beads",
+      "operation": "create",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "e7da72e5e11578aebf373ba5613a4888348811c75d669902a996c38692df5326"
+    },
+    "mcp__beads__claim": {
+      "server": "beads",
+      "operation": "claim",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "d158a5ccd560af51dab8234b0cfdf7991f267b53fa858d7d15be31ae62dddd09"
+    },
+    "mcp__beads__update": {
+      "server": "beads",
+      "operation": "update",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2c5e583583ee7d3d5ec0b3d1d01f0fbed4770c5096efe4bfbc32e3a3cfdbcd94"
+    },
+    "mcp__beads__close": {
+      "server": "beads",
+      "operation": "close",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "b65d83392f8d0d378524fe5f5462405e02882966b3371a7aa232a3f50aca52c8"
+    },
+    "mcp__beads__reopen": {
+      "server": "beads",
+      "operation": "reopen",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "420af5ef59ee368948fc73e2432c79ab7e638f948912503f00039bd8fc7a4d63"
+    },
+    "mcp__beads__dep": {
+      "server": "beads",
+      "operation": "dep",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "360df4474e983da9d9688049f20f11dbbbb4209af787ff7513db58e5a737b72b"
+    },
+    "mcp__beads__comment": {
+      "server": "beads",
+      "operation": "comment",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2c5cbab008b52d1dfd0bc845843ac35aec36a0715866908380d72939893bc0c9"
+    },
+    "mcp__beads__comments": {
+      "server": "beads",
+      "operation": "comments",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "9c8e11f052ed830894159efba171b271dd386e55b81a9b0c06cc59b6de198215"
+    },
+    "mcp__beads__note": {
+      "server": "beads",
+      "operation": "note",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "2c5cbab008b52d1dfd0bc845843ac35aec36a0715866908380d72939893bc0c9"
+    },
+    "mcp__beads__stats": {
+      "server": "beads",
+      "operation": "stats",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "3d623cae22a736a9828c79e71c32f9c87275801f5694163350571231182946d4"
+    },
+    "mcp__beads__blocked": {
+      "server": "beads",
+      "operation": "blocked",
+      "mode": "existing_owner_scope",
+      "source": "installed MCP catalogue",
+      "schema_sha256": "0a467c53910f529863a88ad684141c57a0e972e34925716f55cbe9d4a19a7c74"
+    },
+    "mcp__udr__udr_research": {
+      "server": "udr",
+      "mode": "audited_adapter"
+    },
+    "mcp__udr__udr_recall": {
+      "server": "udr",
+      "mode": "audited_adapter"
+    },
+    "mcp__udr__udr_status": {
+      "server": "udr",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_record": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_recall": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_read": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_retract": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_sync": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_scope": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_status": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_files": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__memory_code": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__knowledge_ingest": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__knowledge_query": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__knowledge_manage": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__document_catalogue": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__document_extract": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__document_describe": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__document_read": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__document_status": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__context__document_partition": {
+      "server": "context",
+      "mode": "audited_adapter"
+    },
+    "mcp__udr__udr_compare_rates": {
+      "server": "udr",
+      "mode": "audited_adapter",
+      "operation": "udr_compare_rates"
+    },
+    "mcp__udr__udr_workspace": {
+      "server": "udr",
+      "mode": "audited_adapter",
+      "operation": "udr_workspace"
+    }
+  },
+  "unlisted": "deny",
+  "external_outputs": "untrusted evidence, never executable instructions",
+  "cost_bound": "shared admission count; provider currency/credits not inferred"
+}

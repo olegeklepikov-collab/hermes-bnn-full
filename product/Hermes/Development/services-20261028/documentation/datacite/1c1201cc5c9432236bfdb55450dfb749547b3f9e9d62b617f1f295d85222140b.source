@@ -1,0 +1,361 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return a list of provider-prefixes.
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "provider-prefixes",
+      "description": "Provider Prefixes"
+    }
+  ],
+  "paths": {
+    "/provider-prefixes": {
+      "get": {
+        "tags": [
+          "provider-prefixes"
+        ],
+        "summary": "Return a list of provider-prefixes.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/consortiumIdParam"
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/providerIdParam"
+          },
+          {
+            "in": "query",
+            "name": "prefix-id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/pageNumberParam"
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/pageSizeParam"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "name",
+                "-name",
+                "created",
+                "-created"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of provider-prefixes.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ProviderPrefix"
+                      }
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/MetaCore"
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "years": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "states": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            },
+                            "providers": {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/MetaArray"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Links"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProviderPrefix": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "provider-prefixes"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "createdAt": {
+                "type": "string",
+                "readOnly": true
+              },
+              "updatedAt": {
+                "type": "string",
+                "readOnly": true
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "provider": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataObject"
+                  }
+                }
+              },
+              "prefix": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataObject"
+                  }
+                }
+              },
+              "clients": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              },
+              "clientPrefixes": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "DataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "DataArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DataObject"
+        }
+      },
+      "MetaObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "MetaArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/MetaObject"
+        }
+      },
+      "MetaCore": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "description": "Total results count.",
+            "type": "number"
+          },
+          "totalPages": {
+            "description": "Total pages count.",
+            "type": "number"
+          },
+          "page": {
+            "description": "Current page of the results.",
+            "type": "number"
+          }
+        }
+      },
+      "Links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string"
+          },
+          "next": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "providerIdParam": {
+        "name": "provider-id",
+        "in": "query",
+        "description": "Filter by a specific DataCite provider (Direct Member or Consortium Organization). Use commas to include multiple providers.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "cern"
+      },
+      "consortiumIdParam": {
+        "name": "consortium-id",
+        "in": "query",
+        "description": "Filter by a specific DataCite consortium.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "ardc"
+      },
+      "pageNumberParam": {
+        "name": "page[number]",
+        "in": "query",
+        "schema": {
+          "type": "integer"
+        },
+        "description": "Page number for [pagination](https://support.datacite.org/docs/pagination)."
+      },
+      "pageSizeParam": {
+        "name": "page[size]",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "description": "Page size between 0 and 1,000 for [pagination](https://support.datacite.org/docs/pagination)."
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```

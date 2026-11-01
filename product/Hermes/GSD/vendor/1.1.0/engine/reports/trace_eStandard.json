@@ -1,0 +1,36 @@
+{
+  "version": "3.0",
+  "date": "2026-09-12",
+  "test_count": 1,
+  "passed_count": 1,
+  "failed_count": 0,
+  "profile_property_combinations": 0,
+  "traces": [
+    {
+      "profile": "eStandard",
+      "procedures": 124,
+      "steps_spent": 124,
+      "semantic_agent_validation": false
+    }
+  ],
+  "scope": "Программные договоры, конечные смысловые примеры и композиция. Нет испытаний свободного поведения LLM, клинической или промышленной пригодности.",
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "tests": [
+    {
+      "name": "Подробный цикл и восстановление: eStandard",
+      "passed": true,
+      "category": "synthetic_controller_trace",
+      "finding": "F08",
+      "seconds": 9.220285203999993,
+      "detail": {
+        "profile": "eStandard",
+        "procedures": 124,
+        "steps_spent": 124,
+        "semantic_agent_validation": false
+      }
+    }
+  ]
+}

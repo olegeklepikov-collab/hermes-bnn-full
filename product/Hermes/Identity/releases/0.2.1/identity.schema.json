@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:hermes-bnn:identity-edition:2",
+  "type": "object",
+  "required": [
+    "instance_id",
+    "agent_id",
+    "profile",
+    "revision",
+    "parent",
+    "kind",
+    "source_sha256",
+    "reason",
+    "builder",
+    "deep_identity"
+  ],
+  "properties": {
+    "instance_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "profile": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,95}$"
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^ID-[0-9a-f]{32}$"
+    },
+    "parent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "observed",
+        "proposed"
+      ]
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "builder": {
+      "const": "identity-0.2/native-soul-slot-1"
+    },
+    "deep_identity": {
+      "type": "object",
+      "required": [
+        "continuity",
+        "foundations",
+        "epistemic_stance",
+        "values_and_boundaries",
+        "dispositions",
+        "relationships",
+        "expression"
+      ],
+      "properties": {
+        "continuity": {
+          "type": "null"
+        },
+        "foundations": {
+          "type": "null"
+        },
+        "epistemic_stance": {
+          "type": "null"
+        },
+        "values_and_boundaries": {
+          "type": "null"
+        },
+        "dispositions": {
+          "type": "null"
+        },
+        "relationships": {
+          "type": "null"
+        },
+        "expression": {
+          "type": "null"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

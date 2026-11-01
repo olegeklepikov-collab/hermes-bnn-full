@@ -1,0 +1,1455 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return a DOI.
+
+### Support Documentation
+
+* [Retrieving a single DOI](https://support.datacite.org/docs/api-get-doi)
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "dois",
+      "description": "DOIs"
+    }
+  ],
+  "paths": {
+    "/dois/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "DOI",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/affiliationParam"
+          },
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/publisherParam"
+          },
+          {
+            "in": "query",
+            "name": "enriched",
+            "description": "Retrieve [enriched DOI metadata](https://support.datacite.org/docs/metadata-enrichments) if available.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "tags": [
+          "dois"
+        ],
+        "summary": "Return a DOI.",
+        "responses": {
+          "200": {
+            "description": "A JSON object.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoiDetailItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DoiDetailItem": {
+        "description": "Represents a single DOI and provides access to metadata attributes. More information is available at https://schema.datacite.org.",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "readOnly": true
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "dois"
+                ]
+              },
+              "attributes": {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "doi": {
+                        "description": "The full DOI name.",
+                        "type": "string"
+                      },
+                      "event": {
+                        "description": "Can be set to trigger a [DOI state change](https://support.datacite.org/docs/updating-metadata-with-the-rest-api#changing-the-doi-state). When not set, a [Draft record](https://support.datacite.org/docs/doi-states#draft-record) is created.\n  * `publish` - Create a DOI in [Findable state](https://support.datacite.org/docs/doi-states#findable-doi-name) (or change an existing Draft record/Registered DOI to Findable state).\n  * `register` - Create a DOI in [Registered state](https://support.datacite.org/docs/doi-states#registered-doi-name) (or change an existing Draft record to Registered state).\n  * `hide` - Change a DOI from Findable to Registered state.\n",
+                        "type": "string",
+                        "enum": [
+                          "publish",
+                          "register",
+                          "hide"
+                        ],
+                        "writeOnly": true
+                      },
+                      "prefix": {
+                        "description": "The DOI prefix.",
+                        "type": "string"
+                      },
+                      "suffix": {
+                        "description": "The DOI suffix.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "identifiers": {
+                        "description": "Equivalent to the [AlternateIdentifier](https://datacite-metadata-schema.readthedocs.io/en/4/properties/alternateidentifier/) property in the DataCite Metadata Schema. For more information, see [What is the \"identifiers\" attribute in the REST API?](https://support.datacite.org/docs/what-is-the-identifiers-attribute-in-the-rest-api)",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "identifierType": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "alternateIdentifiers": {
+                        "description": "[DataCite Metadata Schema: AlternateIdentifier](https://datacite-metadata-schema.readthedocs.io/en/4/properties/alternateidentifier/)",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "alternateIdentifierType": {
+                              "type": "string"
+                            },
+                            "alternateIdentifier": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/DoiPropertiesMetadata"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "xml": {
+                        "description": "DataCite Metadata Schema XML encoded in Base64 format.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/DoiPropertiesOther"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "viewCount": {
+                        "$ref": "#/components/schemas/viewCount"
+                      },
+                      "viewsOverTime": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "yearMonth": {
+                              "type": "string"
+                            },
+                            "total": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "downloadCount": {
+                        "$ref": "#/components/schemas/downloadCount"
+                      },
+                      "downloadsOverTime": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "yearMonth": {
+                              "type": "string"
+                            },
+                            "total": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "referenceCount": {
+                        "$ref": "#/components/schemas/referenceCount"
+                      },
+                      "citationCount": {
+                        "$ref": "#/components/schemas/citationCount"
+                      },
+                      "citationsOverTime": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "year": {
+                              "type": "string"
+                            },
+                            "total": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "partCount": {
+                        "$ref": "#/components/schemas/partCount"
+                      },
+                      "partOfCount": {
+                        "$ref": "#/components/schemas/partOfCount"
+                      },
+                      "versionCount": {
+                        "$ref": "#/components/schemas/versionCount"
+                      },
+                      "versionOfCount": {
+                        "$ref": "#/components/schemas/versionOfCount"
+                      },
+                      "landingPage": {
+                        "readOnly": true,
+                        "description": "Data describing the landing page, used by link checking.",
+                        "type": "object",
+                        "properties": {
+                          "checked": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "contentType": {
+                            "type": "string"
+                          },
+                          "error": {
+                            "type": "string"
+                          },
+                          "redirectCount": {
+                            "type": "number"
+                          },
+                          "redirectUrls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "downloadLatency": {
+                            "type": "number"
+                          },
+                          "hasSchemaOrg": {
+                            "type": "boolean"
+                          },
+                          "schemaOrgid": {
+                            "type": "string"
+                          },
+                          "dcIdentifier": {
+                            "type": "string"
+                          },
+                          "citationDoi": {
+                            "type": "string"
+                          },
+                          "bodyhasPid": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/DoiPropertiesDates"
+                  }
+                ]
+              },
+              "relationships": {
+                "type": "object",
+                "readOnly": true,
+                "properties": {
+                  "client": {
+                    "type": "object",
+                    "description": "The DataCite client (repository) associated with the DOI.",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataObject"
+                      }
+                    }
+                  },
+                  "provider": {
+                    "type": "object",
+                    "description": "The DataCite provider (Direct Member or Consortium Organization) associated with the DOI.",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataObject"
+                      }
+                    }
+                  },
+                  "media": {
+                    "type": "object",
+                    "description": "Legacy attribute for media support.",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataObject"
+                      }
+                    }
+                  },
+                  "references": {
+                    "type": "object",
+                    "description": "An array of references as dictionaries.",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataArray"
+                      }
+                    }
+                  },
+                  "citations": {
+                    "type": "object",
+                    "description": "An array of citations as dictionaries.",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataArray"
+                      }
+                    }
+                  },
+                  "parts": {
+                    "description": "An array of parts as dictionaries.",
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataArray"
+                      }
+                    }
+                  },
+                  "partOf": {
+                    "description": "An array of parents as dictionaries.",
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataArray"
+                      }
+                    }
+                  },
+                  "versions": {
+                    "type": "object",
+                    "description": "An array of versions as dictionaries.",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataArray"
+                      }
+                    }
+                  },
+                  "versionOf": {
+                    "type": "object",
+                    "description": "An array of objects to which this DOI is a version as dictionaries.",
+                    "properties": {
+                      "data": {
+                        "$ref": "#/components/schemas/DataArray"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        },
+        "example": {
+          "data": {
+            "type": "dois",
+            "attributes": {
+              "doi": "10.5438/0014",
+              "prefix": "10.5438",
+              "suffix": "0014",
+              "identifiers": [
+                {
+                  "identifier": "https://doi.org/10.5438/0014",
+                  "identifierType": "DOI"
+                }
+              ],
+              "creators": [
+                {
+                  "name": "DataCite Metadata Working Group"
+                }
+              ],
+              "titles": [
+                {
+                  "title": "DataCite Metadata Schema Documentation for the Publication and Citation of Research Data v4.1"
+                }
+              ],
+              "publisher": "DataCite",
+              "publicationYear": 2017,
+              "types": {
+                "resourceTypeGeneral": "Text"
+              },
+              "url": "https://schema.datacite.org/meta/kernel-4.1/"
+            }
+          }
+        }
+      },
+      "DoiPropertiesMetadata": {
+        "type": "object",
+        "properties": {
+          "creators": {
+            "description": "[DataCite Metadata Schema: Creator](https://datacite-metadata-schema.readthedocs.io/en/4/properties/creator/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "nameType": {
+                  "$ref": "#/components/schemas/nameType"
+                },
+                "nameIdentifiers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "nameIdentifier": {
+                        "type": "string"
+                      },
+                      "nameIdentifierScheme": {
+                        "type": "string"
+                      },
+                      "schemeUri": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "familyName": {
+                  "type": "string"
+                },
+                "affiliation": {
+                  "description": "Set `affiliation=true` to see additional affiliation information such as the affiliation identifier.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "affiliationIdentifier": {
+                        "type": "string"
+                      },
+                      "affiliationIdentifierScheme": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "schemeUri": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "lang": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "titles": {
+            "description": "[DataCite Metadata Schema: Title](https://datacite-metadata-schema.readthedocs.io/en/4/properties/title/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "titleType": {
+                  "$ref": "#/components/schemas/titleType"
+                },
+                "lang": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "publisher": {
+            "description": "[DataCite Metadata Schema: Publisher](https://datacite-metadata-schema.readthedocs.io/en/4/properties/publisher/) Set `publisher=true` to see additional publisher information such as the publisher identifier.\n",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "publisherIdentifier": {
+                    "type": "string"
+                  },
+                  "publisherIdentifierScheme": {
+                    "type": "string"
+                  },
+                  "schemeUri": {
+                    "type": "string"
+                  },
+                  "lang": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "container": {
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "identifierType": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "volume": {
+                "type": "string"
+              },
+              "issue": {
+                "type": "string"
+              },
+              "firstPage": {
+                "type": "string"
+              },
+              "lastPage": {
+                "type": "string"
+              }
+            }
+          },
+          "publicationYear": {
+            "description": "[DataCite Metadata Schema: PublicationYear](https://datacite-metadata-schema.readthedocs.io/en/4/properties/publicationyear/)",
+            "type": "integer"
+          },
+          "subjects": {
+            "description": "[DataCite Metadata Schema: Subject](https://datacite-metadata-schema.readthedocs.io/en/4/properties/subject/)",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/subject"
+            }
+          },
+          "contributors": {
+            "description": "[DataCite Metadata Schema: Contributor](https://datacite-metadata-schema.readthedocs.io/en/4/properties/contributor/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "nameType": {
+                  "$ref": "#/components/schemas/nameType"
+                },
+                "nameIdentifiers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "nameIdentifier": {
+                        "type": "string"
+                      },
+                      "nameIdentifierScheme": {
+                        "type": "string"
+                      },
+                      "schemeUri": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "familyName": {
+                  "type": "string"
+                },
+                "affiliation": {
+                  "description": "Set `affiliation=true` to see additional affiliation information such as the affiliation identifier.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "affiliationIdentifier": {
+                        "type": "string"
+                      },
+                      "affiliationIdentifierScheme": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "schemeUri": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "contributorType": {
+                  "$ref": "#/components/schemas/contributorType"
+                },
+                "lang": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "dates": {
+            "description": "[DataCite Metadata Schema: Date](https://datacite-metadata-schema.readthedocs.io/en/4/properties/date/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "dateType": {
+                  "type": "string",
+                  "enum": [
+                    "Accepted",
+                    "Available",
+                    "Copyrighted",
+                    "Collected",
+                    "Coverage",
+                    "Created",
+                    "Issued",
+                    "Submitted",
+                    "Updated",
+                    "Valid",
+                    "Withdrawn",
+                    "Other"
+                  ]
+                },
+                "dateInformation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "language": {
+            "description": "[DataCite Metadata Schema: Language](https://datacite-metadata-schema.readthedocs.io/en/4/properties/language/)",
+            "type": "string"
+          },
+          "types": {
+            "type": "object",
+            "properties": {
+              "resourceTypeGeneral": {
+                "$ref": "#/components/schemas/resourceTypeGeneral"
+              },
+              "resourceType": {
+                "description": "[DataCite Metadata Schema: ResourceType](https://datacite-metadata-schema.readthedocs.io/en/4/properties/resourcetype/)",
+                "type": "string"
+              },
+              "schemaOrg": {
+                "readOnly": true,
+                "type": "string"
+              },
+              "bibtex": {
+                "readOnly": true,
+                "type": "string"
+              },
+              "citeproc": {
+                "readOnly": true,
+                "type": "string"
+              },
+              "ris": {
+                "readOnly": true,
+                "type": "string"
+              }
+            }
+          },
+          "relatedIdentifiers": {
+            "description": "[DataCite Metadata Schema: RelatedIdentifier](https://datacite-metadata-schema.readthedocs.io/en/4/properties/relatedidentifier/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "relatedIdentifier": {
+                  "type": "string"
+                },
+                "relatedIdentifierType": {
+                  "$ref": "#/components/schemas/relatedIdentifierType"
+                },
+                "relationType": {
+                  "$ref": "#/components/schemas/relationType"
+                },
+                "resourceTypeGeneral": {
+                  "$ref": "#/components/schemas/resourceTypeGeneral"
+                },
+                "relatedMetadataScheme": {
+                  "type": "string"
+                },
+                "schemeUri": {
+                  "type": "string"
+                },
+                "schemeType": {
+                  "type": "string"
+                },
+                "relationTypeInformation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "relatedItems": {
+            "description": "[DataCite Metadata Schema: RelatedItem](https://datacite-metadata-schema.readthedocs.io/en/4/properties/relateditem/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "relatedItemType": {
+                  "$ref": "#/components/schemas/resourceTypeGeneral"
+                },
+                "relationType": {
+                  "$ref": "#/components/schemas/relationType"
+                },
+                "relatedItemIdentifier": {
+                  "type": "object",
+                  "properties": {
+                    "relatedItemIdentifier": {
+                      "type": "string"
+                    },
+                    "relatedItemIdentifierType": {
+                      "$ref": "#/components/schemas/relatedIdentifierType"
+                    },
+                    "relatedMetadataScheme": {
+                      "type": "string"
+                    },
+                    "schemeURI": {
+                      "type": "string"
+                    },
+                    "schemeType": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relationTypeInformation": {
+                  "type": "string"
+                },
+                "creators": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "givenName": {
+                        "type": "string"
+                      },
+                      "familyName": {
+                        "type": "string"
+                      },
+                      "nameType": {
+                        "$ref": "#/components/schemas/nameType"
+                      }
+                    }
+                  }
+                },
+                "titles": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "titleType": {
+                        "$ref": "#/components/schemas/titleType"
+                      }
+                    }
+                  }
+                },
+                "volume": {
+                  "type": "string"
+                },
+                "issue": {
+                  "type": "string"
+                },
+                "number": {
+                  "type": "string"
+                },
+                "numberType": {
+                  "type": "string",
+                  "enum": [
+                    "Article",
+                    "Chapter",
+                    "Report",
+                    "Other"
+                  ]
+                },
+                "firstPage": {
+                  "type": "string"
+                },
+                "lastPage": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "publicationYear": {
+                  "type": "string"
+                },
+                "edition": {
+                  "type": "string"
+                },
+                "contributors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "givenName": {
+                        "type": "string"
+                      },
+                      "familyName": {
+                        "type": "string"
+                      },
+                      "nameType": {
+                        "$ref": "#/components/schemas/nameType"
+                      },
+                      "contributorType": {
+                        "$ref": "#/components/schemas/contributorType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "sizes": {
+            "description": "[DataCite Metadata Schema: Size](https://datacite-metadata-schema.readthedocs.io/en/4/properties/size/)",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "formats": {
+            "description": "[DataCite Metadata Schema: Format](https://datacite-metadata-schema.readthedocs.io/en/4/properties/format/)",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "version": {
+            "description": "[DataCite Metadata Schema: Version](https://datacite-metadata-schema.readthedocs.io/en/4/properties/version/)",
+            "type": "string"
+          },
+          "rightsList": {
+            "description": "[DataCite Metadata Schema: Rights](https://datacite-metadata-schema.readthedocs.io/en/4/properties/rights/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rights": {
+                  "type": "string"
+                },
+                "rightsUri": {
+                  "type": "string"
+                },
+                "schemeUri": {
+                  "type": "string"
+                },
+                "rightsIdentifier": {
+                  "type": "string"
+                },
+                "rightsIdentifierScheme": {
+                  "type": "string"
+                },
+                "lang": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "descriptions": {
+            "description": "[DataCite Metadata Schema: Description](https://datacite-metadata-schema.readthedocs.io/en/4/properties/description/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "descriptionType": {
+                  "type": "string",
+                  "enum": [
+                    "Abstract",
+                    "Methods",
+                    "SeriesInformation",
+                    "TableOfContents",
+                    "TechnicalInfo",
+                    "Other"
+                  ]
+                },
+                "lang": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "geoLocations": {
+            "description": "[DataCite Metadata Schema: GeoLocation](https://datacite-metadata-schema.readthedocs.io/en/4/properties/geolocation/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "geoLocationBox": {
+                  "type": "object",
+                  "properties": {
+                    "westBoundLongitude": {
+                      "type": "number"
+                    },
+                    "eastBoundLongitude": {
+                      "type": "number"
+                    },
+                    "southBoundLatitude": {
+                      "type": "number"
+                    },
+                    "northBoundLatitude": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "geoLocationPlace": {
+                  "type": "string"
+                },
+                "geoLocationPoint": {
+                  "type": "object",
+                  "properties": {
+                    "pointLongitude": {
+                      "type": "number"
+                    },
+                    "pointLatitude": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "geoLocationPolygon": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "polygonPoint": {
+                            "type": "object",
+                            "properties": {
+                              "pointLongitude": {
+                                "type": "number"
+                              },
+                              "pointLatitude": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "inPolygonPoint": {
+                            "type": "object",
+                            "properties": {
+                              "pointLongitude": {
+                                "type": "number"
+                              },
+                              "pointLatitude": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "fundingReferences": {
+            "description": "[DataCite Metadata Schema: FundingReference](https://datacite-metadata-schema.readthedocs.io/en/4/properties/fundingreference/)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "funderName": {
+                  "type": "string"
+                },
+                "funderIdentifier": {
+                  "type": "string"
+                },
+                "funderIdentifierType": {
+                  "type": "string",
+                  "enum": [
+                    "Crossref Funder ID",
+                    "GRID",
+                    "ISNI",
+                    "ROR",
+                    "Other"
+                  ]
+                },
+                "awardNumber": {
+                  "type": "string"
+                },
+                "awardUri": {
+                  "type": "string"
+                },
+                "awardTitle": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DoiPropertiesOther": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "description": "The landing page URL of the DOI.",
+            "type": "string"
+          },
+          "contentUrl": {
+            "description": "An array of content URLs associated with the DOI.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadataVersion": {
+            "description": "The version of the stored DataCite metadata, incremented once per update.",
+            "readOnly": true,
+            "type": "number"
+          },
+          "schemaVersion": {
+            "description": "The DataCite Metadata Schema version of the stored DOI metadata represented as a URL. When creating or updating a DOI, `schemaVersion` is not necessary unless modifying the DataCite Metadata Schema version.",
+            "type": "string"
+          },
+          "source": {
+            "allOf": [
+              {
+                "description": "The system used to create the DOI."
+              },
+              {
+                "readOnly": true
+              },
+              {
+                "$ref": "#/components/schemas/source"
+              }
+            ]
+          },
+          "isActive": {
+            "description": "\"true\" if the DOI is in [Findable state](https://support.datacite.org/docs/doi-states#findable-doi-name). Otherwise, \"false\".",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "state": {
+            "allOf": [
+              {
+                "description": "The [state of the DOI](https://support.datacite.org/docs/doi-states)."
+              },
+              {
+                "readOnly": true
+              },
+              {
+                "$ref": "#/components/schemas/state"
+              }
+            ]
+          },
+          "reason": {
+            "description": "Legacy attribute for EZID compatibility.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      },
+      "DoiPropertiesDates": {
+        "type": "object",
+        "properties": {
+          "created": {
+            "description": "The date the DOI record was created in the DataCite system.",
+            "type": "string",
+            "readOnly": true
+          },
+          "registered": {
+            "description": "The date the DOI was registered in the global handle server.",
+            "type": "string",
+            "readOnly": true
+          },
+          "updated": {
+            "description": "The date the DOI was last updated.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "DataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "DataArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DataObject"
+        }
+      },
+      "subject": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "example": "Chemical engineering"
+          },
+          "subjectScheme": {
+            "type": "string",
+            "example": "Fields of Science and Technology (FOS)"
+          },
+          "schemeUri": {
+            "type": "string",
+            "example": "https://web-archive.oecd.org/2012-06-15/138575-38235147.pdf"
+          },
+          "valueUri": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "classificationCode": {
+            "type": "string",
+            "example": "2.4"
+          }
+        }
+      },
+      "relationType": {
+        "description": "[DataCite Metadata Schema: relationType](https://datacite-metadata-schema.readthedocs.io/en/4/appendices/appendix-1/relationType/)",
+        "type": "string",
+        "enum": [
+          "IsCitedBy",
+          "Cites",
+          "IsSupplementTo",
+          "IsSupplementedBy",
+          "IsContinuedBy",
+          "Continues",
+          "IsDescribedBy",
+          "Describes",
+          "HasMetadata",
+          "IsMetadataFor",
+          "HasVersion",
+          "IsVersionOf",
+          "IsNewVersionOf",
+          "IsPreviousVersionOf",
+          "IsPartOf",
+          "HasPart",
+          "IsPublishedIn",
+          "IsReferencedBy",
+          "References",
+          "IsDocumentedBy",
+          "Documents",
+          "IsCompiledBy",
+          "Compiles",
+          "IsVariantFormOf",
+          "IsOriginalFormOf",
+          "IsIdenticalTo",
+          "IsReviewedBy",
+          "Reviews",
+          "IsDerivedFrom",
+          "IsSourceOf",
+          "IsRequiredBy",
+          "Requires",
+          "IsObsoletedBy",
+          "Obsoletes",
+          "IsCollectedBy",
+          "Collects",
+          "IsTranslationOf",
+          "HasTranslation",
+          "Other"
+        ]
+      },
+      "resourceTypeGeneral": {
+        "description": "[DataCite Metadata Schema: resourceTypeGeneral](https://datacite-metadata-schema.readthedocs.io/en/4/appendices/appendix-1/resourceTypeGeneral/)",
+        "type": "string",
+        "enum": [
+          "Audiovisual",
+          "Award",
+          "Book",
+          "BookChapter",
+          "Collection",
+          "ComputationalNotebook",
+          "ConferencePaper",
+          "ConferenceProceeding",
+          "DataPaper",
+          "Dataset",
+          "Dissertation",
+          "Event",
+          "Image",
+          "Instrument",
+          "InteractiveResource",
+          "Journal",
+          "JournalArticle",
+          "Model",
+          "OutputManagementPlan",
+          "PeerReview",
+          "PhysicalObject",
+          "Poster",
+          "Preprint",
+          "Presentation",
+          "Project",
+          "Report",
+          "Service",
+          "Software",
+          "Sound",
+          "Standard",
+          "StudyRegistration",
+          "Text",
+          "Workflow",
+          "Other"
+        ]
+      },
+      "contributorType": {
+        "description": "[DataCite Metadata Schema: contributorType](https://datacite-metadata-schema.readthedocs.io/en/4/appendices/appendix-1/contributorType/)",
+        "type": "string",
+        "enum": [
+          "ContactPerson",
+          "DataCollector",
+          "DataCurator",
+          "DataManager",
+          "Distributor",
+          "Editor",
+          "HostingInstitution",
+          "Producer",
+          "ProjectLeader",
+          "ProjectManager",
+          "ProjectMember",
+          "RegistrationAgency",
+          "RegistrationAuthority",
+          "RelatedPerson",
+          "Researcher",
+          "ResearchGroup",
+          "RightsHolder",
+          "Sponsor",
+          "Supervisor",
+          "Translator",
+          "WorkPackageLeader",
+          "Other"
+        ]
+      },
+      "relatedIdentifierType": {
+        "description": "[DataCite Metadata Schema: relatedIdentifierType](https://datacite-metadata-schema.readthedocs.io/en/4/appendices/appendix-1/relatedIdentifierType/)",
+        "type": "string",
+        "enum": [
+          "ARK",
+          "arXiv",
+          "bibcode",
+          "CSTR",
+          "DOI",
+          "EAN13",
+          "EISSN",
+          "Handle",
+          "IGSN",
+          "ISBN",
+          "ISSN",
+          "ISTC",
+          "LISSN",
+          "LSID",
+          "PMID",
+          "PURL",
+          "RAiD",
+          "RRID",
+          "SWHID",
+          "UPC",
+          "URL",
+          "URN",
+          "w3id"
+        ]
+      },
+      "titleType": {
+        "type": "string",
+        "enum": [
+          "AlternativeTitle",
+          "Subtitle",
+          "TranslatedTitle",
+          "Other"
+        ]
+      },
+      "nameType": {
+        "type": "string",
+        "enum": [
+          "Personal",
+          "Organizational"
+        ]
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "findable",
+          "registered",
+          "draft"
+        ]
+      },
+      "source": {
+        "type": "string",
+        "enum": [
+          "mds",
+          "api",
+          "fabricaForm",
+          "fabrica",
+          "ez"
+        ]
+      },
+      "viewCount": {
+        "description": "Total views, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      },
+      "downloadCount": {
+        "description": "Total downloads, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      },
+      "referenceCount": {
+        "description": "Total references, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      },
+      "citationCount": {
+        "description": "Total citations, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      },
+      "partCount": {
+        "description": "Total number of parts, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      },
+      "partOfCount": {
+        "description": "Total number of parents, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      },
+      "versionCount": {
+        "description": "Total number of versions, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      },
+      "versionOfCount": {
+        "description": "Total number to which this DOI is a version, pulled from Event Data.",
+        "readOnly": true,
+        "type": "number"
+      }
+    },
+    "parameters": {
+      "publisherParam": {
+        "name": "publisher",
+        "in": "query",
+        "description": "Set `publisher=true` to see additional publisher information such as the publisher identifier.",
+        "schema": {
+          "type": "boolean",
+          "example": true
+        }
+      },
+      "affiliationParam": {
+        "name": "affiliation",
+        "in": "query",
+        "description": "Set `affiliation=true` to see additional affiliation information such as the affiliation identifier.",
+        "schema": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```

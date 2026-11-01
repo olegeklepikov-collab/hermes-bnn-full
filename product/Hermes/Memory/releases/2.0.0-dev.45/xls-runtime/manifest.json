@@ -1,0 +1,19 @@
+{
+  "classes/XlsReader.class": "1ece415449bb524795336e8d3ad99d4b56fab4db9051bf845b6edd2bc64e73f3",
+  "classes/XlsReader$1.class": "d238aface28e033d38a2b3d387b8d1f2f930fac48a006d5bd1d904205abe1de9",
+  "lib/log4j-api-2.24.3.jar.asc": "c3fefadb2411623b9795027b7f7e997d675c761dd26f5169d56543f805c66536",
+  "lib/commons-codec-1.20.0.jar.asc": "ee039a1b3da766b79a20fcd61253fa4b3c31d4252794dfd5f2e0f3b47bc4690f",
+  "lib/commons-io-2.21.0.jar": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d",
+  "lib/commons-math3-3.6.1.jar": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308",
+  "lib/commons-io-2.21.0.jar.asc": "fb00561eda72a8c1e71ee6b2dcc8f4e5bc30aee75b1097a098c294d07db7c2e5",
+  "lib/SparseBitSet-1.3.jar": "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a",
+  "lib/SparseBitSet-1.3.jar.asc": "871fdcbfbf07f083dd7bdcc42edc5f58ef777ba82a6a0478e4d09adde2106840",
+  "lib/commons-collections4-4.5.0.jar": "00f93263c267be201b8ae521b44a7137271b16688435340bf629db1bac0a5845",
+  "lib/poi-5.5.1.jar.asc": "46816abedbb253dfb5bbfe8c69e968399792d8eb0c0b291a57464d5113cdd007",
+  "lib/commons-collections4-4.5.0.jar.asc": "46dc6baf4faa32deb57140788e7ff04a328478f214724df1b25bb6865a93538f",
+  "lib/poi-5.5.1.jar": "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8",
+  "lib/log4j-api-2.24.3.jar": "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f",
+  "lib/commons-math3-3.6.1.jar.asc": "e0a9e72b481ea864abf7a20fec3003294f543167e531970df75a632cc3a08f33",
+  "lib/commons-codec-1.20.0.jar": "6af66595f9f6a7bb58ce66518d6888d40b547c366d2262f06676eee19528ff66",
+  "src/XlsReader.java": "b2eee4cfc4660fafa3a86ca7e97ee1cedfdf32f373773f9f56d0043e9954c056"
+}

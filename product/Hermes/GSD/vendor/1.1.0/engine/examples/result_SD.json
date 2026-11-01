@@ -1,0 +1,157 @@
+{
+  "profile": {
+    "requested": "eMVP",
+    "selected": "eMVP",
+    "required_floor": "eMVP",
+    "risk_incomplete": true,
+    "reasons": [
+      "Оценка риска неполна; самостоятельное действие не разрешено"
+    ],
+    "action_authority": "not_granted"
+  },
+  "protocol_version": "3.0",
+  "active_components": [
+    "D",
+    "S"
+  ],
+  "executed_components": [
+    "S",
+    "D"
+  ],
+  "outputs": {
+    "S": {
+      "id": "S.d941d7e8deb2e7a2",
+      "version": 2,
+      "component": "S",
+      "type": "ComparisonReview",
+      "protocol_version": "3.0",
+      "comparison_contract_version": "3.0.2",
+      "scope": "Учебная очередь",
+      "input_digest": "76a944f4805cb365506e7f30a5cde4635f79b01e04406091671f1941a163781c",
+      "rows": [
+        {
+          "candidate_id": "K1",
+          "candidate_version": 1,
+          "candidate_digest": "895b38f0b72ffbe72149f908097da38a01c82f64c0913454a2f7795f1e8991bc",
+          "support": [
+            "O1"
+          ],
+          "opposition": [],
+          "unknown": [],
+          "dependent": [],
+          "evidence_profile": "support_only",
+          "status": "compatible_prediction",
+          "claim_strength": "compatibility_in_explicit_prediction_model",
+          "P": "Соответствие явно заданных предсказаний доступным наблюдениям",
+          "T": {
+            "procedure": "Каноническое JSON-сравнение после проверки пригодности и роли регистрации",
+            "actual_result": "compatible_prediction"
+          },
+          "J": {
+            "V": "Сопоставляются объявленные величины; предметный смысл требует внешней проверки",
+            "A": "Значения сверены без неявного преобразования типов или единиц",
+            "R": "Детерминированный выбор представителя группы; независимость мира не утверждается"
+          },
+          "S": [
+            "synthetic/log1"
+          ],
+          "M": {
+            "modality": "conditional",
+            "status": "compatible_prediction",
+            "not_causal_truth": true
+          },
+          "C": "Учебная очередь"
+        },
+        {
+          "candidate_id": "K2",
+          "candidate_version": 1,
+          "candidate_digest": "de2c1707f1919706bd557f5a84fb173c2310a90b3ea679fe0db281c7280786db",
+          "support": [
+            "O1"
+          ],
+          "opposition": [],
+          "unknown": [],
+          "dependent": [],
+          "evidence_profile": "support_only",
+          "status": "compatible_prediction",
+          "claim_strength": "compatibility_in_explicit_prediction_model",
+          "P": "Соответствие явно заданных предсказаний доступным наблюдениям",
+          "T": {
+            "procedure": "Каноническое JSON-сравнение после проверки пригодности и роли регистрации",
+            "actual_result": "compatible_prediction"
+          },
+          "J": {
+            "V": "Сопоставляются объявленные величины; предметный смысл требует внешней проверки",
+            "A": "Значения сверены без неявного преобразования типов или единиц",
+            "R": "Детерминированный выбор представителя группы; независимость мира не утверждается"
+          },
+          "S": [
+            "synthetic/log1"
+          ],
+          "M": {
+            "modality": "conditional",
+            "status": "compatible_prediction",
+            "not_causal_truth": true
+          },
+          "C": "Учебная очередь"
+        }
+      ],
+      "residuals": {
+        "unsearched": "Новые объяснения не порождались строгой проверкой",
+        "unexplained": "Относится к последующему предметному сравнению",
+        "unknown": "Предметная истинность кандидатов не установлена генератором",
+        "risk": "Остаточная опасность оценивается отдельно от числа кандидатов"
+      },
+      "validation_boundary": "Проверено точное соответствие объявленной модели; истинность гипотезы и подлинность источников не установлены"
+    },
+    "D": {
+      "component": "D",
+      "type": "DiagnosticResult",
+      "status": "bounded_comparison",
+      "question": "Изменилось измерение или сам процесс?",
+      "scope": "Учебная очередь",
+      "compatible_in_model": [
+        "K1",
+        "K2"
+      ],
+      "contradicted_in_model": [],
+      "discriminators": [
+        {
+          "question_key": "raw",
+          "a": "K1",
+          "expected_a": "same",
+          "b": "K2",
+          "expected_b": "slow",
+          "kind": "measurement",
+          "prior_observation_ids": [],
+          "availability": "not_established",
+          "action": "Получить допустимое независимое наблюдение; не выдавать план за результат"
+        }
+      ],
+      "archived_candidates": [],
+      "identification": "not_established",
+      "orders": {
+        "plausibility": "Не вычисляется из суммы совпадений",
+        "miss_priority": [],
+        "test_priority": [
+          "raw"
+        ],
+        "action_preference": "Отдельный договор потерь и полномочий"
+      },
+      "review_ref": "S.d941d7e8deb2e7a2",
+      "residuals": {
+        "unsearched": "Не рассмотрены все возможные оси и механизмы",
+        "unexplained": "Относится к последующему предметному сравнению",
+        "unknown": "Предметная истинность кандидатов не установлена генератором",
+        "risk": "Остаточная опасность оценивается отдельно от числа кандидатов"
+      },
+      "action_authorized": false
+    }
+  },
+  "resource": {
+    "spent_local_units": 3,
+    "reserve_steps": 1,
+    "measure": "Число ограниченных локальных операций; не токены и не денежная стоимость"
+  },
+  "unmet_profile_obligations": []
+}

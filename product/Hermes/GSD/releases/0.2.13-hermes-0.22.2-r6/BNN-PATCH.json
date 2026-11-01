@@ -1,0 +1,14 @@
+{
+  "base_release": "0.2.13-hermes-0.22.2-r3",
+  "local_release": "0.2.13-hermes-0.22.2-r4",
+  "original_runtime_sha256": "1c066ce5ef1420659677221a6f0b2dd99f8643a64bd1dc324b7b74e7fd6b435b",
+  "patched_runtime_sha256": "1201d525bd55dc37d6cd3c6a744eb89179c1e2a4f03d6863ab6f7d6b20251f44",
+  "only_executable_change": {
+    "old": "request.get(\"observations\", []) if role == \"S\" or not handoffs else []",
+    "new": "request.get(\"observations\", []) if role == \"S\" or \"S\" not in native else []"
+  },
+  "canonical_engine_changed": false,
+  "supplier_SDK_changed": false,
+  "state_migration": false,
+  "budget_or_permission_change": false
+}

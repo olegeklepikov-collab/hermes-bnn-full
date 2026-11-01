@@ -1,0 +1,74 @@
+{
+  "profile": {
+    "requested": "eMVP",
+    "selected": "eMVP",
+    "required_floor": "eMVP",
+    "risk_incomplete": true,
+    "reasons": [
+      "Оценка риска неполна; самостоятельное действие не разрешено"
+    ],
+    "action_authority": "not_granted"
+  },
+  "protocol_version": "3.0",
+  "active_components": [
+    "S"
+  ],
+  "executed_components": [
+    "S"
+  ],
+  "outputs": {
+    "S": {
+      "component": "S",
+      "type": "FormalDerivation",
+      "scope": "Предъявленная формальная система; истинность посылок не утверждается",
+      "facts": [
+        {
+          "id": "P1",
+          "proposition": "A",
+          "source": "Искусственная посылка",
+          "conditional_on": [
+            "P1"
+          ]
+        },
+        {
+          "id": "DERIVED.1",
+          "proposition": "B",
+          "source": "Искусственное условное правило",
+          "conditional_on": [
+            "P1",
+            "R1"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "rule": "modus_ponens",
+          "premise": "P1",
+          "implication": "R1",
+          "output": {
+            "id": "DERIVED.1",
+            "proposition": "B",
+            "source": "Искусственное условное правило",
+            "conditional_on": [
+              "P1",
+              "R1"
+            ]
+          }
+        }
+      ],
+      "M": "Условный вывод в предъявленной системе; истинность посылок отдельно",
+      "residuals": {
+        "unsearched": "Не рассмотрены все возможные оси и механизмы",
+        "unexplained": "Относится к последующему предметному сравнению",
+        "unknown": "Предметная истинность кандидатов не установлена генератором",
+        "risk": "Остаточная опасность оценивается отдельно от числа кандидатов"
+      }
+    }
+  },
+  "resource": {
+    "spent_local_units": 2,
+    "reserve_steps": 1,
+    "measure": "Число локальных операций, не токены и не деньги"
+  },
+  "unmet_profile_obligations": []
+}

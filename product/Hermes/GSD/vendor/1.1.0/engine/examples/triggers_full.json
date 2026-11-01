@@ -1,0 +1,13 @@
+{
+  "claim_type_material": true,
+  "multilevel": true,
+  "history_material": true,
+  "complex_model": true,
+  "comparison_material": true,
+  "test_needed": true,
+  "action_requested": true,
+  "prior_action": true,
+  "high_stakes": true,
+  "source_application": true,
+  "runtime_event": true
+}

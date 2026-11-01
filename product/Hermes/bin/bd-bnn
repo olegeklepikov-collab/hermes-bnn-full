@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+TASK_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "$TASK_ROOT/environment.sh"
+source "$TASK_ROOT/Beads/environment.sh"
+exec "$TASK_ROOT/Dolt/runtime/bin/python" "$TASK_ROOT/Beads/scripts/cli-lock.py" "$@"

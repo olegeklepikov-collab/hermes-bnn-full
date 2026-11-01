@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+source "$(cd "$(dirname "$0")/.." && pwd)/environment.sh"
+exec "$HERMES_BN_R_EXECUTABLE" --vanilla "$@"
