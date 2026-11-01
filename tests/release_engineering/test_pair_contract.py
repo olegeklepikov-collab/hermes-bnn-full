@@ -1,5 +1,5 @@
 """The observed native install failure must be detected before packing gigabytes."""
-import hashlib
+import hashlib,json
 from pathlib import Path
 import sys,tempfile,unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'packaging'))
@@ -7,8 +7,9 @@ from pair_contract import verify_pair,verify_pins,verify_runtime_origin
 
 class PairContract(unittest.TestCase):
     def test_actual_source_wheel_and_native_pair(self):
-        value=verify_pair(Path(__file__).resolve().parents[2])
-        self.assertEqual(value['Memory'],'2.0.0-dev.46');self.assertEqual(value['Intake'],'0.14.5')
+        root=Path(__file__).resolve().parents[2];value=verify_pair(root)
+        lock=json.loads((root/'locks/product.lock.json').read_text())['components']
+        self.assertEqual(value['Memory'],lock['Memory']);self.assertEqual(value['Intake'],lock['Intake'])
     def test_changed_memory_pin_is_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d);(p/'manifest.json').write_bytes(b'new-manifest')

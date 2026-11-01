@@ -36,7 +36,7 @@ def release_body(summary):
 
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('directory',type=Path);p.add_argument('--repo',required=True);p.add_argument('--tag',required=True);p.add_argument('--target',required=True);a=p.parse_args();d=a.directory.resolve();r=m.verify_release(d)
+ p=argparse.ArgumentParser();p.add_argument('directory',type=Path);p.add_argument('--repo',required=True);p.add_argument('--tag',required=True);p.add_argument('--target',required=True);p.add_argument('--chunk-mib',type=int,choices=[64,128,256,512],default=512);a=p.parse_args();d=a.directory.resolve();r=m.verify_release(d)
  if r.get('owner_data_included') or r.get('credentials_included') or r.get('historical_patch_chain_required'):raise PermissionError('neutral_integrated_candidate_required')
  subprocess.run(['/usr/bin/ssh-keygen','-Y','verify','-f',str(m.ROOT/'trust/allowed_signers'),'-I','bnn-release','-n',m.NAMESPACE,'-s',str(d/'QUALIFICATION-SUMMARY.json.sig')],input=(d/'QUALIFICATION-SUMMARY.json').read_bytes(),check=True,capture_output=True)
  summary=m.read(d/'QUALIFICATION-SUMMARY.json')
@@ -67,7 +67,7 @@ def main():
  parts=[];work=Path(m.resources()['release_root'])/'.upload-work';work.mkdir(exist_ok=True)
  with (d/r['archive']['name']).open('rb') as stream:
   index=0
-  while data:=stream.read(512*1024*1024):
+  while data:=stream.read(a.chunk_mib*1024*1024):
    index+=1;name=r['archive']['name']+f'.part{index:03d}';h=hashlib.sha256(data).hexdigest();parts.append({'name':name,'bytes':len(data),'sha256':h})
    with tempfile.TemporaryDirectory(prefix='part-',dir=work) as temporary:
     path=Path(temporary)/name;path.write_bytes(data);upload(path)

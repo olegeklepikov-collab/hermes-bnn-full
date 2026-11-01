@@ -1,6 +1,7 @@
 {
   "canonical_repository": "olegeklepikov-collab/hermes-bnn-full-private",
-  "canonical_source_commit": "2cc35ed65652c94f34bec67b87aa7db01164dc5b",
+  "canonical_source_commit": "1b8c3640d1e1fd966153e9236b7d3b530e965f78",
+  "program_source_commit": "d56e90053987e7ded9b713e6c9b3d10784257144",
   "active_source": "product/",
   "exported_paths": [
     "AGENTS.md",
@@ -11,14 +12,17 @@
     "environments",
     "packaging",
     "tests/release_engineering",
+    "tests/operator_crypto",
     "trust",
     "bin",
     ".github/workflows",
     "docs/RELEASE_ENGINEERING_RU.md",
     "docs/RELEASE_ACCEPTANCE.json",
-    "docs/NATIVE_TASK_RESULTS.md"
+    "docs/NATIVE_TASK_RESULTS.md",
+    "docs/TEST_TELEGRAM_RU.md",
+    "docs/TELEGRAM_QUALIFICATION_RU.md"
   ],
-  "export_type": "neutral source only; private Git history and operator data not included",
+  "export_type": "neutral committed source only; no private Git history, keys or operator state",
   "historical_roots": [
     "source/",
     "bootstrap/",

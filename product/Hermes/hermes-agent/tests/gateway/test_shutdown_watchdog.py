@@ -168,6 +168,15 @@ async def test_loop_tick_witness_arms_over_tcp_on_windows(short_home, caplog):
 
 @pytest.mark.platforms("posix")
 @pytest.mark.asyncio
+async def test_loop_tick_witness_arms_for_long_profile_home(tmp_path):
+    long_home = tmp_path / ("profile-" * 24)
+    payload = await _run_heartbeat_until_payload(long_home)
+    assert payload["loop_tick_socket"] is True
+    assert 0 < int(payload["loop_tick_tcp_port"]) <= 65535
+
+
+@pytest.mark.platforms("posix")
+@pytest.mark.asyncio
 async def test_loop_tick_witness_arms_on_posix(short_home):
     payload = await _run_heartbeat_until_payload(short_home)
     assert payload["loop_tick_socket"] is True
