@@ -1,0 +1,62 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer"><title>Hermes BNN TEST: передача токена</title>
+<style>body{font:18px system-ui;max-width:760px;margin:32px auto;padding:20px;line-height:1.5}input,button{box-sizing:border-box;width:100%;font:inherit;padding:12px;margin:10px 0}small{overflow-wrap:anywhere}</style></head><body>
+<h1>Токен Telegram для BNN TEST</h1>
+<p>Шифрование выполняется на вашем устройстве. Страница не отправляет токен в сеть. В ней находится только открытый ключ: он шифрует токен, но не позволяет его расшифровать.</p>
+<p id="target"></p>
+<label>Полный токен из BotFather<input id="secret" type="password" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"></label>
+<button id="encrypt" type="button">Зашифровать</button>
+<p id="status" role="status"></p>
+<button id="copy" type="button" hidden>Скопировать зашифрованный блок</button>
+<textarea id="output" readonly hidden aria-label="Зашифрованный блок" rows="5"></textarea>
+<button id="download" type="button" hidden>Скачать зашифрованный файл</button>
+<p>Отправьте скопированный зашифрованный блок в рабочий чат Codex либо прикрепите файл <b>Hermes-BNN-TEST-Telegram.jwe</b>. Исходный токен сообщением не отправляйте.</p>
+<small id="fingerprint"></small>
+<script>
+const PUBLIC_KEY={"kty": "RSA", "n": "6_KPQHYLACI6-dHm0gpfjWOg7Ldbd3PEKs26LRF46o_5RfJhxUfaoF99YBKwsozWCIcGsKl3MQXbcNBfiOLQJ7hWWAMXQ5cnbZGwcbX2DMaskMZ2rBopgIbbSAVXej4w6O7tPjfkXvO36CtDUm6i26KbGuKIfPT1R2aM3hbAwZd9KQSPFoMiFv7mbyCKUyMwUaKA3gUbyVBzRv6n7SEtcFW7QA8xUQy7HI8JVESdN1eeQBol8HNiw9By67Fdgf8uuI5665zrGel4xh2NC_S3TNhRy7SlEpuDx9FVIAoUQotAoxHDKgGvury-UmW42MQ28HKfWF6Nsi8F9z5Ru2zM3zA9N1gykqlEAuDxGSAGzZfybWLsaQRovn4Lt0Glgq_JkF4ani9iUYI2EkYJksme8jyRisBclS2hG1pApbpYqVWgerPSYLK4TGq8oXtuyIVxYmqTJpZMuIqGdkYISzuNakTCw_F3WPrknVAqIsK38j9Qffue78xYWQLKADAmNkLN", "e": "AQAB", "alg": "RSA-OAEP-256", "ext": true};
+const BINDING={"bot_username": "hermesbnndevbot", "expires_at": "2026-11-02T17:27:58.963034+00:00", "instance_id": "3b0b6868-8b33-4641-81e1-39396bfcbdd3", "issued_at": "2026-11-01T17:27:58.963034+00:00", "kid": "OlFAJoXsTucv0SuGlCxy1XAAoVVJjwfUeqP3qWdZOTE", "purpose": "Hermes BNN TEST Telegram connection", "transfer_id": "8861f1fcd6afa9803294e22d86c58056", "target_binding_sha256": "2b04f89e4a08dae6a070d1d0d4470afc6183d861d7218fbeed518584abd20afb"};
+let encryptedFile='';
+const el=id=>document.getElementById(id);
+el('target').textContent='Бот: @'+BINDING.bot_username+'. Ввод доступен до '+new Date(BINDING.expires_at).toLocaleString()+'.';
+el('fingerprint').textContent='Получатель: '+BINDING.kid+'. Стандарт JWE: RSA-OAEP-256, A256GCM.';
+async function encryptSecret(value){
+ const enc=new TextEncoder();
+ const b64u=bytes=>btoa(String.fromCharCode(...new Uint8Array(bytes))).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'');
+ const header=b64u(enc.encode(JSON.stringify({alg:'RSA-OAEP-256',enc:'A256GCM',kid:BINDING.kid})));
+ const pub=await crypto.subtle.importKey('jwk',PUBLIC_KEY,{name:'RSA-OAEP',hash:'SHA-256'},false,['encrypt']);
+ const cek=await crypto.subtle.generateKey({name:'AES-GCM',length:256},true,['encrypt']);
+ const wrapped=await crypto.subtle.encrypt({name:'RSA-OAEP'},pub,await crypto.subtle.exportKey('raw',cek));
+ const iv=crypto.getRandomValues(new Uint8Array(12));
+ const message=enc.encode(JSON.stringify({binding:BINDING,token:value,created_at:new Date().toISOString()}));
+ const sealed=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv,additionalData:enc.encode(header),tagLength:128},cek,message));
+ return [header,b64u(wrapped),b64u(iv),b64u(sealed.slice(0,-16)),b64u(sealed.slice(-16))].join('.');
+}
+function download(){
+ const url=URL.createObjectURL(new Blob([encryptedFile],{type:'application/jose'}));
+ const a=document.createElement('a');a.href=url;a.download='Hermes-BNN-TEST-Telegram.jwe';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+el('download').onclick=download;
+el('copy').onclick=async()=>{
+ try{
+  await navigator.clipboard.writeText(encryptedFile);
+  el('status').textContent='Зашифрованный блок скопирован. Вставьте его сообщением в чат Codex.';
+ }catch(error){
+  el('output').hidden=false;el('output').focus();el('output').select();
+  el('status').textContent='Выделен зашифрованный блок. Скопируйте его вручную и вставьте в чат Codex.';
+ }
+};
+el('encrypt').onclick=async()=>{
+ el('encrypt').disabled=true;
+ try{
+  if(!crypto.subtle)throw Error('Сохраните HTML на устройство и откройте его в современном Chrome, Edge, Firefox или Safari.');
+  if(new Date()>new Date(BINDING.expires_at))throw Error('Срок формы истёк. Запросите новую в Codex.');
+  const value=el('secret').value.trim();
+  if(!/^\d+:[A-Za-z0-9_-]{30,}$/.test(value))throw Error('Вставьте полный токен бота из BotFather.');
+  encryptedFile=await encryptSecret(value);el('secret').value='';el('download').hidden=false;
+  el('copy').hidden=false;el('output').value=encryptedFile;
+  el('status').textContent='Зашифровано. Нажмите «Скопировать зашифрованный блок» и отправьте его в чат Codex. Можно вместо этого скачать файл.';
+ }catch(error){el('status').textContent='Не завершено: '+error.message;}
+ finally{el('encrypt').disabled=false;}
+};
+</script></body></html>
