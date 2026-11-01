@@ -5,6 +5,15 @@ from pathlib import Path
 import argparse,hashlib,importlib.util,json,os,subprocess,tarfile,unicodedata,datetime
 
 
+def register_qualification(registry,environment,entry):
+ result=dict(registry)
+ candidates=dict(result.get('_qualified_candidates',{}));candidates[environment]=entry
+ result['_qualified_candidates']=candidates
+ # Fresh qualification must not silently replace an existing persistent profile.
+ if environment not in result:result[environment]=entry
+ return result
+
+
 def main():
  a=argparse.ArgumentParser();a.add_argument('--source',type=Path,default=Path(__file__).resolve().parents[1]);a.add_argument('--release',type=Path,required=True);a.add_argument('--target',type=Path,required=True);a.add_argument('--environment',choices=['development','test'],required=True);a=a.parse_args()
  spec=importlib.util.spec_from_file_location('bnn_release',a.source/'packaging/release_cli.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -68,7 +77,8 @@ def main():
  m.write(a.target/'qualification.json',receipt)
  operator_state=m.ROOT.parent/'.operator/environments.json'
  registry=m.read(operator_state) if operator_state.exists() else {}
- registry[a.environment]={'installation':str(install),'home':str(home),'qualification':str(a.target/'qualification.json'),'build_id':release['build_id'],'instance_id':receipt['instance_id'],'native_initialized':True,'external_accounts_connected':False}
+ entry={'installation':str(install),'home':str(home),'qualification':str(a.target/'qualification.json'),'build_id':release['build_id'],'instance_id':receipt['instance_id'],'native_initialized':True,'external_accounts_connected':False}
+ registry=register_qualification(registry,a.environment,entry)
  m.write(operator_state,registry)
  print(json.dumps(receipt,ensure_ascii=False,indent=2),flush=True)
 

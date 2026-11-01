@@ -1,0 +1,15 @@
+{
+  "contract": "BNNSourcePromotionsV1",
+  "promotions": [
+    {
+      "path": "Intake/packages/manifest.json",
+      "previous_dependency_object": {
+        "bytes": 4258,
+        "mode": 420,
+        "sha256": "12513a0106671023f328c24962555608525cce25e4c3e3d7eee875e36c1ad13e",
+        "type": "file"
+      },
+      "reason": "Manifest for locally rebuilt versioned Intake distribution is now product source; wheel SHA and every member are verified before packaging."
+    }
+  ]
+}

@@ -137,6 +137,8 @@ def verify_dependencies(cache):
 
 def build(version):
     if not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+(?:-[a-z0-9.]+)?',version):raise ValueError('invalid_product_version')
+    from pair_contract import verify_pair
+    verify_pair(ROOT)
     commit=clean_commit();r=resources();lock=read(ROOT/'locks/product.lock.json');cache=Path(r['runtime_cache'])
     count=verify_dependencies(cache)
     build_id=version+'-g'+commit[:12];out=confined(Path(r['build_root'])/'candidates'/build_id,r['build_root'])

@@ -12,7 +12,7 @@
     "zotero": "__HERMES_ROOT__/state/services/zotero/data"
   },
   "state_root": "__HERMES_ROOT__/state/memory",
-  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.45",
+  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46",
   "python": "__HERMES_ROOT__/hermes-agent/venv/bin/python",
   "graph_python": "__HERMES_ROOT__/UDR/software/foundation-graph/bin/python",
   "zvec_python": "__HERMES_ROOT__/UDR/software/zvec/bin/python",
@@ -2663,7 +2663,8 @@
                 "plan",
                 "run",
                 "status",
-                "continue"
+                "continue",
+                "result"
               ]
             },
             "run_id": {
@@ -2928,6 +2929,15 @@
                   "arguments"
                 ]
               }
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "page_size": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 8192
             }
           },
           "required": [
@@ -2952,7 +2962,8 @@
                 "plan",
                 "run",
                 "status",
-                "continue"
+                "continue",
+                "result"
               ]
             },
             "request_id": {
@@ -3213,6 +3224,15 @@
                   "arguments"
                 ]
               }
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "page_size": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 8192
             }
           },
           "required": [
@@ -50373,11 +50393,11 @@
         "__HERMES_ROOT__/GSD/vendor/1.1.0/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/vendor/1.1.0/engine/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/state/w3-modules/gsd/operator/settings.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.45/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BN-COMPATIBILITY.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-PATCH.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-COMPUTE-PATCH.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.45/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-CORPUS-PATCH.json": "__GENERATED_SHA256__"
       }
     },
@@ -50684,7 +50704,7 @@
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/scripts/vision_model_worker.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/templates/telegram-dm-standalone.config.yaml": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/bundle-manifest.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.45/bn_memory/research_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46/bn_memory/research_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/Dolt/bin/dolt": "__GENERATED_SHA256__"
       },
       "state_root": "__HERMES_ROOT__/state/w3-modules/research/foundation",
@@ -52431,7 +52451,7 @@
     },
     {
       "name": "udr_team",
-      "description": "Первичные Beads-подзадачи и настоящие параллельные листовые исполнители; продолжение сохраняет прежний результат и ID задачи.",
+      "description": "Первичные Beads-подзадачи и настоящие параллельные листовые исполнители; продолжение сохраняет прежний результат и ID задачи. result читает сохранённый типизированный продукт: task_id, expected_revision, offset, page_size; читайте до has_more=false и сверяйте product_sha256. complete=true только когда один ответ содержит весь продукт; последний фрагмент обозначает page_reaches_end. Это не предметная приёмка.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -52441,7 +52461,8 @@
               "plan",
               "run",
               "status",
-              "continue"
+              "continue",
+              "result"
             ]
           },
           "run_id": {
@@ -52706,6 +52727,15 @@
                 "arguments"
               ]
             }
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8192
           }
         },
         "required": [
@@ -52716,7 +52746,7 @@
     },
     {
       "name": "work_team",
-      "description": "Обычная многоагентная работа Hermes по текущей задаче Beads; не создаёт исследование и не зависит от GSD/UDR/Foundation.",
+      "description": "Обычная многоагентная работа Hermes по текущей задаче Beads; не создаёт исследование и не зависит от GSD/UDR/Foundation. result читает сохранённый типизированный продукт: task_id, expected_revision, offset, page_size; читайте до has_more=false и сверяйте product_sha256. complete=true только когда один ответ содержит весь продукт; последний фрагмент обозначает page_reaches_end. Это не предметная приёмка.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -52726,7 +52756,8 @@
               "plan",
               "run",
               "status",
-              "continue"
+              "continue",
+              "result"
             ]
           },
           "request_id": {
@@ -52987,6 +53018,15 @@
                 "arguments"
               ]
             }
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8192
           }
         },
         "required": [
@@ -53198,7 +53238,7 @@
     },
     {
       "name": "udr_team",
-      "description": "Первичные Beads-подзадачи и настоящие параллельные листовые исполнители; продолжение сохраняет прежний результат и ID задачи.",
+      "description": "Первичные Beads-подзадачи и настоящие параллельные листовые исполнители; продолжение сохраняет прежний результат и ID задачи. result читает сохранённый типизированный продукт: task_id, expected_revision, offset, page_size; читайте до has_more=false и сверяйте product_sha256. complete=true только когда один ответ содержит весь продукт; последний фрагмент обозначает page_reaches_end. Это не предметная приёмка.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,
@@ -53208,7 +53248,8 @@
               "plan",
               "run",
               "status",
-              "continue"
+              "continue",
+              "result"
             ]
           },
           "run_id": {
@@ -53404,6 +53445,15 @@
                 "role"
               ]
             }
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8192
           }
         },
         "required": [

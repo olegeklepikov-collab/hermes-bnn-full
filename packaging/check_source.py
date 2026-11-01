@@ -3,6 +3,8 @@ from pathlib import Path
 import hashlib,json,subprocess,sys,tomllib
 R=Path(__file__).resolve().parents[1]
 lock=json.loads((R/'locks/product.lock.json').read_text())
+from pair_contract import verify_pair
+verify_pair(R)
 origin=json.loads((R/'locks/source-import.json').read_text())
 tracked=set(subprocess.run(['git','ls-files','-z'],cwd=R,capture_output=True,check=True).stdout.decode().split('\0'))
 missing=[n for n in origin['files'] if 'product/'+n not in tracked or not (R/'product'/n).is_file()]

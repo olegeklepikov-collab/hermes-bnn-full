@@ -1,6 +1,6 @@
 {
   "Hermes_source_commit": "d923a5eb487a17c0a68801bba9ef0f56c81040a8",
-  "memory": "2.0.0-dev.45",
+  "memory": "2.0.0-dev.46",
   "Identity": "0.2.1",
   "GSD_engine": "3.0.3",
   "Research": "0.44.0b2",
@@ -10,7 +10,7 @@
   "GSD_host_adapter": "0.2.13-hermes-0.22.2-r6",
   "local_source_derivative": true,
   "external_credentials_copied": false,
-  "Intake": "0.14.4",
+  "Intake": "0.14.5",
   "base_local_patch_list": [
     "agent/subagent_lifecycle.py",
     "hermes_cli/execution_control.py",
