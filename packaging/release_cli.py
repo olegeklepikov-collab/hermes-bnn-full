@@ -208,6 +208,10 @@ def admit(directory,evidence_files):
     from admission import evaluate
     release=verify_release(directory);r=resources();proofs=[]
     allowed=[Path(directory).resolve(),ROOT.resolve(),ROOT.parent/'.operator',Path(r['release_root']).resolve()]
+    for root in r.get('environment_roots',{}).values():
+        root=Path(root).resolve()
+        if root==Path(r['production_read_only_root']).resolve() or root.is_relative_to(Path(r['production_read_only_root']).resolve()):raise PermissionError('production_cannot_be_a_test_evidence_root')
+        allowed.append(root)
     for name in evidence_files:
         path=Path(name).resolve()
         subprocess.run(['/usr/bin/ssh-keygen','-Y','verify','-f',str(ROOT/'trust/allowed_signers'),'-I','bnn-release','-n',NAMESPACE,'-s',str(path)+'.sig'],input=path.read_bytes(),check=True,capture_output=True)
