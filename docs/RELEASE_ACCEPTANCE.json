@@ -24,6 +24,7 @@
     "No second physical Mac available; cross-machine qualification not claimed"
   ],
   "gate_contracts": {
-    "live_model_and_subagents": "Actual native model and child execution, settled usage and complete typed product delivery back to the owning parent through supported tools. Operator database access alone does not qualify."
+    "live_model_and_subagents": "Actual native model and child execution, settled usage and complete typed product delivery back to the owning parent through supported tools. Operator database access alone does not qualify.",
+    "five_required_controls": "Five controls registered and actually exercised by applicable positive/negative native cases; registration or blanket denial alone does not prove working execution."
   }
 }

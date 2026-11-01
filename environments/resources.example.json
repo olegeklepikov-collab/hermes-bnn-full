@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "development_root": "/ABSOLUTE/BNN-Platform/development",
+  "source": "/ABSOLUTE/BNN-Platform/development/source",
+  "build_root": "/ABSOLUTE/BNN-Platform/build",
+  "test_root": "/ABSOLUTE/BNN-Platform/test",
+  "release_root": "/ABSOLUTE/BNN-Platform/releases",
+  "runtime_cache": "/ABSOLUTE/Verified-Neutral-Release/Hermes-BNN-Full",
+  "production_read_only_root": "/ABSOLUTE/Hermes-BNN-Production",
+  "environment_roots": {
+    "development": "/ABSOLUTE/BNN-Platform/development/instances",
+    "test": "/ABSOLUTE/BNN-Platform/test/instances"
+  }
+}
