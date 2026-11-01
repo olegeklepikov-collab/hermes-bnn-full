@@ -357,17 +357,19 @@ async def loop_heartbeat_forever(
     interval = _coerce_float(interval_s, DEFAULT_HEARTBEAT_INTERVAL_S, floor=1.0)
     # Arm the witness, best-effort: a failed bind only disables it and the payload flag makes
     # probes classify UNKNOWN, never WEDGED (drain backstop stays). asyncio AF_UNIX is POSIX-only
-    # (ungated it raised AttributeError on native Windows), so non-POSIX binds TCP loopback and
-    # publishes ``loop_tick_tcp_port``.
+    # (ungated it raised AttributeError on native Windows). Reuse the TCP loopback witness
+    # for long POSIX homes too: sockaddr_un has a smaller limit than filesystem paths.
     tick_server = tick_socket_path = tick_tcp_port = None
     try:
         if os.name == "posix":
             tick_socket_path = get_loop_tick_socket_path(home)
+        if tick_socket_path is not None and len(os.fsencode(tick_socket_path)) < 100:
             tick_socket_path.parent.mkdir(parents=True, exist_ok=True)
             _sweep_stale_tick_sockets(tick_socket_path)
             tick_server = await asyncio.start_unix_server(_tick_socket_handler,
                                                           path=str(tick_socket_path))
         else:
+            tick_socket_path = None
             tick_server = await asyncio.start_server(_tick_socket_handler, host="127.0.0.1", port=0)
             for _s in tick_server.sockets or []:
                 with contextlib.suppress(Exception):

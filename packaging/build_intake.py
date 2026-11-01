@@ -31,6 +31,7 @@ def main():
     with zipfile.ZipFile(wheel) as archive:members={n:hashlib.sha256(archive.read(n)).hexdigest() for n in archive.namelist()}
     release.write(packages/'manifest.json',{'contract':'BNNIntakeDistributionV1','version':version,'wheel':wheel.name,'wheel_sha256':release.digest(wheel),'members_sha256':members,'build':{'backend':'setuptools.build_meta','SOURCE_DATE_EPOCH':epoch,'network_used':False,'two_builds_identical':len(wheels)==2,'pyproject_sha256':release.digest(base/'pyproject.toml')}})
     payload=release.read(base/'PACKAGE-MANIFEST.json');payload['version']=version;cache=Path(release.resources()['runtime_cache'])/'Intake'
+    payload['files']['packages/'+wheel.name]=release.digest(wheel)
     dependencies=release.read(root/'locks/runtime.objects.json')
     for name in payload['files']:
         source=base/name

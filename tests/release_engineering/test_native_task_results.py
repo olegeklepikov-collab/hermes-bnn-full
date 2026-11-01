@@ -7,7 +7,8 @@ import sys
 import unittest
 from types import SimpleNamespace
 
-PACKAGE=Path(__file__).resolve().parents[2]/'product/Hermes/Memory/releases/2.0.0-dev.46'
+ROOT=Path(__file__).resolve().parents[2]
+PACKAGE=ROOT/'product/Hermes/Memory/releases'/json.loads((ROOT/'locks/product.lock.json').read_text())['components']['Memory']
 sys.path.insert(0,str(PACKAGE))
 from bn_memory.teams import Team
 from bn_memory.store import canonical,sha

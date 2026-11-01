@@ -12,7 +12,7 @@
     "zotero": "__HERMES_ROOT__/state/services/zotero/data"
   },
   "state_root": "__HERMES_ROOT__/state/memory",
-  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46",
+  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47",
   "python": "__HERMES_ROOT__/hermes-agent/venv/bin/python",
   "graph_python": "__HERMES_ROOT__/UDR/software/foundation-graph/bin/python",
   "zvec_python": "__HERMES_ROOT__/UDR/software/zvec/bin/python",
@@ -50393,11 +50393,11 @@
         "__HERMES_ROOT__/GSD/vendor/1.1.0/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/vendor/1.1.0/engine/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/state/w3-modules/gsd/operator/settings.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BN-COMPATIBILITY.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-PATCH.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-COMPUTE-PATCH.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-CORPUS-PATCH.json": "__GENERATED_SHA256__"
       }
     },
@@ -50704,7 +50704,7 @@
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/scripts/vision_model_worker.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/templates/telegram-dm-standalone.config.yaml": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/bundle-manifest.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.46/bn_memory/research_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47/bn_memory/research_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/Dolt/bin/dolt": "__GENERATED_SHA256__"
       },
       "state_root": "__HERMES_ROOT__/state/w3-modules/research/foundation",

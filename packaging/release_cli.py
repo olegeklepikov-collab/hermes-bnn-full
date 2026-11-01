@@ -124,11 +124,31 @@ def committed_product_files():
     return [ROOT/n for n in git('ls-files','-z','product').split('\0') if n.startswith('product/')]
 
 
+def dependency_inventory(actual,expected,source,source_directories):
+    result={}
+    for name,value in actual.items():
+        if name in source or name=='BNN-PRODUCT.json':continue
+        # A newer neutral cache may contain directories introduced by owned source.
+        # Files inside them remain individually classified; permissions remain exact.
+        if name not in expected and name in source_directories:
+            if value!=source_directories[name] or value.get('type')!='directory' or value['mode']&0o7000:
+                raise PermissionError('owned_source_directory_changed:'+name)
+            continue
+        result[name]=value
+    return result
+
+
 def verify_dependencies(cache):
     expected={unicodedata.normalize('NFC',n):x for n,x in read(ROOT/'locks/runtime.objects.json').items()}
     source={unicodedata.normalize('NFC',n) for n in read(ROOT/'locks/source-import.json')['files']}
-    source.update(unicodedata.normalize('NFC',str(p.relative_to(ROOT/'product'))) for p in committed_product_files())
-    actual={n:x for n,x in inventory(cache).items() if n not in source and n!='BNN-PRODUCT.json'}
+    paths=committed_product_files()
+    source.update(unicodedata.normalize('NFC',str(p.relative_to(ROOT/'product'))) for p in paths)
+    directories={}
+    for p in paths:
+        for parent in p.parents:
+            if parent==ROOT/'product':break
+            directories[unicodedata.normalize('NFC',str(parent.relative_to(ROOT/'product')))]=object_entry(parent)
+    actual=dependency_inventory(inventory(cache),expected,source,directories)
     if actual!=expected:
         changed=sorted(n for n in actual.keys()|expected.keys() if actual.get(n)!=expected.get(n))
         raise PermissionError('locked_dependency_content_changed:'+repr(changed[:5]))
