@@ -95,6 +95,27 @@ class ReleaseEngineering(unittest.TestCase):
         archive=self.root/'real.tar.gz'
         with tarfile.open(archive,'w:gz') as t:t.add(source,arcname='Hermes-BNN-Full',filter=lambda i:m.normalized_tarinfo(i,123))
         out=m.unarchive(archive,self.root/'restored');self.assertEqual((out/'link').read_bytes(),(source/'a').read_bytes())
+    def bootstrap_module(self):
+        path=m.ROOT/'product/neutral_prepare.py'
+        spec=importlib.util.spec_from_file_location('bnn_bootstrap_settings',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        (self.root/'configuration').mkdir();(self.root/'configuration/memory.template.json').write_text(json.dumps({'namespace':{'owner_id':'__INSTANCE_ID__'},'profile_home':'__HERMES_ROOT__/data'}))
+        return module
+    def test_actual_bootstrap_test_endpoints(self):
+        module=self.bootstrap_module()
+        with patch.dict(os.environ,{'BNN_PORT_BASE':'65400'}):cfg=module.initial_settings(self.root,'synthetic-owner')
+        self.assertEqual(cfg['agentmemory_url'],'http://127.0.0.1:65400');self.assertEqual(cfg['neo4j_uri'],'bolt://127.0.0.1:65401');self.assertEqual(cfg['namespace']['owner_id'],'synthetic-owner')
+    def test_actual_bootstrap_development_endpoints(self):
+        module=self.bootstrap_module()
+        with patch.dict(os.environ,{'BNN_PORT_BASE':'65300'}):cfg=module.initial_settings(self.root,'synthetic-owner')
+        self.assertEqual(cfg['agentmemory_url'],'http://127.0.0.1:65300');self.assertEqual(cfg['neo4j_uri'],'bolt://127.0.0.1:65301')
+    def test_actual_bootstrap_invalid_port_rejected(self):
+        module=self.bootstrap_module()
+        with patch.dict(os.environ,{'BNN_PORT_BASE':'65500'}):
+            with self.assertRaises(ValueError):module.initial_settings(self.root,'synthetic-owner')
+    def test_actual_bootstrap_non_numeric_port_rejected(self):
+        module=self.bootstrap_module()
+        with patch.dict(os.environ,{'BNN_PORT_BASE':'bad'}):
+            with self.assertRaises(ValueError):module.initial_settings(self.root,'synthetic-owner')
     def test_signed_release_valid(self):
         self.signed_release()
         with patch.object(m,'ROOT',self.root):self.assertEqual(m.verify_release(self.root)['archive']['name'],'artifact.tar.gz')

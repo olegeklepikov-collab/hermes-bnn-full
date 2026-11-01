@@ -1,6 +1,6 @@
 {
   "canonical_repository": "olegeklepikov-collab/hermes-bnn-full-private",
-  "canonical_source_commit": "e0073b2130bbe02ec8936ea3160f27533b038b2f",
+  "canonical_source_commit": "74156c4b8dcd378f47f366a8a96ff6d82f93c526",
   "active_source": "product/",
   "exported_paths": [
     "AGENTS.md",

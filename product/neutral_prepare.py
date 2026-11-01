@@ -37,12 +37,23 @@ def verify_suppliers(bundle):
   rows.append({'component':folder,'archive_sha256':sha(base/name),'signature_valid':True,'source_files_verified':len(manifest['files'])})
  return rows
 
+
+def initial_settings(bundle,identity):
+ root=bundle/'Hermes'
+ cfg=convert(json.loads((bundle/'configuration/memory.template.json').read_text()),root,identity)
+ base=int(os.environ.get('BNN_PORT_BASE','65000'))
+ if not 1024<=base<=65499:raise ValueError('service_port_base_out_of_range')
+ cfg['service_port_base']=base
+ cfg['agentmemory_url']='http://127.0.0.1:'+str(base)
+ cfg['neo4j_uri']='bolt://127.0.0.1:'+str(base+1)
+ return cfg
+
 def initialize(bundle):
  root=bundle/'Hermes';marker=root/'state/bootstrap.json'
  suppliers=verify_suppliers(bundle)
  previous=json.loads(marker.read_text()) if marker.exists() else None
  if previous and previous['status']!='initializing':raise FileExistsError('Fresh initialization complete; do not overwrite owner state')
- cfg=convert(json.loads((bundle/'configuration/memory.template.json').read_text()),root,previous['instance_id'] if previous else str(uuid.uuid4()))
+ cfg=initial_settings(bundle,previous['instance_id'] if previous else str(uuid.uuid4()))
  identity=cfg['namespace']['owner_id'];pkg=Path(cfg['package_root'])
  origin=Path(json.loads((pkg/'compute-runtime.json').read_text())['runtime_root']).parents[2]
  cfg['path_relocations']=[{'from':str(origin),'to':str(root),'owner_id':identity}]
@@ -54,7 +65,7 @@ def initialize(bundle):
   if not p.exists():p.write_bytes(secrets.token_bytes(32));p.chmod(0o600)
  cfg['host_key']=str(root/'state/authority/memory-host.key')
  cfg['native_session_databases']=[str(root/'data/state.db')]
- cfg['agentmemory_url']='http://127.0.0.1:65000';cfg['neo4j_uri']='bolt://127.0.0.1:65001'
+ # Service endpoints were selected by initial_settings before any owner state was created.
  cfg['neo4j_password_file']=str(root/'private/neo4j.password');cfg['agentmemory_key_file']=str(root/'private/agentmemory.token')
  cfg['voyage_key_file']=str(root/'private/voyage.key');cfg['code_path']=os.pathsep.join([str(root/'R/serena-bin'),str(root/'UDR/software/bin'),'/usr/bin','/bin'])
  cfg['zotero_root']=str(root/'state/services/zotero')
