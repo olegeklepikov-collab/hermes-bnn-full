@@ -1,14 +1,14 @@
 {
   "build": {
-    "SOURCE_DATE_EPOCH": 1793557410,
+    "SOURCE_DATE_EPOCH": 1793569200,
     "backend": "setuptools.build_meta",
     "network_used": false,
-    "pyproject_sha256": "f83489367230f82d19cc9f12a27eec286efe9173c456dec5d0e1e3063e96e537",
+    "pyproject_sha256": "32477f340ddf9781ce09589c0c41bdae041f239406eb8ceb500a545093d372d6",
     "two_builds_identical": true
   },
   "contract": "BNNIntakeDistributionV1",
   "members_sha256": {
-    "bnn_intake/__init__.py": "396521748b63475319cbee274ee5d191ca96817e8bc9c67a2ad64126e692daa8",
+    "bnn_intake/__init__.py": "7e55733164a968b0018762fa17db2d5d6ae09ba65a5b051817c6c0b35ebca4cf",
     "bnn_intake/acceptance.py": "7e111f2a267c0f7bce28aac11574bb4b1d4b3c2ab2c230261fff0ebeb23018cc",
     "bnn_intake/activation.py": "a3c71bacd376fec0f5897d88bf0934e432413e74d67799c34eacfe7e3fe1d987",
     "bnn_intake/adapter.py": "4df082e9699479859473c9f2dbb9efe59af8cae8c01030d05b781e5870696bdb",
@@ -21,7 +21,7 @@
     "bnn_intake/context.py": "f4b4c07d09a511c2bf28a7d506084effa2c357dcab0eeaa4e1d73635ba8b9924",
     "bnn_intake/contracts.py": "2e49ab42338cbe253c204c2d10058b208c3fdef8bc32982f79efa093ee71e57a",
     "bnn_intake/data/framework-catalogue.json": "f1021dbe6750ed80c925b5c3ced5178a9e518753d16f11b0150131bf5d24b9cc",
-    "bnn_intake/data/native-compatibility.json": "6a9187c96a30dfbd2aabe6792c94d233aa2bd0056576b82a9be2c4402bbaea61",
+    "bnn_intake/data/native-compatibility.json": "d169f2227641898dd18822f48a3b44e266769813b3a278ab2c9ec7817f211387",
     "bnn_intake/delegation.py": "e8343748dbf1443f625faf831d2e879013b7ad741b564c232a16a695b05f843f",
     "bnn_intake/deployment.py": "39ed258038ebe09ef1fcee3e3314cd03702819dc396713fb786cad5fc3f59411",
     "bnn_intake/documents.py": "451b3a836e02e755ae5ffabd45390519b537a0c686d5c27bdb2b152bf356457c",
@@ -41,12 +41,12 @@
     "bnn_intake/research_basis.py": "e8d8ae856d87dc9df9c650fb851b65ad33dc000d2f29592ccd0cde26f7b6724e",
     "bnn_intake/storage.py": "a1d1f03117838dc107bc1927cfe22e6d0e688450c4b20120dd67c5ce45250788",
     "bnn_intake/visuals.py": "cc813c6831fc4423be225d3a21777c7da9e7a68b725f71a4eb22897fa2f56b65",
-    "hermes_bnn_intake-0.14.6.dist-info/METADATA": "d0a001b3ae604c02557537eab83f744128713ef467c033f15de39d6a3c169adf",
-    "hermes_bnn_intake-0.14.6.dist-info/RECORD": "b09bd8f9ede74523ac39aea2f0e3809ce6b6920aa30b634c02ccad6fd94b7687",
-    "hermes_bnn_intake-0.14.6.dist-info/WHEEL": "2b6eb4118ce7cd7b09601406aa623c553c4476265836f0d9c16f5c061f7efcc0",
-    "hermes_bnn_intake-0.14.6.dist-info/top_level.txt": "b7139d41c3101710ee16c21601e7dc6351777504936f3f4df49809c988783a54"
+    "hermes_bnn_intake-0.14.7.dist-info/METADATA": "6081270a0a3063b8b26f5cd746c02fc674a6efbf5ae4e096df3c6ca81e51e518",
+    "hermes_bnn_intake-0.14.7.dist-info/RECORD": "cbf3a62fcad1a3c86a3c66332af14cdd5f74499e4555bc1eb206877186c51af2",
+    "hermes_bnn_intake-0.14.7.dist-info/WHEEL": "2b6eb4118ce7cd7b09601406aa623c553c4476265836f0d9c16f5c061f7efcc0",
+    "hermes_bnn_intake-0.14.7.dist-info/top_level.txt": "b7139d41c3101710ee16c21601e7dc6351777504936f3f4df49809c988783a54"
   },
-  "version": "0.14.6",
-  "wheel": "hermes_bnn_intake-0.14.6-py3-none-any.whl",
-  "wheel_sha256": "3afa220925de6e29eab2b43c9b06a8bfa3ee571d53bd2f241cf6dc3953d79e40"
+  "version": "0.14.7",
+  "wheel": "hermes_bnn_intake-0.14.7-py3-none-any.whl",
+  "wheel_sha256": "1ec0feb83bfdbe4687dc3451eec6a2e8c26baaef2d519540a8b58739e10e9d1d"
 }

@@ -1,6 +1,14 @@
 """Verify the exact Memory/Intake/core/wheel composition before a full build."""
 from pathlib import Path
-import hashlib,json,zipfile
+import ast,hashlib,json,zipfile
+
+def verify_version(memory, expected):
+    tree=ast.parse((Path(memory)/'bn_memory/__init__.py').read_text())
+    versions=[ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign)
+              and any(isinstance(t,ast.Name) and t.id=='__version__' for t in n.targets)]
+    declared=json.loads((Path(memory)/'release.json').read_text())['version']
+    if versions != [expected] or declared != expected or Path(memory).name != expected:
+        raise PermissionError('memory_runtime_version_mismatch')
 
 def digest(path):
     with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
@@ -31,6 +39,7 @@ def verify_pair(root):
         raise PermissionError('active_memory_template_version_mismatch')
     verify_pins(product/'Hermes/Memory/releases'/contract['memory_version'],product/'Hermes/hermes-agent',contract)
     memory=product/'Hermes/Memory/releases'/contract['memory_version']
+    verify_version(memory,contract['memory_version'])
     verify_pins(memory,memory,{'memory_files':json.loads((memory/'manifest.json').read_text()),'core_files':{}})
     verify_runtime_origin(json.loads((memory/'compute-runtime.json').read_text()),json.loads((memory/'parser-runtime.json').read_text()))
     distribution=json.loads((intake/'packages/manifest.json').read_text())

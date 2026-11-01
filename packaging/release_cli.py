@@ -253,11 +253,13 @@ def admit(directory,evidence_files):
 
 
 def status():
-    r=resources();result={'source_commit':git('rev-parse','HEAD'),'source_clean':not bool(git('status','--porcelain')),'resources':{k:v for k,v in r.items() if k!='runtime_cache'},'production_writes_implemented':False,'candidates':[],'qualifications':[]}
+    r=resources();result={'source_commit':git('rev-parse','HEAD'),'source_clean':not bool(git('status','--porcelain')),'resources':{k:v for k,v in r.items() if k!='runtime_cache'},'production_writes_implemented':True,'production_upgrade_entry':'packaging/upgrade_existing.py','automatic_production_promotion':False,'candidates':[],'qualifications':[]}
     registry=ROOT.parent/'.operator/environments.json'
     result['native_environments']=read(registry) if registry.exists() else {}
     prod=Path(r['production_read_only_root'])
-    result['production']={'root':str(prod),'layout':'legacy_not_migrated' if not (prod/'BNN-PRODUCT.json').exists() else 'versioned','write_authority':False}
+    authority=read(r['production_authority_file']) if r.get('production_authority_file') else {}
+    receipt=ROOT.parent/'.operator/production.json'
+    result['production']={'root':str(prod),'layout':'retained_existing_profile','write_authority':authority.get('operation')=='upgrade_existing' and authority.get('authorized_root')==str(prod),'installed':read(receipt) if receipt.exists() else None}
     p=Path(r['build_root'])/'candidates'
     for d in sorted(p.glob('*/RELEASE.json')) if p.exists() else []:result['candidates'].append({'build_id':read(d)['build_id'],'manifest':str(d)})
     for d in sorted(Path(r['test_root']).glob('*/qualification.json')):result['qualifications'].append({'path':str(d),'complete':read(d)['complete'],'production_promotable':read(d)['production_promotable']})
