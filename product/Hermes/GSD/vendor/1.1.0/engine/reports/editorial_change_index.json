@@ -1,0 +1,78 @@
+{
+  "editorial_release": "3.0.1",
+  "scope": "Фактическое сопоставление изменённых канонических файлов; производные сборки пересозданы отдельно",
+  "files": [
+    {
+      "path": "COMMON.md",
+      "before_sha256": "4ccea4ec9e2b7d8e4a51b85211d5cbb4c1b59ef37916692b4418f1d9a08de806",
+      "after_sha256": "625850d00b18e019dc8a2ca64de33e65d62b7e1f9ae42c1060c0aad08a41d808",
+      "changed_hunks": 12
+    },
+    {
+      "path": "components/G_SYSTEM.md",
+      "before_sha256": "9807b612dab9d5f7b241cae090ed154123b2fc9f9c50fd0fec94d59ba9482203",
+      "after_sha256": "ea61c9fa4337debce3331dda6184795d2aedcec3ab7f80691764ff7b23dc3974",
+      "changed_hunks": 6
+    },
+    {
+      "path": "components/S_SYSTEM.md",
+      "before_sha256": "90b67a7873893702c418039161b2bd56c65a5c4aebe92b9c7f34d52607194bc2",
+      "after_sha256": "5a8342a54507196e09fd9ed5e5693bb0ef8004a7bd6a3a828782d528bd7d20f8",
+      "changed_hunks": 5
+    },
+    {
+      "path": "components/D_SYSTEM.md",
+      "before_sha256": "a943856e18b62dcdcc003445cb290cecb4b0820fbef3214779885c3385a32414",
+      "after_sha256": "d7af7947917128e50928bc6f82eb743a118216e127d5acdf495216e26f488988",
+      "changed_hunks": 5
+    },
+    {
+      "path": "README.md",
+      "before_sha256": "769c2d1b000ae093f3bde5e2bd4a9842b7a93a69392df9e6763e5bef8c6ccd46",
+      "after_sha256": "188374c210927f6730905fc3f69c6583c2baccfc83a0a96c29390c22c7b92125",
+      "changed_hunks": 6
+    },
+    {
+      "path": "CHANGES_AND_ACCEPTANCE.md",
+      "before_sha256": "cf974670a57924274b79a7cead5551f27d5d07cf944033ed8c78b956d7b4691f",
+      "after_sha256": "402c4ef169f5a0cd6ecb043b3ff41bec8dfc3821efe876fcd6bb4867419b905c",
+      "changed_hunks": 3
+    },
+    {
+      "path": "WORKED_EXAMPLE.md",
+      "before_sha256": "f9d44230f8f7073e315eb0ef64aca807ded45bdf9d56a085cd6778a0f88844ed",
+      "after_sha256": "0949447526b9f33bf175fd78d4b5104e6e4a171800f2ef8d8d35b3654cc589a5",
+      "changed_hunks": 1
+    },
+    {
+      "path": "data/procedures.json",
+      "before_sha256": "cc6010aba789f9ed5f799f173089247d14b4b262f99e4f8bdbcd774b30d63c66",
+      "after_sha256": "58120ef92c57b44362e2ab69ba9ecd144efabcab69141d661913919e23acc47f",
+      "changed_hunks": 179
+    },
+    {
+      "path": "data/component_contracts.json",
+      "before_sha256": "7a157ab65e50a5782857c500b63c61ce0433a771e72f0931fe36121a37fce2bc",
+      "after_sha256": "f2dcb69ad22910c6e7e38ce90c3e81e7e801a3cd0c81d6991a8f9c73234e74fd",
+      "changed_hunks": 37
+    },
+    {
+      "path": "data/semantic_leaves.json",
+      "before_sha256": "f11031f576008b99288fa4f403bd0d5b2027ba6678e824811f4645296762d0b5",
+      "after_sha256": "2948297e8d6a5d85a83a5b4cb122085f7d181d7c7326bec815b2a1c42d64e007",
+      "changed_hunks": 3
+    },
+    {
+      "path": "tools/_base.py",
+      "before_sha256": "5659f87d0970db577f6acb9de42631edc9ec032770bcc01b60f9e05e5f32c458",
+      "after_sha256": "0e7ab3d58b7050345a750e969c843a1b3426f8aaa1992a79d3358b5f393eb82e",
+      "changed_hunks": 1
+    },
+    {
+      "path": "tools/assemble_instructions.py",
+      "before_sha256": "1f8a276187c001b25094617e6859cc6cd030fbedca34b5737ce5ebede054608d",
+      "after_sha256": "860bbd5554794d0d8a4c097ce55750ed22945852600d7c707b89ad3863570b23",
+      "changed_hunks": 1
+    }
+  ]
+}

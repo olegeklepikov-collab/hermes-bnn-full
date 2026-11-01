@@ -1,0 +1,13 @@
+{
+  "claim_type_material": false,
+  "multilevel": false,
+  "history_material": false,
+  "complex_model": false,
+  "comparison_material": false,
+  "test_needed": false,
+  "action_requested": false,
+  "prior_action": false,
+  "high_stakes": false,
+  "source_application": false,
+  "runtime_event": false
+}

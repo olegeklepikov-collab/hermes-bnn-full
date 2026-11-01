@@ -1,0 +1,234 @@
+{
+  "version": "3.0",
+  "data_kind": "synthetic",
+  "cases": [
+    {
+      "id": "measurement_only",
+      "input_digest": "c5202e655e049bdcae37fb41bd7fabd33b1a9e7cd7bdc1b346f9fd7b0e4c5cc9",
+      "expected_set": [
+        "K1"
+      ],
+      "measurements": {
+        "first_candidate": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 501,
+          "declared_local_units": null
+        },
+        "simple_program": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 6760,
+          "declared_local_units": 4
+        },
+        "GSD": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 737772662,
+          "declared_local_units": 7
+        }
+      }
+    },
+    {
+      "id": "process_only",
+      "input_digest": "2451956566a992f64b6107b399d24c3f30544f53ff6e723e23e1c85d969430a6",
+      "expected_set": [
+        "K2"
+      ],
+      "measurements": {
+        "first_candidate": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": false,
+          "elapsed_ns": 932,
+          "declared_local_units": null
+        },
+        "simple_program": {
+          "compatible_set": [
+            "K2"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 6640,
+          "declared_local_units": 4
+        },
+        "GSD": {
+          "compatible_set": [
+            "K2"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 7606693,
+          "declared_local_units": 7
+        }
+      }
+    },
+    {
+      "id": "missing_raw",
+      "input_digest": "7ac5e6dff619d487ce0d1f89de711bde7aa4c76116dc40cf75c1bb423dc6657e",
+      "expected_set": [
+        "K1",
+        "K2"
+      ],
+      "measurements": {
+        "first_candidate": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": false,
+          "elapsed_ns": 812,
+          "declared_local_units": null
+        },
+        "simple_program": {
+          "compatible_set": [
+            "K1",
+            "K2"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 4787,
+          "declared_local_units": 4
+        },
+        "GSD": {
+          "compatible_set": [
+            "K1",
+            "K2"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 8064416,
+          "declared_local_units": 7
+        }
+      }
+    },
+    {
+      "id": "no_raw",
+      "input_digest": "99d85e8a130d27fef40958d2b290349aea33f8097561882530fe8c236fb18308",
+      "expected_set": [
+        "K1",
+        "K2"
+      ],
+      "measurements": {
+        "first_candidate": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": false,
+          "elapsed_ns": 681,
+          "declared_local_units": null
+        },
+        "simple_program": {
+          "compatible_set": [
+            "K1",
+            "K2"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 3435,
+          "declared_local_units": 2
+        },
+        "GSD": {
+          "compatible_set": [
+            "K1",
+            "K2"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 7891883,
+          "declared_local_units": 5
+        }
+      }
+    },
+    {
+      "id": "conflicting_raw",
+      "input_digest": "7f8837e6f70f610001eb7904c57203c553ea5b54c351dbfeff3856975c9a47b7",
+      "expected_set": [],
+      "measurements": {
+        "first_candidate": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": false,
+          "elapsed_ns": 782,
+          "declared_local_units": null
+        },
+        "simple_program": {
+          "compatible_set": [],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 5758,
+          "declared_local_units": 6
+        },
+        "GSD": {
+          "compatible_set": [],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 7589919,
+          "declared_local_units": 9
+        }
+      }
+    },
+    {
+      "id": "dependent_copy",
+      "input_digest": "b9383343d4dba27e6b0143b4bda677682b68d3b3b2bfa9ce68248bea39883e39",
+      "expected_set": [
+        "K1"
+      ],
+      "measurements": {
+        "first_candidate": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 771,
+          "declared_local_units": null
+        },
+        "simple_program": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 5759,
+          "declared_local_units": 6
+        },
+        "GSD": {
+          "compatible_set": [
+            "K1"
+          ],
+          "matches_predeclared_oracle": true,
+          "elapsed_ns": 7651849,
+          "declared_local_units": 9
+        }
+      }
+    }
+  ],
+  "methods": {
+    "first_candidate": {
+      "correct_sets": 2,
+      "case_count": 6,
+      "total_elapsed_ns": 4479
+    },
+    "simple_program": {
+      "correct_sets": 6,
+      "case_count": 6,
+      "total_elapsed_ns": 33139
+    },
+    "GSD": {
+      "correct_sets": 6,
+      "case_count": 6,
+      "total_elapsed_ns": 776577422
+    }
+  },
+  "repetitions": 1,
+  "interpretation": "Простая предметная программа и GSD сравниваются по одному конечному оракулу. Равная правильность не доказывает равенство трассировки, ограничений и восстановления; больший контроль не доказывает экономической выгоды.",
+  "limits": [
+    "Нет свободной генерации LLM",
+    "Нет клинических или производственных данных",
+    "Время одного локального прогона без доверительного интервала",
+    "Калибровка не применима: вероятности не вычисляются",
+    "Внешние вмешательства не выполнялись; их вред/полезность не измерены"
+  ],
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  }
+}

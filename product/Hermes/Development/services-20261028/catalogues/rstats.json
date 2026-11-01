@@ -1,0 +1,532 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "btw_tool_cran_search",
+      "title": "Searching CRAN packages",
+      "description": "Search for an R package on CRAN.\n\n## Search Behavior\n- Prioritizes exact phrase matches over individual words\n- Falls back to word matching only when phrase matching fails\n\n## Query Strategy\n- Submit separate searches for distinct concepts (e.g., `flights`, `airlines`)\n- Break multi-concept queries (e.g., `flights airlines data API`) into multiple searches and synthesize results\n- Search for single, specific technical terms that package authors would use\n- If the search result includes more than a 1000 results, refine your query and try again.\n\n## Examples\nGood: Search for `\"permutation test\"` or just `\"permutation\"`\nBad: Search for `\"statistical analysis tools for permutation test\"`\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query, e.g. \"network visualization\", \"literate programming\". The search uses stemming to find related terms and weights phrases higher than individual terms."
+          },
+          "format": {
+            "type": "string",
+            "description": "The format of the search results, either \"long\" or \"short\". Default is 'short' for discovery with a higher number of results. Switch to \"long\" to gather more details about each package."
+          },
+          "n_results": {
+            "type": "number",
+            "description": "The number of search results to include, defaults to 20 for 'short' format and 5 for 'long' format. Limited to 10 results for the 'long' format or 50 results for 'short' format."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "query",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Searching CRAN packages",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_cran_package",
+      "title": "Fetching package info",
+      "description": "Describe a CRAN package. Shows the title, description, dependencies and author information for a package on CRAN, regardless of whether the package is installed or not.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string",
+            "description": "The name of a package on CRAN. The package does not need to be installed locally."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "package_name",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Fetching package info",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_docs_package_news",
+      "title": "Reading release notes",
+      "description": "Read the release notes (NEWS) for a package.\n\nUse this tool when you need to learn what changed in a package release, i.e. when code no longer works after a package update, or when the user asks to learn about new features.\n\nIf no search term is provided, the release notes for the current installed version are returned. If a search term is provided, the tool returns relevant entries in the NEWS file matching the search term from the most recent 5 versions of the package where the term is matched.\n\nUse a search term to learn about recent changes to a function, feature or argument over the last few package releases. For example, if a user recently updated a package and asks why a function no longer works, you can use this tool to find out what changed in the package release notes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string",
+            "description": "The name of the package."
+          },
+          "search_term": {
+            "type": "string",
+            "description": "A regular expression to use to search the NEWS entries. Use simple regular expressions (perl style is supported). The search term is case-insensitive. If empty, the tool returns the release notes for the current installed version."
+          },
+          "version": {
+            "type": "string",
+            "description": "A specific installed package version whose NEWS entries to return. When omitted, the current installed version is used."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "package_name",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Reading release notes",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_docs_package_help_topics",
+      "title": "Listing help topics",
+      "description": "Get available help topics for an R package.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string",
+            "description": "The exact name of the package, e.g. \"shiny\"."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "package_name",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Listing help topics",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_docs_help_page",
+      "title": "Reading help page",
+      "description": "Get help page from package.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string",
+            "description": "The exact name of the package, e.g. 'shiny'. Can be an empty string to search for a help topic across all packages."
+          },
+          "topic": {
+            "type": "string",
+            "description": "The topic_id or alias of the help page, e.g. 'withProgress' or 'incProgress'."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "package_name",
+          "topic",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Reading help page",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_docs_available_vignettes",
+      "title": "Listing vignettes",
+      "description": "List available vignettes for an R package. Vignettes are articles describing key concepts or features of an R package. Returns the listing as a JSON array of `vignette` and `title`. To read a vignette, use `btw_tool_docs_vignette(package_name, vignette)`.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string",
+            "description": "The exact name of the package, e.g. 'shiny'."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "package_name",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Listing vignettes",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_docs_vignette",
+      "title": "Reading vignette",
+      "description": "Get a package vignette in plain text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string",
+            "description": "The exact name of the package, e.g. 'shiny'."
+          },
+          "vignette": {
+            "type": "string",
+            "description": "The name or index of the vignette to retrieve. This is optional; if you\n      do not provide a value, the function retrieves the introductory vignette\n      for the package."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "package_name",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Reading vignette",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_env_describe_data_frame",
+      "title": "Describing data frame",
+      "description": "Show the data frame or table or get information about the structure of a data frame or table.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "data_frame": {
+            "type": "string",
+            "description": "The name of the data frame."
+          },
+          "package": {
+            "type": "string",
+            "description": "The package that provides the data set. If not provided, `data_frame` must be loaded in the current environment."
+          },
+          "format": {
+            "type": "string",
+            "description": "The output format of the data frame: 'skim' or 'json'. 'skim' is the most information-dense and is the default.\n\n* skim: Returns a JSON object with information about every column in the table.\n* json: Returns the data frame as JSON",
+            "enum": [
+              "skim",
+              "json"
+            ]
+          },
+          "max_rows": {
+            "type": "integer",
+            "description": "The maximum number of rows to show in the data frame. Defaults to 5. Only applies when `format=\"json\"`."
+          },
+          "max_cols": {
+            "type": "integer",
+            "description": "The maximum number of columns to show in the data frame. Defaults to 100. Only applies when `format=\"json\"`."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "data_frame",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Describing data frame",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_env_describe_environment",
+      "title": "Describing environment",
+      "description": "List and describe items in the R session's global environment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "The names of items to describe from the environment. Defaults to `NULL`, indicating all items.",
+            "items": {
+              "type": "string",
+              "description": ""
+            }
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Describing environment",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_run_r",
+      "title": "Running R code",
+      "description": "Run R code.\n\nExecutes R code and captures printed values, text output, plots, messages, warnings, and errors.\n\n## CORE RULES (FOLLOW STRICTLY)\n- MUST work incrementally: each call should do one small, well-defined task\n- MUST create no more than one rendered figure per tool call. Use separate calls for multiple figures.\n- MUST NOT use this tool to \"talk to the user\". Explanations and interpretation belong in the assistant message\n- MUST read any error messages carefully\n- MUST NOT make more than 2 attempts to fix an error\n    - After 2 failed attempts: stop, summarize what you tried, include the error(s), and propose the next change without executing it.\n\n## SAFETY REQUIREMENTS (MUST FOLLOW)\n- This code runs in a global environment. Write code that is safe, reversible, and non-destructive\n- MUST NOT perform any of the following UNLESS the user explicitly requests it and you first show the code and target paths/URLs:\n    - File writes or modifications (persistent output, overwriting, deleting)\n    - System/shell execution (system, system2, pipe, shell)\n    - Network requests\n    - Package installation or updates\n- SHOULD NOT change global state (options, environment variables, working directory, etc.)\n    - Working directory, options and environment variables are reset between tool calls\n- MUST use temporary files for any ephemeral storage needs (`tempfile()`)\n\n## CODE AND OUTPUT STYLE\n- ALWAYS write clear, concise, and idiomatic R code, preferring packages and functions from the tidyverse ecosystem when available\n- PREFER less than 50 lines of code per tool call\n- SHOULD use code comments to explain only the non-obvious parts of the code\n    - AVOID using comments to literally describe the code\n- DO return results implicitly (`x`, not `print(x)`)\n- DO make the last expression the object you want to show (e.g. a data frame, tibble, list or scalar)\n- AVOID `print()` and `cat()` unless necessary. If `cat()` is unavoidable, you MUST use a SINGLE `cat()` call and keep it concise\n- PREFER returning structured objects (tibbles, data frames, lists) and brief summaries (`head()`, `str()`, `summary()`)\n- AVOID extremely large outputs; show summaries and return key results\n      \n\nHermes BN: local R on AgentRuntime2. This process retains R objects between calls; other client processes have separate sessions. Each evaluation has a best-effort 240-second R time limit. Captured R errors set MCP isError=true. The work directory is R/projects/default; files for another project must use explicit paths.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The R code to run"
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "code",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Running R code",
+        "readOnlyHint": false,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_sessioninfo_is_package_installed",
+      "title": "Checking installed packages",
+      "description": "Check if a package is installed in the current session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string",
+            "description": "The exact name of the package."
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "package_name",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Checking installed packages",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_sessioninfo_platform",
+      "title": "Collecting platform info",
+      "description": "Describes the R version, operating system, language and locale settings for the user's system.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Collecting platform info",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "btw_tool_sessioninfo_package",
+      "title": "Listing installed packages",
+      "description": "Verify that a specific package is installed, or find out which packages are in use in the current session. As a last resort, this function can also list all installed packages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "packages": {
+            "type": "array",
+            "description": "Provide an array of package names to check that these packages are installed and to confirm which versions of the packages are available. Use the single string \"attached\" to show packages that have been attached by the user, i.e. are explicitly in use in the session. Use the single string \"loaded\" to show all packages, including implicitly loaded packages, that are in use in the session (useful for debugging). Finally, the string \"installed\" lists all installed packages. Try using the other available options prior to listing all installed packages.",
+            "items": {
+              "type": "string",
+              "description": ""
+            }
+          },
+          "dependencies": {
+            "type": "array",
+            "description": "The dependencies to include when listing package information. You can use `dependencies = \"true\"` to list all dependencies of the package. Alternatively, you can request an array of dependency types.",
+            "items": {
+              "type": "string",
+              "description": "",
+              "enum": [
+                "true",
+                "false",
+                "Depends",
+                "Imports",
+                "Suggests",
+                "LinkingTo",
+                "Enhances"
+              ]
+            }
+          },
+          "_intent": {
+            "type": "string",
+            "description": "The intent of the tool call that describes why you called this tool. This should be a single, short phrase that explains this tool call to the user."
+          }
+        },
+        "required": [
+          "packages",
+          "_intent"
+        ],
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Listing installed packages",
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": null,
+        "openWorldHint": false
+      },
+      "_meta": null
+    }
+  ],
+  "instructions": "This provides information about a running R session.",
+  "serverInfo": {
+    "name": "Hermes BN R",
+    "title": null,
+    "version": "1.0.3-hermesbn.1",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": null,
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

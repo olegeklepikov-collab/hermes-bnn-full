@@ -1,0 +1,602 @@
+{
+  "created_at": "2026-09-23T10:25:01.229414+00:00",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "tests_run": 117,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "seconds": 29.946,
+  "model_calls": 0,
+  "real_hermes": false,
+  "real_ide": false,
+  "telegram_e2e": false,
+  "scope": "Локальные договоры, исходные конечные вычисления, отдельные процессы CLI/MCP и подставной PluginContext. Не содержательная приёмка модели.",
+  "tests": [
+    {
+      "id": "test_bridge.BridgeTests.test_all_seven_modes_actual_outputs",
+      "passed": true,
+      "seconds": 0.8219
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_action_use_not_created",
+      "passed": true,
+      "seconds": 0.0097
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_actual_boot_artifact_and_commit",
+      "passed": true,
+      "seconds": 0.1593
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_agent_cannot_raise_budget",
+      "passed": true,
+      "seconds": 0.1693
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_creation_duplicate",
+      "passed": true,
+      "seconds": 0.0319
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_forged_commit_rejected",
+      "passed": true,
+      "seconds": 0.051
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_isolated_state_has_no_record",
+      "passed": true,
+      "seconds": 0.0433
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_next_advances_store_not_case_revision",
+      "passed": true,
+      "seconds": 0.0505
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_schema_valid",
+      "passed": true,
+      "seconds": 0.0123
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_stale_store_revision",
+      "passed": true,
+      "seconds": 0.0613
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_state_tampering_rejected",
+      "passed": true,
+      "seconds": 0.0312
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_stop_persists_and_host_resume",
+      "passed": true,
+      "seconds": 0.0721
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_case_wrong_key_rejected",
+      "passed": true,
+      "seconds": 0.0409
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_catalog_counts_and_pagination",
+      "passed": true,
+      "seconds": 0.0099
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_catalog_exact_contract",
+      "passed": true,
+      "seconds": 0.0116
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_cli_success_and_invalid_json_exit",
+      "passed": true,
+      "seconds": 2.3598
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_closure_requires_actual_criterion_record",
+      "passed": true,
+      "seconds": 0.0503
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_configuration_refuses_overwrite",
+      "passed": true,
+      "seconds": 1.2353
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_context_budget_rejects_not_truncates",
+      "passed": true,
+      "seconds": 0.1024
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_context_closure",
+      "passed": true,
+      "seconds": 0.0417
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_d_without_review_partial",
+      "passed": true,
+      "seconds": 0.0112
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_execute_idempotency_collision",
+      "passed": true,
+      "seconds": 0.0193
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_execute_idempotent",
+      "passed": true,
+      "seconds": 0.0193
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_export_context_full_file",
+      "passed": true,
+      "seconds": 1.6955
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_finite_generation_computes_four",
+      "passed": true,
+      "seconds": 0.0171
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_generated_settings_all_targets",
+      "passed": true,
+      "seconds": 3.6897
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_gsd_finite_discriminator",
+      "passed": true,
+      "seconds": 0.021
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_guard_authorized_dispatch_and_input_freezing",
+      "passed": true,
+      "seconds": 0.0091
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_guard_denies_before_file_effect",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_guard_error_denies_before_file_effect",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_guard_exact_arguments_required",
+      "passed": true,
+      "seconds": 0.0086
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_hand_off_missing_contract_rejected",
+      "passed": true,
+      "seconds": 0.0138
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_hermes_contract_registration_and_actual_handler",
+      "passed": true,
+      "seconds": 2.3935
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_intake_not_automatic_evidence",
+      "passed": true,
+      "seconds": 0.0095
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_integer_not_bool_or_float",
+      "passed": true,
+      "seconds": 0.0087
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_local_budget_exhaustion",
+      "passed": true,
+      "seconds": 0.01
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_mcp_actual_subprocess_lifecycle_tools_resources",
+      "passed": true,
+      "seconds": 1.6325
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_mcp_all_resources_readable",
+      "passed": true,
+      "seconds": 0.0188
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_mcp_requires_handshake",
+      "passed": true,
+      "seconds": 0.0182
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_mcp_unknown_tool_reports_error",
+      "passed": true,
+      "seconds": 0.0178
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_missing_key_not_automatically_replaced",
+      "passed": true,
+      "seconds": 0.0104
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_missing_provider_explicit",
+      "passed": true,
+      "seconds": 0.0105
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_original_manifest_intact",
+      "passed": true,
+      "seconds": 0.0356
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_provider_command_real_process_synthetic_output",
+      "passed": true,
+      "seconds": 0.6842
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_provider_extra_output_field_rejected",
+      "passed": true,
+      "seconds": 0.658
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_provider_nonzero_fails",
+      "passed": true,
+      "seconds": 0.6735
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_provider_timeout_has_no_auto_retry",
+      "passed": true,
+      "seconds": 0.0937
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_reused_candidates_reach_s",
+      "passed": true,
+      "seconds": 0.0189
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_scope_substitution_rejected",
+      "passed": true,
+      "seconds": 0.0111
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_skills_frontmatter_minimal_contract",
+      "passed": true,
+      "seconds": 0.0093
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_status_distinguishes_semantics",
+      "passed": true,
+      "seconds": 0.0088
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_strict_derivation_conditional",
+      "passed": true,
+      "seconds": 0.0109
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_strict_json_bad_utf8",
+      "passed": true,
+      "seconds": 0.0092
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_strict_json_duplicate_key",
+      "passed": true,
+      "seconds": 0.012
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_strict_json_nonfinite",
+      "passed": true,
+      "seconds": 0.0099
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_supplied_is_not_claimed_generated",
+      "passed": true,
+      "seconds": 0.0149
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_tools_schema_single_source",
+      "passed": true,
+      "seconds": 0.0095
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_unknown_argument_rejected",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_unknown_outcome_not_reexecuted",
+      "passed": true,
+      "seconds": 0.0104
+    },
+    {
+      "id": "test_bridge.BridgeTests.test_unknown_tool_rejected",
+      "passed": true,
+      "seconds": 0.0086
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I01_D_without_review_not_invoked",
+      "passed": true,
+      "seconds": 0.011
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I01_empty_fallback_does_not_invoke_dependents",
+      "passed": true,
+      "seconds": 0.0102
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I01_explicit_fallback_keeps_G_open_and_preserves_inputs",
+      "passed": true,
+      "seconds": 0.02
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I01_invalid_policy_rejected",
+      "passed": true,
+      "seconds": 0.0111
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I01_missing_G_blocks_before_S_D_invocation",
+      "passed": true,
+      "seconds": 0.0112
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I01_supplied_data_not_new_semantic_generation",
+      "passed": true,
+      "seconds": 0.0129
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I02_all_four_cross_component_references",
+      "passed": true,
+      "seconds": 0.1322
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I02_ambiguous_source_identifier_not_guessed",
+      "passed": true,
+      "seconds": 0.0103
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I02_foreign_active_instruction_remains_forbidden",
+      "passed": true,
+      "seconds": 0.0147
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I02_forged_incomplete_manifest_rejected_even_with_rehashed_body",
+      "passed": true,
+      "seconds": 0.1088
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I02_incomplete_delivery_receipt_rejected",
+      "passed": true,
+      "seconds": 0.049
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I02_procedure_contract_and_dependencies_delivered",
+      "passed": true,
+      "seconds": 0.1841
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I02_short_generative_anchors_resolve_uniquely",
+      "passed": true,
+      "seconds": 0.0503
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_expired_or_stale_context_rejected",
+      "passed": true,
+      "seconds": 0.1906
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_not_exposed_to_model",
+      "passed": true,
+      "seconds": 0.0113
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_output_substitution_rejected",
+      "passed": true,
+      "seconds": 0.19
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_replay_not_double_counted",
+      "passed": true,
+      "seconds": 0.2498
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_requires_context_delivery_attestation",
+      "passed": true,
+      "seconds": 0.1525
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_revocation_checked_before_duplicate",
+      "passed": true,
+      "seconds": 0.1974
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_signature_tamper_rejected",
+      "passed": true,
+      "seconds": 0.1516
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_external_wrong_component_rejected",
+      "passed": true,
+      "seconds": 0.1753
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_missing_host_policy_does_not_accept_foreign_product",
+      "passed": true,
+      "seconds": 0.1559
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_seven_procedure_routes_keep_all_obligations",
+      "passed": true,
+      "seconds": 0.6298
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I03_signed_external_product_makes_real_procedural_progress",
+      "passed": true,
+      "seconds": 0.2802
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I04_engineering_context_has_entire_source_and_core",
+      "passed": true,
+      "seconds": 1.3867
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I04_engineering_index_all_sections_match_source",
+      "passed": true,
+      "seconds": 0.0166
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I04_engineering_key_without_profile_rejected",
+      "passed": true,
+      "seconds": 0.0165
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I04_exact_byte_limit_not_silent_truncation",
+      "passed": true,
+      "seconds": 4.1186
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I04_section_address_resolves_exact_text",
+      "passed": true,
+      "seconds": 0.0128
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I04_standard_G_does_not_load_engineering_by_default",
+      "passed": true,
+      "seconds": 0.0418
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_ambiguous_or_invalid_status_rejected",
+      "passed": true,
+      "seconds": 0.0106
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_boolean_version_rejected",
+      "passed": true,
+      "seconds": 0.0092
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_caller_cannot_override_transport_status",
+      "passed": true,
+      "seconds": 0.0123
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_changed_content_requires_expected_current_version",
+      "passed": true,
+      "seconds": 0.0113
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_changed_input_rejected_before_transfer",
+      "passed": true,
+      "seconds": 0.01
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_description_M_not_promoted",
+      "passed": true,
+      "seconds": 0.0101
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_history_preserved_but_stale_product_not_transferable",
+      "passed": true,
+      "seconds": 0.0108
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_native_formal_principle_diagnostic_products_are_transmitted",
+      "passed": true,
+      "seconds": 0.0261
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_registration_same_content_new_request_is_idempotent",
+      "passed": true,
+      "seconds": 0.0137
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I05_registration_survives_process_store_reopen",
+      "passed": true,
+      "seconds": 0.0217
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_ambiguous_legacy_runs_require_explicit_reconciliation",
+      "passed": true,
+      "seconds": 0.2072
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_closed_degraded_constructor_rejected",
+      "passed": true,
+      "seconds": 0.0159
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_concurrent_create_cannot_duplicate_case",
+      "passed": true,
+      "seconds": 0.1001
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_explicit_new_run_cannot_increase_budget",
+      "passed": true,
+      "seconds": 0.0464
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_explicit_new_run_keeps_family_spend_and_stops_previous",
+      "passed": true,
+      "seconds": 0.1245
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_family_budget_enforced_across_two_runs",
+      "passed": true,
+      "seconds": 0.1411
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_family_record_tamper_rejected",
+      "passed": true,
+      "seconds": 0.0451
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_legacy_migration_preserves_exact_snapshot_and_counters",
+      "passed": true,
+      "seconds": 0.0946
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_legacy_state_cannot_be_bypassed_by_create",
+      "passed": true,
+      "seconds": 0.0542
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_new_request_id_same_case_rejected",
+      "passed": true,
+      "seconds": 0.0453
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_restore_keeps_counters",
+      "passed": true,
+      "seconds": 0.087
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I06_same_new_run_authorization_is_idempotent",
+      "passed": true,
+      "seconds": 0.0772
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I07_cli_external_acceptance_uses_real_subprocess",
+      "passed": true,
+      "seconds": 1.9487
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I07_invalid_top_level_and_nested_request_fail_without_provider",
+      "passed": true,
+      "seconds": 0.014
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I07_native_analysis_guard_cannot_be_disabled_by_configuration",
+      "passed": true,
+      "seconds": 0.7023
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I07_no_false_original_adapter_or_effect_capability_claim",
+      "passed": true,
+      "seconds": 0.0112
+    },
+    {
+      "id": "test_remediation.RemediationTests.test_I07_upstream_manifest_still_exact",
+      "passed": true,
+      "seconds": 0.0392
+    }
+  ]
+}

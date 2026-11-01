@@ -1,0 +1,93 @@
+## Полный каталог объявленных методов
+
+- `nimble_crawl_run`: job. Nimble Crawl: one-time bulk fetch of a known doc tree or URL list.  Use for documentation sections or a fixed set of pages already in hand. Not for product/catalog or directory entity lists — that is dataset-building Web Search Agent work (nimble_agents_*). For a single known URL, use nimble_extract. For listing URLs only, use nimble_map.
+- `nimble_crawl_status`: read. Check the status and progress of a running or completed crawl job.
+- `nimble_crawl_list`: read. List crawl jobs, optionally filtered by status.
+- `nimble_crawl_terminate`: write. Cancel a running or queued crawl job.
+- `nimble_extract_templates_list`: read. Browse Extract Templates — reusable, site-specific structured scrapers.  First step when a named site plus a direct item (URL or site-specific ID) is known. Not the default for open research, enrichment, or dataset building. If none matches, use a Web Search Agent (nimble_agents_*) — do not generate a new template and do not dump a raw Extract.  Rows are summaries (name, metadata, required_params). Full input_schema, output_schema and samples come from nimble_extract_templates_get.  Typical workflow: list → get (inspect input_schema) → run (1–few known items).
+- `nimble_extract_templates_get`: read. Get an Extract Template's input/output schema before running it.  Use after nimble_extract_templates_list. This is an Extract Template, not a Web Search Agent gallery template (nimble_agent_templates_get).
+- `nimble_extract_templates_run`: read. Run an Extract Template against 1–few known items (URL or site ID).  Params must match the template's input_schema — inspect with nimble_extract_templates_get. Do not loop this to discover coverage; that fan-out is a Web Search Agent.  If no results are returned, say so: the URL may be unreachable or behind a login wall, the page structure may have changed, or required params may be missing. Recover in this capability (fix params / URL) before switching class.
+- `nimble_extract_templates_generate`: write. Generate a new Extract Template — only when the user explicitly asks to.  Do not use as the no-template fallback. If list/get found no match, route to a Web Search Agent (nimble_agents_*) instead of generating.  Returns a ``generation_id``; poll nimble_extract_templates_generation_status until terminal (``completed`` or ``failed``). On completion, run via nimble_extract_templates_run.
+- `nimble_extract_templates_generation_status`: read. Check the current status of a generation.  Status flow: - in-progress (``pending`` / ``processing`` / etc.): call again after ~30 seconds. - ``completed``: template_name and version_id are set; proceed to run. - ``failed`` / ``error``: inspect ``error`` for diagnostics.
+- `nimble_extract_templates_update_from_template`: write. Refine an existing Extract Template — only when the user explicitly asks to.  Not the no-template fallback (that is a Web Search Agent). Returns a ``generation_id``; poll nimble_extract_templates_generation_status until terminal, then run with the returned ``template_name``.
+- `nimble_map`: read. Nimble Map: discover the URLs that exist on a site (every link / site map).  Use when the user wants the URL list itself, or as a precursor to Extract or Crawl of a known section. Not for assembling a catalog or entity set — that is a dataset-building Web Search Agent.
+- `nimble_task_results`: read. Get the status and results of an async task.  Use this to retrieve results from nimble_extract_async or nimble_extract_templates_run_async. If the task is still pending, returns the current state so you can poll again later.
+- `nimble_extract_templates_run_async`: job. Start an asynchronous Extract Template run. Returns a task ID immediately.  Same capability as nimble_extract_templates_run, out of band: poll nimble_task_results. For 1–few known items only — not a substitute for a Web Search Agent fan-out.
+- `nimble_search`: read. Nimble Search: raw web results for a single closed lookup.  Use only when one search is enough — who/what at a glance, a filing or page pointer, a reverse lookup, or named-channel presence. Not for research, enrichment, dataset building, named-subject information gathering, or "extract all …" — those are a Web Search Agent (nimble_agents_*). Named site + a direct item → check Extract Templates first. For a closed synthesized fact, set include_answer=true (Answer); still not a substitute for a Web Search Agent.
+- `nimble_extract`: read. Nimble Extract: one-time pull of a single known URL.  Use for a fixed URL (page content, structure, HTML). When the site is named, check Extract Templates first (nimble_extract_templates_list). Not for "extract all [entities]", catalogs, or more than a few already-known URLs — that fan-out is a Web Search Agent (nimble_agents_*), not a second Extract.
+- `nimble_extract_async`: job. Start an asynchronous Extract of one known URL. Returns a task ID immediately.  Same capability as `nimble_extract`, out of band: poll `nimble_task_results`. Use when a single synchronous Extract would blow this turn's latency budget. Not a faster path to the same content (~30s end-to-end vs sub-second sync). Not for catalogs, "extract all …", or discovering coverage — that fan-out is a Web Search Agent. For a known doc tree, use `nimble_crawl_run`.
+- `nimble_agents_list`: read. List Web Search Agents in the account — reuse before creating a new one.  Use for research, enrichment, dataset building, named-subject gathering, "extract all …" without a URL, catalog/directory lists, and fan-out beyond 1–few known URLs. Classify use_case: research = dossiers/briefings/synthesis; dataset_building = entity lists/catalogs/extract-all without a URL; enrichment = add fields to records the user already has. Then: get → run → run_status (poll) → run_result. If none fit, check nimble_agent_templates_list before free-form create.
+- `nimble_agents_get`: read. Get a Web Search Agent's skill, sources, effort, use_case, and output schema.  Workspace agents only — do not pass an Extract Template name or a gallery template name here (use nimble_agent_templates_get for gallery templates).
+- `nimble_agents_create`: write. Create a Web Search Agent. Prefer reuse: list existing, then gallery templates.  Pass ``template`` (from nimble_agent_templates_list) when a gallery blueprint matches; otherwise describe the agent via name/skill/sources. Classify ``use_case``: research = dossiers/briefings/synthesis; dataset_building = entity lists/catalogs/extract-all without a URL; enrichment = add fields to records the user already has. Set effort from the task — do not ask the user to pick: low/medium simple, high default, x-high/max complex; dataset_building requires high or above. For a one-shot, prefer nimble_agents_run(agent_name=...) create-or-reuse instead of create-then-run.
+- `nimble_agents_update`: write. Update an existing Web Search Agent via JSON Patch operations.
+- `nimble_agents_delete`: blocked. Delete a Web Search Agent permanently.
+- `nimble_agents_run`: job. Start a Web Search Agent run (research / enrichment / dataset building).  Returns immediately with a run ``id`` and ``status``. Poll nimble_agents_run_status until terminal, then nimble_agents_run_result. Provide ``agent_id`` to run an existing agent, or ``agent_name`` to create-or-reuse by name (the one-shot path). Classify ``use_case`` when creating: research = dossiers/briefings/synthesis; dataset_building = entity lists/catalogs/extract-all without a URL; enrichment = add fields to records the user already has. Set effort from the task — do not ask the user to pick: low/medium simple, high default, x-high/max complex; dataset_building requires high or above.
+- `nimble_agents_run_status`: read. Check a Web Search Agent run. Poll every ~15-30s until terminal, then run_result.
+- `nimble_agents_runs_list`: read. List past and in-progress runs of a Web Search Agent.
+- `nimble_agents_run_result`: read. Fetch a completed Web Search Agent run (text or JSON plus trust/citations).  Call after nimble_agents_run_status reports a terminal status.
+- `nimble_agent_templates_list`: read. List Web Search Agent gallery templates to seed nimble_agents_create(template=...).  These are not Extract Templates — do not pass names to nimble_extract_templates_*. Prefer a matching gallery template over a free-form create.
+- `nimble_agent_templates_get`: read. Get a Web Search Agent gallery template. Not an Extract Template.
+- `api_post__v1_realtime_serp`: read. Fast Google SERP; POST /v1/realtime/serp
+- `api_runExtractTemplate`: read. Run Extract Template; POST /v2/extract/templates/run
+- `api_runExtractTemplateAsync`: job. Run Extract Template (Async); POST /v2/extract/templates/async
+- `api_runExtractTemplateBatch`: job. Run Extract Template (Batch); POST /v2/extract/templates/batch
+- `api_listExtractTemplates`: read. List Extract Templates; GET /v2/extract/templates
+- `api_deleteExtractTemplate`: write. Delete Extract Template; DELETE /v2/extract/templates/{extract_template_name}
+- `api_getExtractTemplate`: read. Get Extract Template; GET /v2/extract/templates/{extract_template_name}
+- `api_updateExtractTemplate`: write. Update Extract Template; PATCH /v2/extract/templates/{extract_template_name}
+- `api_listExtractTemplateVersions`: read. List Extract Template Versions; GET /v2/extract/templates/{extract_template_name}/versions
+- `api_getExtractTemplateVersion`: read. Get Extract Template Version; GET /v2/extract/templates/{extract_template_name}/versions/{version_id}
+- `api_generateExtractTemplate`: job. Create Extract Template Generation; POST /v2/extract/templates/generations
+- `api_getExtractTemplateGeneration`: read. Get Extract Template Generation; GET /v2/extract/templates/generations/{generation_id}
+- `api_get__v2_tasks`: read. List tasks; GET /v2/tasks
+- `api_get__v2_tasks_task_id`: read. Task Status; GET /v2/tasks/{task_id}
+- `api_get__v2_tasks_task_id_results`: read. Task Result; GET /v2/tasks/{task_id}/results
+- `api_get__v2_batches`: read. List batches; GET /v2/batches
+- `api_get__v2_batches_batch_id`: read. Get batch details; GET /v2/batches/{batch_id}
+- `api_get__v2_batches_batch_id_progress`: read. Get batch progress; GET /v2/batches/{batch_id}/progress
+- `api_list_agents_public_v2_api_v2_public_web_search_agents_get`: read. List Agents; GET /v2/agents
+- `api_create_agent_public_v2_api_v2_public_web_search_agents_post`: write. Create Agent; POST /v2/agents
+- `api_create_run_with_generated_agent_public_v2_api_v2_public_web_search_agents_runs_post`: job. Create Run; POST /v2/agents/runs
+- `api_list_templates_public_v2_api_v2_public_web_search_agents_templates_get`: read. List Agent Templates; GET /v2/agents/templates
+- `api_get_template_public_v2_api_v2_public_web_search_agents_templates__template_name__get`: read. Get Agent Template; GET /v2/agents/templates/{template_name}
+- `api_deactivate_agent_public_v2_api_v2_public_web_search_agents__agent_id__delete`: write. Deactivate Agent; DELETE /v2/agents/{agent_id}
+- `api_get_agent_public_v2_api_v2_public_web_search_agents__agent_id__get`: read. Get Agent; GET /v2/agents/{agent_id}
+- `api_update_agent_public_v2_api_v2_public_web_search_agents__agent_id__patch`: write. Update Agent; PATCH /v2/agents/{agent_id}
+- `api_list_runs_public_v2_api_v2_public_web_search_agents__agent_id__runs_get`: read. List Agent Runs; GET /v2/agents/{agent_id}/runs
+- `api_create_run_public_v2_api_v2_public_web_search_agents__agent_id__runs_post`: job. Create Agent Run; POST /v2/agents/{agent_id}/runs
+- `api_get_run_public_v2_api_v2_public_web_search_agents__agent_id__runs__run_id__get`: read. Get Agent Run; GET /v2/agents/{agent_id}/runs/{run_id}
+- `api_stream_run_events_public_v2_api_v2_public_web_search_agents__agent_id__runs__run_id__events_get`: blocked. Stream Agent Run Events; GET /v2/agents/{agent_id}/runs/{run_id}/events
+- `api_get_run_result_public_v2_api_v2_public_web_search_agents__agent_id__runs__run_id__result_get`: read. Get Agent Run Result; GET /v2/agents/{agent_id}/runs/{run_id}/result
+- `api_list_jobs_public_v2_api_v2_public_jobs_get`: read. List Jobs; GET /v2/jobs
+- `api_create_job_public_v2_api_v2_public_jobs_post`: job. Create Job; POST /v2/jobs
+- `api_get_run_public_v2_api_v2_public_jobs_runs__run_id__get`: read. Get Run; GET /v2/jobs/runs/{run_id}
+- `api_list_run_artifacts_public_v2_api_v2_public_jobs_runs__run_id__artifacts_get`: read. List Run Artifacts; GET /v2/jobs/runs/{run_id}/artifacts
+- `api_get_run_artifact_public_v2_api_v2_public_jobs_runs__run_id__artifacts__artifact_id__get`: read. Get Run Artifact; GET /v2/jobs/runs/{run_id}/artifacts/{artifact_id}
+- `api_get_run_artifact_download_url_public_v2_api_v2_public_jobs_runs__run_id__artifacts__artifact_id__download_url_get`: read. Get Run Artifact Download URL; GET /v2/jobs/runs/{run_id}/artifacts/{artifact_id}/download-url
+- `api_preview_run_artifact_public_v2_api_v2_public_jobs_runs__run_id__artifacts__artifact_id__preview_get`: read. Preview Run Artifact; GET /v2/jobs/runs/{run_id}/artifacts/{artifact_id}/preview
+- `api_cancel_run_public_v2_api_v2_public_jobs_runs__run_id__cancel_post`: write. Cancel Run; POST /v2/jobs/runs/{run_id}/cancel
+- `api_delete_job_public_v2_api_v2_public_jobs__job_id__delete`: write. Delete Job; DELETE /v2/jobs/{job_id}
+- `api_get_job_public_v2_api_v2_public_jobs__job_id__get`: read. Get Job; GET /v2/jobs/{job_id}
+- `api_update_job_public_v2_api_v2_public_jobs__job_id__patch`: write. Update Job; PATCH /v2/jobs/{job_id}
+- `api_list_job_runs_public_v2_api_v2_public_jobs__job_id__runs_get`: read. List Runs for Job; GET /v2/jobs/{job_id}/runs
+- `api_trigger_job_run_public_v2_api_v2_public_jobs__job_id__runs_post`: job. Trigger Run; POST /v2/jobs/{job_id}/runs
+- `api_get__v2_crawl`: read. List Crawls; GET /v2/crawl
+- `api_post__v2_crawl`: job. Create Crawl; POST /v2/crawl
+- `api_delete__v2_crawl_id`: write. Cancel Crawl; DELETE /v2/crawl/{id}
+- `api_get__v2_crawl_id`: read. Crawl by ID; GET /v2/crawl/{id}
+- `api_get__v2_domain_knowledge_driver`: read. Get Driver; GET /v2/domain-knowledge/driver
+- `api_post__v2_extract`: read. Extract; POST /v2/extract
+- `api_post__v2_extract_async`: job. Extract Async; POST /v2/extract/async
+- `api_post__v2_extract_batch`: job. Extract Batch; POST /v2/extract/batch
+- `api_post__v2_map`: read. Map; POST /v2/map
+- `api_post__v2_media`: read. Media Download; POST /v2/media
+- `api_post__v2_media_async`: job. Media Download Async; POST /v2/media/async
+- `api_search_search_post`: read. Search; POST /v2/search
+- `api_post__v2_serp`: read. SERP; POST /v2/serp
+- `api_post__v2_serp_async`: job. SERP Async; POST /v2/serp/async
+- `api_post__v2_serp_batch`: job. SERP Batch; POST /v2/serp/batch
+- `api_check_domain_health`: read. Check Domain Health; POST /v1/domain-health/check
+
+## Методические процедуры BN
+
+Полный исходный порядок и ограничения сохранены в [BN-procedures-reference.md](BN-procedures-reference.md). Используй их методический смысл через текущие типизированные методы; исторические команды не исполняются.

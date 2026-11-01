@@ -1,0 +1,3070 @@
+{
+  "contract": "gsd.engineering-index/1",
+  "source_path": "sources/deep_agent_personality_ai_agents_engineer.md",
+  "source_sha256": "33e320d7943d767b4647cb29808189f5a1e11e70171fef7c8228558647f308ae",
+  "source_bytes": 773721,
+  "sections": [
+    {
+      "key": "engineering:section:0",
+      "number": "0",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 115,
+      "end_line": 158,
+      "title": "## 0. Назначение и статус",
+      "sha256": "243f5c7ae833f3bf113910770473ebcd8455c49e6813c5ff69be35bba6e4d0c6"
+    },
+    {
+      "key": "engineering:section:0.1",
+      "number": "0.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 119,
+      "end_line": 124,
+      "title": "### 0.1. Назначение",
+      "sha256": "b8f5f6872b35a46d5e67fba250d467fc778dc1e935176b2d21ae7e709993de62"
+    },
+    {
+      "key": "engineering:section:0.2",
+      "number": "0.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 125,
+      "end_line": 132,
+      "title": "### 0.2. Как исполнять документ",
+      "sha256": "3653be9850744cc2c023e30da64813c62696db4500ab8fabd95017a861cd112b"
+    },
+    {
+      "key": "engineering:section:0.3",
+      "number": "0.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 133,
+      "end_line": 140,
+      "title": "### 0.3. Сила предписаний и разрешение конфликтов",
+      "sha256": "5b38c26a89b4fe461c998c28db9821a17be1c671ebf90256ee2986566f488c07"
+    },
+    {
+      "key": "engineering:section:0.4",
+      "number": "0.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 141,
+      "end_line": 148,
+      "title": "### 0.4. Что означает полнота",
+      "sha256": "ccfc19b1953cfc196efcb435f64f82b067510468aa13f92503af9a34876fc974"
+    },
+    {
+      "key": "engineering:section:0.5",
+      "number": "0.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 149,
+      "end_line": 158,
+      "title": "### 0.5. Источниковые регистры",
+      "sha256": "f31bdd3d2ce72a667db3dcc6cc7fdd6194761165cca2837e5006663d5def7b3c"
+    },
+    {
+      "key": "engineering:section:1",
+      "number": "1",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 159,
+      "end_line": 199,
+      "title": "## 1. Ядро идентичности",
+      "sha256": "773015f0db7ce209439e840cac45b3a71fd6b19755280ce333166a016d816f80"
+    },
+    {
+      "key": "engineering:section:1.1",
+      "number": "1.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 161,
+      "end_line": 166,
+      "title": "### 1.1. Каноническая роль",
+      "sha256": "9d0654282f2ad58b6d8e9b702dd69c2e7b81f9555c90423385c5ca7c750427e0"
+    },
+    {
+      "key": "engineering:section:1.2",
+      "number": "1.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 167,
+      "end_line": 170,
+      "title": "### 1.2. Главный объект анализа",
+      "sha256": "b8d9cb6fa37beaff003c46b6203336df0822e9aeedd7b604b18079f45fe65551"
+    },
+    {
+      "key": "engineering:section:1.3",
+      "number": "1.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 171,
+      "end_line": 187,
+      "title": "### 1.3. Минимальная единица анализа",
+      "sha256": "68abafa11ec840769046c82212a3bf28ccbea5b0a2fea02383901bf25472bffb"
+    },
+    {
+      "key": "engineering:section:1.4",
+      "number": "1.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 188,
+      "end_line": 191,
+      "title": "### 1.4. Чем агент не является",
+      "sha256": "0867079e9261b6b8a5988603a8b9746fdb51430e7b624efc8222ca6e808bf4a8"
+    },
+    {
+      "key": "engineering:section:1.5",
+      "number": "1.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 192,
+      "end_line": 199,
+      "title": "### 1.5. Поведенческое качество роли",
+      "sha256": "dffa6d8895682f71e03c76053d1a0f8200024060990ef36fbc2acebf1efac028"
+    },
+    {
+      "key": "engineering:section:2",
+      "number": "2",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 200,
+      "end_line": 247,
+      "title": "## 2. Конституция «Генератор → Детектор»",
+      "sha256": "b48f4abf0e6ce307aa3e24bb9b837c4d55d2f99dc1c449d643b0af3ea7163c21"
+    },
+    {
+      "key": "engineering:section:2.1",
+      "number": "2.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 202,
+      "end_line": 216,
+      "title": "### 2.1. Разделение функций",
+      "sha256": "367886353d0ef7cbe6186cdc160a6029568fea92a10a67cf2c350a3c6182e7fe"
+    },
+    {
+      "key": "engineering:section:2.2",
+      "number": "2.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 217,
+      "end_line": 222,
+      "title": "### 2.2. Генеративная обязанность",
+      "sha256": "adb475b36b9fa22110310b6f5484e18b785646f264d1d16bff831b429528a79e"
+    },
+    {
+      "key": "engineering:section:2.3",
+      "number": "2.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 223,
+      "end_line": 237,
+      "title": "### 2.3. Запрещенные повышения статуса",
+      "sha256": "c6c794bba6d9feaf6cf9dcb43aca2901b6076c8e282351e3aad3caa3d7adc305"
+    },
+    {
+      "key": "engineering:section:2.4",
+      "number": "2.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 238,
+      "end_line": 247,
+      "title": "### 2.4. Статусная цепочка системы",
+      "sha256": "2985d5802f927ed0aed659ad86a95385f5da1b998268c6376fbefdb1dfea6ec1"
+    },
+    {
+      "key": "engineering:section:3",
+      "number": "3",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 248,
+      "end_line": 445,
+      "title": "## 3. Базовая эпистемическая позиция",
+      "sha256": "b8a6431177df3d82086ac616f33be8031e1a2271f8c47e2fdd955211e023f8ec"
+    },
+    {
+      "key": "engineering:section:3.1",
+      "number": "3.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 250,
+      "end_line": 269,
+      "title": "### 3.1. Каноническая единица обоснованного утверждения",
+      "sha256": "45ab08eca1a8187063b44050fd8a68424613aa6109dedcbc93f5a8d10421e5cd"
+    },
+    {
+      "key": "engineering:section:3.2",
+      "number": "3.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 270,
+      "end_line": 281,
+      "title": "### 3.2. P: атомизация положения",
+      "sha256": "e40065c8980d33b07abd6f2d64c4bc33555d81db66a82653121248be24cd6167"
+    },
+    {
+      "key": "engineering:section:3.3",
+      "number": "3.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 282,
+      "end_line": 301,
+      "title": "### 3.3. T: основание истинности не тождественно проверке",
+      "sha256": "88d9705dc682164e6939ce1aadcbb2c56957a97b20e788e54802a57413d4c8f0"
+    },
+    {
+      "key": "engineering:section:3.4",
+      "number": "3.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 302,
+      "end_line": 315,
+      "title": "### 3.4. J: явный переход от свидетельства к выводу",
+      "sha256": "f0d639341c94b9e45c6e69dac691f45d28e900b995c2cac197c29a1269a4f7d4"
+    },
+    {
+      "key": "engineering:section:3.5",
+      "number": "3.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 316,
+      "end_line": 325,
+      "title": "### 3.5. V: валидность",
+      "sha256": "37bf91d5bd521750ab600ac73da4a18421d65df71bb92a7b856a753527caf5a0"
+    },
+    {
+      "key": "engineering:section:3.6",
+      "number": "3.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 326,
+      "end_line": 335,
+      "title": "### 3.6. A: точность",
+      "sha256": "56247db5772c547c490aa4e8ab90c129dd723c5edf9f2c5ec67bf92edf344f17"
+    },
+    {
+      "key": "engineering:section:3.7",
+      "number": "3.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 336,
+      "end_line": 347,
+      "title": "### 3.7. R: надежность",
+      "sha256": "a1de54e7f974ae36ec85c73a01d87c7785e145eea7814259fbdf6e5752f41f76"
+    },
+    {
+      "key": "engineering:section:3.8",
+      "number": "3.8",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 348,
+      "end_line": 357,
+      "title": "### 3.8. S: происхождение и прослеживаемость",
+      "sha256": "30ba0186870106df670d5a2bc0929f3e8427f2b5728c62b99a868382e3d5e78b"
+    },
+    {
+      "key": "engineering:section:3.9",
+      "number": "3.9",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 358,
+      "end_line": 369,
+      "title": "### 3.9. M: тип знания, установленность и модальность",
+      "sha256": "da21c578a369a5e6433129fa5ffa247b8218dc2867d77f194c20844ff2e010a7"
+    },
+    {
+      "key": "engineering:section:3.10",
+      "number": "3.10",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 370,
+      "end_line": 383,
+      "title": "### 3.10. C: смысловое окружение, контекст и стандарт",
+      "sha256": "d299a42c2277d5e04d4a26340c5c46939fb41db990c9367599b6f1871308b9d5"
+    },
+    {
+      "key": "engineering:section:3.11",
+      "number": "3.11",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 384,
+      "end_line": 398,
+      "title": "### 3.11. Тип положения определяет допустимый способ проверки",
+      "sha256": "8fe3fe862578492faae2eafcf0cf164cbd931f25fd0cca29c2f98b839abf49ec"
+    },
+    {
+      "key": "engineering:section:3.12",
+      "number": "3.12",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 399,
+      "end_line": 421,
+      "title": "### 3.12. Минимальная карточка существенного положения",
+      "sha256": "850ab8eff1f99027c270995c04459020e146370548f3f38dfdfd62f1d7eefb94"
+    },
+    {
+      "key": "engineering:section:3.13",
+      "number": "3.13",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 422,
+      "end_line": 435,
+      "title": "### 3.13. Жизненный цикл знания и отзыв",
+      "sha256": "d04b5e801e0e47ef3159de70a312bf3717a4532f7f6d97d40dd2177cdb694beb"
+    },
+    {
+      "key": "engineering:section:3.14",
+      "number": "3.14",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 436,
+      "end_line": 445,
+      "title": "### 3.14. Слои свидетельств и локальная готовность",
+      "sha256": "46174962bab56471754e9a73d8b52ed926c4130d677fb0412bcc721da649c9a6"
+    },
+    {
+      "key": "engineering:section:4",
+      "number": "4",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 446,
+      "end_line": 478,
+      "title": "## 4. Обязательные неподмены",
+      "sha256": "76af716f0f15d96d14831658522a46cd1bcdd05b666ce01d0aeca97b46959cd9"
+    },
+    {
+      "key": "engineering:section:5",
+      "number": "5",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 479,
+      "end_line": 760,
+      "title": "## 5. Функциональная архитектура: девять взаимосвязанных ядер",
+      "sha256": "bdcaab2eb5c338d27f20e92339c5baa55ba59a773e8b0dac78675bf6ebc3097c"
+    },
+    {
+      "key": "engineering:section:5.1",
+      "number": "5.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 481,
+      "end_line": 502,
+      "title": "### 5.1. Состав системы и смысл функционального ядра",
+      "sha256": "44befa30ea82e7406fdcbd710e96354da78a4fa457ddcbf33684d2f0a7c244a8"
+    },
+    {
+      "key": "engineering:section:5.2",
+      "number": "5.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 503,
+      "end_line": 528,
+      "title": "### 5.2. Я1 — системно-аналитическое ядро",
+      "sha256": "9a5981f570283db2c3fd85c810bab575052922656a881780c3b57361fd3dea13"
+    },
+    {
+      "key": "engineering:section:5.3",
+      "number": "5.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 529,
+      "end_line": 554,
+      "title": "### 5.3. Я2 — архитектурно-конструкторское ядро",
+      "sha256": "41fa556cfe65822b9ba33b0ab28253486257acdeac48f7eb4bb597c6549847da"
+    },
+    {
+      "key": "engineering:section:5.4",
+      "number": "5.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 555,
+      "end_line": 580,
+      "title": "### 5.4. Я3 — исполнительное ядро",
+      "sha256": "aae230c318095c7a4849052b2cc57379b7faad95b523fb690d5a93edb011672e"
+    },
+    {
+      "key": "engineering:section:5.5",
+      "number": "5.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 581,
+      "end_line": 606,
+      "title": "### 5.5. Я4 — эпистемическое ядро",
+      "sha256": "e9582d982cdb75f82f549e05331bf365a45a3d0b3b03a7193e3164f18e090ddc"
+    },
+    {
+      "key": "engineering:section:5.6",
+      "number": "5.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 607,
+      "end_line": 632,
+      "title": "### 5.6. Я5 — проверочно-оценочное ядро",
+      "sha256": "dc726b9a1f7f04b35b5d8b372fafe035e2008bc4f8e87c745f128afeb31792bd"
+    },
+    {
+      "key": "engineering:section:5.7",
+      "number": "5.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 633,
+      "end_line": 658,
+      "title": "### 5.7. Я6 — нормативно-управляющее ядро",
+      "sha256": "fa64b029c8029967b494d6e74e63bfd9b568cf5719f258867c44aa6599c977c0"
+    },
+    {
+      "key": "engineering:section:5.8",
+      "number": "5.8",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 659,
+      "end_line": 684,
+      "title": "### 5.8. Я7 — эксплуатационно-восстановительное ядро",
+      "sha256": "f89076560096b2f146defa0590635014e3af3f2b5d7949872f5208ae212aed39"
+    },
+    {
+      "key": "engineering:section:5.9",
+      "number": "5.9",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 685,
+      "end_line": 710,
+      "title": "### 5.9. Я8 — эволюционно-обучающее ядро",
+      "sha256": "78ccbc8200c606029b11d94c317700370bafd87c6cbc3fe5c96dfc2e666d97df"
+    },
+    {
+      "key": "engineering:section:5.10",
+      "number": "5.10",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 711,
+      "end_line": 736,
+      "title": "### 5.10. Я9 — ресурсно-экономическое ядро",
+      "sha256": "f155e98c4ca5e9d028f4dcf8f694d0c8a5c07051edd6012433ebbc8484a32950"
+    },
+    {
+      "key": "engineering:section:5.11",
+      "number": "5.11",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 737,
+      "end_line": 752,
+      "title": "### 5.11. Контракт передачи между ядрами",
+      "sha256": "b90ba1cb32cbd3cfc85c321e7b39fca35dca7370fdd37aee8e644c1acf28c97c"
+    },
+    {
+      "key": "engineering:section:5.12",
+      "number": "5.12",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 753,
+      "end_line": 760,
+      "title": "### 5.12. Проверка достаточности состава ядер",
+      "sha256": "bb44e2e0e0c01dd14365330491872c575ff8b1262f4372c3ed077cc5ca68b576"
+    },
+    {
+      "key": "engineering:section:6",
+      "number": "6",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 761,
+      "end_line": 825,
+      "title": "## 6. Онтология агентной системы",
+      "sha256": "4120f2cff0a7509f732b5fc877230d70288ab7f134f9d1688d4f62a1981ba6de"
+    },
+    {
+      "key": "engineering:section:6.1",
+      "number": "6.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 791,
+      "end_line": 796,
+      "title": "### 6.1. Реестры, необходимые процедурному ядру",
+      "sha256": "03671825ad63da59c7ccfd7e9842fffa7f8c78e095d651cca024372f8ef1b409"
+    },
+    {
+      "key": "engineering:section:6.2",
+      "number": "6.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 797,
+      "end_line": 813,
+      "title": "### 6.2. Паспорт атомарного узла",
+      "sha256": "89f4df6eabbed8cd1d46009a100c627e94184b5cab72f7ee5731a94899077f75"
+    },
+    {
+      "key": "engineering:section:6.3",
+      "number": "6.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 814,
+      "end_line": 817,
+      "title": "### 6.3. Типизированное значение отсутствия",
+      "sha256": "a053fb93e233d75d838477ba16e2a86fdcfd4a264febec88159235d91e24133c"
+    },
+    {
+      "key": "engineering:section:6.4",
+      "number": "6.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 818,
+      "end_line": 825,
+      "title": "### 6.4. Инвариант ссылочной целостности",
+      "sha256": "ba74102a1d64f665cb36f2017d87c7c25f22bec24d5aa94dba0358906a9e847f"
+    },
+    {
+      "key": "engineering:section:7",
+      "number": "7",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 826,
+      "end_line": 999,
+      "title": "## 7. Уровни, диагностические, историко-генетические и позиционные модели",
+      "sha256": "e62429b520e58d04a9a176de66ff5b5cd85c3163475a16a80b80a6292ebe084e"
+    },
+    {
+      "key": "engineering:section:7.1",
+      "number": "7.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 828,
+      "end_line": 837,
+      "title": "### 7.1. Уровень, единица и время",
+      "sha256": "e4326252801ac4ab4653ca36e1924af0a38eb628791a5705f86fb2cb530eba4d"
+    },
+    {
+      "key": "engineering:section:7.2",
+      "number": "7.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 838,
+      "end_line": 864,
+      "title": "### 7.2. Вертикальная диагностическая модель: сигнал — симптом — синдром — фактор",
+      "sha256": "07e6cc39e8290edd5bb0bd77e18aea5d6e6fc4b791add47c4b773f9a3ba11239"
+    },
+    {
+      "key": "engineering:section:7.3",
+      "number": "7.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 865,
+      "end_line": 878,
+      "title": "### 7.3. Горизонтальные модели: совместность, зависимости и взаимодействия",
+      "sha256": "da7e9c4535438b68376503d5e67f84f2fa97bfb67e0484f2dec77d94b4ccc05c"
+    },
+    {
+      "key": "engineering:section:7.4",
+      "number": "7.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 879,
+      "end_line": 890,
+      "title": "### 7.4. Причина, механизм, условие, пусковое событие и коррелят",
+      "sha256": "301b6b732d43801285434b99dab1ef130a5d8cd7e38523a2c69d8c43fb83f982"
+    },
+    {
+      "key": "engineering:section:7.5",
+      "number": "7.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 891,
+      "end_line": 916,
+      "title": "### 7.5. Историко-генетические модели",
+      "sha256": "4c6744882ea001feb2901fe06f640eaa9766315868bfbecc557ce02cded8a9f6"
+    },
+    {
+      "key": "engineering:section:7.6",
+      "number": "7.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 917,
+      "end_line": 934,
+      "title": "### 7.6. Центральность — периферия — маргинальность",
+      "sha256": "c91a6706ccbc66c1baccaaf5e446afe2d35ff40962ab9673d0e9bff7c1c86a92"
+    },
+    {
+      "key": "engineering:section:7.7",
+      "number": "7.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 935,
+      "end_line": 946,
+      "title": "### 7.7. Производство дефекта и производство устойчивости",
+      "sha256": "9b4e00fc73fe202cf965783054d0724fb36d944eefcbb415f5d66e402ca595ac"
+    },
+    {
+      "key": "engineering:section:7.8",
+      "number": "7.8",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 947,
+      "end_line": 968,
+      "title": "### 7.8. Дополнительные обязательные различения",
+      "sha256": "2bab214654c56c1a8f542091b1964c498be9da2f5bb17eb7ed091dcd95c87111"
+    },
+    {
+      "key": "engineering:section:7.9",
+      "number": "7.9",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 969,
+      "end_line": 983,
+      "title": "### 7.9. Совместное применение моделей",
+      "sha256": "6a0bb723ab8597485263a02289110dfdfe60599e685da85b61d212aea0b20695"
+    },
+    {
+      "key": "engineering:section:7.10",
+      "number": "7.10",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 984,
+      "end_line": 999,
+      "title": "### 7.10. Процедура применения модели",
+      "sha256": "865eed9ee946782bf72b31e1dfc87352b89fd8c9f1198e503a18d8836eb757dc"
+    },
+    {
+      "key": "engineering:section:8",
+      "number": "8",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1000,
+      "end_line": 1060,
+      "title": "## 8. Многомерная архитектура инженерных слоев",
+      "sha256": "1b5a2ec919cd911ca946f8d18e92cafe105463a66cf9c46a762e4d9345ba8590"
+    },
+    {
+      "key": "engineering:section:8.1",
+      "number": "8.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1037,
+      "end_line": 1042,
+      "title": "### 8.1. Полный компонентный универсум этой редакции",
+      "sha256": "716a557831bff3a1626ffa7e07f6be52d6a27b5ec1e1f4ffeacc0145bb0e940c"
+    },
+    {
+      "key": "engineering:section:8.2",
+      "number": "8.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1043,
+      "end_line": 1048,
+      "title": "### 8.2. Пять обязательных путей через компоненты",
+      "sha256": "9ac177435d7ea9fdcbb71f9e96823d25590b3dd6817b17051747366863dbcc99"
+    },
+    {
+      "key": "engineering:section:8.3",
+      "number": "8.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1049,
+      "end_line": 1052,
+      "title": "### 8.3. Доказательная интеграция по слоям",
+      "sha256": "62fd2f45f7c9394b4607d899523d8503c4e27d44d3d3394d5d875ae5159b47d1"
+    },
+    {
+      "key": "engineering:section:8.4",
+      "number": "8.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1053,
+      "end_line": 1060,
+      "title": "### 8.4. Поведение при неизвестном компоненте",
+      "sha256": "a70190ca8a2e1217370041cdd1e21b73276b7c3ea289565d433b23c75ab5be4e"
+    },
+    {
+      "key": "engineering:section:9",
+      "number": "9",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1061,
+      "end_line": 1098,
+      "title": "## 9. Входной контракт задачи",
+      "sha256": "7a480463099984a9a5b652a8c990e38e1185826d8b258fbf396b88e5300ac37e"
+    },
+    {
+      "key": "engineering:section:9.1",
+      "number": "9.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1085,
+      "end_line": 1090,
+      "title": "### 9.1. Расширение контракта для процедурного исполнения",
+      "sha256": "1dadec10a0f785a1673e47614d3d820919276cadcda7152c07f4140aea5d2426"
+    },
+    {
+      "key": "engineering:section:9.2",
+      "number": "9.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1091,
+      "end_line": 1098,
+      "title": "### 9.2. Критерий достаточного входа",
+      "sha256": "512e455af0791e2f2090f22a633eb9d6f297511c7b6cc45dd3610d1cf120ee9a"
+    },
+    {
+      "key": "engineering:section:10",
+      "number": "10",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1099,
+      "end_line": 1112,
+      "title": "## 10. Требования, необходимость агентности и дисциплина сложности",
+      "sha256": "89e721584efbdef37e71c3b2274d63e41c17da8089f4c82e249c3473cbb3dcf8"
+    },
+    {
+      "key": "engineering:section:11",
+      "number": "11",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1113,
+      "end_line": 1174,
+      "title": "## 11. Инженерия среды исполнения — harness engineering",
+      "sha256": "b329571d0c9b0b5a55b737b637b7fca392f61eeddb702ed0084922e7f8be50b2"
+    },
+    {
+      "key": "engineering:section:11.1",
+      "number": "11.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1115,
+      "end_line": 1118,
+      "title": "### 11.1. Объект",
+      "sha256": "238da75fffba5e62664f5276c0c5f0aa2cb51c693e2594fc3f9dfc0c5e8da8a3"
+    },
+    {
+      "key": "engineering:section:11.2",
+      "number": "11.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1119,
+      "end_line": 1132,
+      "title": "### 11.2. Обязанности",
+      "sha256": "85b5d4edf46edd45c7f486fb4b9d779e9c6a039434046725b0f8978a4ed283fa"
+    },
+    {
+      "key": "engineering:section:11.3",
+      "number": "11.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1133,
+      "end_line": 1138,
+      "title": "### 11.3. Критерий качества",
+      "sha256": "653e84649ac92fa92fdc59ecb00c20546c2d6aa27f74cff347a172e5a681089a"
+    },
+    {
+      "key": "engineering:section:11.90",
+      "number": "11.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1139,
+      "end_line": 1174,
+      "title": "### 11.90. Атомарная компонентная процедура К11",
+      "sha256": "747913ae1da45a187362ba970a6a52cc91f939d9a42c902d021595495f561983"
+    },
+    {
+      "key": "engineering:section:12",
+      "number": "12",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1175,
+      "end_line": 1240,
+      "title": "## 12. Инженерия агентного цикла — loop engineering",
+      "sha256": "ea3d94091744c56302bd6b29505566ff5e078a0f725cf55e388261771d5bc164"
+    },
+    {
+      "key": "engineering:section:12.1",
+      "number": "12.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1177,
+      "end_line": 1192,
+      "title": "### 12.1. Локальный цикл действия",
+      "sha256": "db580bf14de25bef2a15e54a0dc0572a3a57d6398c23c835c3902932656e4b77"
+    },
+    {
+      "key": "engineering:section:12.2",
+      "number": "12.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1193,
+      "end_line": 1196,
+      "title": "### 12.2. Состояния запуска",
+      "sha256": "4ca153766a62240f6dd47b5a125d90aa249b8ccc40a84e36ba8bde18995aae7e"
+    },
+    {
+      "key": "engineering:section:12.3",
+      "number": "12.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1197,
+      "end_line": 1200,
+      "title": "### 12.3. Инварианты",
+      "sha256": "defc37cb12b91dedc0b94cdd0e83c01c291a7c6e1f1599bbf3ccd4fc4a25a67c"
+    },
+    {
+      "key": "engineering:section:12.4",
+      "number": "12.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1201,
+      "end_line": 1204,
+      "title": "### 12.4. Вложенные циклы",
+      "sha256": "11d33bf547e1092d789cfa9cb28fca0ab981931139612708162157c41af261ba"
+    },
+    {
+      "key": "engineering:section:12.90",
+      "number": "12.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1205,
+      "end_line": 1240,
+      "title": "### 12.90. Атомарная компонентная процедура К12",
+      "sha256": "f1d8ac4635a859e7e8ca056d2728e516f08446581277dce2594fe0f0f7cf3f65"
+    },
+    {
+      "key": "engineering:section:13",
+      "number": "13",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1241,
+      "end_line": 1288,
+      "title": "## 13. Планирование, продвижение и остановка",
+      "sha256": "f8f38a720888d1d040b56d9bf7ce07f72c72ffdbcfabe9e4d2e1e3848bb2299f"
+    },
+    {
+      "key": "engineering:section:13.90",
+      "number": "13.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1253,
+      "end_line": 1288,
+      "title": "### 13.90. Атомарная компонентная процедура К13",
+      "sha256": "e856eac59bc9f7218d559feee878cbe87fd93833b89eb2601ba2fe31372f8a06"
+    },
+    {
+      "key": "engineering:section:14",
+      "number": "14",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1289,
+      "end_line": 1342,
+      "title": "## 14. Инженерия рабочих процессов — workflow engineering",
+      "sha256": "3a150c626d3446cddcb08c67cf39bded1970af17e47d01a21865123b3f0b0af1"
+    },
+    {
+      "key": "engineering:section:14.90",
+      "number": "14.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1307,
+      "end_line": 1342,
+      "title": "### 14.90. Атомарная компонентная процедура К14",
+      "sha256": "7bd84536707b4cf3413884b059ed23b892a240366a63bc491b31ee7061e71c29"
+    },
+    {
+      "key": "engineering:section:15",
+      "number": "15",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1343,
+      "end_line": 1407,
+      "title": "## 15. Инженерия инструментов — tools engineering",
+      "sha256": "96b1da36e6cae923b3579307030ee648ec0b3a57e546061fe305d4497e25d981"
+    },
+    {
+      "key": "engineering:section:15.1",
+      "number": "15.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1347,
+      "end_line": 1363,
+      "title": "### 15.1. Контракт инструмента",
+      "sha256": "5c50c2a9ec8ee4fea9456d601f7fd7daaeeaf7599872fc1d8da9c8ba186bf176"
+    },
+    {
+      "key": "engineering:section:15.2",
+      "number": "15.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1364,
+      "end_line": 1371,
+      "title": "### 15.2. Правила конструкции",
+      "sha256": "e76664450d0d457e0e67ee674acebd24c1d8fd054fc182b2c7714881164b2974"
+    },
+    {
+      "key": "engineering:section:15.90",
+      "number": "15.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1372,
+      "end_line": 1407,
+      "title": "### 15.90. Атомарная компонентная процедура К15",
+      "sha256": "8172cad98bb3b3c8045667be3a55570d4b870fa631b89cb17dcbb1645da3876d"
+    },
+    {
+      "key": "engineering:section:16",
+      "number": "16",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1408,
+      "end_line": 1455,
+      "title": "## 16. Инженерия программных интерфейсов — API engineering",
+      "sha256": "0c340caaa86c8a885ed451cf375a086f16deda17706e498d0ed8730157dff434"
+    },
+    {
+      "key": "engineering:section:16.90",
+      "number": "16.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1420,
+      "end_line": 1455,
+      "title": "### 16.90. Атомарная компонентная процедура К16",
+      "sha256": "78964c78e236a0358cbece972107aaf6974396ef8cad067e1da4c44f39830a7e"
+    },
+    {
+      "key": "engineering:section:17",
+      "number": "17",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1456,
+      "end_line": 1509,
+      "title": "## 17. Инженерия MCP",
+      "sha256": "35a6d5280647c671d2f0a541b5af229ab0f309b9849a1dad065a3f255d9cff1c"
+    },
+    {
+      "key": "engineering:section:17.1",
+      "number": "17.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1460,
+      "end_line": 1465,
+      "title": "### 17.1. Версия — часть контракта",
+      "sha256": "6123f3666a6b3c6dc2ad376abc7fc2ee6c76c92cedfb808e651339a45921494d"
+    },
+    {
+      "key": "engineering:section:17.2",
+      "number": "17.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1466,
+      "end_line": 1473,
+      "title": "### 17.2. Обязанности",
+      "sha256": "a5a39e4d9f45565877c8a5c3ccc25c43de0e595e2518aadcc2c457fc0bf0c56c"
+    },
+    {
+      "key": "engineering:section:17.90",
+      "number": "17.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1474,
+      "end_line": 1509,
+      "title": "### 17.90. Атомарная компонентная процедура К17",
+      "sha256": "9b15d698e6deb7bdf1d4ab9452f2636a1cb60659fc7003b61648e0407a504629"
+    },
+    {
+      "key": "engineering:section:18",
+      "number": "18",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1510,
+      "end_line": 1555,
+      "title": "## 18. Инженерия командной строки — CLI engineering",
+      "sha256": "8aa2286a880aad91d17517c2bab0281bd1c7dd5adbc6bc82371b37d853bc3862"
+    },
+    {
+      "key": "engineering:section:18.90",
+      "number": "18.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1520,
+      "end_line": 1555,
+      "title": "### 18.90. Атомарная компонентная процедура К18",
+      "sha256": "b9d7ffdc57d8fcf5e9b8fcadf96212954806892a95ce968014caa471931a1aff"
+    },
+    {
+      "key": "engineering:section:19",
+      "number": "19",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1556,
+      "end_line": 1611,
+      "title": "## 19. Инженерия контекста — context engineering",
+      "sha256": "9b770b8758bdeaf9a39b2ece036e216e9ea75a023c7f07c36ad7b8f57b4677c5"
+    },
+    {
+      "key": "engineering:section:19.1",
+      "number": "19.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1560,
+      "end_line": 1563,
+      "title": "### 19.1. Состав и происхождение",
+      "sha256": "595d43d29f072f04b3610c8eebfd6947e0f4323fa27fce861608976a11edaade"
+    },
+    {
+      "key": "engineering:section:19.2",
+      "number": "19.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1564,
+      "end_line": 1569,
+      "title": "### 19.2. Сборка",
+      "sha256": "2bd46f80af251e06e709faa8875f1e11bf99b6ce05de3476728a2f5d3529fb48"
+    },
+    {
+      "key": "engineering:section:19.3",
+      "number": "19.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1570,
+      "end_line": 1575,
+      "title": "### 19.3. Сжатие",
+      "sha256": "317c06f19a7ca75f78bbd386883dda32005ed9b6f23b91f5d2400d5e5af03811"
+    },
+    {
+      "key": "engineering:section:19.90",
+      "number": "19.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1576,
+      "end_line": 1611,
+      "title": "### 19.90. Атомарная компонентная процедура К19",
+      "sha256": "b88f1ab6ec4a30094a64005024ed4a7331fa8230f179a8cca95bed377a4a4e0f"
+    },
+    {
+      "key": "engineering:section:20",
+      "number": "20",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1612,
+      "end_line": 1659,
+      "title": "## 20. Инженерия инструкций и выходных контрактов",
+      "sha256": "2607eb901581dd863cfdf6a407e9428af08c05961fc610d262541f4d10b54a2e"
+    },
+    {
+      "key": "engineering:section:20.90",
+      "number": "20.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1624,
+      "end_line": 1659,
+      "title": "### 20.90. Атомарная компонентная процедура К20",
+      "sha256": "67f20627051bd717b400ccd45a0b7be7b831430f66c1013463d7ae2fc55ac178"
+    },
+    {
+      "key": "engineering:section:21",
+      "number": "21",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1660,
+      "end_line": 1713,
+      "title": "## 21. Инженерия памяти",
+      "sha256": "d4dd1c8c2f07c27d9bc031b00b86b9ff4287458711e1de84f86c1a3bc284fb5d"
+    },
+    {
+      "key": "engineering:section:21.90",
+      "number": "21.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1678,
+      "end_line": 1713,
+      "title": "### 21.90. Атомарная компонентная процедура К21",
+      "sha256": "ff4fc785814c38dd9faf7e405ed4b466ed0f4396a2381c7e8f91ac2d914c600b"
+    },
+    {
+      "key": "engineering:section:22",
+      "number": "22",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1714,
+      "end_line": 1761,
+      "title": "## 22. Извлечение знаний и работа с доказательствами",
+      "sha256": "deb079f0ebbd8ae2c6533392d5cbba2d5df9e658aec1a629ec5223135469ab5f"
+    },
+    {
+      "key": "engineering:section:22.90",
+      "number": "22.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1726,
+      "end_line": 1761,
+      "title": "### 22.90. Атомарная компонентная процедура К22",
+      "sha256": "1dad14d11e14ca8343c36e9f992d4b997c62b2b7f5241647f83f588cb8f12080"
+    },
+    {
+      "key": "engineering:section:23",
+      "number": "23",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1762,
+      "end_line": 1815,
+      "title": "## 23. Инженерия расширений — plugins engineering",
+      "sha256": "d6356de710432bf69364a24045bb9ebad2f5306009296bb42513083bfb17d406"
+    },
+    {
+      "key": "engineering:section:23.90",
+      "number": "23.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1780,
+      "end_line": 1815,
+      "title": "### 23.90. Атомарная компонентная процедура К23",
+      "sha256": "8923f575ca529ca0beed030f472462e43634f513981fa2025972dd35d6728ebe"
+    },
+    {
+      "key": "engineering:section:24",
+      "number": "24",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1816,
+      "end_line": 1872,
+      "title": "## 24. Инженерия обработчиков событий — hooks engineering",
+      "sha256": "c7f3c61a4f13f4f2ceab6cbfc5d33ef1c2d05130bc26d807ca67081db96cd25f"
+    },
+    {
+      "key": "engineering:section:24.90",
+      "number": "24.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1837,
+      "end_line": 1872,
+      "title": "### 24.90. Атомарная компонентная процедура К24",
+      "sha256": "e9eb203854393a933cf05e8c81fddda65ce32a0909d1ad39c2f78f73914907e1"
+    },
+    {
+      "key": "engineering:section:25",
+      "number": "25",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1873,
+      "end_line": 1928,
+      "title": "## 25. Инженерия процедурных модулей — skills engineering",
+      "sha256": "5a9d78eb2f5fa5ce4ea30872504562d966460ae842cc2ba4cf0d69785ecc66cc"
+    },
+    {
+      "key": "engineering:section:25.90",
+      "number": "25.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1893,
+      "end_line": 1928,
+      "title": "### 25.90. Атомарная компонентная процедура К25",
+      "sha256": "2def032a5f6907f2a47f398c3de0871dea27eb9d8a53232d77f5e21b2274008d"
+    },
+    {
+      "key": "engineering:section:26",
+      "number": "26",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1929,
+      "end_line": 1984,
+      "title": "## 26. Инженерия дочерних агентов — subagents engineering",
+      "sha256": "adaa026f7bdd48f538e9446973a6e1e15be45c7a47f41be26685bc14e8fb93bb"
+    },
+    {
+      "key": "engineering:section:26.90",
+      "number": "26.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1949,
+      "end_line": 1984,
+      "title": "### 26.90. Атомарная компонентная процедура К26",
+      "sha256": "860af85f2bde83586912e01e48a0a8d5731a263541175402b5f35e1b93084b0c"
+    },
+    {
+      "key": "engineering:section:27",
+      "number": "27",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 1985,
+      "end_line": 2032,
+      "title": "## 27. Взаимодействие нескольких агентов",
+      "sha256": "785e935cc5eb74ad64328092016f08a164ae226b055e7852ef0f583485d10cdb"
+    },
+    {
+      "key": "engineering:section:27.90",
+      "number": "27.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 1997,
+      "end_line": 2032,
+      "title": "### 27.90. Атомарная компонентная процедура К27",
+      "sha256": "ef0f6ad8d9a0c6b44f4fbca93bc48e29091b4a92e75c48f1041f1c56c083efdc"
+    },
+    {
+      "key": "engineering:section:28",
+      "number": "28",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2033,
+      "end_line": 2080,
+      "title": "## 28. Модели, маршрутизация и вычисление",
+      "sha256": "3fd28cdd2fdc86ed565c73c4ee3c5e3c9762b808fa45c6408ee0e42d4f995d83"
+    },
+    {
+      "key": "engineering:section:28.90",
+      "number": "28.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2045,
+      "end_line": 2080,
+      "title": "### 28.90. Атомарная компонентная процедура К28",
+      "sha256": "38a7353795861dc7ec4e5527677146b1bf65dd2d096ae84ec09eb709357133a2"
+    },
+    {
+      "key": "engineering:section:29",
+      "number": "29",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2081,
+      "end_line": 2128,
+      "title": "## 29. Состояние, сохранение и восстановление",
+      "sha256": "f0968669cac20c62fc02082a738fe9508a6a74594aab32696bd614285b7f9fc3"
+    },
+    {
+      "key": "engineering:section:29.90",
+      "number": "29.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2093,
+      "end_line": 2128,
+      "title": "### 29.90. Атомарная компонентная процедура К29",
+      "sha256": "8074bb4666e5a8302ac91d156672cfc9277e29d0231b61971f7e72a6177ebe8b"
+    },
+    {
+      "key": "engineering:section:30",
+      "number": "30",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2129,
+      "end_line": 2176,
+      "title": "## 30. События, очереди, планирование запусков и параллельность",
+      "sha256": "bf0b26785346b2b97d4dedbaac5b76b66181fa529cd1a4871bc8751ccbf046cf"
+    },
+    {
+      "key": "engineering:section:30.90",
+      "number": "30.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2141,
+      "end_line": 2176,
+      "title": "### 30.90. Атомарная компонентная процедура К30",
+      "sha256": "567e61e45e51d002037977af1a9edd3a0a54f3557296610d17e5468dd747c423"
+    },
+    {
+      "key": "engineering:section:31",
+      "number": "31",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2177,
+      "end_line": 2244,
+      "title": "## 31. Внешние эффекты, идемпотентность и компенсации",
+      "sha256": "970e04e0d611ed4dffbb17c6de01dc74b67334580ad1b4e3939d568013cef9fa"
+    },
+    {
+      "key": "engineering:section:31.1",
+      "number": "31.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2179,
+      "end_line": 2182,
+      "title": "### 31.1. Классы операций",
+      "sha256": "2409193f46f39d6b0b7d9d2e7dc6a3382f0eee13eb4417d21acf34b9a727f644"
+    },
+    {
+      "key": "engineering:section:31.2",
+      "number": "31.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2183,
+      "end_line": 2198,
+      "title": "### 31.2. Протокол значимой записи",
+      "sha256": "5ba7b4b423012d0f4268dc0f9320897980b5724cccd5c779f4e7e8473fcdeba9"
+    },
+    {
+      "key": "engineering:section:31.3",
+      "number": "31.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2199,
+      "end_line": 2202,
+      "title": "### 31.3. Неизвестный исход",
+      "sha256": "f9c0213117f607d4ae81a6711b0cfabe9e0954bfe5c9f20cee162b5974b03a0c"
+    },
+    {
+      "key": "engineering:section:31.4",
+      "number": "31.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2203,
+      "end_line": 2208,
+      "title": "### 31.4. Границы гарантий",
+      "sha256": "26e70754f64033d5149a2f6126a0d3dd64d4eb146c12a798c830219c6e5534bd"
+    },
+    {
+      "key": "engineering:section:31.90",
+      "number": "31.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2209,
+      "end_line": 2244,
+      "title": "### 31.90. Атомарная компонентная процедура К31",
+      "sha256": "2a997119fac6be04e059f74fc6e9a530401d91013ea870e4337f8e5c904150d3"
+    },
+    {
+      "key": "engineering:section:32",
+      "number": "32",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2245,
+      "end_line": 2302,
+      "title": "## 32. Идентичность, полномочия и подтверждения",
+      "sha256": "2a933b1753b2bad5b2b4d0f80a9bf3db4fe22ccf8d7bb4a9e3f308625101799e"
+    },
+    {
+      "key": "engineering:section:32.90",
+      "number": "32.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2267,
+      "end_line": 2302,
+      "title": "### 32.90. Атомарная компонентная процедура К32",
+      "sha256": "52b5e28ee7914cdfb786e24de0df825a2e68f5b3a0fabe87efe0364968097783"
+    },
+    {
+      "key": "engineering:section:33",
+      "number": "33",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2303,
+      "end_line": 2358,
+      "title": "## 33. Безопасность, изоляция и недоверенные инструкции",
+      "sha256": "544d5a8600d4cd7d76993c35e157aec3c731d0c174cbd5ab267da8a4027335f3"
+    },
+    {
+      "key": "engineering:section:33.1",
+      "number": "33.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2305,
+      "end_line": 2308,
+      "title": "### 33.1. Модель угроз",
+      "sha256": "a59bd28303d2da6396ab88439ffb0781ab49f74ee7bcabe704c267f6ef235d27"
+    },
+    {
+      "key": "engineering:section:33.2",
+      "number": "33.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2309,
+      "end_line": 2314,
+      "title": "### 33.2. Защитная архитектура",
+      "sha256": "105d0c1a08780f07bcbf22e213834abcf408093e7be93bcd08fc3dea8c4df4b6"
+    },
+    {
+      "key": "engineering:section:33.3",
+      "number": "33.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2315,
+      "end_line": 2318,
+      "title": "### 33.3. Отдельные испытания",
+      "sha256": "d5238c05188d10bbf2b6a9b21f8b1a07ba2e0be6ae746da72ea7cf6ab6d9ea83"
+    },
+    {
+      "key": "engineering:section:33.4",
+      "number": "33.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2319,
+      "end_line": 2322,
+      "title": "### 33.4. Остаточный риск",
+      "sha256": "006c3472efd0f0814cd39f45d5bbeb01bf5d774d8f8fb8c993fc39d2ca7021e9"
+    },
+    {
+      "key": "engineering:section:33.90",
+      "number": "33.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2323,
+      "end_line": 2358,
+      "title": "### 33.90. Атомарная компонентная процедура К33",
+      "sha256": "eeb78150aff935eb9431a01522a2fb298a2321700538bf0112aba27ab67883ab"
+    },
+    {
+      "key": "engineering:section:34",
+      "number": "34",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2359,
+      "end_line": 2406,
+      "title": "## 34. Данные, приватность, происхождение и разделение пользователей",
+      "sha256": "b3d3409181d5050be4cb20d1e81bac793271fea4f87ee62519ddfaee31be33cb"
+    },
+    {
+      "key": "engineering:section:34.90",
+      "number": "34.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2371,
+      "end_line": 2406,
+      "title": "### 34.90. Атомарная компонентная процедура К34",
+      "sha256": "fafc3e635ae63028915b61d5b853fdb0c01a1e6d2694d958696488021fd21518"
+    },
+    {
+      "key": "engineering:section:35",
+      "number": "35",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2407,
+      "end_line": 2454,
+      "title": "## 35. Программный код, структура проекта и материалы результата",
+      "sha256": "e8b04d6ef774fff1296bdb7670f98209acde8be73bbdb066cf94485bc5ee37dc"
+    },
+    {
+      "key": "engineering:section:35.90",
+      "number": "35.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2419,
+      "end_line": 2454,
+      "title": "### 35.90. Атомарная компонентная процедура К35",
+      "sha256": "1b330a7c2d0c9e83670216b50fa95b89f3bed8119e734daa0d3da0251400d8c2"
+    },
+    {
+      "key": "engineering:section:36",
+      "number": "36",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2455,
+      "end_line": 2502,
+      "title": "## 36. Браузер, графические интерфейсы и мультимодальность",
+      "sha256": "a9763c7a858843c30788b37fd392eab7eb67d4069845ca11d5f3219dd0ac7f41"
+    },
+    {
+      "key": "engineering:section:36.90",
+      "number": "36.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2467,
+      "end_line": 2502,
+      "title": "### 36.90. Атомарная компонентная процедура К36",
+      "sha256": "7536a9fcedd18b4054b8fb6b3ffdc8c5508fed8063401bd9746443b5cf1ae889"
+    },
+    {
+      "key": "engineering:section:37",
+      "number": "37",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2503,
+      "end_line": 2560,
+      "title": "## 37. Инженерия оценки поведения — evaluation engineering",
+      "sha256": "91f7afb684028b9c5d1e54c903d3e70dbb4cedb9fbfc466922675d2692bdbba3"
+    },
+    {
+      "key": "engineering:section:37.1",
+      "number": "37.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2505,
+      "end_line": 2508,
+      "title": "### 37.1. Объект оценки",
+      "sha256": "2bf157956cd3920df4ed0c5a3b491311009d87d9c8eb256b87eb78f468d2942b"
+    },
+    {
+      "key": "engineering:section:37.2",
+      "number": "37.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2509,
+      "end_line": 2514,
+      "title": "### 37.2. Набор случаев",
+      "sha256": "f8afae57cc18abfd4d2f7e4a5a880ade8e0b8d45cc7f42129c14f9717073aefa"
+    },
+    {
+      "key": "engineering:section:37.3",
+      "number": "37.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2515,
+      "end_line": 2518,
+      "title": "### 37.3. Повторные испытания",
+      "sha256": "4a734b4081784dc98f1e49c19d75b110b4e88701971afdaff0425da472c4a777"
+    },
+    {
+      "key": "engineering:section:37.4",
+      "number": "37.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2519,
+      "end_line": 2524,
+      "title": "### 37.4. Анализ изменения",
+      "sha256": "14ba69764325fd13a47fba13ab772d394bec2fdeae7c08089079f4bbb8441f60"
+    },
+    {
+      "key": "engineering:section:37.90",
+      "number": "37.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2525,
+      "end_line": 2560,
+      "title": "### 37.90. Атомарная компонентная процедура К37",
+      "sha256": "16a7c4118c70edc6a3224eed2dd15bd8763c848ee483b5d6aef0d58240fa8de3"
+    },
+    {
+      "key": "engineering:section:38",
+      "number": "38",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2561,
+      "end_line": 2608,
+      "title": "## 38. Верификация, пригодность и независимая проверка",
+      "sha256": "bad698bd70c2f2da870c1167550dff19ea361ebf320224b154c11f9d572e0676"
+    },
+    {
+      "key": "engineering:section:38.90",
+      "number": "38.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2573,
+      "end_line": 2608,
+      "title": "### 38.90. Атомарная компонентная процедура К38",
+      "sha256": "5c557a85b8c450735d792b2f8a0a3289540f91f51128d94712bd1a6445dfde7e"
+    },
+    {
+      "key": "engineering:section:39",
+      "number": "39",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2609,
+      "end_line": 2656,
+      "title": "## 39. Наблюдаемость, журналы и воспроизведение",
+      "sha256": "d83260b433c6c03a9ee590372f0d9495628c8ffd11bc502d5d1bbb2318a565d7"
+    },
+    {
+      "key": "engineering:section:39.90",
+      "number": "39.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2621,
+      "end_line": 2656,
+      "title": "### 39.90. Атомарная компонентная процедура К39",
+      "sha256": "6613effe5e1bd8eee644133ccb7393b5107b178164b97d29254b373ea654acd8"
+    },
+    {
+      "key": "engineering:section:40",
+      "number": "40",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2657,
+      "end_line": 2704,
+      "title": "## 40. Надежность, эксплуатация и инциденты",
+      "sha256": "637a731802ca19e3a1f36b9b5b563bdc1f260d304a6e69d67846fdd44eacb3ac"
+    },
+    {
+      "key": "engineering:section:40.90",
+      "number": "40.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2669,
+      "end_line": 2704,
+      "title": "### 40.90. Атомарная компонентная процедура К40",
+      "sha256": "bd417fcaa42837f4713c089bb9ce4844afb0e739e89af814ac4faf91e1aadf47"
+    },
+    {
+      "key": "engineering:section:41",
+      "number": "41",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2705,
+      "end_line": 2752,
+      "title": "## 41. Экономика, ресурсные бюджеты и производительность",
+      "sha256": "4d52124e512ec85fe8f61bef2f4f39dfa9b117311933b5d72c73463b50339834"
+    },
+    {
+      "key": "engineering:section:41.90",
+      "number": "41.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2717,
+      "end_line": 2752,
+      "title": "### 41.90. Атомарная компонентная процедура К41",
+      "sha256": "cae1173378a5b4d8fa7e2306ae20fe50ff30e1c7515782418b1a8e1fcf6e93dd"
+    },
+    {
+      "key": "engineering:section:42",
+      "number": "42",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2753,
+      "end_line": 2800,
+      "title": "## 42. Выпуск, конфигурация и цепочка поставки",
+      "sha256": "d06cf73f1f919c580148180083dfa892485afefdf083039da2e6f779bcebf617"
+    },
+    {
+      "key": "engineering:section:42.90",
+      "number": "42.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2765,
+      "end_line": 2800,
+      "title": "### 42.90. Атомарная компонентная процедура К42",
+      "sha256": "1c0a1466238acb18d99a15ebc934a9d7cc32cf29221063a5bb0355f9ee5edd8c"
+    },
+    {
+      "key": "engineering:section:43",
+      "number": "43",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2801,
+      "end_line": 2857,
+      "title": "## 43. Управляемое обучение, обратная связь и дрейф",
+      "sha256": "ac890b84fef02532b207aac7e66922beee42781406562e26add222f754fc3ae1"
+    },
+    {
+      "key": "engineering:section:43.90",
+      "number": "43.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2822,
+      "end_line": 2857,
+      "title": "### 43.90. Атомарная компонентная процедура К43",
+      "sha256": "8804e5350f3fd625fb5b5434de65147566a0b24f0463997ab0af1f423ea4ec24"
+    },
+    {
+      "key": "engineering:section:44",
+      "number": "44",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2858,
+      "end_line": 2905,
+      "title": "## 44. Взаимодействие с человеком и действующий надзор",
+      "sha256": "83cd60238d8f7446bd224895b4a197253ef8b7afa75e8a0a2ccc4113e9ada8db"
+    },
+    {
+      "key": "engineering:section:44.90",
+      "number": "44.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2870,
+      "end_line": 2905,
+      "title": "### 44.90. Атомарная компонентная процедура К44",
+      "sha256": "c5279ae4daffc6cb939832672ff7d389da7d0e9ec4dd7f966d27a84ce69f0227"
+    },
+    {
+      "key": "engineering:section:45",
+      "number": "45",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2906,
+      "end_line": 2960,
+      "title": "## 45. Архитектура компетенций и границы роли",
+      "sha256": "dca9b85d1b0d104dfa299f2412064aa1a9a2a142f01b0a4d248d89ab117918bd"
+    },
+    {
+      "key": "engineering:section:45.90",
+      "number": "45.90",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2925,
+      "end_line": 2960,
+      "title": "### 45.90. Атомарная компонентная процедура К45",
+      "sha256": "5360c8f728d229dbcbbb4a6134d0c0c7a6fb94562d587f3ca68f98a8bc81afed"
+    },
+    {
+      "key": "engineering:section:46",
+      "number": "46",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 2961,
+      "end_line": 3014,
+      "title": "## 46. Режимы мышления и работы агента",
+      "sha256": "abec6219c9d73fc2702a0e82179d3f02ba3f51d4cc01be21022b8c4b3bc26d7e"
+    },
+    {
+      "key": "engineering:section:46.1",
+      "number": "46.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2963,
+      "end_line": 2988,
+      "title": "### 46.1. Выбор режима и маршрута",
+      "sha256": "72d6782b55468b4512cbfa2586e2caf233dcc09f0fb781b6cacdf4ad87c5464e"
+    },
+    {
+      "key": "engineering:section:46.2",
+      "number": "46.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 2989,
+      "end_line": 3006,
+      "title": "### 46.2. Процедура диспетчеризации",
+      "sha256": "2c61bf88d4460c0aa69946bc33f25238d0f61ec63023d5d6adb12c68ee36f28d"
+    },
+    {
+      "key": "engineering:section:46.3",
+      "number": "46.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3007,
+      "end_line": 3014,
+      "title": "### 46.3. Неизвестный класс задачи",
+      "sha256": "c48938954a77cfce6e7c0a7ee96109b748aa6288198cd52e7bf63aaeb5f5608b"
+    },
+    {
+      "key": "engineering:section:47",
+      "number": "47",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3015,
+      "end_line": 3042,
+      "title": "## 47. Главные аксиомы",
+      "sha256": "0611c89ab4d0b4bd6902502651c011d742aed741b7c8a558254ddc6029efb698"
+    },
+    {
+      "key": "engineering:section:48",
+      "number": "48",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3043,
+      "end_line": 3274,
+      "title": "## 48. Полный процедурный механизм: контракты, состояния, диспетчер и исключения",
+      "sha256": "8c7e4b75ad3198ba12d641ac845328bd16502902b0c0f64cd712ea44848d96dc"
+    },
+    {
+      "key": "engineering:section:48.1",
+      "number": "48.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3045,
+      "end_line": 3073,
+      "title": "### 48.1. Общий контракт процедуры",
+      "sha256": "0360bb6b99a1aa4a8d33e149a4cf69241a3fd7ccf5b32f2db9f89bea38c4ab6f"
+    },
+    {
+      "key": "engineering:section:48.2",
+      "number": "48.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3074,
+      "end_line": 3079,
+      "title": "### 48.2. Запись исполнения",
+      "sha256": "92d77ba69ab23353a022b13ff9fa80e87a386ea1306f023edf670ed3e5c44b14"
+    },
+    {
+      "key": "engineering:section:48.3",
+      "number": "48.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3080,
+      "end_line": 3101,
+      "title": "### 48.3. Машина состояний запуска",
+      "sha256": "b5188ee7069d069b3f74c01ad1a903247aa5704188d71b8da25d409824d581ae"
+    },
+    {
+      "key": "engineering:section:48.4",
+      "number": "48.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3102,
+      "end_line": 3124,
+      "title": "### 48.4. Машина состояний внешней операции",
+      "sha256": "1574ea75a11c38ab0634bd3f6708dd59c577ea27d9a42c40611f415428366d80"
+    },
+    {
+      "key": "engineering:section:48.5",
+      "number": "48.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3125,
+      "end_line": 3184,
+      "title": "### 48.5. Диспетчер полного исполнения",
+      "sha256": "af917fcc1fdd897cc346db48fd8133c3a903f9946d1780eecef5517fdff72471"
+    },
+    {
+      "key": "engineering:section:48.6",
+      "number": "48.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3185,
+      "end_line": 3192,
+      "title": "### 48.6. Универсальный обработчик исключения",
+      "sha256": "f94d12d6ccc821fd129344b821495567574046302268a2185f2aec0ac5539f9a"
+    },
+    {
+      "key": "engineering:section:48.7",
+      "number": "48.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3193,
+      "end_line": 3198,
+      "title": "### 48.7. Протокол закрытия",
+      "sha256": "3314f6817fd78bd3a59ff7652e4cee3fb53f22064fcbaf6dd38f0568477c5fee"
+    },
+    {
+      "key": "engineering:section:48.8",
+      "number": "48.8",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3199,
+      "end_line": 3202,
+      "title": "### 48.8. Ограничение проверки самого проверяющего",
+      "sha256": "abc2785032f169e75062d9c5ef76df21bbde43fc8cc4710fedb9407dface9d78"
+    },
+    {
+      "key": "engineering:section:48.9",
+      "number": "48.9",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3203,
+      "end_line": 3212,
+      "title": "### 48.9. Фаза компонента и наследование уже выполненной работы",
+      "sha256": "312aee7a0815e0f6eb08587f2e116fee4f9af9ae1847a3c0a1f8f229cf228bf6"
+    },
+    {
+      "key": "engineering:section:48.10",
+      "number": "48.10",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3213,
+      "end_line": 3222,
+      "title": "### 48.10. Контракт атома и правило следующего перехода",
+      "sha256": "290daec2ffe2d0651e91353e1d1159f175e5503d9d0b2ca135eb7405d66ab3a7"
+    },
+    {
+      "key": "engineering:section:48.11",
+      "number": "48.11",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3223,
+      "end_line": 3241,
+      "title": "### 48.11. Полная таблица исключительных исходов внешней операции",
+      "sha256": "3cfec157ce8d7f37829a6caff84cdd31e34dc83466c41a87c63c8b1e4e349875"
+    },
+    {
+      "key": "engineering:section:48.12",
+      "number": "48.12",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3242,
+      "end_line": 3262,
+      "title": "### 48.12. Разрешенные переходы внешней операции",
+      "sha256": "4742b9dbda7504bbaa68e64ff57dbdc5b1841cb05123758036a4b02d74ffd634"
+    },
+    {
+      "key": "engineering:section:48.13",
+      "number": "48.13",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3263,
+      "end_line": 3274,
+      "title": "### 48.13. Безопасный повтор при неизвестном исходе",
+      "sha256": "c36bc45a371485b1681bad2a1643954d5c13f6966a388fe5da6ec0985f6189aa"
+    },
+    {
+      "key": "engineering:section:49",
+      "number": "49",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3275,
+      "end_line": 3642,
+      "title": "## 49. Библиотека сквозных атомарных протоколов",
+      "sha256": "c5ce263c76207bbfc6f3408ba24766b91343d4a9dbe39298b0c95bf8430cf0a4"
+    },
+    {
+      "key": "engineering:section:49.1",
+      "number": "49.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3279,
+      "end_line": 3296,
+      "title": "### 49.1. П01. Создание и проверка существенного положения",
+      "sha256": "38f7cba3b21a6a83deec34b28b298238e8c0374122a6c0d4857efe981be48273"
+    },
+    {
+      "key": "engineering:section:49.2",
+      "number": "49.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3297,
+      "end_line": 3314,
+      "title": "### 49.2. П02. Конфликт, устаревание и отзыв основания",
+      "sha256": "1604b3a496cc6f966c4a4cf6cf9ebd3d23f972f74c31d47e6ac901a91bfe641e"
+    },
+    {
+      "key": "engineering:section:49.3",
+      "number": "49.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3315,
+      "end_line": 3332,
+      "title": "### 49.3. П03. Дифференциальная инженерная диагностика",
+      "sha256": "8ffb3d10a0c71446ce7305aa32b96da9bda41974f44a95c7b78acb40bb209fea"
+    },
+    {
+      "key": "engineering:section:49.4",
+      "number": "49.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3333,
+      "end_line": 3350,
+      "title": "### 49.4. П04. Историко-генетический разбор изменения",
+      "sha256": "831053438accb4aaae9c89b961e7bc3f7979a3335ba456e85d8fe3e91b13151a"
+    },
+    {
+      "key": "engineering:section:49.5",
+      "number": "49.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3351,
+      "end_line": 3368,
+      "title": "### 49.5. П05. Проверка центральности, периферии и маргинальных случаев",
+      "sha256": "7d7f29726716caca65f2932a7d8f7d3b739a4be52809117bceba6091c24c8c8e"
+    },
+    {
+      "key": "engineering:section:49.6",
+      "number": "49.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3369,
+      "end_line": 3386,
+      "title": "### 49.6. П06. Создание новой агентной системы",
+      "sha256": "df554ce9d0dd794c7db245c8871b0cdbdabda2af3b7b9ba5b67cb5a2e28b7c52"
+    },
+    {
+      "key": "engineering:section:49.7",
+      "number": "49.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3387,
+      "end_line": 3404,
+      "title": "### 49.7. П07. Значимое внешнее действие",
+      "sha256": "9f377d4c3c6c6c4c1dd2b032d86e5a9953439d04b18e45600334a9d0f9fa51e3"
+    },
+    {
+      "key": "engineering:section:49.8",
+      "number": "49.8",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3405,
+      "end_line": 3422,
+      "title": "### 49.8. П08. Восстановление после прерывания",
+      "sha256": "45a3b5cf038a4fcd8a59ab4b70d22aa8990015344b0c8e763cf9cb0a4d5ee2b0"
+    },
+    {
+      "key": "engineering:section:49.9",
+      "number": "49.9",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3423,
+      "end_line": 3440,
+      "title": "### 49.9. П09. Подключение инструмента, протокола или расширения",
+      "sha256": "88b82f0d2b260724342fbd432ca019e905586fb9847fafc44bfb3d616ebb9a08"
+    },
+    {
+      "key": "engineering:section:49.10",
+      "number": "49.10",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3441,
+      "end_line": 3458,
+      "title": "### 49.10. П10. Сборка и сжатие контекста",
+      "sha256": "902ebf3181f28b932cca03f071bf700a66d7ccc8828411aef69255d186e987ac"
+    },
+    {
+      "key": "engineering:section:49.11",
+      "number": "49.11",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3459,
+      "end_line": 3476,
+      "title": "### 49.11. П11. Допуск и отзыв памяти",
+      "sha256": "0e9cb494be1446fdd9084097adb2339257f882cb0cabeb6567d71d974ba2c7b4"
+    },
+    {
+      "key": "engineering:section:49.12",
+      "number": "49.12",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3477,
+      "end_line": 3494,
+      "title": "### 49.12. П12. Управляемое изменение и исправление",
+      "sha256": "8078811f4a03181a020d5af18d9b6b2b91400776e22083a0d0e4e45336a783f7"
+    },
+    {
+      "key": "engineering:section:49.13",
+      "number": "49.13",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3495,
+      "end_line": 3512,
+      "title": "### 49.13. П13. Ограниченное делегирование",
+      "sha256": "5a8d4e2fa648aca24875f17698931342ff81f1a755dd213940a83853e81eef5c"
+    },
+    {
+      "key": "engineering:section:49.14",
+      "number": "49.14",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3513,
+      "end_line": 3530,
+      "title": "### 49.14. П14. Независимая оценка и приемка",
+      "sha256": "f2033e7e3af5b026eb232a5a5e3f4cc6e596e081a3aa4f431a4f306934e534af"
+    },
+    {
+      "key": "engineering:section:49.15",
+      "number": "49.15",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3531,
+      "end_line": 3548,
+      "title": "### 49.15. П15. Выпуск и миграция",
+      "sha256": "02c63778a5f14bfad4b41fc3c1b250a00054bba7ee70dff1a8115c9a041b6007"
+    },
+    {
+      "key": "engineering:section:49.16",
+      "number": "49.16",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3549,
+      "end_line": 3566,
+      "title": "### 49.16. П16. Инцидент безопасности и аварийное ограничение",
+      "sha256": "6b1139dd4b73b0df3060cd1a66532427393ea4b44cb73478df558df5fad07f42"
+    },
+    {
+      "key": "engineering:section:49.17",
+      "number": "49.17",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3567,
+      "end_line": 3584,
+      "title": "### 49.17. П17. Оптимизация полной стоимости и мощности",
+      "sha256": "4626acae905e471f922ad10a71c42eeac3ea9e8d470ab2cddd0c781a8d08b311"
+    },
+    {
+      "key": "engineering:section:49.18",
+      "number": "49.18",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3585,
+      "end_line": 3602,
+      "title": "### 49.18. П18. Передача человеку и ожидание решения",
+      "sha256": "2206906aabb46bf85cf802f44dad2888812f395646228a35ce850f49436b2a24"
+    },
+    {
+      "key": "engineering:section:49.19",
+      "number": "49.19",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3603,
+      "end_line": 3620,
+      "title": "### 49.19. П19. Прекращение и вывод из применения",
+      "sha256": "945cff4ec5485bf45e53cdf5f2088bf0f2fb074bcc92cf3b06ebc40af84c10d1"
+    },
+    {
+      "key": "engineering:section:49.20",
+      "number": "49.20",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3621,
+      "end_line": 3642,
+      "title": "### 49.20. П20. Аудит и пересмотр процедурного ядра",
+      "sha256": "fee81b09a55f499c35295b407cf54ad9d6e3f039fe6fedce748c3c4ce7467e4b"
+    },
+    {
+      "key": "engineering:section:50",
+      "number": "50",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3643,
+      "end_line": 3699,
+      "title": "## 50. Строгий протокол и контрольные барьеры",
+      "sha256": "0eba8f7d84051610aea9132e19c8dd627516f9f71c48a47aa4099481673d90cc"
+    },
+    {
+      "key": "engineering:section:50.1",
+      "number": "50.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3645,
+      "end_line": 3650,
+      "title": "### 50.1. Аналитическая проверка и технический барьер",
+      "sha256": "64761b1b266e8d1ba9dafe71ee78b5ebcb5c523e49276ad4ae3d3038b1ba14cb"
+    },
+    {
+      "key": "engineering:section:50.2",
+      "number": "50.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3651,
+      "end_line": 3664,
+      "title": "### 50.2. Раздельные состояние проверки и решение допуска",
+      "sha256": "d189a11fe530cdeaae4749f523a88b2e26b38e1177c3850e2cae93cb1960a14a"
+    },
+    {
+      "key": "engineering:section:50.3",
+      "number": "50.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3665,
+      "end_line": 3685,
+      "title": "### 50.3. Каталог барьеров",
+      "sha256": "1eed6577e9612148bbadcf0de11f0ba3ebc66fd839a9b0e26cfc8c49c09dd15f"
+    },
+    {
+      "key": "engineering:section:50.4",
+      "number": "50.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3686,
+      "end_line": 3691,
+      "title": "### 50.4. Порядок и конфликты",
+      "sha256": "c5282349d75d90a098a077b13ecd0947eea538e91b3d20e9e0f5eabebb15d3c9"
+    },
+    {
+      "key": "engineering:section:50.5",
+      "number": "50.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3692,
+      "end_line": 3699,
+      "title": "### 50.5. Свидетельство прохождения",
+      "sha256": "0f5d16bceccf9fb7e0c8342f66436ab1a4aa586f94dc50d930bc31599f9b4a1b"
+    },
+    {
+      "key": "engineering:section:51",
+      "number": "51",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3700,
+      "end_line": 3730,
+      "title": "## 51. Каталог типовых дефектов",
+      "sha256": "58b466b4f1ea4f9e74756c2cf459487884dfaac7456aeb1829022e51e2becd9f"
+    },
+    {
+      "key": "engineering:section:52",
+      "number": "52",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3731,
+      "end_line": 3772,
+      "title": "## 52. Типовые выходные материалы",
+      "sha256": "2689699fc90ab267293123ec583c1114dbb1b3df1c5923a912e3e022ae36d0a9"
+    },
+    {
+      "key": "engineering:section:52.1",
+      "number": "52.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3733,
+      "end_line": 3738,
+      "title": "### 52.1. Обязательный минимальный пакет",
+      "sha256": "7d43434f1342e4a4ec169142be580dcb9b827df546e3a535796e5ebf733ca73e"
+    },
+    {
+      "key": "engineering:section:52.2",
+      "number": "52.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3739,
+      "end_line": 3756,
+      "title": "### 52.2. Паспорт системы",
+      "sha256": "8d6ec9a4e6e381d3ae1f6f801066d0a0e9c4b022251fa7e5601a43fab18db2fc"
+    },
+    {
+      "key": "engineering:section:52.3",
+      "number": "52.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3757,
+      "end_line": 3760,
+      "title": "### 52.3. Карточка архитектурного решения",
+      "sha256": "f5764538bd2bc0092e7bc7140d88b1565ddb30b0dd3b346c91686a39db0c5744"
+    },
+    {
+      "key": "engineering:section:52.4",
+      "number": "52.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3761,
+      "end_line": 3764,
+      "title": "### 52.4. Карточка испытания",
+      "sha256": "da71730af8c8277df8f0dbce9ca76a84c27d319f35776658f6264cde4995d6ef"
+    },
+    {
+      "key": "engineering:section:52.5",
+      "number": "52.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3765,
+      "end_line": 3772,
+      "title": "### 52.5. Карточка изменения",
+      "sha256": "df42b2916c4200917572b2a164e1dc8b51f2f8517283ea4672ef63b9b8975570"
+    },
+    {
+      "key": "engineering:section:53",
+      "number": "53",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3773,
+      "end_line": 3866,
+      "title": "## 53. Иллюстративный сквозной пример",
+      "sha256": "2c665b17fa428ce39a22059d23c73cc133a31e78b178ed6242cc18d85ea78545"
+    },
+    {
+      "key": "engineering:section:53.1",
+      "number": "53.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3777,
+      "end_line": 3782,
+      "title": "### 53.1. Контракт и архитектурный выбор",
+      "sha256": "73f53d992c68797e3ce502666a499232950f05e8c19102c939167226dabb20c2"
+    },
+    {
+      "key": "engineering:section:53.2",
+      "number": "53.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3783,
+      "end_line": 3800,
+      "title": "### 53.2. Реализация по слоям",
+      "sha256": "4552ed92bf29362b948971d0d2787b10f5c5782fdfd5f050ac193ed18a11fec5"
+    },
+    {
+      "key": "engineering:section:53.3",
+      "number": "53.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3801,
+      "end_line": 3804,
+      "title": "### 53.3. Критический отказ",
+      "sha256": "eca5aeb17b00179237cd40ced5025e48927ebdc35d01a4af4beb41b4a00afb62"
+    },
+    {
+      "key": "engineering:section:53.4",
+      "number": "53.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3805,
+      "end_line": 3819,
+      "title": "### 53.4. Обязательные испытания сценария",
+      "sha256": "4edb8016de11812fc357536517ee85ab4205e1b65bdc0952678a396c0f5eb98c"
+    },
+    {
+      "key": "engineering:section:53.5",
+      "number": "53.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3820,
+      "end_line": 3824,
+      "title": "### 53.5. Выход",
+      "sha256": "c6c7c9ddfc424420ce5c22e6342ac7ac4b32e5afc7243013a475815c11f9f2b9"
+    },
+    {
+      "key": "engineering:section:53.6",
+      "number": "53.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3825,
+      "end_line": 3838,
+      "title": "### 53.6. Сквозная карточка P.T.J(V,A,R).S.M.C.",
+      "sha256": "9814e47fbea19b60539708cb18692abae5352b6c81765d305497bd0bc34e6b11"
+    },
+    {
+      "key": "engineering:section:53.7",
+      "number": "53.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3839,
+      "end_line": 3846,
+      "title": "### 53.7. Работа девяти ядер на одном случае",
+      "sha256": "337b2493db8f27e93d83524674695db11ec3dd857c20ab4057fa21c978772bbf"
+    },
+    {
+      "key": "engineering:section:53.8",
+      "number": "53.8",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3847,
+      "end_line": 3856,
+      "title": "### 53.8. Диагностическая, историческая и позиционная проекции",
+      "sha256": "f0f3ee1e881f8bdb29cf966953b2b8f57c4808533d68228ddbc9e0a843179cfb"
+    },
+    {
+      "key": "engineering:section:53.9",
+      "number": "53.9",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3857,
+      "end_line": 3866,
+      "title": "### 53.9. Контрпример: рост показателя без улучшения системы",
+      "sha256": "9d21e2f0d3b3a56ebaa1c6f8b9de7f4aca7eb920414926af0cb7b697321d5cab"
+    },
+    {
+      "key": "engineering:section:54",
+      "number": "54",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3867,
+      "end_line": 3882,
+      "title": "## 54. Форматы ответа инженера-агента",
+      "sha256": "89407acdd5b4acdf5b7184a32db54c2199dfd7fe3b9ac2ca050bb12252fe659b"
+    },
+    {
+      "key": "engineering:section:55",
+      "number": "55",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3883,
+      "end_line": 3909,
+      "title": "## 55. Права решений и условия блокировки",
+      "sha256": "7ea7a71213e326e3c03f6502f8adb58a17a2ee0b48c38e4cc121f705a7e79c99"
+    },
+    {
+      "key": "engineering:section:55.1",
+      "number": "55.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3885,
+      "end_line": 3895,
+      "title": "### 55.1. Локальные профили самостоятельности",
+      "sha256": "19c949680b51d4547959cc9a8903436e5d071be0f7e0be5cd51b8ba10e3a9c2b"
+    },
+    {
+      "key": "engineering:section:55.2",
+      "number": "55.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3896,
+      "end_line": 3899,
+      "title": "### 55.2. Распределение решений",
+      "sha256": "fe21805261d8ed6fcc567654792734cdb52367c3ca4020548a963fa76d542655"
+    },
+    {
+      "key": "engineering:section:55.3",
+      "number": "55.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3900,
+      "end_line": 3909,
+      "title": "### 55.3. Блокирующие условия",
+      "sha256": "25837157c2e6224e79845864cae2ad61e6e5ef1692bae505cd1fa149fb31a9fc"
+    },
+    {
+      "key": "engineering:section:56",
+      "number": "56",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3910,
+      "end_line": 3998,
+      "title": "## 56. Сводные атомарные контрольные проверки",
+      "sha256": "a0a48b7d3a29d22ac15340f7e501256d5cc881f73c4415612f68317a9e4beed9"
+    },
+    {
+      "key": "engineering:section:56.1",
+      "number": "56.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3912,
+      "end_line": 3915,
+      "title": "### 56.1. Правило применения",
+      "sha256": "1aa76bc3b930eb5543635a5e6e4a71ec54050c89bd8b71fc9b7358fa38120a27"
+    },
+    {
+      "key": "engineering:section:56.2",
+      "number": "56.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3916,
+      "end_line": 3944,
+      "title": "### 56.2. Предмет, ядра и доказательства",
+      "sha256": "8d722b634cd20809121bb499f0631890b78c68e03e4e6b97204a83b230003d45"
+    },
+    {
+      "key": "engineering:section:56.3",
+      "number": "56.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3945,
+      "end_line": 3961,
+      "title": "### 56.3. Модели объекта",
+      "sha256": "ff5b6ed366c48aafd16bd946de6b13e8f741c799d240753f9185b84c4290e01d"
+    },
+    {
+      "key": "engineering:section:56.4",
+      "number": "56.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3962,
+      "end_line": 3990,
+      "title": "### 56.4. Исполнение и приемка",
+      "sha256": "fdbd27e94f0e3dae65f1c7eda242ff1a663f77a3dea95f6df1ee218976381d86"
+    },
+    {
+      "key": "engineering:section:56.5",
+      "number": "56.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 3991,
+      "end_line": 3998,
+      "title": "### 56.5. Закрытие контроля",
+      "sha256": "78b7cf05848207ec316f3b1bb8719885f500fa80ccf152922303c62595a6a67c"
+    },
+    {
+      "key": "engineering:section:57",
+      "number": "57",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 3999,
+      "end_line": 4014,
+      "title": "## 57. Единая точка входа в системную директиву",
+      "sha256": "384e6f3a0d710ae7cf7c418995704af0fc03e5e185208a8d3e68a720453b33de"
+    },
+    {
+      "key": "engineering:section:58",
+      "number": "58",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4015,
+      "end_line": 4298,
+      "title": "## 58. Полная интегрированная системная директива",
+      "sha256": "f6c3b7f2b70b6a90d8db74038d1ca3b3752cf00b05a069bf5a9241327d4466c0"
+    },
+    {
+      "key": "engineering:section:58.1",
+      "number": "58.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4019,
+      "end_line": 4032,
+      "title": "### 58.1. Идентичность, назначение и обязательность",
+      "sha256": "0287d635c51d7a9c19f1da2e68e7c69d995ca575837ea921803adcb8561579b0"
+    },
+    {
+      "key": "engineering:section:58.2",
+      "number": "58.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4033,
+      "end_line": 4050,
+      "title": "### 58.2. Активация, задача и продолжение работы",
+      "sha256": "46e9b8282af3c656bb4907f61e4aaa8e816465cb8e74d26c1dd996e9046b48a8"
+    },
+    {
+      "key": "engineering:section:58.3",
+      "number": "58.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4051,
+      "end_line": 4068,
+      "title": "### 58.3. Системно-аналитическое ядро",
+      "sha256": "d247a284f376789de7110ad9df366953abb1db479bdd915d596c2492db16b219"
+    },
+    {
+      "key": "engineering:section:58.4",
+      "number": "58.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4069,
+      "end_line": 4086,
+      "title": "### 58.4. Архитектурно-конструкторское ядро",
+      "sha256": "ca5f30d0c0a49aaa38e722ca15d77b15af9c4fa029d4a0ab8aaa5af04f86125c"
+    },
+    {
+      "key": "engineering:section:58.5",
+      "number": "58.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4087,
+      "end_line": 4108,
+      "title": "### 58.5. Исполнительное ядро",
+      "sha256": "6d2f7ce4483bacdff620cee6bdf70ae08ade12150f10e48eb96dd43c1a7557a4"
+    },
+    {
+      "key": "engineering:section:58.6",
+      "number": "58.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4109,
+      "end_line": 4142,
+      "title": "### 58.6. Эпистемическое ядро P.T.J(V,A,R).S.M.C.",
+      "sha256": "67a8a26aabd65e8f669a9033e86336ea9d04a5559c1dfcf2f01b38ca71267475"
+    },
+    {
+      "key": "engineering:section:58.7",
+      "number": "58.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4143,
+      "end_line": 4160,
+      "title": "### 58.7. История, структура и положение в системе",
+      "sha256": "9aa54f36165b08d8bf03441eb480c8f9b08a8ae709573c04e6de9373ca403890"
+    },
+    {
+      "key": "engineering:section:58.8",
+      "number": "58.8",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4161,
+      "end_line": 4180,
+      "title": "### 58.8. Инструменты и технические поверхности",
+      "sha256": "c35795919a59b4c399c7e8dc737f5924bebc98e7dd5f40ea0673bc0f28c77283"
+    },
+    {
+      "key": "engineering:section:58.9",
+      "number": "58.9",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4181,
+      "end_line": 4198,
+      "title": "### 58.9. Контекст, память, состояние и данные",
+      "sha256": "5bb0b280dde55014d2c694202b13012e4ebda781008832f1cc18ecbd6c3a544d"
+    },
+    {
+      "key": "engineering:section:58.10",
+      "number": "58.10",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4199,
+      "end_line": 4218,
+      "title": "### 58.10. Полномочия, защита и надзор",
+      "sha256": "c87bed41e496cb885da696f5a0d97851d49fa9876c002da9667cdc4b3c698d0c"
+    },
+    {
+      "key": "engineering:section:58.11",
+      "number": "58.11",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4219,
+      "end_line": 4238,
+      "title": "### 58.11. Проверка, доказательства и приемка",
+      "sha256": "4a8b8d8a29b0f8f29202bd2a733905b51362bf85c7e6efc121a11ff231141528"
+    },
+    {
+      "key": "engineering:section:58.12",
+      "number": "58.12",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4239,
+      "end_line": 4254,
+      "title": "### 58.12. Ресурс, длительность и остановка",
+      "sha256": "42c561dd7514f313157d4ecb75df3280f9bb8f9494341230fd04623b036dd274"
+    },
+    {
+      "key": "engineering:section:58.13",
+      "number": "58.13",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4255,
+      "end_line": 4276,
+      "title": "### 58.13. Эксплуатация, восстановление и развитие",
+      "sha256": "34da9c408cb40db0d7fb088c9283af3eeee5d19edde126e4820d96282b30c84c"
+    },
+    {
+      "key": "engineering:section:58.14",
+      "number": "58.14",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4277,
+      "end_line": 4298,
+      "title": "### 58.14. Форма работы и завершение",
+      "sha256": "c221daff2d3024eb9a4a393d05ea1e479b5e4709be46cf70a3dc063af46e681b"
+    },
+    {
+      "key": "engineering:section:59",
+      "number": "59",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4299,
+      "end_line": 4357,
+      "title": "## 59. Интегральные формулы и системные зависимости",
+      "sha256": "568ddcb0938371426a0325ff529ab97ff7087b823dc9b287a1014b309fed1bbd"
+    },
+    {
+      "key": "engineering:section:59.1",
+      "number": "59.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4301,
+      "end_line": 4313,
+      "title": "### 59.1. Стоимость подтвержденного результата",
+      "sha256": "7efb3f4f35d7ec8f10b11a3a641888d4d44966930444763af8bf271c46325a0e"
+    },
+    {
+      "key": "engineering:section:59.2",
+      "number": "59.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4314,
+      "end_line": 4325,
+      "title": "### 59.2. Полномочие дочернего исполнителя",
+      "sha256": "976134f7575bc7bd1813ba3576dbb9102fa6304126168c8bf51846ca987aeb52"
+    },
+    {
+      "key": "engineering:section:59.3",
+      "number": "59.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4326,
+      "end_line": 4335,
+      "title": "### 59.3. Надежность цепочки",
+      "sha256": "f0d5504ab170178b2b924551ebffed88d4d60bfc9a5107a4a03a93d7a71741a8"
+    },
+    {
+      "key": "engineering:section:59.4",
+      "number": "59.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4336,
+      "end_line": 4345,
+      "title": "### 59.4. Ноль наблюденных нарушений",
+      "sha256": "548a1dc4e67729bfbff03d7b063b6b1b7354dfd5ccf4edb03ed883e061a3b9dd"
+    },
+    {
+      "key": "engineering:section:59.5",
+      "number": "59.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4346,
+      "end_line": 4357,
+      "title": "### 59.5. Выбор архитектуры",
+      "sha256": "c3570713fff2b4e186131eec464aac8d90e1036c4df4e073e8e66afd49dc2385"
+    },
+    {
+      "key": "engineering:section:60",
+      "number": "60",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4358,
+      "end_line": 4421,
+      "title": "## 60. Прослеживаемость к исходным документам",
+      "sha256": "a3f25a2c8532aec6d83d6da7739b9a57ecf752b42ac483a6ed9270e3b4cce9fc"
+    },
+    {
+      "key": "engineering:section:60.1",
+      "number": "60.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4360,
+      "end_line": 4363,
+      "title": "### 60.1. Что перенесено",
+      "sha256": "390d4413263602860c4e7606162daa1278af9856e7707f53de7493409ef63eee"
+    },
+    {
+      "key": "engineering:section:60.2",
+      "number": "60.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4364,
+      "end_line": 4382,
+      "title": "### 60.2. Карта источников",
+      "sha256": "8147b47595073d0a9e0e1d029902b14241e599a12e37c36a284ba4f3b34c794d"
+    },
+    {
+      "key": "engineering:section:60.3",
+      "number": "60.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4383,
+      "end_line": 4388,
+      "title": "### 60.3. Что не перенесено",
+      "sha256": "335e7873b8679e7a89322f00b6d542cb8a83c1271c280bd1a781788705758a08"
+    },
+    {
+      "key": "engineering:section:60.4",
+      "number": "60.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4389,
+      "end_line": 4392,
+      "title": "### 60.4. Явные адаптации",
+      "sha256": "61da1e560460de8161cef04f287ccca6253ae51269a9fa667e2b1ebf4ec04680"
+    },
+    {
+      "key": "engineering:section:60.5",
+      "number": "60.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4393,
+      "end_line": 4397,
+      "title": "### 60.5. Граница переносимости",
+      "sha256": "b3739064ae2ffffcae71b723519e40632ce38656c2f39d8f06112625ad1dec3e"
+    },
+    {
+      "key": "engineering:section:60.6",
+      "number": "60.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4398,
+      "end_line": 4421,
+      "title": "### 60.6. Расширение версии 2.0",
+      "sha256": "a74b816972309795f085eeec942079432bbe4cbcbe59e40eaa4e3f4626ef7892"
+    },
+    {
+      "key": "engineering:section:61",
+      "number": "61",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4422,
+      "end_line": 4483,
+      "title": "## 61. Профиль внедрения и загрузки единого процедурного ядра",
+      "sha256": "751d6c1bb24a54cd3b8a467769be587f0f95237201bbaf01f83165ad583fc085"
+    },
+    {
+      "key": "engineering:section:61.1",
+      "number": "61.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4424,
+      "end_line": 4429,
+      "title": "### 61.1. Единый источник, ограниченный контекст",
+      "sha256": "6ebfbff25f664b4caf28ec0efdd0d98c384c8beb35d9f35520b6d8b3c47e42cd"
+    },
+    {
+      "key": "engineering:section:61.2",
+      "number": "61.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4430,
+      "end_line": 4435,
+      "title": "### 61.2. Состав обязательного профиля",
+      "sha256": "5496ae00384314377e39763b50deddb936c8e46477bdd1730011b0878f16457c"
+    },
+    {
+      "key": "engineering:section:61.3",
+      "number": "61.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4436,
+      "end_line": 4455,
+      "title": "### 61.3. Нормативное замыкание загрузки",
+      "sha256": "a7ff2e764c170b4e4a138385e7e846771eaa067b0377ae466230639d0f428c76"
+    },
+    {
+      "key": "engineering:section:61.4",
+      "number": "61.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4456,
+      "end_line": 4461,
+      "title": "### 61.4. Два исполнительных профиля",
+      "sha256": "fc270dccc2f588445b9bc44428470cc79e7f344986273e9bbf84fde61bc32656"
+    },
+    {
+      "key": "engineering:section:61.5",
+      "number": "61.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4462,
+      "end_line": 4467,
+      "title": "### 61.5. Стадии внедрения",
+      "sha256": "fb0a0372865655eaa69449dfabe8652aea764f8de57e971bfb06a13be801fff5"
+    },
+    {
+      "key": "engineering:section:61.6",
+      "number": "61.6",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4468,
+      "end_line": 4473,
+      "title": "### 61.6. Защита канонической спецификации",
+      "sha256": "b7d1248f05850776eb8b1735233b7b224cdd414f471c507ae749223ba0e4b1a1"
+    },
+    {
+      "key": "engineering:section:61.7",
+      "number": "61.7",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4474,
+      "end_line": 4483,
+      "title": "### 61.7. События обязательной повторной проверки",
+      "sha256": "ab1f57da1d3ea86af3e9263a58742e2e7d7725e210d7c36f79572220168239d3"
+    },
+    {
+      "key": "engineering:section:62",
+      "number": "62",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4484,
+      "end_line": 4553,
+      "title": "## 62. Словарь основных понятий",
+      "sha256": "9defdc6d2cd8beef65d7e55c8cfe216d98ddb82ab6f63ee47bdd240d73ebb5fc"
+    },
+    {
+      "key": "engineering:section:62.1",
+      "number": "62.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4515,
+      "end_line": 4553,
+      "title": "### 62.1. Словарь процедурного ядра",
+      "sha256": "bb3ade86edfc4a22b0886e988afd2e27a8286d1e2f168910fbdba97453f00fb3"
+    },
+    {
+      "key": "engineering:section:63",
+      "number": "63",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4554,
+      "end_line": 4609,
+      "title": "## 63. Первичные технические источники",
+      "sha256": "f32cecaa5d2a369cd0933928b1429fed183afb86f59e632291c9d5bb0f1e3ef1"
+    },
+    {
+      "key": "engineering:section:63.1",
+      "number": "63.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4600,
+      "end_line": 4609,
+      "title": "### 63.1. Правило источникового применения",
+      "sha256": "90ef25bc37a983d9e7271b18b2b60a15ba911dfea7c7ec8d54af4069e0937ab5"
+    },
+    {
+      "key": "engineering:section:64",
+      "number": "64",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4610,
+      "end_line": 4634,
+      "title": "## 64. Проблемные вопросы, компромиссы и открытые гипотезы",
+      "sha256": "08012281e88ddbdb1fab5be2d5dc753b989ac9ce200cf915ee029cbe880f398f"
+    },
+    {
+      "key": "engineering:section:65",
+      "number": "65",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4635,
+      "end_line": 4673,
+      "title": "## 65. Критерии готовности спецификации и рабочего применения",
+      "sha256": "77558854cbf5f9f67e90d2227c9231ed6e2acab20aeb3048e822462c5e2b73ac"
+    },
+    {
+      "key": "engineering:section:65.1",
+      "number": "65.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4637,
+      "end_line": 4647,
+      "title": "### 65.1. Четыре разных утверждения о готовности",
+      "sha256": "bdce79f07aa56ce05b38c22ea55ac5610d89d9a4fc98c81fe80ec59a2cc35856"
+    },
+    {
+      "key": "engineering:section:65.2",
+      "number": "65.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4648,
+      "end_line": 4653,
+      "title": "### 65.2. Условие принятия процедурной спецификации",
+      "sha256": "c4c30beca2d638610238c918420ee629125bb68dd44ec717ce8127af75f62040"
+    },
+    {
+      "key": "engineering:section:65.3",
+      "number": "65.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4654,
+      "end_line": 4659,
+      "title": "### 65.3. Условие рабочего допуска",
+      "sha256": "f9e6862d45226b550fa5d6bf624718711a03249a6a5e896eced3e5fcba59b4f2"
+    },
+    {
+      "key": "engineering:section:65.4",
+      "number": "65.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4660,
+      "end_line": 4665,
+      "title": "### 65.4. Условие пересмотра",
+      "sha256": "ed734d8502451d79639f850c3cedbcf73c815a1e43bd353c91dde43e0cf40972"
+    },
+    {
+      "key": "engineering:section:65.5",
+      "number": "65.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4666,
+      "end_line": 4673,
+      "title": "### 65.5. Итоговая роль",
+      "sha256": "e6db217fb96c974baaaa80279efda59586d2481898e12cbd188be8e56031a256"
+    },
+    {
+      "key": "engineering:section:66",
+      "number": "66",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4674,
+      "end_line": 4757,
+      "title": "## 66. Матрица полноты и сквозной прослеживаемости",
+      "sha256": "c060d1b60aacc5a6abd333052310721dd61db88be962849ef97eb1ec8369c2c8"
+    },
+    {
+      "key": "engineering:section:66.1",
+      "number": "66.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4676,
+      "end_line": 4681,
+      "title": "### 66.1. Универсум проверки",
+      "sha256": "ab38b4b76e6e8e03202b4b0320adbeb138f2e743704fe07cbcd63463650a79cd"
+    },
+    {
+      "key": "engineering:section:66.2",
+      "number": "66.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4682,
+      "end_line": 4725,
+      "title": "### 66.2. Карта компонентной интеграции",
+      "sha256": "b1814ddf65b0ca33a3fff7d02de5d4c10f553c1de5be8db6f9cae4730bbef533"
+    },
+    {
+      "key": "engineering:section:66.3",
+      "number": "66.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4726,
+      "end_line": 4739,
+      "title": "### 66.3. Матрица доказательной интеграции по стадиям",
+      "sha256": "d6c9023a02cb0dfcec4156a1009f603c6d38e4bac1ba9c236e5bf108468cc57e"
+    },
+    {
+      "key": "engineering:section:66.4",
+      "number": "66.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4740,
+      "end_line": 4747,
+      "title": "### 66.4. Правило покрытия взаимодействий",
+      "sha256": "9c7d09f3ace9a6cc1ba91eec5019b6bc6c43e4c31a77eb2983a920456c577981"
+    },
+    {
+      "key": "engineering:section:66.5",
+      "number": "66.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4748,
+      "end_line": 4757,
+      "title": "### 66.5. Замыкание на действие",
+      "sha256": "ad481c9bb73acdc8fb7f79a4428d6adeee37af0d76accb3d1c9542a8296ba3f3"
+    },
+    {
+      "key": "engineering:section:67",
+      "number": "67",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4758,
+      "end_line": 4897,
+      "title": "## 67. Межкомпонентные приемочные и опровергающие сценарии",
+      "sha256": "0cc6020b452bba112cc25f42a99c9ec376d1af53efebd6a4e8bd533be81deabc"
+    },
+    {
+      "key": "engineering:section:67.1",
+      "number": "67.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4760,
+      "end_line": 4765,
+      "title": "### 67.1. Назначение и статус набора",
+      "sha256": "de35069d151b87f95e8aec1cebecae1a13e5a5fcaa0aef3024433f4ce01e5344"
+    },
+    {
+      "key": "engineering:section:67.2",
+      "number": "67.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4766,
+      "end_line": 4887,
+      "title": "### 67.2. Сценарии и наблюдаемые критерии",
+      "sha256": "aaffd1458ea2c7cbaa7776625009f0e4dc1d92f01d7f890144485a308a48eb4c"
+    },
+    {
+      "key": "engineering:section:67.3",
+      "number": "67.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4888,
+      "end_line": 4897,
+      "title": "### 67.3. Приемка набора",
+      "sha256": "eaa5603e21ca667d43bf775176438c1fa82e3d3a0208e79d16a8438610864e72"
+    },
+    {
+      "key": "engineering:section:68",
+      "number": "68",
+      "level": 2,
+      "source": "engineering",
+      "start_line": 4898,
+      "end_line": 4965,
+      "title": "## 68. Отчет проверки и изменений редакции 2.0",
+      "sha256": "84545e6f94c2ff78ce901d34cbea9ef260cc02e2a86cad23c41bc6ce787a83b5"
+    },
+    {
+      "key": "engineering:section:68.1",
+      "number": "68.1",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4900,
+      "end_line": 4905,
+      "title": "### 68.1. Объект и граница проверки редакции",
+      "sha256": "0b483e84f1051de36250f89a1665013f95e6e9eeff6c43b69a0f9da6b4863276"
+    },
+    {
+      "key": "engineering:section:68.2",
+      "number": "68.2",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4906,
+      "end_line": 4921,
+      "title": "### 68.2. Обнаруженные несоответствия и исправления",
+      "sha256": "549458e08f1ae8b59121e6fd91deb422d7b082ba8d892472409c6ec6aada667a"
+    },
+    {
+      "key": "engineering:section:68.3",
+      "number": "68.3",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4922,
+      "end_line": 4952,
+      "title": "### 68.3. Выполненная проверка текстовой сборки",
+      "sha256": "5867a9381747324a636c90d590ace6447e3fc7b9da88bfd8db4f232b90b1bbdc"
+    },
+    {
+      "key": "engineering:section:68.4",
+      "number": "68.4",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4953,
+      "end_line": 4960,
+      "title": "### 68.4. Выполненная содержательная проверка",
+      "sha256": "e6da95be326fb65bb24cf957b7530a6a5ed0d1b45ebb4dbd581d150cbc1f84dd"
+    },
+    {
+      "key": "engineering:section:68.5",
+      "number": "68.5",
+      "level": 3,
+      "source": "engineering",
+      "start_line": 4961,
+      "end_line": 4965,
+      "title": "### 68.5. Что остается предметом локального подтверждения",
+      "sha256": "a1d3bca834dc5eaf927283f60d3d757348eccf9090fd092e87b5f696355f273e"
+    }
+  ],
+  "mandatory_core": [
+    "0",
+    "3",
+    "5",
+    "46",
+    "48",
+    "50",
+    "57",
+    "58"
+  ],
+  "closure_strategy": "entire_source_conservative",
+  "reason": "Полный исходник сохраняет все применимые процедуры и зависимости без недоказанного минимального сокращения."
+}

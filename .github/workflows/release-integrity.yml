@@ -1,0 +1,24 @@
+name: BNN release integrity
+on:
+  push:
+    branches: [main, 'engineering/**', 'fix/**', 'feature/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bnn-check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  release-engineering:
+    name: release-engineering
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1, pinned
+        with:
+          persist-credentials: false
+      - name: Test release boundaries and signed artifacts
+        run: python3 -B -m unittest discover -s tests/release_engineering -v
+      - name: Verify source and neutral distribution metadata
+        run: python3 -B packaging/check_source.py

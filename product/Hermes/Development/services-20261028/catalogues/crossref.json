@@ -1,0 +1,1006 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "service_status",
+      "title": null,
+      "description": "Проверить действующий официальный Crossref, фактический режим и ограничения; не запрашивает ключ.",
+      "inputSchema": {
+        "properties": {},
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "works_search",
+      "title": null,
+      "description": "Поиск и фильтрация метаданных, авторов, организаций, типов, финансирования и дат; все или журнал/участник/финансирующая организация/префикс/тип. Следующая страница — cursor. Не полный текст.",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1
+          },
+          "query_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rows": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "cursor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sort": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "all",
+              "journals",
+              "members",
+              "funders",
+              "prefixes",
+              "types"
+            ]
+          },
+          "scope_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "facets": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "*"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_get",
+      "title": null,
+      "description": "Полные доступные метаданные одного DOI с исходными полями и раздельными датами; abstract не равен полному тексту.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          },
+          "refresh": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "works_batch",
+      "title": null,
+      "description": "Последовательно проверить до 20 DOI; сохранить отдельные ошибки без подмены регистрационного агентства.",
+      "inputSchema": {
+        "properties": {
+          "dois": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "dois"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "bibliographic_match",
+      "title": null,
+      "description": "Найти кандидатов DOI по библиографической строке; score не является вероятностью совпадения.",
+      "inputSchema": {
+        "properties": {
+          "citation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rows": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "citation"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "doi_agency",
+      "title": null,
+      "description": "Определить регистрационное агентство DOI, в том числе DOI вне Crossref.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "doi_exists",
+      "title": null,
+      "description": "Проверить наличие DOI в Crossref через HEAD; не подтверждает научную достоверность.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_references",
+      "title": null,
+      "description": "Прочитать ограниченную часть внесённого списка литературы и число входящих цитирований Crossref; контексты и полный мировой граф не предоставляются.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_relations",
+      "title": null,
+      "description": "Прочитать типизированные связи: версии, предварительные публикации, рецензии, наборы данных и другие связи, если внесены.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_updates",
+      "title": null,
+      "description": "Проверить сообщения об исправлениях/отзыве, Crossmark и Retraction Watch; отсутствие записи не доказывает отсутствие отзыва.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rows": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_funding",
+      "title": null,
+      "description": "Сохранить финансирование, номера грантов, идентификаторы фондов/ROR, ORCID, организации и роли авторов как внесено/дополнено.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "work_licenses_links",
+      "title": null,
+      "description": "Прочитать лицензии, сроки их действия, версии и ссылки для машинного чтения; исходный текст не загружается.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "entities_search",
+      "title": null,
+      "description": "Каталоги журналов, участников Crossref, фондов, типов и лицензий; результаты отражают покрытие Crossref.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "journals",
+              "members",
+              "funders",
+              "types",
+              "licenses"
+            ]
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rows": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "entity"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "entity_get",
+      "title": null,
+      "description": "Получить отдельный журнал по ISSN, участника/фонд по номеру, владельца DOI-префикса или описание типа.",
+      "inputSchema": {
+        "properties": {
+          "entity": {
+            "type": "string",
+            "enum": [
+              "journals",
+              "members",
+              "funders",
+              "prefixes",
+              "types"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "entity",
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "works_facets",
+      "title": null,
+      "description": "Получить число результатов и распределения метаданных без выгрузки всех записей; это не оценка всего научного поля.",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1
+          },
+          "query_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "sort": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "all",
+              "journals",
+              "members",
+              "funders",
+              "prefixes",
+              "types"
+            ]
+          },
+          "scope_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "facets": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "*"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "facets"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "works_sample",
+      "title": null,
+      "description": "Получить случайную выборку метаданных Crossref до 100 записей; не воспроизводима как фиксированная выборка.",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1
+          },
+          "query_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "sort": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "select": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "all",
+              "journals",
+              "members",
+              "funders",
+              "prefixes",
+              "types"
+            ]
+          },
+          "scope_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "facets": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "*"
+                  ]
+                }
+              ]
+            }
+          },
+          "sample": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "sample"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "metadata_transform",
+      "title": null,
+      "description": "Официальное преобразование одного DOI в восемь форматов и CSL-библиографию; проверять возможные потери номера статьи и дат.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "csl-json",
+              "bibtex",
+              "ris",
+              "bibliography",
+              "rdf",
+              "turtle",
+              "unixref",
+              "unixsd"
+            ]
+          },
+          "style": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "output_name": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "doi",
+          "format"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "citation_styles",
+      "title": null,
+      "description": "Прочитать и отфильтровать официальный каталог стилей оформления ссылок.",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "export_records",
+      "title": null,
+      "description": "Сохранить метаданные до 20 DOI в JSON или CSV; раздельные даты и номер статьи сохраняются.",
+      "inputSchema": {
+        "properties": {
+          "dois": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "csv"
+            ]
+          },
+          "output_name": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "dois",
+          "format",
+          "output_name"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "xml_doi_lookup",
+      "title": null,
+      "description": "Официальный XML API: метаданные одного DOI; использует согласованный технический контакт.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "unixsd",
+              "unixref"
+            ]
+          }
+        },
+        "required": [
+          "doi"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "xml_citation_match",
+      "title": null,
+      "description": "Официальное XML-сопоставление до 10 библиографических строк; сохраняет статус и кандидатов.",
+      "inputSchema": {
+        "properties": {
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 10
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "unixsd",
+              "unixref"
+            ]
+          }
+        },
+        "required": [
+          "citations"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "openurl_lookup",
+      "title": null,
+      "description": "Официальный OpenURL: метаданные по DOI либо поиск по журналу/ISSN и автору/странице, без перехода на сайт издателя.",
+      "inputSchema": {
+        "properties": {
+          "doi": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "issn": {
+            "type": "string",
+            "minLength": 1
+          },
+          "volume": {
+            "type": "string",
+            "minLength": 1
+          },
+          "issue": {
+            "type": "string",
+            "minLength": 1
+          },
+          "spage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aulast": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": "string",
+            "minLength": 1
+          },
+          "atitle": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "unixsd",
+              "unixref"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "data_citations",
+      "title": null,
+      "description": "Пробный официальный интерфейс 2026: связи публикаций с наборами данных Crossref/DataCite; page с 0. Не прежний Event Data и не полный граф цитирований.",
+      "inputSchema": {
+        "properties": {
+          "object_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "from_created_date": {
+            "type": "string",
+            "minLength": 1
+          },
+          "until_created_date": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "member_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "rows": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "oai_discovery",
+      "title": null,
+      "description": "Официальный OAI-PMH: только общедоступные Identify, ListMetadataFormats, ListSets и ограниченный ListIdentifiers. Полные записи требуют иных прав.",
+      "inputSchema": {
+        "properties": {
+          "verb": {
+            "type": "string",
+            "enum": [
+              "Identify",
+              "ListMetadataFormats",
+              "ListSets",
+              "ListIdentifiers"
+            ]
+          },
+          "from_date": {
+            "type": "string",
+            "minLength": 1
+          },
+          "until_date": {
+            "type": "string",
+            "minLength": 1
+          },
+          "set": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metadata_prefix": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resumption_token": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "verb"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "instructions": "Official Crossref REST, XML, OpenURL and beta data citation APIs. No API key, authorized technical contact. Read-only metadata, not article full text. Distinguish publication/index/deposit dates, records/abstracts/full text, partial reference coverage, citation counts and context. Search score is not a match probability; missing corrections or funding means unknown, not absent. Beta dataset citations are incomplete and delayed. Do not infer licensing or access from a fulltext link. Stop on 429; transport queues requests and does not silently switch providers.",
+  "serverInfo": {
+    "name": "Hermes BN Crossref",
+    "title": null,
+    "version": "1.0.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

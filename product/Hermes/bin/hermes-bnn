@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+hermes_entry_root="$(cd "$(dirname "$0")/.." && pwd)"
+exec "$hermes_entry_root/bin/hermes" "$@"

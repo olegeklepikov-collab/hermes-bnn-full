@@ -1,0 +1,604 @@
+{
+  "count": 31,
+  "leaves": [
+    {
+      "id": "3C.S06.V",
+      "parent": "3C.S06",
+      "owning_component": "S",
+      "operation": "Проверь пригодность перехода и метода для данного тезиса",
+      "input": "Claim.J.V + C + адресуемое свидетельство",
+      "output": "отдельный результат J.V",
+      "postcondition": "Предмет, логика и перенос обоснованы либо ограничены",
+      "on_failure": "unknown/fail с ограничением использования; не усреднять",
+      "allowed_effects": [
+        "local_analysis"
+      ]
+    },
+    {
+      "id": "3C.S06.A",
+      "parent": "3C.S06",
+      "owning_component": "S",
+      "operation": "Сверь значение/смысл с указанным первичным объектом или эталоном",
+      "input": "Claim.J.A + C + адресуемое свидетельство",
+      "output": "отдельный результат J.A",
+      "postcondition": "Сохранены единица, ошибка и ограничение эталона",
+      "on_failure": "unknown/fail с ограничением использования; не усреднять",
+      "allowed_effects": [
+        "local_analysis"
+      ]
+    },
+    {
+      "id": "3C.S06.R",
+      "parent": "3C.S06",
+      "owning_component": "S",
+      "operation": "Проверь устойчивость способа в указанном универсуме повторений",
+      "input": "Claim.J.R + C + адресуемое свидетельство",
+      "output": "отдельный результат J.R",
+      "postcondition": "Повторяемость отделена от точности; общие причины записаны",
+      "on_failure": "unknown/fail с ограничением использования; не усреднять",
+      "allowed_effects": [
+        "local_analysis"
+      ]
+    },
+    {
+      "id": "3C.G06.GG01",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG01. fertility_gate\n\nTrigger:\n\n```text\ntrigger_if: запрос на идеи/варианты/расширение; «еще»; «придумай»; «какие есть»; мало кандидатов; ощущение исчерпанности\n```\n\nChecks:\n\n```text\nбеглость ≠ плодотворность (каждый кандидат различим, не парафраз соседа)\nохват осей вариативности (не одна ось)\nresidual-категория «еще» сохранена (пространство не объявлено закрытым)\nпорождение, а не понимание задачи подменено генерацией\n```\n\nPass condition:\n\n```text\nнабор содержит ≥1 различимый кандидат по релевантной зацепке; «еще» открыто; беглость не выдана за плодотворность.\n```\n\nFail action:\n\n```text\nприменить метаоператор `GC-A0xx`; сменить ось/рамку; пометить «сходимость преждевременна»; не закрывать пространство.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G06.GG02",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG02. frame_gate\n\nTrigger:\n\n```text\ntrigger_if: одна рамка/постановка; «очевидно, что задача в том, чтобы…»; первая формулировка принята как единственная; якорение\n```\n\nChecks:\n\n```text\nединорамочность (рассмотрена >1 рамка/постановка)\nякорение на первой рамке/идее\nсмена носителя проблемы / уровня / цели как источник альтернатив\nрамка названа как рамка, а не как сама задача\n```\n\nPass condition:\n\n```text\nпредъявлены ≥2 нетождественные рамки постановки; исходная рамка маркирована как одна из; переформулирование оператором `GC-B0xx` выполнено.\n```\n\nFail action:\n\n```text\nпереформулировать (инверсия допущения / смена цели / смена уровня); пометить «якорение на рамке»; вернуть кандидаты-рамки в пул.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G06.GG03",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG03. abduction_gate\n\nTrigger:\n\n```text\ntrigger_if: «почему»; неожиданность; аномалия; разрыв; нужно объяснение; порождение гипотез/механизмов\n```\n\nChecks:\n\n```text\nпорождено >1 объяснение-кандидат (не единственная гипотеза)\nконкурирующие гипотезы удержаны (поле не схлопнуто к любимой)\nкаждая гипотеза имеет различающий признак (мыслимо проверяема)\nстатус «гипотеза-кандидат», не «причина»\n```\n\nPass condition:\n\n```text\n≥2 конкурирующих объяснения с зацепкой за аномалию; для каждого назван различающий наблюдаемый признак; все помечены как кандидаты.\n```\n\nFail action:\n\n```text\nпородить альтернативы оператором `GC-C0xx`; запретить причинную лексику до Детектора; передать в `G02` (causal_gate) на валидацию.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G06.GG04",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG04. analogy_gate\n\nTrigger:\n\n```text\ntrigger_if: «как в…»; перенос структуры из домена-источника; метафора; прецедент; structural mapping\n```\n\nChecks:\n\n```text\nназваны источник S и цель T и переносимая структура (что именно отображается)\nдис-аналогия названа (где отображение ломается)\nпереобобщение аналогии (структура vs поверхностное сходство)\nперенос дает кандидат, а не доказательство\n```\n\nPass condition:\n\n```text\nотображение S→T явно; точка разрыва аналогии названа; вывод помечен как кандидат-по-аналогии, не как установленный перенос.\n```\n\nFail action:\n\n```text\nограничить аналогию до общей структуры оператором `GC-D0xx`; назвать дис-аналогию; передать кандидат в `G01`/`G02` Детектора.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G06.GG05",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG05. novelty_gate\n\nTrigger:\n\n```text\ntrigger_if: заявлена «новая идея»; «инновация»; «другой подход»; риск переупаковки уже сказанного\n```\n\nChecks:\n\n```text\nложная новизна: переименование/переупаковка ≠ новое различение\nновизна локализована (новая ось / новая комбинация / новый уровень — что именно ново)\nкандидат не дублирует уже порожденный (анти-дубль внутри пула)\nновизна не выдана за валидность (новое ≠ верное)\n```\n\nPass condition:\n\n```text\nназвано, в чем именно новизна относительно существующих кандидатов; это не переупаковка; статус остается «кандидат».\n```\n\nFail action:\n\n```text\nдемотировать до «переформулировка существующего»; либо усилить различение оператором `GC-E0xx`/`GC-F0xx`; не присваивать «установлено».\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G06.GG06",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG06. option_space_gate\n\nTrigger:\n\n```text\ntrigger_if: набор опций/вариантов дизайна; «варианты решения»; пространство выбора; нужен полный список\n```\n\nChecks:\n\n```text\nMECE-черновик: опции по возможности взаимоисключающи и совместно покрывают пространство\nоси различения опций названы (по чему они различаются)\nresidual-опция «иное / еще не перечисленное» присутствует\nкомбинаторное наводнение без отбора (объем ≠ покрытие)\n```\n\nPass condition:\n\n```text\nопции организованы по ≥1 явной оси; присутствует residual «иное»; набор не схлопнут к двум и не раздут шумом.\n```\n\nFail action:\n\n```text\nдостроить ось/пробел оператором `GC-G0xx`; добавить residual; пометить «покрытие неполно»; передать в `selection_gate`.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G06.GG07",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG07. selection_gate\n\nTrigger:\n\n```text\ntrigger_if: переход от пула к шорт-листу; отбор/приоритизация; «выберем лучшие»; риск ранней сходимости\n```\n\nChecks:\n\n```text\nпреждевременная конвергенция (отбор до достаточной дивергенции)\nкластеризация перед отбором (дубли/варианты одного свернуты, разнообразие сохранено)\nкритерий отбора назван и отделен от валидности (отбираем перспективные кандидаты, не «истинные»)\nплодотворность сохранена: ≥1 высоко-вариативный/рисковый кандидат не отброшен только за непохожесть\n```\n\nPass condition:\n\n```text\nшорт-лист получен после кластеризации по явному критерию; разнообразие сохранено; отсев не выдан за опровержение; «еще» открыто.\n```\n\nFail action:\n\n```text\nвернуться к `fertility_gate`/`option_space_gate`, если дивергенции мало; применить отбор без потери плодотворности `GC-J0xx`; не путать «не выбрано» с «ложно».\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G06.GG08",
+      "parent": "3C.G06",
+      "owning_component": "G",
+      "operation": "##### GG08. handoff_gate\n\nTrigger:\n\n```text\ntrigger_if: кандидат/шорт-лист готов к использованию как утверждение, причина, прогноз, метрика, рекомендация или действие\n```\n\nChecks:\n\n```text\nзакон моста: каждый передаваемый элемент маркирован «кандидат», не «установленное»\nмаршрутизация в нужный детекторный gate по типу притязания\nзацепка и предотвращаемая патология приложены к кандидату\nподмена кандидата установленным не произошла на границе передачи\n```\n\nPass condition:\n\n```text\nшорт-лист помечен как кандидаты и направлен в соответствующий gate Детектора; без валидации Генератор НЕ присваивает «установлено».\n```\n\nFail action:\n\n```text\nпонизить статус до «кандидат, не валидирован»; передать в Детектор; вне валидации запретить использование как факт/причина/рекомендация.\n```\n\nRouting к Детектору (по типу кандидата):\n\n```text\nфактическое утверждение            → `G01` (evidence_gate)\nобъяснение/механизм/причина        → `G02` (causal_gate)\nметрика/прокси/показатель          → `G03` (measurement_gate)\nпрогноз/сценарий/возможность       → `G04` (forecast_action_gate)\nопция/рекомендация к действию      → `G05` (decision_gate)\nкандидат про поведение/сегмент людей → `G06` (human_analytics_gate)\nдизайн/архитектура/готовность      → `G07` (engineering_lifecycle_gate)\nпритязание со «следует/право/вред» → `G08` (normative_gate)\n```\n\n---",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "ScopedSourceApplication",
+      "postcondition": "Сохранить тип элемента и определить локальную специализацию до применения",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-01",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-01. Семантическая инверсия.** Замени центральный конструкт версии его прямым антонимом; исследуй, не является ли наблюдаемое защитной гиперкомпенсацией подавленной противоположности. Процедура: изолируй ядро H1 → подбери антоним → построй H-Adv вокруг антонима. Риск злоупотребления: механистическое применение; safety: всегда рассматривай диалектического кандидата, где обе полярности сосуществуют в конфликте.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-02",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-02. Функциональная инверсия.** Рассмотри проявление как возможный компенсатор, буфер или способ решения другой проблемы. Устойчивость паттерна сама по себе не доказывает полезность. Процедура: опиши вред → назови возможную функцию → создай гипотезу функции и альтернативное объяснение устойчивости → укажи наблюдение, различающее версии. Риск злоупотребления: отрицание вреда, обвинение носителя и приписывание умысла. Ограничение: формулируй функцию как проверяемый кандидат; сохраняй реальность вреда и отдельно оценивай риск снятия компенсации.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-03",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-03. Каузальная инверсия.** Обрати предполагаемую связь причина→следствие (пусть Б причиняет А); адверсариальный частный случай ядрового `GC-C004`. Процедура: выдели в H1 причину А и следствие Б → построй H-Adv, где Б причиняет А → ищи подтверждения новой последовательности. Риск злоупотребления: игнор петель обратной связи; safety: после инверсии всегда проверь циклическую причинность А↔Б (передать в `G02`, ср. `C-E003` следствие≠причина).",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-04",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-04. Анализ реципрокного вклада.** Перенеси фокус с активного элемента на роль «пассивного» в поддержании дисфункциональной динамики. Процедура: выдели роли → временно проигнорируй активный элемент → спроси «какие действия/бездействие пассивного делают паттерн возможным?». Риск злоупотребления: снятие ответственности с активного элемента; safety: вклад не отменяет ответственности; формулируй как системный цикл, не персональную вину.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-05",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-05. Радикальная редукция.** Объясни всю сложность через один периферический микро-факт, переосмысленный как организующее ядро («точка сборки»). Процедура: собери список аномальных деталей → выбери наиболее «заряженную» → построй версию, где она причина, а очевидные проблемы — ее следствия. Риск злоупотребления: чрезмерная интерпретация, потеря связи с реальностью; safety: немедленная проверка сверху-вниз — какие еще микро-индикаторы должны найтись, если версия верна.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-06",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-06. Радикальная генерализация.** Переосмысли индивидуальную проблему как локальное проявление мета-системной динамики (симптом «больной» системы). Процедура: определи макро-контексты → сформулируй центральный конфликт контекста → переопиши проблему как реакцию на системный конфликт. Риск злоупотребления: полное снятие агентности; safety: обратный анализ — чем именно носитель восприимчив к этой системной патологии (ср. `C-A009` уровень анализа ограничивает вывод).",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-07",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-07. Реконтекстуализация.** Изыми паттерн из привычного контекста и помести в радикально другой (игровой, военный, ритуальный, театральный); интерпретируй в терминах нового контекста — это разрушает автоматизмы восприятия. Процедура: выбери центральный паттерн → выбери аномальный контекст → спроси «если бы это было действием в новом контексте, какой в нем смысл?». Риск злоупотребления: уход в чистую метафору; safety: немедленно операционализируй — какие индикаторы нового контекста должны найтись.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-08",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-08. Трансдисциплинарный перенос.** Переформулируй проблему в моделях несмежной дисциплины (экономика, биология, термодинамика, теория игр), импортируя целую объяснительную логику (адверсариальный случай ядровых `GC-D001`/`GC-D007`). Процедура: выбери проблему → выбери донорскую дисциплину и модель → переопиши проблему в ее терминах → сформулируй H-Adv. Риск злоупотребления: поверхностная механистическая аналогия (ср. `C-C007` аналогия≠тождество, передать в `D`-класс); safety: обратная трансляция модели в феноменологию объекта.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-09",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-09. Структурно-архетипическое моделирование.** Рассмотри частный случай не как уникальный, а как проявление универсального паттерна/сюжета/структуры; распознай «вечный сценарий», дающий ключ к динамике. Процедура: выяви основной сценарий → подбери соответствующий универсальный паттерн → переинтерпретируй ключевые элементы в его свете. Риск злоупотребления: нефальсифицируемость, потеря уникальности за схемой; safety: найди конкретные идиосинкразические проявления паттерна в данном случае.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-10",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-10. «Черный лебедь».** Построй версию на допущении одного скрытого, маловероятного, но высокозначимого факта, который сразу объяснил бы всю запутанную картину. Процедура: спроси «какой один факт, будь он правдой, немедленно объяснил бы все?» → сгенерируй несколько кандидатов-фактов → построй версию из допущения истинности самого правдоподобного. Риск злоупотребления: уход в конспирологию и бездоказательные фантазии (риск 5); safety: немедленно операционализируй косвенные признаки; статус остается крайне спекулятивным до их нахождения.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-11",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-11. Парадоксальная интеграция.** Для противостоящих выводов установи, совпадают ли референт, значение, время, уровень и контекст. Процедура: выдели условия каждого вывода → найди проверяемое различие контекстов либо механизм сосуществования → сформулируй составную гипотезу → укажи различающее наблюдение. Подлинное противоречие в одном смысле и C не снимается словесным синтезом. Риск злоупотребления: ложное примирение несовместимых утверждений. Ограничение: предъяви конкретный механизм и проверку; не утверждай одновременно P и не-P без разрешения их смыслового отношения.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.G07.GA-12",
+      "parent": "3C.G07",
+      "owning_component": "G",
+      "operation": "**GA-12. Фальсификация допущений.** Атакуй не сам вывод, а его неявные «само собой разумеющиеся» аксиомы (адверсариальный случай ядрового `GC-B010`). Процедура: сформулируй H1 → выпиши неявные допущения → выбери ключевое и инвертируй его → построй H-Adv на инвертированной аксиоме. Риск злоупотребления: уход в дебаты, потеря предметного фокуса; safety: операционализируй следствия инвертированной аксиомы — что конкретно она меняет в наблюдаемом.",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "CandidateSet",
+      "postcondition": "Создать различимые кандидаты либо обоснованный нулевой результат; не повышать истину",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G01",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G01. evidence_gate\n\nTrigger:\n\n```text\ntrigger_if: factual claim; research claim; source citation; model output used as claim; uncertainty relevant\n```\n\nChecks:\n\n```text\nsource/evidence distinction\nevidence quality\nclaim scope\nuncertainty\nclaim strength ≤ evidence strength\n```\n\nPass condition:\n\n```text\nstrong claim has evidence profile; otherwise output is uncertain/candidate.\n```\n\nFail action:\n\n```text\nlower claim strength; state missing evidence; ask/search if missing evidence blocks task.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G02",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G02. causal_gate\n\nTrigger:\n\n```text\ntrigger_if: cause; root cause; because; explains; drives; impact; effect; motive; mechanism\n```\n\nChecks:\n\n```text\ncorrelation/cause distinction\nmechanism\nalternatives\nconfounders where relevant\nreverse causality where relevant\n```\n\nPass condition:\n\n```text\ncausal claim has mechanism + alternatives + bounded scope.\n```\n\nFail action:\n\n```text\nmark as association/hypothesis; forbid established causal language.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G03",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G03. measurement_gate\n\nTrigger:\n\n```text\ntrigger_if: metric; KPI; score; proxy; average; distribution; validity; reliability; measurement; uplift\n```\n\nChecks:\n\n```text\nconstruct/metric distinction\noperationalization\nvalidity/reliability\ndistribution vs average\nmetric/value conflation\n```\n\nPass condition:\n\n```text\nmetric is not treated as phenomenon/value without separate warrant.\n```\n\nFail action:\n\n```text\nstate measurement limitation; avoid phenomenon/value claim.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G04",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G04. forecast_action_gate\n\nTrigger:\n\n```text\ntrigger_if: forecast; prediction; scenario; probability; likely; should act; launch; intervention\n```\n\nChecks:\n\n```text\nforecast/permission distinction\nscenario/prognosis distinction\ndecision owner\naction admissibility\nreview trigger\n```\n\nPass condition:\n\n```text\nforecast remains forecast unless decision/action/admissibility gates pass.\n```\n\nFail action:\n\n```text\nseparate forecast from recommendation; require normative/decision gate before action.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G05",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G05. decision_gate\n\nTrigger:\n\n```text\ntrigger_if: recommendation; decision; approve; stop; launch; assign; commit; deadline; owner\n```\n\nChecks:\n\n```text\nanalysis/recommendation/decision separation\nowner\naction\ndeadline\ncriterion\nfeedback loop\n```\n\nPass condition:\n\n```text\nrecommendation is not called decision without owner/action/deadline/criterion.\n```\n\nFail action:\n\n```text\nmark missing-decision status; ask for owner or state decision gap.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G06",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G06. human_analytics_gate\n\nTrigger:\n\n```text\ntrigger_if: customer behavior; segment; profile; propensity; uplift; personalization; targeting; people-impact action\n```\n\nChecks:\n\n```text\nbehavior/motive\nsegment/person\nprofile/truth\npropensity/uplift\neffect evidence / uplift evidence\nprediction/permission\npersonalization/benefit\nharm/admissible_action/value\n```\n\nPass condition:\n\n```text\nHuman Analytics output does not recommend influence without effect/harm/value/admissibility boundary.\n```\n\nFail action:\n\n```text\ndemote to analysis; forbid action recommendation; require effect/harm/admissibility evidence.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G07",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G07. engineering_lifecycle_gate\n\nTrigger:\n\n```text\ntrigger_if: design; architecture; test pass; readiness; launch; production; reliability; security; operations\n```\n\nChecks:\n\n```text\nrequirement/source/owner\nacceptance criterion\narchitecture/constraints\ntests/observability\nfailure/recovery/rollback\nsecurity/privacy\noperations/lifecycle/TCO/retirement\n```\n\nPass condition:\n\n```text\nreadiness claim includes operations/lifecycle controls, not only build/test status.\n```\n\nFail action:\n\n```text\nstate not-ready / readiness-incomplete; list missing lifecycle controls and missing owner/control if readiness is claimed.\n```",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    },
+    {
+      "id": "3C.S07.G08",
+      "parent": "3C.S07",
+      "owning_component": "S",
+      "operation": "##### G08. normative_gate\n\nTrigger:\n\n```text\ntrigger_if: should; may; allowed; right; duty; harm; fairness; consent; legitimacy; privacy; people-impact action\n```\n\nChecks:\n\n```text\nutility/admissibility\nability/right\nauthority/legitimacy\nconsent/silence\nharm/risk_of_harm\naccountability\n```\n\nPass condition:\n\n```text\nuseful/effective/capable is not treated as allowed/rightful.\n```\n\nFail action:\n\n```text\nstop, escalate, or keep as analysis-only; state residual normative conflict.\n```\n\n---",
+      "input": [
+        "task_and_C",
+        "versioned_target_or_seed",
+        "applicability_reason",
+        "available_material",
+        "budget"
+      ],
+      "output": "BoundedReviewOrDerivation",
+      "postcondition": "Проверить ровно указанное различение/основание; не выводить предметную истину из формы",
+      "on_failure": "Сохранить ограничение; направить к исправлению конкретного входа, метода или основания.",
+      "allowed_effects": [
+        "local_analysis"
+      ],
+      "per_target": true
+    }
+  ]
+}

@@ -1,0 +1,515 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "pubmed_search",
+      "title": null,
+      "description": "Поиск PubMed: PMID, число совпадений, перевод запроса, предупреждения и история. Не полный текст.",
+      "inputSchema": {
+        "properties": {
+          "term": {
+            "type": "string",
+            "minLength": 1
+          },
+          "retmax": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "retstart": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sort": {
+            "type": "string"
+          },
+          "datetype": {
+            "type": "string",
+            "enum": [
+              "pdat",
+              "edat",
+              "mdat"
+            ]
+          },
+          "mindate": {
+            "type": "string"
+          },
+          "maxdate": {
+            "type": "string"
+          },
+          "reldate": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "usehistory": {
+            "type": "string",
+            "enum": [
+              "y",
+              "n"
+            ]
+          },
+          "WebEnv": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "term"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_summary",
+      "title": null,
+      "description": "Краткая библиографическая запись по PMID или сохранённой истории.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "WebEnv": {
+            "type": "string"
+          },
+          "query_key": {
+            "type": "string"
+          },
+          "retmax": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "retstart": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false,
+        "anyOf": [
+          {
+            "required": [
+              "id"
+            ]
+          },
+          {
+            "required": [
+              "WebEnv",
+              "query_key"
+            ]
+          }
+        ]
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_fetch",
+      "title": null,
+      "description": "Полные библиографические записи и аннотации, MeSH и связи исправлений. Не полный текст статьи.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "WebEnv": {
+            "type": "string"
+          },
+          "query_key": {
+            "type": "string"
+          },
+          "retmax": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "retstart": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false,
+        "anyOf": [
+          {
+            "required": [
+              "id"
+            ]
+          },
+          {
+            "required": [
+              "WebEnv",
+              "query_key"
+            ]
+          }
+        ]
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_links",
+      "title": null,
+      "description": "Похожие, цитируемые или цитирующие записи PubMed. Сеть может быть неполной.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "linkname": {
+            "type": "string",
+            "enum": [
+              "pubmed_pubmed",
+              "pubmed_pubmed_citedin",
+              "pubmed_pubmed_refs"
+            ]
+          },
+          "cmd": {
+            "type": "string",
+            "enum": [
+              "neighbor",
+              "neighbor_score",
+              "neighbor_history",
+              "llinks",
+              "prlinks",
+              "acheck"
+            ]
+          },
+          "WebEnv": {
+            "type": "string"
+          },
+          "query_key": {
+            "type": "string"
+          },
+          "max_links": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_info",
+      "title": null,
+      "description": "Поля и допустимые связи базы PubMed.",
+      "inputSchema": {
+        "properties": {
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_spell",
+      "title": null,
+      "description": "Подсказки исправления поискового запроса.",
+      "inputSchema": {
+        "properties": {
+          "term": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "term"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_history",
+      "title": null,
+      "description": "Временная история PMID на сервере NCBI для пакетного получения.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "WebEnv": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_citation_match",
+      "title": null,
+      "description": "Разрешение строк journal|year|volume|page|author|key через ECitMatch.",
+      "inputSchema": {
+        "properties": {
+          "bdata": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "bdata"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pmc_metadata",
+      "title": null,
+      "description": "Разрешить PMCID/PMID/DOI и проверить актуальную версию, лицензию и ссылки PMC Cloud. Не чтение статьи.",
+      "inputSchema": {
+        "properties": {
+          "identifier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pmc_sections",
+      "title": null,
+      "description": "Список разделов и таблиц доступного JATS XML с версией и лицензией.",
+      "inputSchema": {
+        "properties": {
+          "identifier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pmc_read",
+      "title": null,
+      "description": "Прочитать заданный раздел или ограниченный фрагмент текущего полного текста PMC.",
+      "inputSchema": {
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "section_id": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "max_chars": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 50000
+          }
+        },
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pmc_table",
+      "title": null,
+      "description": "Прочитать таблицу по идентификатору или номеру: строки, подпись и примечания.",
+      "inputSchema": {
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "table_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "identifier",
+          "table_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pmc_pdf_status",
+      "title": null,
+      "description": "Проверить доступность PDF и первые байты без сохранения и без заявления о чтении.",
+      "inputSchema": {
+        "properties": {
+          "identifier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "pubmed_export",
+      "title": null,
+      "description": "Создать местную производную библиографию CSV, RIS или BibTeX по данным PubMed.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "csv",
+              "ris",
+              "bibtex"
+            ]
+          },
+          "date_basis": {
+            "type": "string",
+            "enum": [
+              "bibliographic",
+              "electronic"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "format"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "service_status",
+      "title": null,
+      "description": "Проверить режим и настройки без раскрытия ключа и контактной почты.",
+      "inputSchema": {
+        "properties": {},
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "instructions": "PubMed records contain metadata and abstracts, not full articles. PMC Cloud tools read licensed article versions and specified sections/tables. Distinguish reading levels, record query translation, pagination, corrections and source coverage. No clinical recommendations without appropriate source evaluation. NCBI policies: https://www.ncbi.nlm.nih.gov/home/about/policies/.",
+  "serverInfo": {
+    "name": "Hermes BN PubMed and PMC",
+    "title": null,
+    "version": "1.0.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

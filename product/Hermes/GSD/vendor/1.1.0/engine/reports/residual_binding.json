@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-09-18T10:32:37.763567+00:00",
+  "actual_release": "3.0.3",
+  "protocol": "3.0",
+  "code_and_criteria": {
+    "tools/triad.py": "c10b86cd0c49c344a6aafc6ecfe3e9deaf711915378e2a2d868cf93ede6d5af7",
+    "tools/corpus.py": "d42c3af28a741adc44a29b9a4e893aeeaa9b6be6f8470890a96a1623b44cda32",
+    "tools/engine.py": "85a406ae5ea4c00d36cdd8e1c2be5aa2a1a80268f1618dc9db666e7d14e560dc",
+    "data/handoff.schema.json": "bca2c0425eccaff0ba2fbf5fc57643c567981d8223aadea223f7893223a2300e",
+    "data/case.schema.json": "9f4faac74ece48e3179f4ba9b1239c9dd787d096697d13a5ef7f6506b1e0a434",
+    "data/comparison_review.schema.json": "d30393dd9f8d3fcbdb82117e4d1958781f2e173de4179f69b8beb213c2be4a8e",
+    "tests/test_system.py": "9e023f9ec5bcf359d5f0ba11aa4193e9589eff7ea869e51c02cdf87c4867aefc",
+    "tests/test_remediation.py": "eb7288e3530de3cc15e08b6dc88f84ef10162ba1691decadfba1fe970ebad9cb",
+    "tests/test_residual.py": "1adcb4a449f631db51e5c113245798b0f37ba2b2f2d8047fa9505f11bad6e01b"
+  },
+  "reports": {
+    "reports/core_verification_report.json": "3459e502cf0ab2702183da4eb7f6bf94a2f22ae3b85ee370314692c6051c8ea4",
+    "reports/group_execution.json": "bf24aec7bf47c081f38f059712d37f428bed70bc74cdbd13a26026475e5eb598",
+    "reports/residual_after_properties.json": "024c172037303cf54577b24266e7c3f8f9eefd46f1b2ad146e2afdf51e8d59dc",
+    "reports/residual_before_properties.json": "bc3781fe97db3792375e000c33bbfec61bbb0032ebb28e9911c9778bff04b02c",
+    "reports/residual_legacy331.json": "07044d10c000f168e0b04a122871bfc0dc0b8a45088520251c1d07329fb3fc0e",
+    "reports/residual_legacy615.json": "616d1e8eeb80bfbb6189bcbbbf44ec706f919d2bafb25260f2294a9cfe17cae2",
+    "reports/residual_tests.json": "f5f46bd26c3bc72835ef9c9612b6f3975a1bef511f557bf5833c10ca7c325559",
+    "reports/trace_Critical_Infrastructure.json": "a52e3fe70d11c0d08d0a0c5d8bc0dcd03dddcf5bad17c78374f47008cf98f6af",
+    "reports/trace_High_Stakes.json": "8bb0bb423cfb0deadbfa11e68d8b78577a33656504a0932d7a28e3d9a408f7db",
+    "reports/trace_MVP.json": "c6c78943031edea511612aea89a855f24fa65c933f75b496f733e75a7abda805",
+    "reports/trace_Standard.json": "dc066456cd6a720d36ae70b8dee3b51f361961372a26e2a80156f73afdda2ed4",
+    "reports/trace_eMVP.json": "2d245cf6b0208ce88cb09aeda99f78c2db977a54c668a15bc0f0fde3bce6f24d",
+    "reports/trace_eStandard.json": "644e8336c355821722710c51bfcc13fb4af8effb804baaac6aace0331ecad79d",
+    "reports/verification_report.json": "1a63c60819d2e78c9f43f6abe395510b434714dad4bd0c3b38aa812281751619"
+  },
+  "execution_note": "Старые неизменённые испытатели сохраняют встроенные метки 3.0.1/3.0.2 и даты искусственных случаев. Фактический субъект новой серии — код 3.0.3 по указанным контрольным суммам; рабочие каталоги-алиасы не определяют версию. Первичные команды и журналы — в отдельной поставке ремедиации. 127 проверок собраны из фактически завершённых изолированных групп; два прерванных общих запуска не объявлены полными успешными сериями."
+}

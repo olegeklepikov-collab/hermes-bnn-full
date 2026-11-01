@@ -1,0 +1,151 @@
+{
+  "editorial_release": "3.0.1",
+  "protocol_version": "3.0",
+  "scope": "Редакционная структура, сохранность технических договоров и повторные локальные проверки. Не доказательство полной смысловой или эксплуатационной пригодности.",
+  "test_count": 21,
+  "passed_count": 21,
+  "failed_count": 0,
+  "checks": [
+    {
+      "name": "Дословные источники, архивы, точные реестры и схема не изменены",
+      "passed": true,
+      "detail": {
+        "files": 15,
+        "comparison": "byte_exact"
+      }
+    },
+    {
+      "name": "Алгоритмы контроллера и исходные тесты не изменены",
+      "passed": true,
+      "detail": {
+        "modules": 11,
+        "ignored": "docstrings and comments"
+      }
+    },
+    {
+      "name": "Управляющие поля 152 процедур сохранены",
+      "passed": true,
+      "detail": {
+        "procedures": 152,
+        "ids_dependencies_selectors_statuses": "unchanged"
+      }
+    },
+    {
+      "name": "Все 37 протоколов связаны с исправленными текстами",
+      "passed": true,
+      "detail": 37
+    },
+    {
+      "name": "Точные цитаты 11 адаптаций сохранены",
+      "passed": true,
+      "detail": {
+        "adaptations": 11
+      }
+    },
+    {
+      "name": "JSON читается без повторов ключей и недопустимых чисел",
+      "passed": true,
+      "detail": 56
+    },
+    {
+      "name": "Кодировка и окончания строк действующих документов согласованы",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "name": "В действующем тексте нет конечных пробелов",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "name": "Блоки кода и технические выделения сбалансированы",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "name": "В действующих словах нет смешения кириллицы и латиницы",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "name": "Нотация атома, ссылки адаптаций и маршруты записаны однозначно",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "name": "Ссылки 3C ведут к существующим протоколам",
+      "passed": true,
+      "detail": {
+        "known_protocols": 37
+      }
+    },
+    {
+      "name": "AD04 и AD05 правильно сопоставлены с GA-02 и GA-11",
+      "passed": true,
+      "detail": {
+        "AD04": "GA-02",
+        "AD05": "GA-11"
+      }
+    },
+    {
+      "name": "Локальные ссылки Markdown разрешимы",
+      "passed": true,
+      "detail": {
+        "local_markdown_links": 0
+      }
+    },
+    {
+      "name": "Названные в руководстве файлы и каталоги существуют",
+      "passed": true,
+      "detail": 35
+    },
+    {
+      "name": "Все шесть профилей сохранены",
+      "passed": true,
+      "detail": [
+        "eMVP",
+        "MVP",
+        "Standard",
+        "eStandard",
+        "High Stakes",
+        "Critical Infrastructure"
+      ]
+    },
+    {
+      "name": "Справочные блоки в сборках остаются дословными",
+      "passed": true,
+      "detail": {
+        "builds": 4,
+        "exact_source_blocks": 4
+      }
+    },
+    {
+      "name": "Повторная сборка воспроизводит те же инструкции",
+      "passed": true,
+      "detail": 12
+    },
+    {
+      "name": "Повторный функциональный прогон завершён во всех семи группах",
+      "passed": true,
+      "detail": {
+        "tests": 127,
+        "risk_combinations": 192,
+        "completed_groups": 7
+      }
+    },
+    {
+      "name": "Проверка комплектации пройдена",
+      "passed": true,
+      "detail": {
+        "checks": 16
+      }
+    },
+    {
+      "name": "Поставка очищена от кэша и временных файлов",
+      "passed": true,
+      "detail": "Нет файлов кэша и случайных временных файлов"
+    }
+  ],
+  "semantic_adherence_of_arbitrary_agent": "not_tested",
+  "protected_quotation_language": "preserved_verbatim"
+}

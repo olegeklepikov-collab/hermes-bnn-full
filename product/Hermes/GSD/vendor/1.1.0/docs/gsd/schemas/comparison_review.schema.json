@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GSD — конечный результат сравнения",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "version": {
+      "const": 2
+    },
+    "component": {
+      "const": "S"
+    },
+    "type": {
+      "const": "ComparisonReview"
+    },
+    "protocol_version": {
+      "const": "3.0"
+    },
+    "comparison_contract_version": {
+      "const": "3.0.2"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "input_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "candidate_version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "candidate_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "support": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true
+          },
+          "opposition": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true
+          },
+          "unknown": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true
+          },
+          "dependent": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true
+          },
+          "evidence_profile": {
+            "enum": [
+              "both",
+              "support_only",
+              "opposition_only",
+              "neither"
+            ]
+          },
+          "status": {
+            "enum": [
+              "compatible_prediction",
+              "contradicted_prediction",
+              "conflicted_prediction",
+              "underdetermined",
+              "withdrawn_candidate"
+            ]
+          },
+          "claim_strength": {
+            "enum": [
+              "compatibility_in_explicit_prediction_model",
+              "not_evaluated_archived"
+            ]
+          },
+          "P": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "T": {
+            "type": "object",
+            "properties": {
+              "procedure": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "actual_result": {
+                "enum": [
+                  "compatible_prediction",
+                  "contradicted_prediction",
+                  "conflicted_prediction",
+                  "underdetermined",
+                  "withdrawn_candidate"
+                ]
+              }
+            },
+            "required": [
+              "procedure",
+              "actual_result"
+            ],
+            "additionalProperties": false
+          },
+          "J": {
+            "type": "object",
+            "properties": {
+              "V": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "A": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "R": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            },
+            "required": [
+              "V",
+              "A",
+              "R"
+            ],
+            "additionalProperties": false
+          },
+          "S": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true
+          },
+          "M": {
+            "type": "object",
+            "properties": {
+              "modality": {
+                "const": "conditional"
+              },
+              "status": {
+                "enum": [
+                  "compatible_prediction",
+                  "contradicted_prediction",
+                  "conflicted_prediction",
+                  "underdetermined",
+                  "withdrawn_candidate"
+                ]
+              },
+              "not_causal_truth": {
+                "const": true
+              }
+            },
+            "required": [
+              "modality",
+              "status",
+              "not_causal_truth"
+            ],
+            "additionalProperties": false
+          },
+          "C": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "candidate_version",
+          "candidate_digest",
+          "support",
+          "opposition",
+          "unknown",
+          "dependent",
+          "evidence_profile",
+          "status",
+          "claim_strength",
+          "P",
+          "T",
+          "J",
+          "S",
+          "M",
+          "C"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "residuals": {
+      "type": "object",
+      "properties": {
+        "unsearched": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "unexplained": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "unknown": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "risk": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "unsearched",
+        "unexplained",
+        "unknown",
+        "risk"
+      ],
+      "additionalProperties": false
+    },
+    "validation_boundary": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "component",
+    "type",
+    "protocol_version",
+    "comparison_contract_version",
+    "scope",
+    "input_digest",
+    "rows",
+    "residuals",
+    "validation_boundary"
+  ],
+  "additionalProperties": false
+}

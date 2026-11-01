@@ -1,0 +1,195 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return clients DOI production statistics.
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "clients",
+      "description": "Clients"
+    }
+  ],
+  "paths": {
+    "/clients/totals": {
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Return clients DOI production statistics.",
+        "parameters": [
+          {
+            "in": "query",
+            "$ref": "#/components/parameters/providerIdParam"
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/state"
+              }
+            },
+            "description": "Authentication is required to retrieve draft records.",
+            "explode": false,
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of clients stats.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TotalsObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TotalsObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "temporal": {
+            "type": "object",
+            "properties": {
+              "this_month": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MetaObject"
+                }
+              },
+              "this_year": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MetaObject"
+                }
+              },
+              "last_year": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MetaObject"
+                }
+              },
+              "two_years_ago": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MetaObject"
+                }
+              }
+            }
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MetaObject"
+            }
+          }
+        }
+      },
+      "MetaObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "findable",
+          "registered",
+          "draft"
+        ]
+      }
+    },
+    "parameters": {
+      "providerIdParam": {
+        "name": "provider-id",
+        "in": "query",
+        "description": "Filter by a specific DataCite provider (Direct Member or Consortium Organization). Use commas to include multiple providers.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "cern"
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```

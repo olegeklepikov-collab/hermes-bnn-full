@@ -1,0 +1,24 @@
+{
+  "components": "S",
+  "request": {
+    "operation": "derive",
+    "scope": "Предъявленная формальная система; истинность посылок не утверждается",
+    "premises": [
+      {
+        "id": "P1",
+        "proposition": "A",
+        "source": "Искусственная посылка",
+        "status": "assumption"
+      }
+    ],
+    "implications": [
+      {
+        "id": "R1",
+        "if": "A",
+        "then": "B",
+        "source": "Искусственное условное правило"
+      }
+    ]
+  },
+  "request_id": "example-derive-1"
+}

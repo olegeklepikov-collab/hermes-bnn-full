@@ -1,0 +1,26 @@
+{
+  "contract": "BNNReleaseAcceptanceV1",
+  "required_gates": [
+    "source_clean",
+    "source_committed",
+    "dependencies_integrity",
+    "release_signature",
+    "full_archive_integrity",
+    "fresh_native_install",
+    "five_required_controls",
+    "environment_isolation",
+    "live_model_and_subagents",
+    "live_Telegram",
+    "end_to_end_research",
+    "prior_version_data_upgrade",
+    "data_restore_and_rollback"
+  ],
+  "skipped_is_pass": false,
+  "external_human_semantic_review_required": false,
+  "production_deployment_requires_separate_authority": true,
+  "unchanged_evidence_reuse_requires_exact_component_and_preconditions": true,
+  "known_limits": [
+    "No separate OpenAI API key for exact input token counting",
+    "No second physical Mac available; cross-machine qualification not claimed"
+  ]
+}

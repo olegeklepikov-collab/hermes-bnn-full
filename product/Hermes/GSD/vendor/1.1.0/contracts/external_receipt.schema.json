@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GSD external procedure receipt 1",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "producer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "procedure_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "postcondition_observed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deadline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "context_manifest_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "context_text_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "case_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "context_delivery_attested": {
+      "type": "boolean"
+    },
+    "output_digests": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "limited"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "id",
+    "producer",
+    "run_id",
+    "procedure_id",
+    "postcondition_observed",
+    "deadline",
+    "input_fingerprint",
+    "context_manifest_digest",
+    "context_text_sha256",
+    "signature",
+    "case_revision",
+    "context_delivery_attested",
+    "output_digests",
+    "status",
+    "reason",
+    "cost"
+  ],
+  "additionalProperties": false
+}

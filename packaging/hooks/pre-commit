@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+python3 -B -m unittest discover -s tests/release_engineering -q
+python3 -B packaging/check_source.py

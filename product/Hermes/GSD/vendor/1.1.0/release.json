@@ -1,0 +1,115 @@
+{
+  "package": "GSD Integration",
+  "integration_version": "1.1.0",
+  "assembled_on": "2026-09-23",
+  "purpose": "Единая исполняемая поставка и средства глубокой интеграции; не подтверждение развёртывания в целевой среде.",
+  "original_engine": {
+    "release": "3.0.3",
+    "path": "engine",
+    "byte_preserved": true,
+    "files": 140,
+    "manifest_sha256": "f2c9af730d0b2a4b06b451c16b15cd019c0b3359e2ee9236348dd7a3f6382738"
+  },
+  "original_documentation": {
+    "path": "docs/gsd",
+    "byte_preserved": true,
+    "files": 30
+  },
+  "contracts": {
+    "protocol": "3.0",
+    "comparison_review": "3.0.2",
+    "comparison_record_version": 2,
+    "index": "contracts/INDEX.json",
+    "runtime_authority": "engine/data for original semantics; contracts/ for explicit integration contracts",
+    "integration": "contracts/INDEX.json"
+  },
+  "interfaces": {
+    "cli": "gsd.py",
+    "hermes_plugin": "adapters/hermes",
+    "mcp": {
+      "transport": "stdio",
+      "protocol_revision": "2025-06-18",
+      "tools": 16,
+      "resources": 8,
+      "prompts": 1,
+      "official_conformance_verified": false
+    },
+    "routing_skills": 8
+  },
+  "catalog": {
+    "total_definitions": 1948,
+    "procedures": 152,
+    "component_protocols": 37,
+    "semantic_results": 31,
+    "source_elements": 1728,
+    "all_definitions_are_executable_functions": false
+  },
+  "configuration_targets": [
+    "hermes",
+    "vscode",
+    "cursor",
+    "claude",
+    "codex",
+    "generic"
+  ],
+  "verification": {
+    "upstream_integrity_commands_passed": 2,
+    "upstream_groups": [
+      {
+        "name": "system",
+        "passed": 127,
+        "total": 127
+      },
+      {
+        "name": "remediation",
+        "passed": 331,
+        "total": 331
+      },
+      {
+        "name": "residual",
+        "passed": 470,
+        "total": 470
+      }
+    ],
+    "integration_tests_passed": 117,
+    "integration_tests_total": 117,
+    "model_calls": 0,
+    "real_hermes": false,
+    "real_ide": false,
+    "telegram_e2e": false,
+    "status": "verification/STATUS.md",
+    "acceptance_matrix": "verification/acceptance_matrix.json",
+    "context_catalog_passed": 152,
+    "context_catalog_total": 152,
+    "semantic_procedures_executed_by_context_check": 0,
+    "findings_matrix": "verification/remediation/findings_matrix.json",
+    "actual_previous_cli_state_migration_passed": true,
+    "actual_previous_cli_state_migration_report": "verification/remediation/state_migration.json"
+  },
+  "environment": {
+    "tested_python": "3.13.5",
+    "tested_os": "Linux x86-64",
+    "dependencies": "requirements.txt",
+    "exact_tested_dependencies": "requirements-tested.txt",
+    "offline_wheels_included": false
+  },
+  "external_effect_execution_included": false,
+  "host_obligations": "docs/integration/HOST_CONTRACT.md",
+  "manifest": "manifest.json",
+  "checksums": "SHA256SUMS",
+  "provenance": "provenance/inputs.json",
+  "interface_sources": "provenance/sources.json",
+  "rights": "RIGHTS.md",
+  "engineering_context": {
+    "indexed_sections": 305,
+    "top_level_sections": 69,
+    "closure": "entire_original_source_conservative",
+    "minimal_closure_claimed": false
+  },
+  "compatibility": {
+    "state_format": "gsd.integration.snapshot/1.1",
+    "context_format": "gsd.integration.context/1.1",
+    "previous_state_requires_explicit_migration": true,
+    "direct_engine_calls_bypass_remediation": true
+  }
+}

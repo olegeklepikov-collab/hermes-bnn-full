@@ -1,0 +1,127 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "service_status",
+      "title": null,
+      "description": "Состояние подготовки Web of Science, письменного разрешения на ИИ и ключей. Не запрашивает данные Clarivate.",
+      "inputSchema": {
+        "properties": {},
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "capability_catalog",
+      "title": null,
+      "description": "Официальные варианты доступа, подготовленные методы и профили. Наличие схемы не означает работающую подписку.",
+      "inputSchema": {
+        "properties": {
+          "product": {
+            "type": "string",
+            "enum": [
+              "starter",
+              "expanded",
+              "researcher",
+              "journals",
+              "incites"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "query_plan",
+      "title": null,
+      "description": "Местный план исследования и запросов Web of Science; API не вызывается и данные базы не читаются.",
+      "inputSchema": {
+        "properties": {
+          "topic": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "academic",
+              "business",
+              "general"
+            ]
+          },
+          "year_from": {
+            "type": "integer",
+            "minimum": 1800,
+            "maximum": 2100
+          },
+          "year_to": {
+            "type": "integer",
+            "minimum": 1800,
+            "maximum": 2100
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    },
+    {
+      "name": "access_request",
+      "title": null,
+      "description": "Получить местный проект обращения в Clarivate о письменном разрешении на использование API с языковой моделью. Ничего не отправляет.",
+      "inputSchema": {
+        "properties": {},
+        "required": [],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "instructions": "Preparation only until Clarivate written AI permission, plan and separate API credentials are verified. No product data access in current mode. Do not request keys repeatedly or use unofficial MCP/browser/proxy routes to bypass licensing. Full Record is bibliographic metadata, not article full text. Public docs are instructions for developers, not retrieved scientific evidence.",
+  "serverInfo": {
+    "name": "Hermes BN Web of Science preparation",
+    "title": null,
+    "version": "1.0.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

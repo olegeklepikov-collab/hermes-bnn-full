@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "/ABSOLUTE/PATH/TO/provider-executable"
+  ],
+  "timeout_seconds": 120,
+  "context_byte_limit": 1500000,
+  "entry_keys": [],
+  "provider_id": "operator-configured-provider"
+}

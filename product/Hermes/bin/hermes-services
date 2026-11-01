@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+service_root="$(cd "$(dirname "$0")/.." && pwd)"
+export HERMES_HOME="$service_root/data" HERMES_BNN_ROOT="$service_root" HERMES_BN_ROOT="$service_root" PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="$service_root/hermes-agent:$service_root/Development"
+unset PYTHONHOME
+exec "$service_root/hermes-agent/venv/bin/python" "$service_root/Development/service_cli.py" "$@"

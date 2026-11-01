@@ -1,0 +1,154 @@
+{
+  "version": "3.0",
+  "date": "2026-09-12",
+  "scope": "Комплектность, целостность, формы, ссылки и согласованность существующих отчётов; не новые предметные или поведенческие испытания.",
+  "test_count": 16,
+  "passed_count": 16,
+  "failed_count": 0,
+  "checks": [
+    {
+      "name": "Форма схемы и разрешимость каталога",
+      "passed": true,
+      "detail": {
+        "version": "3.0",
+        "procedures": 152,
+        "schema_digest": "e97f862d797735c76294a4285fd54e1d3ac853cb0fc70658ae3fa364daa0d20d",
+        "catalog_digest": "500e6821ff2f76be132b67254c0be8b4b224f69a4ebdc3eda40a0f91035555ad"
+      }
+    },
+    {
+      "name": "Синтаксис всех поставленных программ",
+      "passed": true,
+      "detail": {
+        "compiled_sources": 18,
+        "scope": "синтаксис, не исполнение"
+      }
+    },
+    {
+      "name": "Побайтовая сохранность четырёх источников",
+      "passed": true,
+      "detail": {
+        "count": 4,
+        "byte_exact_against_recorded_digests": true
+      }
+    },
+    {
+      "name": "Восстановление трёх монолитов из 297 разделов",
+      "passed": true,
+      "detail": {
+        "sections": 297,
+        "reconstructed_sources": 3
+      }
+    },
+    {
+      "name": "Точные определения, родительский контекст и прежние адреса",
+      "passed": true,
+      "detail": {
+        "named_occurrences": 1728,
+        "old_aliases": 1166,
+        "semantic_independent_tests_not_implied": true
+      }
+    },
+    {
+      "name": "Реальная сборка объявленного контекста семи составов",
+      "passed": true,
+      "detail": {
+        "assembled_bytes_by_mode": {
+          "G": 216909,
+          "S": 263932,
+          "D": 152480,
+          "GS": 347824,
+          "GD": 236372,
+          "SD": 283395,
+          "GSD": 367287
+        },
+        "scope": "объявленные зависимости, не доказательство понимания"
+      }
+    },
+    {
+      "name": "37 компонентных протоколов связаны с инструкциями",
+      "passed": true,
+      "detail": {
+        "component_protocols": 37
+      }
+    },
+    {
+      "name": "Отдельная адресация V/A/R, GG, GA и строгих G",
+      "passed": true,
+      "detail": {
+        "separate_subchecks": 31
+      }
+    },
+    {
+      "name": "Адаптации явно связаны с исходными формулировками",
+      "passed": true,
+      "detail": {
+        "adaptations": 11,
+        "exact_fragments": 21,
+        "external_domain_authority_not_implied": true
+      }
+    },
+    {
+      "name": "Самостоятельные и совместная сборки не расходятся с каноном",
+      "passed": true,
+      "detail": {
+        "instruction_builds": 4,
+        "catalog_matches": true
+      }
+    },
+    {
+      "name": "Карта крупных исходных слоёв и границы покрытия",
+      "passed": true,
+      "detail": {
+        "major_source_sections": 54
+      }
+    },
+    {
+      "name": "Пять подробных искусственных случаев соответствуют текущей схеме",
+      "passed": true,
+      "detail": {
+        "valid_synthetic_cases": 5
+      }
+    },
+    {
+      "name": "Сводный отчёт подтверждён фактическими групповыми отчётами",
+      "passed": true,
+      "detail": {
+        "upper_level_tests": 127,
+        "risk_profile_combinations_inside_tests": 192,
+        "synthetic_profile_cycles": 6
+      }
+    },
+    {
+      "name": "Конечное сравнение сохраняет границу и неудобный результат",
+      "passed": true,
+      "detail": {
+        "correct_out_of_six": {
+          "first_candidate": 2,
+          "simple_program": 6,
+          "GSD": 6
+        },
+        "general_performance_advantage_not_established": true
+      }
+    },
+    {
+      "name": "Все замечания имеют изменение и честную границу приёмки",
+      "passed": true,
+      "detail": {
+        "findings_addressed": 26,
+        "broad_fitness_not_closed": [
+          "F24",
+          "F26"
+        ]
+      }
+    },
+    {
+      "name": "Команды документации имеют поставленные исполнители",
+      "passed": true,
+      "detail": {
+        "required_files": 13,
+        "external_build_workdir_not_required": true
+      }
+    }
+  ]
+}

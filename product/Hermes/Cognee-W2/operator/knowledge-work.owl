@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+<owl:Ontology rdf:about="urn:hermes-bn:knowledge-work"/>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Study"><rdfs:label>Study</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Method"><rdfs:label>Method</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Population"><rdfs:label>Population</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Finding"><rdfs:label>Finding</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Limitation"><rdfs:label>Limitation</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Organization"><rdfs:label>Organization</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Project"><rdfs:label>Project</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Decision"><rdfs:label>Decision</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Source"><rdfs:label>Source</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Person"><rdfs:label>Person</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Concept"><rdfs:label>Concept</rdfs:label></owl:Class>
+<owl:Class rdf:about="urn:hermes-bn:knowledge-work#Event"><rdfs:label>Event</rdfs:label></owl:Class>
+<owl:ObjectProperty rdf:about="urn:hermes-bn:knowledge-work#uses"/><owl:ObjectProperty rdf:about="urn:hermes-bn:knowledge-work#reports"/><owl:ObjectProperty rdf:about="urn:hermes-bn:knowledge-work#limits"/>
+</rdf:RDF>

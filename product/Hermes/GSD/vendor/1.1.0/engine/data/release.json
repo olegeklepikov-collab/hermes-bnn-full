@@ -1,0 +1,23 @@
+{
+  "release": "3.0.3",
+  "base_release": "3.0.2",
+  "date": "2026-09-18",
+  "change_class": "corrective_functional_release",
+  "protocol_version": "3.0",
+  "comparison_contract_version": "3.0.2",
+  "comparison_review_record_version": 2,
+  "global_case_schema_changed": false,
+  "source_corpora_changed": false,
+  "separate_lab_adapter_release": "1.2",
+  "findings": [
+    "N09",
+    "N10",
+    "N11"
+  ],
+  "model_behavioral_acceptance": "not_performed",
+  "professional_acceptance": "not_issued",
+  "production_deployment": "not_tested",
+  "compatibility": "Манифесты пересобираются; Review пересчитывается при изменении кандидатов или необходимых оснований. Договор ComparisonReview 3.0.2 сохранён; новая метка версии не является новой проверкой.",
+  "generation_contract_version": "3.0.3",
+  "handoff_validation_version": "3.0.3"
+}

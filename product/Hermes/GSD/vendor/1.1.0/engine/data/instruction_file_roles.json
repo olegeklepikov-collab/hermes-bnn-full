@@ -1,0 +1,54 @@
+{
+  "version": "3.0.3",
+  "files": {
+    "COMMON.md": [],
+    "data/context_closure.json": [],
+    "data/adaptations.json": [],
+    "components/G_SYSTEM.md": [
+      "G"
+    ],
+    "components/S_SYSTEM.md": [
+      "S"
+    ],
+    "components/D_SYSTEM.md": [
+      "D"
+    ],
+    "G_SYSTEM.md": [
+      "G"
+    ],
+    "S_SYSTEM.md": [
+      "S"
+    ],
+    "DDx_SYSTEM.md": [
+      "D"
+    ],
+    "GSD_SYSTEM.md": [
+      "G",
+      "S",
+      "D"
+    ],
+    "PROCEDURES.md": [
+      "G",
+      "S",
+      "D"
+    ],
+    "data/procedures.json": [
+      "G",
+      "S",
+      "D"
+    ],
+    "data/component_contracts.json": [
+      "G",
+      "S",
+      "D"
+    ],
+    "data/semantic_leaves.json": [
+      "G",
+      "S",
+      "D"
+    ],
+    "data/instruction_file_roles.json": [],
+    "data/handoff.schema.json": []
+  },
+  "unknown_file_policy": "reject_as_active_instruction; use_exact_reference_entries"
+}

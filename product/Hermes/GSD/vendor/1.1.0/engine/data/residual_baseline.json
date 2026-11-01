@@ -1,0 +1,15 @@
+{
+  "base_release": "3.0.2",
+  "base_archive_sha256": "7e5b26571f9e3daa72e84cf2f803d18c56ce8957d9e54086046d30b948795e36",
+  "protected_files": {
+    "sources/Генератор мышления (монолит).md": "915006a5d2114048f90fd377298c3c95469640d05be79d6822d0e91faa88a0b4",
+    "sources/Строгое мышление (монолит).md": "3e43db80e143a1cd48a40c770afabf3598762634528299f9ebe0f185d9b4d040",
+    "sources/deep_agent_personality_project_management.md": "7bcfd6ccd3c31c1a9ac70e0766b261d84593d41f2efe81239dfc54f46a406d6f",
+    "sources/deep_agent_personality_ai_agents_engineer.md": "33e320d7943d767b4647cb29808189f5a1e11e70171fef7c8228558647f308ae",
+    "tools/engine.py": "85a406ae5ea4c00d36cdd8e1c2be5aa2a1a80268f1618dc9db666e7d14e560dc",
+    "data/case.schema.json": "9f4faac74ece48e3179f4ba9b1239c9dd787d096697d13a5ef7f6506b1e0a434",
+    "data/comparison_review.schema.json": "d30393dd9f8d3fcbdb82117e4d1958781f2e173de4179f69b8beb213c2be4a8e",
+    "tests/test_system.py": "9e023f9ec5bcf359d5f0ba11aa4193e9589eff7ea869e51c02cdf87c4867aefc",
+    "tests/test_remediation.py": "eb7288e3530de3cc15e08b6dc88f84ef10162ba1691decadfba1fe970ebad9cb"
+  }
+}

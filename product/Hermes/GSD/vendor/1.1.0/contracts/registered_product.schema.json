@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GSD registered product 1",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "type": {
+      "const": "RegisteredProduct"
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "product": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "product_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_bindings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "origin": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "enum": [
+            "G",
+            "S",
+            "D"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attestation": {
+          "const": "declared_by_caller_not_independent_verification"
+        }
+      },
+      "required": [
+        "component",
+        "reference",
+        "attestation"
+      ],
+      "additionalProperties": false
+    },
+    "namespace": {
+      "type": "string",
+      "minLength": 1
+    },
+    "logical_key": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "type",
+    "status",
+    "product",
+    "product_digest",
+    "input_bindings",
+    "origin",
+    "namespace",
+    "logical_key"
+  ],
+  "additionalProperties": false
+}

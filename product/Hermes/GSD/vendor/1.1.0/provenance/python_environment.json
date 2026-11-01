@@ -1,0 +1,31 @@
+{
+  "tested_python": "3.13.5",
+  "dependencies": [
+    {
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.5.1"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0"
+    }
+  ],
+  "target_installation_verified": false,
+  "wheel_archives_included": false
+}

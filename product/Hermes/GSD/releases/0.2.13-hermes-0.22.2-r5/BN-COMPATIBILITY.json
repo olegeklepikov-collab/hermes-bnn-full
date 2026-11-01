@@ -1,0 +1,22 @@
+{
+  "upstream_adapter_version": "0.2.13",
+  "engine_version": "3.0.3",
+  "Hermes_version": "0.22.2",
+  "Hermes_commit": "d923a5eb487a17c0a68801bba9ef0f56c81040a8",
+  "local_compatibility_revision": "r5",
+  "changes": [
+    "Managed UDR child cancellation does not stop the root GSD family",
+    "Root interruption retains stop semantics",
+    "Observe G/S/D roles have no total wall cap",
+    "Document coverage must belong to the actual role recipient",
+    "Completed role products can be read in exact addressed pages without reexecution",
+    "Supported global sequential/concurrent tool deadline disabled by operator config; individual mandatory controls remain bounded",
+    "GD: pass direct observation closure to D when no native S predecessor exists; G still sees only declared construction evidence."
+  ],
+  "core_patch_changed": false,
+  "canonical_engine_changed": false,
+  "current_research_acceptance": false,
+  "built_utc": "2026-10-27T05:55:06.556370+00:00",
+  "Memory_compatibility": "BNN dev.26",
+  "required_compute_proof": "optional explicit S/D obligation; real existing sandbox, no added model, no canonical review rewrite"
+}

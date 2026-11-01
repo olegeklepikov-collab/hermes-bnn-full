@@ -1,0 +1,107 @@
+{
+  "profile": {
+    "requested": "eMVP",
+    "selected": "eMVP",
+    "required_floor": "eMVP",
+    "risk_incomplete": true,
+    "reasons": [
+      "Оценка риска неполна; самостоятельное действие не разрешено"
+    ],
+    "action_authority": "not_granted"
+  },
+  "protocol_version": "3.0",
+  "active_components": [
+    "D"
+  ],
+  "executed_components": [
+    "D"
+  ],
+  "outputs": {
+    "D": {
+      "component": "D",
+      "type": "DiagnosticResult",
+      "status": "partial",
+      "question": "Изменилось измерение или сам процесс?",
+      "scope": "Учебная очередь",
+      "missing": [
+        {
+          "component": "S",
+          "need": "Проверка текущих версий и оснований"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "K1",
+          "version": 1,
+          "kind": "hypothesis",
+          "content": {
+            "text": "Изменилась формула измерения",
+            "structure": {
+              "mechanism": "Изменилась формула измерения"
+            }
+          },
+          "seed": "Изменился отчёт",
+          "operator_id": "GC-C001",
+          "axis": "механизм",
+          "frame": "Измеритель",
+          "distinguishing_features": [
+            "Изменилась формула измерения"
+          ],
+          "conditions": [],
+          "claim_ids": [],
+          "status": "candidate",
+          "expectations": {
+            "report": "slow",
+            "raw": "same"
+          },
+          "scope": "Учебная очередь",
+          "parent_ids": [],
+          "miss_risk": "ordinary",
+          "projections": {}
+        },
+        {
+          "id": "K2",
+          "version": 1,
+          "kind": "hypothesis",
+          "content": {
+            "text": "Реальное замедление процесса",
+            "structure": {
+              "mechanism": "Реальное замедление процесса"
+            }
+          },
+          "seed": "Изменился отчёт",
+          "operator_id": "GC-C001",
+          "axis": "механизм",
+          "frame": "Объект",
+          "distinguishing_features": [
+            "Реальное замедление процесса"
+          ],
+          "conditions": [],
+          "claim_ids": [],
+          "status": "candidate",
+          "expectations": {
+            "report": "slow",
+            "raw": "slow"
+          },
+          "scope": "Учебная очередь",
+          "parent_ids": [],
+          "miss_risk": "ordinary",
+          "projections": {}
+        }
+      ],
+      "residuals": {
+        "unsearched": "Не рассмотрены все возможные оси и механизмы",
+        "unexplained": "Относится к последующему предметному сравнению",
+        "unknown": "Предметная истинность кандидатов не установлена генератором",
+        "risk": "Остаточная опасность оценивается отдельно от числа кандидатов"
+      },
+      "action_authorized": false
+    }
+  },
+  "resource": {
+    "spent_local_units": 1,
+    "reserve_steps": 1,
+    "measure": "Число ограниченных локальных операций; не токены и не денежная стоимость"
+  },
+  "unmet_profile_obligations": []
+}

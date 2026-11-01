@@ -1,0 +1,9 @@
+{
+  "environment": "production",
+  "role": "read_only_reference",
+  "port_base": 64000,
+  "production_mutation_allowed": false,
+  "provider_credentials_inherited": false,
+  "gateway_autostart": false,
+  "multiplex_across_environments": false
+}

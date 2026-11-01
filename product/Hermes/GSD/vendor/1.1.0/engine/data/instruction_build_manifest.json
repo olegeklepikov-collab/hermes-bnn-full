@@ -1,0 +1,25 @@
+{
+  "version": "3.0",
+  "editorial_release": "3.0.3",
+  "inputs": {
+    "COMMON.md": "eb6ee75a837912dca4706db2744b7df79549cee2b217398dd628d451f30789bc",
+    "components/G_SYSTEM.md": "63f153ee4e6788cf464da4ac9850820ec4d55a1b3dac924db5825f98a976970d",
+    "components/S_SYSTEM.md": "bf87368392ab525561258140d2ec6274b5605aff87a49793014176130980cdb8",
+    "components/D_SYSTEM.md": "25e75dbb40cb206c798592debdc981541a5ac5ed098f76fe28fd6f678cab7c96",
+    "data/procedures.json": "58120ef92c57b44362e2ab69ba9ecd144efabcab69141d661913919e23acc47f",
+    "data/adaptations.json": "fcf6f4bbc291992eed5c841393320cff4104aa837f501e930eac900490fc581b",
+    "data/comparison_review.schema.json": "d30393dd9f8d3fcbdb82117e4d1958781f2e173de4179f69b8beb213c2be4a8e",
+    "data/instruction_file_roles.json": "3af0888c2c5de2693b5e131113f1d9acad2e6d50540539b37a76f15e55bb60d1",
+    "data/handoff.schema.json": "bca2c0425eccaff0ba2fbf5fc57643c567981d8223aadea223f7893223a2300e",
+    "tools/assemble_instructions.py": "4d3c3cfcc4c0a77bbf5c3543579df4843422679d09478535ccf39fe7cb1b8dbe",
+    "sources/Генератор мышления (монолит).md": "915006a5d2114048f90fd377298c3c95469640d05be79d6822d0e91faa88a0b4",
+    "sources/Строгое мышление (монолит).md": "3e43db80e143a1cd48a40c770afabf3598762634528299f9ebe0f185d9b4d040"
+  },
+  "outputs": {
+    "G_SYSTEM.md": "46c749c0ccb513e5676a33e6d2bac6cea2c39c7b215e7fba4075c8b31c38080a",
+    "S_SYSTEM.md": "83e01209eca7ae3c7049c96d46515cc72d1cb222a21d9359620349a49a3c6517",
+    "DDx_SYSTEM.md": "853aee17532422ed605df2b91d1922487f27e221876143432232677c939f09f6",
+    "GSD_SYSTEM.md": "545253f7649b488540f336833b76191a50fbbbcb82952d136a9f0087c20e71f1"
+  },
+  "rule": "Редактируются канонические входы; сборки не редактируются независимо"
+}

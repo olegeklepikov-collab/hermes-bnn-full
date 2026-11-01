@@ -1,12 +1,9 @@
-.DS_Store
 __pycache__/
 *.pyc
+.pytest_cache/
 .test-state/
 .test-output/
-private/
-auth.json
-.env
-*.key
-*.token
-*.tar.gz*
-*.pid.json
+.operator/
+*.egg-info/
+dist/
+build/

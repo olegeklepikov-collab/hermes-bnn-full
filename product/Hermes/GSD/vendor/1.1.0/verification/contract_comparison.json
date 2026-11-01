@@ -1,0 +1,38 @@
+[
+  {
+    "documentation": "data/procedures.json",
+    "engine": "data/procedures.json",
+    "byte_equal": false,
+    "json_equal": false
+  },
+  {
+    "documentation": "data/component_contracts.json",
+    "engine": "data/component_contracts.json",
+    "byte_equal": false,
+    "json_equal": false
+  },
+  {
+    "documentation": "data/semantic_leaves.json",
+    "engine": "data/semantic_leaves.json",
+    "byte_equal": false,
+    "json_equal": false
+  },
+  {
+    "documentation": "schemas/case.schema.json",
+    "engine": "data/case.schema.json",
+    "byte_equal": false,
+    "json_equal": false
+  },
+  {
+    "documentation": "schemas/handoff.schema.json",
+    "engine": "data/handoff.schema.json",
+    "byte_equal": false,
+    "json_equal": false
+  },
+  {
+    "documentation": "schemas/comparison_review.schema.json",
+    "engine": "data/comparison_review.schema.json",
+    "byte_equal": false,
+    "json_equal": false
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "version": "3.0",
+  "groups": [
+    {
+      "group": "core",
+      "returncode": 0,
+      "seconds": 5.6249784220000265
+    },
+    {
+      "group": "eMVP",
+      "returncode": 0,
+      "seconds": 3.5950054400000226
+    },
+    {
+      "group": "MVP",
+      "returncode": 0,
+      "seconds": 3.8096009070000036
+    },
+    {
+      "group": "Standard",
+      "returncode": 0,
+      "seconds": 4.475476736000019
+    },
+    {
+      "group": "eStandard",
+      "returncode": 0,
+      "seconds": 5.320116237999969
+    },
+    {
+      "group": "High_Stakes",
+      "returncode": 0,
+      "seconds": 5.761297189000061
+    },
+    {
+      "group": "Critical_Infrastructure",
+      "returncode": 0,
+      "seconds": 5.788993123000068
+    }
+  ],
+  "scope": "Время локальных групп, не стоимость использования агента"
+}

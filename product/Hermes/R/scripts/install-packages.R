@@ -1,0 +1,11 @@
+options(repos=c(CRAN="https://cloud.r-project.org"), timeout=900, Ncpus=4L)
+lib <- Sys.getenv("R_LIBS_USER")
+dir.create(lib, recursive=TRUE, showWarnings=FALSE)
+.libPaths(c(lib, .libPaths()))
+packages <- c("btw","mcptools","ggplot2","data.table","dplyr","tidyr","readr","readxl","haven","jsonlite","DBI","RSQLite","broom","rmarkdown","knitr","renv","survival","lme4","mgcv","sandwich","lmtest","emmeans","effectsize","pwr","metafor","psych","lavaan","fixest","forecast","tidymodels","boot","MASS","cluster","nlme","rpart","nnet","ranger","glmnet","igraph","testthat")
+install.packages(packages, lib=lib, type="source", dependencies=NA, Ncpus=4L)
+missing <- packages[!vapply(packages, requireNamespace, logical(1), quietly=TRUE)]
+if(length(missing)) stop(paste("Missing selected packages:",paste(missing,collapse=", ")))
+ip <- installed.packages()
+write.csv(ip[,c("Package","Version","LibPath","Built","License")], file=file.path(Sys.getenv("HERMES_BN_R_HOME"),"config","installed-packages.csv"), row.names=FALSE)
+cat("INSTALLATION_COMPLETE\n")

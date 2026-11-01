@@ -1,0 +1,487 @@
+{
+  "from_integration_version": "1.0.0",
+  "to_integration_version": "1.1.0",
+  "excluded_self_referential_files": [
+    "SHA256SUMS",
+    "manifest.json",
+    "provenance/changes.json"
+  ],
+  "original_engine_changed": false,
+  "original_documentation_changed": false,
+  "changes": [
+    {
+      "path": "AGENTS.md",
+      "change": "modified",
+      "before_sha256": "279d158d86b05a316c8ad6d65cc35b61bad607a95594d3a07301429d3853ed3e",
+      "after_sha256": "81e60ea97a83e6442e2a8ca9d0dd5085d86d0c8e7f7dd995b2265a793baae23a"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "045c50885d2d24c5632b6d01c821b9e944ca0f6222c19f4308a3a08720a99db4"
+    },
+    {
+      "path": "GSD_Интеграция.docx",
+      "change": "modified",
+      "before_sha256": "21c28a031e6c18d4b1096258dd747186b3e0e2ae010819379948c38aca436330",
+      "after_sha256": "543e71bc8e3b207e798d219b6cf07862793408eaee1584f1c32ed93abb1cd069"
+    },
+    {
+      "path": "GSD_Интеграция.pdf",
+      "change": "modified",
+      "before_sha256": "13d22dcce2b13e9326159b850b9aa94c87a9679a91142d27317c6dcbe37bc89a",
+      "after_sha256": "30f92116616975387fee8b0b0464f57ce5302e922af2bd281c35acf7d96431f3"
+    },
+    {
+      "path": "INTEGRATION_TASK.md",
+      "change": "modified",
+      "before_sha256": "22948e6880e4ed6c8619ece2187943b3eca93fe916834497e979976a946a8070",
+      "after_sha256": "1fb080e12099cd4850abc1a300e36682c211ce819e8b1b1c320633864977ebc3"
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "before_sha256": "29c84cff8b563d1bccbc52872babb2442fcb1d176c4149186e73fdbd86c8112a",
+      "after_sha256": "13421f261de59e4efa06d9ab32d022531c81dbdcd25d5ec96eeac4d74370c564"
+    },
+    {
+      "path": "REMEDIATION_REPORT.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "81a374dfe13db427ef10e5cc2ac683fde07122170692dfa50acad75c09319e67"
+    },
+    {
+      "path": "adapters/hermes/__init__.py",
+      "change": "modified",
+      "before_sha256": "949d0f1c29fb52ff932ecbbc1f2fb9e4f166292b4efe0d736c14450389128d55",
+      "after_sha256": "3ae460d9baf84b9704dc16bba3a62ec5519c5e09730002066bee3b776458d644"
+    },
+    {
+      "path": "adapters/hermes/plugin.yaml",
+      "change": "modified",
+      "before_sha256": "2ecff5d918e80b215c6f7a8ddfcf9ec66c387e4495dce2f58951c6020e2cc9b5",
+      "after_sha256": "af9602094538131c1969777c5121f2df6e638e6129a7ebd31cb608afd165a60d"
+    },
+    {
+      "path": "adapters/hermes/schemas.json",
+      "change": "modified",
+      "before_sha256": "314452db4350f8e80c40df65d5d003b743dc8120204a5d08ba4771ddd528a161",
+      "after_sha256": "a8ba142451c810d1e297cefa34cd9893c86a7502a2cb95df9a18abdca09cc9ef"
+    },
+    {
+      "path": "adapters/ide/AGENTS.md",
+      "change": "modified",
+      "before_sha256": "279d158d86b05a316c8ad6d65cc35b61bad607a95594d3a07301429d3853ed3e",
+      "after_sha256": "81e60ea97a83e6442e2a8ca9d0dd5085d86d0c8e7f7dd995b2265a793baae23a"
+    },
+    {
+      "path": "adapters/mcp/README.md",
+      "change": "modified",
+      "before_sha256": "615d047ebd49782d3960b8d8142a61deb25b86b1bbdebc11d5f7596a18de6812",
+      "after_sha256": "42abb96b5f2a7472bb1123db99e5fa5ded9d7238365feb135bbceac2bdcff249"
+    },
+    {
+      "path": "contracts/INDEX.json",
+      "change": "modified",
+      "before_sha256": "71ddc2a595b161a3838e62fe6ef73c1094bd819687b4d61c7c73e8b83c0314e0",
+      "after_sha256": "a00e1f8ce397a04a9cd3646e5b3b9edd0bbe26ca0a66680ebe78c682a6c5603b"
+    },
+    {
+      "path": "contracts/engineering_sections.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "bff9240068a6f47690f45dc5605480eac70140e7f2a7b8d88375f81fa39aca50"
+    },
+    {
+      "path": "contracts/external_receipt.schema.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "2a2b29d0d6313cd5cf5f41c5c1a48752c2ca9dd3da22c9776e1c5220c0bc990b"
+    },
+    {
+      "path": "contracts/host_policy.schema.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "eb4a0e1653a86d93dfadb66f1b684ca7df0ded0ae2464e82e75b6dbf64964124"
+    },
+    {
+      "path": "contracts/modes.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "3c1da5cac1c67d5bd4cef283661e954bb75dccb91f64dbfbdaff507365eefeca"
+    },
+    {
+      "path": "contracts/registered_product.schema.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "bb8eef2b46eafe0235605ee77f8cdc845454c57730d0d61aa731b8f652fb221d"
+    },
+    {
+      "path": "contracts/tools.json",
+      "change": "modified",
+      "before_sha256": "90b84508ea004cbc78f04b2c9f4bfdda039e01df4a1d2c4eb940d0bc8e6b74e4",
+      "after_sha256": "4569bc5831000ff1c1f693a6490d7398a661f4368d0f200da4383febdf9bc7cc"
+    },
+    {
+      "path": "docs/integration/ADAPTER_REQUIREMENTS.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "525bfb09610a1d79e2bc88fc20e58f7590b8d3d43bbbe1a646f2bfb3bba76d6a"
+    },
+    {
+      "path": "docs/integration/API.md",
+      "change": "modified",
+      "before_sha256": "65ba75a53f655ffac5c994bea50125d1f875bd7fdc7bc858c7180d4c1134c5b5",
+      "after_sha256": "26316a30e54bc5880b263cb77a9ad567e5d04fa1701be1daebce828a07af7b21"
+    },
+    {
+      "path": "docs/integration/COMPATIBILITY.md",
+      "change": "modified",
+      "before_sha256": "fb6c90e4a6c9c57ca52bd3549d0da83c5e0e47e5ebe7fdb8a5f97e840e9905b4",
+      "after_sha256": "aa8a2df2ea364a7d7af49b65816b8b46a28e8365a2cf7c33d668bac5bb42ba6e"
+    },
+    {
+      "path": "docs/integration/CONTEXT.md",
+      "change": "modified",
+      "before_sha256": "0e95a189affc23c2edd1749e3e202a74142c41b568a349d3be3daef91b5e63ea",
+      "after_sha256": "f39ecbe0e40f91d9041839f197bc2ece9255bbddc9fe5f707578d1be79ef5163"
+    },
+    {
+      "path": "docs/integration/EXECUTION_CONTRACT.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "adc2805ae671c60c5b05748f8f287ef1fe32f1a29963644cbcfa0e6e155083b1"
+    },
+    {
+      "path": "docs/integration/GUIDE.md",
+      "change": "modified",
+      "before_sha256": "8823b03895848d1c90dcde3d0302609abd473ef160ed9f296e16e602e35ef2c3",
+      "after_sha256": "025d6d85c2beb7b06390fa0ee3744f2288240475c5d7fca52b36eeee4450bee3"
+    },
+    {
+      "path": "docs/integration/HOST_CONTRACT.md",
+      "change": "modified",
+      "before_sha256": "cbc669e43817411306c447560d393b73f1cf6ff15264dde910909028bc923708",
+      "after_sha256": "66f2c8d3a2c564c5cf1565243896a5b54aa5ed14aba41297d81c0d364af0630c"
+    },
+    {
+      "path": "docs/integration/LIFECYCLE.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "277661040c33296d07517f67c1c82b5ccb22c9fa8ffa4e4c6df99a78a55d7d7f"
+    },
+    {
+      "path": "docs/integration/OPERATIONS.md",
+      "change": "modified",
+      "before_sha256": "6428c6772cd2623664f7d446904e2014eb0fa4e584af72c39e68ce566a345553",
+      "after_sha256": "dc2af7829bc0fcd95bd72b95f805961069853cfe4e44af0c2ccc7d9c74dab61e"
+    },
+    {
+      "path": "docs/integration/PROCEDURAL_ROUTES.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "9c7129ba4729ef6ee5960b49c5231e86e41fc0cd93209f9817afcf3f00a04f7b"
+    },
+    {
+      "path": "docs/integration/PRODUCTS.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "850075d9250b2ef6c00fc32b8a2847dee4087716d7cb16652fc21960bbb4118f"
+    },
+    {
+      "path": "docs/integration/RUNBOOK.md",
+      "change": "modified",
+      "before_sha256": "bf040e67e45ee381edc3cb35958b98573fe0c8753bc8f7b6090f4ed7bf944c1a",
+      "after_sha256": "50283c39b6aced56bcc50f5fce32ce469e4bd6226d3524f7268f449b22e75a5c"
+    },
+    {
+      "path": "examples/context_engineering.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "488b9b85c6ef1aa3c481d9b08d8b25de627b6736fc8714c81a6a79286b987a45"
+    },
+    {
+      "path": "examples/context_standalone_D.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "88eafd3a93807cd28f6446ba2e6ed13d7abcc4fbeecc89f40fbd45405d3f4a09"
+    },
+    {
+      "path": "examples/explicit_fallback.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "7724fd0a0a5d5d8a10d7a76c7874569fab97551c0c2a351d56e63b00983a2c9b"
+    },
+    {
+      "path": "examples/host_policy.example.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "1b9115a23360dbb782e9c0c6c2b3ce1d2c97ee1ae9a7d7e69857179c5520d3b1"
+    },
+    {
+      "path": "examples/product_register.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "d7169e56ae5ad5f0817db5d90c72339ed6c5031d9420133fb30e5cdf01275eeb"
+    },
+    {
+      "path": "gsd.py",
+      "change": "modified",
+      "before_sha256": "92a9f5ed8bac5de3aea0e357eead5dae980ade4320165075a3afe03e2e6f4a9e",
+      "after_sha256": "e42c93c3b73a564be5797ce196099c8681f986a38cb463c8efb3750f9611a6c4"
+    },
+    {
+      "path": "gsd_bridge/__init__.py",
+      "change": "modified",
+      "before_sha256": "59e905e93bef56f38eff8fd8e44f64dfcb3997c870545930f5de084770654d49",
+      "after_sha256": "1ff754e2b6a5d4c1ef9f97b27b13947bb0ad62ec021e8ad599abcefb9e838e81"
+    },
+    {
+      "path": "gsd_bridge/composition.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "05428544f725a4c55b9ad45b2864dbea30be3e49dadcddeb76efa619441e61ed"
+    },
+    {
+      "path": "gsd_bridge/context.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "369d9cd56400922c975eafeb57f06371dcff8c921e94652035d06bd74b107af2"
+    },
+    {
+      "path": "gsd_bridge/lifecycle.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "68491d8b3e1d5ee81e988f12c0c4859054a5a6453a395d8e08a0b58fc3b8fb51"
+    },
+    {
+      "path": "gsd_bridge/mcp.py",
+      "change": "modified",
+      "before_sha256": "f9847b31a08dc71fdb0ec308e77ee4078cf919c9e5532bf8c553bc557d2a9a17",
+      "after_sha256": "5034360bdf6601abb647adf18b2c1a058cfa2cc6fd7c50d376d03593ebd2b921"
+    },
+    {
+      "path": "gsd_bridge/products.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "c1371d8d51d5856721b4871b14c01802427bd56d075463aefd1f726e5d66b004"
+    },
+    {
+      "path": "gsd_bridge/provider.py",
+      "change": "modified",
+      "before_sha256": "3792562fe21f9a109e8d208c3b17b839c24287620862e2006c8867c7f8b3ccbc",
+      "after_sha256": "8e8eb728ff72be9683f117c7c84ed71b1bba63eb96bd50e73602fd712f498c78"
+    },
+    {
+      "path": "gsd_bridge/routes.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "800d6c62f02a69fbcc8cf618920d35a27f62e7ccd7a6db5fc99730b8a9b62527"
+    },
+    {
+      "path": "gsd_bridge/service.py",
+      "change": "modified",
+      "before_sha256": "0da9956867f32e9751dca416b2e8947472a23d16a3351c2ab8d54b7cfc4785d6",
+      "after_sha256": "9c114dfc47401389e4f16218159da42c65f12f0dfab93fd02a0b4532832200a1"
+    },
+    {
+      "path": "provenance/author_findings.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "e10396f9b775f51cb9e706fa3024d2cb057fc2b591d5a101c968051390ac2be1"
+    },
+    {
+      "path": "provenance/identity.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "6d96ac8cea75b66ba3202ed7dc0989ac802fe1cfd1ea836b5bc4ce8f954dc009"
+    },
+    {
+      "path": "provenance/inputs.json",
+      "change": "modified",
+      "before_sha256": "aa73590518ee8421c0e8d0f2f448bba5a64840883337755e866a88ef6ecbae01",
+      "after_sha256": "94fb7feec3e0b08d1ada2c0dfd7b4de5ca94f89657721a76cece704bdd41f4d8"
+    },
+    {
+      "path": "release.json",
+      "change": "modified",
+      "before_sha256": "cbacb957da7932ae4b0761748e2a9d5d5ca6711531d184f0cc10d48281459659",
+      "after_sha256": "56a6e33bffd63eb26d780729d36da37539401930232877b8e1c6136c9711dbd9"
+    },
+    {
+      "path": "scripts/export_context.py",
+      "change": "modified",
+      "before_sha256": "63602b35ea5401e90d60200f22b7ff3e2f55ea80dfba2be2ba2f6d23b00127bf",
+      "after_sha256": "c34b6b6de95f29a59fcc8cd2c41a8d4e87afda90153995232b01220b3d0edeca"
+    },
+    {
+      "path": "scripts/sign_external_receipt.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "0f432e3fd8c7d608ff79f6bc6c1ce5bdd8cb5bb1d1645bf25ec871aee2f4baa2"
+    },
+    {
+      "path": "scripts/verify_contexts.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "5fcfb735e2c7878ddc4b171c8525ec93c410b984c6c61d00a7770fade3c682a5"
+    },
+    {
+      "path": "scripts/verify_migration.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "3de4a727ac81e013e71ef44981578f79c4d6d15a3217e60a5a5c8e7e3b4bfe36"
+    },
+    {
+      "path": "skills/gsd-case/SKILL.md",
+      "change": "modified",
+      "before_sha256": "92d2799cff121379d57919e91cfd50fe7ae3fcc9eef665f6290a84c44c3b02e2",
+      "after_sha256": "fec52665a04d3df3d1f98d6e5bdffa85619fda22c8a3f527b3db936579de88ad"
+    },
+    {
+      "path": "skills/gsd-differential/SKILL.md",
+      "change": "modified",
+      "before_sha256": "127e6f6a6d9d0df8e94f903306f848a7385edfb56be3daf7379d477051e5da06",
+      "after_sha256": "056456eca53da4d0ba4733f3535548175eebc6a67864f6b81ee838a6e1eceee0"
+    },
+    {
+      "path": "skills/gsd-generate/SKILL.md",
+      "change": "modified",
+      "before_sha256": "35a9891f4647ac22b17a3a12df938d6a107e072f295be4d473bac2ac83384007",
+      "after_sha256": "389c36a7dd8bde599595144f375d6f73f8d3fbc4e37e5c86baf47880d528f6aa"
+    },
+    {
+      "path": "skills/gsd-integrate/SKILL.md",
+      "change": "modified",
+      "before_sha256": "31861669edd0ffa613b953be6aa447d73676e46733bde8aa9255ed09eb0dc9c9",
+      "after_sha256": "91699e446d66d67bca081239672e1d52a252e9b94baac8c084fd272c261cd5a3"
+    },
+    {
+      "path": "skills/gsd-operate/SKILL.md",
+      "change": "modified",
+      "before_sha256": "71ba7d6b11f9b9986b98ed4fe520aab0bfd98d56719e62f517659261b3f3ef7a",
+      "after_sha256": "e2cbd338d1d578f6debf695efb73397e82fdbd19fab78a4e1e109ed77d779861"
+    },
+    {
+      "path": "skills/gsd-strict/SKILL.md",
+      "change": "modified",
+      "before_sha256": "6654fadb0432bb24bb5f21e0257d6d1208426519d202fec5150fb226feec39ff",
+      "after_sha256": "3f863d36c0da012c47726219fae50066c7d78e92ffe20c2485965a2535b656f3"
+    },
+    {
+      "path": "skills/gsd-verify/SKILL.md",
+      "change": "modified",
+      "before_sha256": "e7848c9ecac9e1d2fbefb8225ef45378f64beb442952c2cfc791181d181b7906",
+      "after_sha256": "46759119c0d0ce13e10365c5c56d742556522e39e525c6883b68cb31add94545"
+    },
+    {
+      "path": "skills/gsd/SKILL.md",
+      "change": "modified",
+      "before_sha256": "d99ea341564cd86dd0e88c35e4ceebb2fb7d8be3f0d272fcb82c8daea6fa66f5",
+      "after_sha256": "d17fab97ec47536eb034da6d00f2256de62a932c910ec5996940ba2c534c08b9"
+    },
+    {
+      "path": "tests/test_bridge.py",
+      "change": "modified",
+      "before_sha256": "f6d116be746265bac4ba0f8313b82e0a22ceed1f0cb2e340c8938206af6d96a7",
+      "after_sha256": "0117576bb0256f1f447f70d4e8c88297cd7fbab51f5272571bfd8461af3aade1"
+    },
+    {
+      "path": "tests/test_remediation.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "9336bb4df69fcbf1aecbf57a69d0e675486b72871acaf1f4e91f7befa43d49b2"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "change": "modified",
+      "before_sha256": "bbf4fd7e10e6d9a8f3b8475ebe7e122311af7b2fb6a035ff1770a00b12ef4aca",
+      "after_sha256": "b97e72958a7b36d8ed4c3a08f27574efb00b398d2099023910067a781f9e8ada"
+    },
+    {
+      "path": "verification/acceptance_matrix.json",
+      "change": "modified",
+      "before_sha256": "042b8cbddb367d39e6d07bc0c60bc7d0c9e53c29a5f23066e74b98dbc0208f53",
+      "after_sha256": "af0eafcd6c3fffebae828c48d38d299252ed4b1c7135ff6576ef4cc87a226b67"
+    },
+    {
+      "path": "verification/integration/results.json",
+      "change": "modified",
+      "before_sha256": "43d66fc6392408de3667562ebb13b5154c72e29036e369997bed44df3fb7af3f",
+      "after_sha256": "99469b38f2b075d798a85778f9b390b3e4c45f5045e6da929df79f725f0a1081"
+    },
+    {
+      "path": "verification/integration/run.log",
+      "change": "modified",
+      "before_sha256": "50e8bbded7661c18e7144a937d20fed39ba1a3b42c511925d535b70b6b68db98",
+      "after_sha256": "b6e0a53b2a87a0b775b8e441dd3df22ad368b26d7ff5de9865db5f2f6e976909"
+    },
+    {
+      "path": "verification/remediation/context_catalog.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "6c8b86a516be248ad0bcddc3251195563f2f1c3a840ffe1542af854ac1486714"
+    },
+    {
+      "path": "verification/remediation/context_catalog.log",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "6ba0a418aa8e19c256a91220379112c3c39486074332632efeecb1fab3bd5641"
+    },
+    {
+      "path": "verification/remediation/findings_matrix.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "3cbd939d9767654cf263ed32d19f474b8956340d32cb460efa9595b35bff471e"
+    },
+    {
+      "path": "verification/remediation/state_migration.json",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "2be647bda1337e05ee195df37e374e34520858e7b85e0ab9435b2fed28201b1e"
+    },
+    {
+      "path": "verification/source_preservation.json",
+      "change": "modified",
+      "before_sha256": "0d6ad687ac41bb36a0ae19c0055b71869344cfabc784fd9b810be1be7103e930",
+      "after_sha256": "41b64c476851a640627b27509120fba6eca01bf15c76a017506a849e2d59faa6"
+    },
+    {
+      "path": "verification/structural_checks.json",
+      "change": "modified",
+      "before_sha256": "4d5cc243578b38f6f96487e59d87919c2f6767f4b3374a164652d7c75f501fec",
+      "after_sha256": "f8b1f22c9d70b0f6e7637cc32ff3da782ab5fb74ad4b307998e750b24fe31dcf"
+    },
+    {
+      "path": "verification/upstream/remediation.log",
+      "change": "modified",
+      "before_sha256": "d9fd56bf8e7c7ab42ef8d140d978fadb4884536de7eb7baa42fc7f0817d33799",
+      "after_sha256": "d3d03ba02ab284c4308bea6f1bf4a1bcc9e226aa3f2e90a5d2143de8698f7553"
+    },
+    {
+      "path": "verification/upstream/residual.log",
+      "change": "modified",
+      "before_sha256": "023bb9308c8f80567d487ec3b4231fa174190fd47ae7919a01c1f48cf1e0397d",
+      "after_sha256": "dc7e7f1038dcd652be73305b03500bf7971df4445b84cea39bddc37f021eb121"
+    },
+    {
+      "path": "verification/upstream/residual_integrity.log",
+      "change": "modified",
+      "before_sha256": "7d77dd7a301cad9fb36129502a512b5700ed45d46d4c103188b534138248bdda",
+      "after_sha256": "984c80a27a80c2c70cc8606e7a88d5b284090aa68943a8500d01b7f40dc6692f"
+    },
+    {
+      "path": "verification/upstream/residual_results.json",
+      "change": "modified",
+      "before_sha256": "1a5306abeff6f709458b1909e877897a11328c837a3f466eefffbf73ef8c9853",
+      "after_sha256": "4e4388d1037f788de9960736d8a77ea3234a6ec1259354a28e26be4be2d83d84"
+    },
+    {
+      "path": "verification/upstream/summary.json",
+      "change": "modified",
+      "before_sha256": "f7c52750526d4895612b2706f65fa1f1832224fe2fd99251f4ab4f6501460c0e",
+      "after_sha256": "0c279fca37099f91cbde6f683f2cc31c4ea1762ba2e1ad032fc92e9e6c30863b"
+    }
+  ]
+}

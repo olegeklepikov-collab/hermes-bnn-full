@@ -1,0 +1,35 @@
+{
+  "contract": "BNNFullQualification1",
+  "pair": {
+    "Memory": "2.0.0-dev.44",
+    "Intake": "0.14.3"
+  },
+  "tests": {
+    "passed": 363,
+    "failures": 0,
+    "seconds": 146.867
+  },
+  "fresh_profile_init": true,
+  "five_required_controllers_registered_and_denied_unbound_calls": true,
+  "supplier_signature_checks": true,
+  "source_R_installer_signature_valid": true,
+  "R_local_mean_and_variance": true,
+  "local_core_services": [
+    "agentmemory",
+    "graphiti_neo4j",
+    "zvec"
+  ],
+  "Zotero_original_signature_valid": true,
+  "Zotero_GUI_API_in_cloud_directory": "not_confirmed_os_LaunchServices_sandbox_extension_wait",
+  "real_model_embedding_search_and_Telegram_calls": 0,
+  "physical_other_Mac_test": false,
+  "active_instances_modified": false,
+  "earlier_failed_attempts_preserved_privately": true,
+  "local_component_imports": {
+    "Cognee": true,
+    "Serena": true,
+    "Mirage": true,
+    "ASReview-Dory": true
+  },
+  "unicode_filename_integrity_checks": 4
+}

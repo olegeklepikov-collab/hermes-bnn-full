@@ -1,0 +1,59 @@
+diff --git a/tools/tool_search.py b/tools/tool_search.py
+index 76fe4c6a23..2d13284639 100644
+--- a/tools/tool_search.py
++++ b/tools/tool_search.py
+@@ -271,8 +271,9 @@ def bridge_tool_schemas(deferred_count: int, listing: Optional[str] = None,
+             {
+                 "queries": {
+                     "type": "array",
++                    "maxItems": _MAX_QUERIES_PER_CALL,
+                     "items": {"type": "string"},
+-                    "description": "One query per capability: service + action + object keywords (e.g. ['gmail send email', 'github create issue']), never a question; every word must match tool text. Searched in parallel.",
++                    "description": f"At most {_MAX_QUERIES_PER_CALL} queries per call. Keyword queries, one per capability: app or service name + action + object (e.g. ['github create issue', 'slack send message', 'gmail fetch emails']). Not questions or sentences: every word must appear in tool text, or the query returns nothing. Searched in parallel; results come back grouped per query. A single string is accepted and treated as one query.",
+                 },
+                 "limit": {
+                     "type": "integer",
+@@ -285,10 +286,11 @@ def bridge_tool_schemas(deferred_count: int, listing: Optional[str] = None,
+             TOOL_DESCRIBE_NAME,
+             f"Load the full JSON schemas for tools returned by `{TOOL_SEARCH_NAME}`. "
+             f"Required before `{TOOL_CALL_NAME}` if a tool's parameters are unknown. "
+-            "Batch every schema you need into one call.",
++            f"Load at most {_MAX_DESCRIBE_NAMES_PER_CALL} tool names per call; split larger sets across calls.",
+             {
+                 "names": {
+                     "type": "array",
++                    "maxItems": _MAX_DESCRIBE_NAMES_PER_CALL,
+                     "items": {"type": "string"},
+                     "description": "Exact tool names (as returned by tool_search). A single string is accepted and treated as one name.",
+                 },
+diff --git a/tests/tools/test_tool_discovery_batch_contract.py b/tests/tools/test_tool_discovery_batch_contract.py
+new file mode 100644
+index 0000000000..de7c6d8205
+--- /dev/null
++++ b/tests/tools/test_tool_discovery_batch_contract.py
+@@ -0,0 +1,25 @@
++"""The model-visible discovery batch limits must agree with the dispatcher."""
++import json
++
++import pytest
++from jsonschema import Draft202012Validator
++
++
++@pytest.mark.parametrize(('name', 'argument'), [('tool_search', 'queries'), ('tool_describe', 'names')])
++def test_advertised_batch_boundary_matches_dispatch(name, argument):
++    from tools.tool_search import bridge_tool_schemas, dispatch_tool_describe, dispatch_tool_search
++
++    definition = next(item['function'] for item in bridge_tool_schemas(0) if item['function']['name'] == name)
++    schema = definition['parameters']
++    maximum = schema['properties'][argument]['maxItems']
++    args = {argument: [f'mcp__batch_contract__item_{index}' for index in range(maximum)]}
++    validator = Draft202012Validator(schema)
++    validator.validate(args)
++    dispatch = dispatch_tool_search if name == 'tool_search' else dispatch_tool_describe
++    accepted = json.loads(dispatch(args, current_tool_defs=[]))
++    assert 'error' not in accepted
++    overflow = {argument: args[argument] + ['mcp__batch_contract__overflow']}
++    assert not validator.is_valid(overflow)
++    rejected = json.loads(dispatch(overflow, current_tool_defs=[]))
++    assert 'too many' in rejected['error']
++    assert f'max {maximum}' in rejected['error']

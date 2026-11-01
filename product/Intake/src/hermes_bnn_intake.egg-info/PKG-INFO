@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: hermes-bnn-intake
+Version: 0.14.3
+Summary: Optional versioned semantic intake on the existing Hermes BNN memory store
+Requires-Python: >=3.11
+Requires-Dist: jsonschema<5,>=4.18

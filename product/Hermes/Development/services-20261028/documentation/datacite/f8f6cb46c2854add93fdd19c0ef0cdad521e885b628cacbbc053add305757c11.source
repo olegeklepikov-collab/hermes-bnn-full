@@ -1,0 +1,256 @@
+---
+updatedAt: 2026-08-26T18:05:20.000Z
+agentTools:
+  projectIndex: https://support.datacite.org/llms.txt
+---
+
+# Return a client.
+
+# OpenAPI definition
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST API",
+    "description": "The REST API is used for all API interactions with DataCite services.",
+    "contact": {
+      "name": "DataCite Support",
+      "url": "https://support.datacite.org",
+      "email": "support@datacite.org"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/datacite/lupo/master/LICENSE"
+    },
+    "version": "2.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.test.datacite.org",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.datacite.org",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "clients",
+      "description": "Clients"
+    }
+  ],
+  "paths": {
+    "/clients/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "DataCite Repository account ID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": [
+          "clients"
+        ],
+        "summary": "Return a client.",
+        "responses": {
+          "200": {
+            "description": "A JSON object.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/Client"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "clients"
+            ]
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "year": {
+                "type": "number"
+              },
+              "contactEmail": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "string"
+              },
+              "alternateName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "language": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "clientType": {
+                "$ref": "#/components/schemas/client-type"
+              },
+              "domains": {
+                "type": "string"
+              },
+              "re3data": {
+                "type": "string"
+              },
+              "opendoar": {
+                "type": "string"
+              },
+              "issn": {
+                "type": "object",
+                "properties": {
+                  "issnl": {
+                    "type": "string"
+                  },
+                  "print": {
+                    "type": "string"
+                  },
+                  "electronic": {
+                    "type": "string"
+                  }
+                }
+              },
+              "url": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string",
+                "readOnly": true
+              },
+              "updated": {
+                "type": "string",
+                "readOnly": true
+              },
+              "isActive": {
+                "type": "boolean"
+              },
+              "hasPassword": {
+                "description": "Returned only when authenticated with associated credentials.",
+                "type": "boolean"
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "provider": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataObject"
+                  }
+                }
+              },
+              "consortium": {
+                "type": "object",
+                "description": "Returned only when the client is associated with a Consortium.",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataObject"
+                  }
+                }
+              },
+              "prefixes": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/DataArray"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "attributes - name - symbol - contactEmail"
+        ]
+      },
+      "DataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "DataArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DataObject"
+        }
+      },
+      "client-type": {
+        "type": "string",
+        "enum": [
+          "repository",
+          "periodical",
+          "igsnCatalog",
+          "raidRegistry"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {},
+    {
+      "BasicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ]
+}
+```

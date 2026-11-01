@@ -1,0 +1,80 @@
+{
+  "created_at": "2026-09-23T10:32:44.598159+00:00",
+  "passed": true,
+  "scope": "Фактический исходный CLI слоя 1.0.0 создаёт запуск и неуспешную попытку; CLI 1.1.0 переносит и восстанавливает тот же снимок. Не производственная база.",
+  "original_snapshot_exact": true,
+  "spent_steps": 1,
+  "spent_cost": 2.5,
+  "model_calls": 0,
+  "commands": [
+    {
+      "operation": [
+        "init-state",
+        "--state-dir",
+        "/tmp/gsd-actual-migration-st5qdaza/state",
+        "--key-file",
+        "/tmp/gsd-actual-migration-st5qdaza/key"
+      ],
+      "release": "1.0.0",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "operation": [
+        "call",
+        "gsd_case_create"
+      ],
+      "release": "1.0.0",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "operation": [
+        "call",
+        "gsd_case_next"
+      ],
+      "release": "1.0.0",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "operation": [
+        "call",
+        "gsd_case_change"
+      ],
+      "release": "1.0.0",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "operation": [
+        "call",
+        "gsd_case_get"
+      ],
+      "release": "1.1.0",
+      "exit_code": 2,
+      "ok": false
+    },
+    {
+      "operation": [
+        "host-command",
+        "migrate-state",
+        "--json",
+        "/tmp/gsd-actual-migration-st5qdaza/migration.json",
+        "--host-control"
+      ],
+      "release": "1.1.0",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "operation": [
+        "call",
+        "gsd_case_get"
+      ],
+      "release": "1.1.0",
+      "exit_code": 0,
+      "ok": true
+    }
+  ]
+}

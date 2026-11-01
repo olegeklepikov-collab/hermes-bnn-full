@@ -1,0 +1,3500 @@
+{
+  "created_at": "2026-09-18T08:47:44.438008+00:00",
+  "release": "3.0.2",
+  "test_count": 331,
+  "passed_count": 331,
+  "failed_count": 0,
+  "model_calls": 0,
+  "tests": [
+    {
+      "id": "N01-PERM-0-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.7532136099999889
+    },
+    {
+      "id": "N01-PERM-0-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004108300999973835
+    },
+    {
+      "id": "N01-PERM-0-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004106026999920687
+    },
+    {
+      "id": "N01-PERM-0-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004091867000056482
+    },
+    {
+      "id": "N01-PERM-0-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003990056000020559
+    },
+    {
+      "id": "N01-PERM-0-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003993381999976009
+    },
+    {
+      "id": "N01-PERM-0-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003949357000010423
+    },
+    {
+      "id": "N01-PERM-0-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004021031999968727
+    },
+    {
+      "id": "N01-PERM-0-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0043164269999351745
+    },
+    {
+      "id": "N01-PERM-0-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004729404000045179
+    },
+    {
+      "id": "N01-PERM-0-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004122321999943779
+    },
+    {
+      "id": "N01-PERM-0-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003942617000006976
+    },
+    {
+      "id": "N01-PERM-0-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00404485800004295
+    },
+    {
+      "id": "N01-PERM-0-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003943908999985979
+    },
+    {
+      "id": "N01-PERM-0-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004484964999960539
+    },
+    {
+      "id": "N01-PERM-0-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003911452000011195
+    },
+    {
+      "id": "N01-PERM-1-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004219534999947427
+    },
+    {
+      "id": "N01-PERM-1-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004469061000008878
+    },
+    {
+      "id": "N01-PERM-1-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.00446674800002711
+    },
+    {
+      "id": "N01-PERM-1-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004049744999974791
+    },
+    {
+      "id": "N01-PERM-1-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003921386000001803
+    },
+    {
+      "id": "N01-PERM-1-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004348823999976048
+    },
+    {
+      "id": "N01-PERM-1-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004702643999962675
+    },
+    {
+      "id": "N01-PERM-1-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004320452999991176
+    },
+    {
+      "id": "N01-PERM-1-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004411267000023145
+    },
+    {
+      "id": "N01-PERM-1-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0042994819999648826
+    },
+    {
+      "id": "N01-PERM-1-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004209680000030858
+    },
+    {
+      "id": "N01-PERM-1-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004498303999980635
+    },
+    {
+      "id": "N01-PERM-1-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004085647000010795
+    },
+    {
+      "id": "N01-PERM-1-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004062302999955136
+    },
+    {
+      "id": "N01-PERM-1-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004046900000048481
+    },
+    {
+      "id": "N01-PERM-1-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004678349000073467
+    },
+    {
+      "id": "N01-PERM-2-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004140117000019927
+    },
+    {
+      "id": "N01-PERM-2-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004358898999953453
+    },
+    {
+      "id": "N01-PERM-2-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004170932999954857
+    },
+    {
+      "id": "N01-PERM-2-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004162449999967066
+    },
+    {
+      "id": "N01-PERM-2-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004027312000062011
+    },
+    {
+      "id": "N01-PERM-2-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004445547000045735
+    },
+    {
+      "id": "N01-PERM-2-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004677968999999393
+    },
+    {
+      "id": "N01-PERM-2-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.0042924419999508245
+    },
+    {
+      "id": "N01-PERM-2-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004294154000035633
+    },
+    {
+      "id": "N01-PERM-2-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004760620000070048
+    },
+    {
+      "id": "N01-PERM-2-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004052747999935491
+    },
+    {
+      "id": "N01-PERM-2-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004281365000110782
+    },
+    {
+      "id": "N01-PERM-2-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004191382000044541
+    },
+    {
+      "id": "N01-PERM-2-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004513406999990366
+    },
+    {
+      "id": "N01-PERM-2-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004157341999984965
+    },
+    {
+      "id": "N01-PERM-2-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.0040773449999278455
+    },
+    {
+      "id": "N01-PERM-3-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004038637999997263
+    },
+    {
+      "id": "N01-PERM-3-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004079468999975688
+    },
+    {
+      "id": "N01-PERM-3-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.00418872900002043
+    },
+    {
+      "id": "N01-PERM-3-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.006001183999956083
+    },
+    {
+      "id": "N01-PERM-3-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.005038268000021162
+    },
+    {
+      "id": "N01-PERM-3-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004363045999980386
+    },
+    {
+      "id": "N01-PERM-3-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004695334000075491
+    },
+    {
+      "id": "N01-PERM-3-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0060178689999474955
+    },
+    {
+      "id": "N01-PERM-3-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004428982999911568
+    },
+    {
+      "id": "N01-PERM-3-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004593143999954918
+    },
+    {
+      "id": "N01-PERM-3-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004317918999959147
+    },
+    {
+      "id": "N01-PERM-3-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004599462999976822
+    },
+    {
+      "id": "N01-PERM-3-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004380229999924268
+    },
+    {
+      "id": "N01-PERM-3-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0042120329999306705
+    },
+    {
+      "id": "N01-PERM-3-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004351999000050455
+    },
+    {
+      "id": "N01-PERM-3-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004437414999983957
+    },
+    {
+      "id": "N01-PERM-4-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00567655699990155
+    },
+    {
+      "id": "N01-PERM-4-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.006241176000003179
+    },
+    {
+      "id": "N01-PERM-4-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.00507525299997269
+    },
+    {
+      "id": "N01-PERM-4-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004383845999996083
+    },
+    {
+      "id": "N01-PERM-4-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004164544000104797
+    },
+    {
+      "id": "N01-PERM-4-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004216469999960282
+    },
+    {
+      "id": "N01-PERM-4-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004639943000029234
+    },
+    {
+      "id": "N01-PERM-4-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004283108000095126
+    },
+    {
+      "id": "N01-PERM-4-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004213875999994343
+    },
+    {
+      "id": "N01-PERM-4-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004142381000065143
+    },
+    {
+      "id": "N01-PERM-4-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0043127010000034716
+    },
+    {
+      "id": "N01-PERM-4-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0043019449999519566
+    },
+    {
+      "id": "N01-PERM-4-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004542478999951527
+    },
+    {
+      "id": "N01-PERM-4-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004223870000032548
+    },
+    {
+      "id": "N01-PERM-4-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004432839000060085
+    },
+    {
+      "id": "N01-PERM-4-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004593533999923238
+    },
+    {
+      "id": "N01-PERM-5-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004104545000018334
+    },
+    {
+      "id": "N01-PERM-5-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004170452000039404
+    },
+    {
+      "id": "N01-PERM-5-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.00463549599999169
+    },
+    {
+      "id": "N01-PERM-5-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0041215910000573786
+    },
+    {
+      "id": "N01-PERM-5-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003915447000053973
+    },
+    {
+      "id": "N01-PERM-5-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004407119999996212
+    },
+    {
+      "id": "N01-PERM-5-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004393971000013153
+    },
+    {
+      "id": "N01-PERM-5-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00450649600009001
+    },
+    {
+      "id": "N01-PERM-5-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0040711270000883815
+    },
+    {
+      "id": "N01-PERM-5-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003955575999952998
+    },
+    {
+      "id": "N01-PERM-5-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004423393999900327
+    },
+    {
+      "id": "N01-PERM-5-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004052399000102014
+    },
+    {
+      "id": "N01-PERM-5-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004498204000014994
+    },
+    {
+      "id": "N01-PERM-5-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003989617000001999
+    },
+    {
+      "id": "N01-PERM-5-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0039551759999767455
+    },
+    {
+      "id": "N01-PERM-5-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003891731999942749
+    },
+    {
+      "id": "N01-PERM-6-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003862689000015962
+    },
+    {
+      "id": "N01-PERM-6-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00409613299996181
+    },
+    {
+      "id": "N01-PERM-6-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004397025000002941
+    },
+    {
+      "id": "N01-PERM-6-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004382695000003878
+    },
+    {
+      "id": "N01-PERM-6-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004544691999967654
+    },
+    {
+      "id": "N01-PERM-6-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.005437525000047572
+    },
+    {
+      "id": "N01-PERM-6-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004043475999992552
+    },
+    {
+      "id": "N01-PERM-6-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004325480999909814
+    },
+    {
+      "id": "N01-PERM-6-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00402368600009595
+    },
+    {
+      "id": "N01-PERM-6-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004561918000035803
+    },
+    {
+      "id": "N01-PERM-6-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0041609169999219375
+    },
+    {
+      "id": "N01-PERM-6-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004273944999908963
+    },
+    {
+      "id": "N01-PERM-6-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004816801999936615
+    },
+    {
+      "id": "N01-PERM-6-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004439809000018613
+    },
+    {
+      "id": "N01-PERM-6-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.005411167000033856
+    },
+    {
+      "id": "N01-PERM-6-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0043243089999123185
+    },
+    {
+      "id": "N01-PERM-7-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004233904999978222
+    },
+    {
+      "id": "N01-PERM-7-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004914295999924434
+    },
+    {
+      "id": "N01-PERM-7-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.00438814199992521
+    },
+    {
+      "id": "N01-PERM-7-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0041699209999706
+    },
+    {
+      "id": "N01-PERM-7-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004218702999992274
+    },
+    {
+      "id": "N01-PERM-7-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003933683999889581
+    },
+    {
+      "id": "N01-PERM-7-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.006348224000021219
+    },
+    {
+      "id": "N01-PERM-7-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004315555999937715
+    },
+    {
+      "id": "N01-PERM-7-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0040840650000291134
+    },
+    {
+      "id": "N01-PERM-7-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004052087999980358
+    },
+    {
+      "id": "N01-PERM-7-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004789532000017971
+    },
+    {
+      "id": "N01-PERM-7-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0043138029999454375
+    },
+    {
+      "id": "N01-PERM-7-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004097965000028125
+    },
+    {
+      "id": "N01-PERM-7-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004572854000002735
+    },
+    {
+      "id": "N01-PERM-7-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004497522000065146
+    },
+    {
+      "id": "N01-PERM-7-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004546505000007528
+    },
+    {
+      "id": "N01-PERM-8-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004400130000021818
+    },
+    {
+      "id": "N01-PERM-8-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003991348999988986
+    },
+    {
+      "id": "N01-PERM-8-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.003969195999957265
+    },
+    {
+      "id": "N01-PERM-8-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004350025999997342
+    },
+    {
+      "id": "N01-PERM-8-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004377846000011232
+    },
+    {
+      "id": "N01-PERM-8-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003966242000046805
+    },
+    {
+      "id": "N01-PERM-8-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003943457999980637
+    },
+    {
+      "id": "N01-PERM-8-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004171894000023713
+    },
+    {
+      "id": "N01-PERM-8-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0046323510000547685
+    },
+    {
+      "id": "N01-PERM-8-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004119055999922239
+    },
+    {
+      "id": "N01-PERM-8-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004240074999984245
+    },
+    {
+      "id": "N01-PERM-8-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004050384999914058
+    },
+    {
+      "id": "N01-PERM-8-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004045679000000746
+    },
+    {
+      "id": "N01-PERM-8-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003916439000022365
+    },
+    {
+      "id": "N01-PERM-8-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00389848300005724
+    },
+    {
+      "id": "N01-PERM-8-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003907295999965754
+    },
+    {
+      "id": "N01-PERM-9-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004296687999953974
+    },
+    {
+      "id": "N01-PERM-9-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0049173900000596404
+    },
+    {
+      "id": "N01-PERM-9-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004301414999986264
+    },
+    {
+      "id": "N01-PERM-9-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004228248000003987
+    },
+    {
+      "id": "N01-PERM-9-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004328325000074074
+    },
+    {
+      "id": "N01-PERM-9-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003986091000001579
+    },
+    {
+      "id": "N01-PERM-9-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004458015000068372
+    },
+    {
+      "id": "N01-PERM-9-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00458548200003861
+    },
+    {
+      "id": "N01-PERM-9-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0041896209999094935
+    },
+    {
+      "id": "N01-PERM-9-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003890510000019276
+    },
+    {
+      "id": "N01-PERM-9-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004197843000042667
+    },
+    {
+      "id": "N01-PERM-9-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004358478000085597
+    },
+    {
+      "id": "N01-PERM-9-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004112046000045666
+    },
+    {
+      "id": "N01-PERM-9-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003926153999941562
+    },
+    {
+      "id": "N01-PERM-9-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003898652000088987
+    },
+    {
+      "id": "N01-PERM-9-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003921956999988652
+    },
+    {
+      "id": "N01-PERM-10-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0050074419999646125
+    },
+    {
+      "id": "N01-PERM-10-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.005529379999984485
+    },
+    {
+      "id": "N01-PERM-10-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.006164214000023094
+    },
+    {
+      "id": "N01-PERM-10-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004321944000025724
+    },
+    {
+      "id": "N01-PERM-10-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004071466000027613
+    },
+    {
+      "id": "N01-PERM-10-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004091095000035239
+    },
+    {
+      "id": "N01-PERM-10-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004062523000015972
+    },
+    {
+      "id": "N01-PERM-10-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004182030000038139
+    },
+    {
+      "id": "N01-PERM-10-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004887497000026997
+    },
+    {
+      "id": "N01-PERM-10-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004192955000007714
+    },
+    {
+      "id": "N01-PERM-10-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004365639000070587
+    },
+    {
+      "id": "N01-PERM-10-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0045351279999295
+    },
+    {
+      "id": "N01-PERM-10-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0042047929999853295
+    },
+    {
+      "id": "N01-PERM-10-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00465029700001196
+    },
+    {
+      "id": "N01-PERM-10-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004472045999932561
+    },
+    {
+      "id": "N01-PERM-10-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004313232000072276
+    },
+    {
+      "id": "N01-PERM-11-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0043722089999391756
+    },
+    {
+      "id": "N01-PERM-11-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.005404526999996051
+    },
+    {
+      "id": "N01-PERM-11-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004152867000016158
+    },
+    {
+      "id": "N01-PERM-11-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004071797000051447
+    },
+    {
+      "id": "N01-PERM-11-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004033291000041572
+    },
+    {
+      "id": "N01-PERM-11-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004030324999916957
+    },
+    {
+      "id": "N01-PERM-11-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004245461999971667
+    },
+    {
+      "id": "N01-PERM-11-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004269238000006226
+    },
+    {
+      "id": "N01-PERM-11-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0040931780000619256
+    },
+    {
+      "id": "N01-PERM-11-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004105837999986761
+    },
+    {
+      "id": "N01-PERM-11-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0040058299999827796
+    },
+    {
+      "id": "N01-PERM-11-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003949938000005204
+    },
+    {
+      "id": "N01-PERM-11-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003904080999973303
+    },
+    {
+      "id": "N01-PERM-11-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0039014369999677
+    },
+    {
+      "id": "N01-PERM-11-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0038858239998944555
+    },
+    {
+      "id": "N01-PERM-11-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0039486869999336704
+    },
+    {
+      "id": "N01-PERM-12-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004812154999967788
+    },
+    {
+      "id": "N01-PERM-12-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004097313999977814
+    },
+    {
+      "id": "N01-PERM-12-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004038547999925868
+    },
+    {
+      "id": "N01-PERM-12-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0042772890000151165
+    },
+    {
+      "id": "N01-PERM-12-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004053760000033435
+    },
+    {
+      "id": "N01-PERM-12-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004172404999962964
+    },
+    {
+      "id": "N01-PERM-12-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004844604000027175
+    },
+    {
+      "id": "N01-PERM-12-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003977237999947647
+    },
+    {
+      "id": "N01-PERM-12-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003917089999958989
+    },
+    {
+      "id": "N01-PERM-12-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004406418999906236
+    },
+    {
+      "id": "N01-PERM-12-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004096032999996169
+    },
+    {
+      "id": "N01-PERM-12-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003925741999978527
+    },
+    {
+      "id": "N01-PERM-12-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004359089999979915
+    },
+    {
+      "id": "N01-PERM-12-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003965109999967353
+    },
+    {
+      "id": "N01-PERM-12-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003933243999995284
+    },
+    {
+      "id": "N01-PERM-12-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003925601999981154
+    },
+    {
+      "id": "N01-PERM-13-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0039103400000612965
+    },
+    {
+      "id": "N01-PERM-13-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004180958000006285
+    },
+    {
+      "id": "N01-PERM-13-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.0039851189999353664
+    },
+    {
+      "id": "N01-PERM-13-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0040653570000586114
+    },
+    {
+      "id": "N01-PERM-13-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0039013859999386113
+    },
+    {
+      "id": "N01-PERM-13-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003938580999943042
+    },
+    {
+      "id": "N01-PERM-13-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004472205000070062
+    },
+    {
+      "id": "N01-PERM-13-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0040879709999899205
+    },
+    {
+      "id": "N01-PERM-13-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0047014919999810445
+    },
+    {
+      "id": "N01-PERM-13-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0041699820000076215
+    },
+    {
+      "id": "N01-PERM-13-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003947874999994383
+    },
+    {
+      "id": "N01-PERM-13-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003909238999995068
+    },
+    {
+      "id": "N01-PERM-13-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003893805999950928
+    },
+    {
+      "id": "N01-PERM-13-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003904020000049968
+    },
+    {
+      "id": "N01-PERM-13-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004615726999986691
+    },
+    {
+      "id": "N01-PERM-13-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004160788000035609
+    },
+    {
+      "id": "N01-PERM-14-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003922026999930495
+    },
+    {
+      "id": "N01-PERM-14-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004427139999961582
+    },
+    {
+      "id": "N01-PERM-14-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.005698348999999325
+    },
+    {
+      "id": "N01-PERM-14-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004099808000091798
+    },
+    {
+      "id": "N01-PERM-14-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004116092000003846
+    },
+    {
+      "id": "N01-PERM-14-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00412667800003419
+    },
+    {
+      "id": "N01-PERM-14-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004168159000073501
+    },
+    {
+      "id": "N01-PERM-14-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004183681000085926
+    },
+    {
+      "id": "N01-PERM-14-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004021403000024293
+    },
+    {
+      "id": "N01-PERM-14-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004144463999978143
+    },
+    {
+      "id": "N01-PERM-14-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004436043000055179
+    },
+    {
+      "id": "N01-PERM-14-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0038906409999981406
+    },
+    {
+      "id": "N01-PERM-14-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003886125000008178
+    },
+    {
+      "id": "N01-PERM-14-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0038905999999769847
+    },
+    {
+      "id": "N01-PERM-14-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003875059000051806
+    },
+    {
+      "id": "N01-PERM-14-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004141369999956623
+    },
+    {
+      "id": "N01-PERM-15-0",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004571842000018478
+    },
+    {
+      "id": "N01-PERM-15-1",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0040516880000041056
+    },
+    {
+      "id": "N01-PERM-15-2",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "compatible_prediction"
+      },
+      "seconds": 0.004094069999950989
+    },
+    {
+      "id": "N01-PERM-15-3",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004056924999986222
+    },
+    {
+      "id": "N01-PERM-15-4",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003920604999962052
+    },
+    {
+      "id": "N01-PERM-15-5",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004277489999935824
+    },
+    {
+      "id": "N01-PERM-15-6",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.0043531499999289736
+    },
+    {
+      "id": "N01-PERM-15-7",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004274505000012141
+    },
+    {
+      "id": "N01-PERM-15-8",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004378838999969048
+    },
+    {
+      "id": "N01-PERM-15-9",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004367161000004671
+    },
+    {
+      "id": "N01-PERM-15-10",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004410805000020446
+    },
+    {
+      "id": "N01-PERM-15-11",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004161830000043665
+    },
+    {
+      "id": "N01-PERM-15-12",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.003912032000016552
+    },
+    {
+      "id": "N01-PERM-15-13",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.00392238700010239
+    },
+    {
+      "id": "N01-PERM-15-14",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004265802000077201
+    },
+    {
+      "id": "N01-PERM-15-15",
+      "requirement": "N01",
+      "passed": true,
+      "detail": {
+        "row_order_invariant": true,
+        "all_input_ids_preserved": true,
+        "status": "underdetermined"
+      },
+      "seconds": 0.004439108000042324
+    },
+    {
+      "id": "REVIEW-TOP-UNKNOWN",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0029827759999534464
+    },
+    {
+      "id": "REVIEW-TOP-TYPE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00308824100000038
+    },
+    {
+      "id": "REVIEW-OLD-CONTRACT",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00296193500003028
+    },
+    {
+      "id": "REVIEW-OLD-VERSION",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0032675239999662153
+    },
+    {
+      "id": "REVIEW-UNKNOWN-STATUS",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00282108800001879
+    },
+    {
+      "id": "REVIEW-ROW-MISSING",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0026199920000635757
+    },
+    {
+      "id": "REVIEW-ROW-DUPLICATE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0030290839999906893
+    },
+    {
+      "id": "REVIEW-ROW-EXTRA",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.002906784000060725
+    },
+    {
+      "id": "REVIEW-MISSING-EVIDENCE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.003957368999977007
+    },
+    {
+      "id": "REVIEW-OPPOSITION-ROLE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0029375889999982974
+    },
+    {
+      "id": "REVIEW-UNKNOWN-ROLE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0028848519999655764
+    },
+    {
+      "id": "REVIEW-DEPENDENT-ROLE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0035321440000188886
+    },
+    {
+      "id": "REVIEW-DUAL-ROLE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0028980209999645012
+    },
+    {
+      "id": "REVIEW-DUPLICATE-ID",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0028141880000021047
+    },
+    {
+      "id": "REVIEW-ERASED-SUPPORT",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0029534730000477794
+    },
+    {
+      "id": "REVIEW-INVENTED-SOURCE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.002856380000025638
+    },
+    {
+      "id": "REVIEW-M-STATUS",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.003099136999935581
+    },
+    {
+      "id": "REVIEW-M-TRUTH",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.002865122999992309
+    },
+    {
+      "id": "REVIEW-T-RESULT",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0030833840000923374
+    },
+    {
+      "id": "REVIEW-C-SCOPE",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0030047879999983707
+    },
+    {
+      "id": "REVIEW-V-EMPTY",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.003027983000038148
+    },
+    {
+      "id": "REVIEW-TARGET-DIGEST",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.004212283000015304
+    },
+    {
+      "id": "REVIEW-TARGET-VERSION",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.002896248999945783
+    },
+    {
+      "id": "REVIEW-INPUT-DIGEST",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00291747000005671
+    },
+    {
+      "id": "REVIEW-STRENGTH",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0031418989999565383
+    },
+    {
+      "id": "REVIEW-RESIDUAL-MISSING",
+      "requirement": "N05/N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0036146149999467525
+    },
+    {
+      "id": "REF-support",
+      "requirement": "N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.003198602999987088
+    },
+    {
+      "id": "REF-opposition",
+      "requirement": "N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.002920784000025378
+    },
+    {
+      "id": "REF-unknown",
+      "requirement": "N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0031095619999632618
+    },
+    {
+      "id": "REF-dependent",
+      "requirement": "N06",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0032963869999775852
+    },
+    {
+      "id": "ARCHIVE-MIXED",
+      "requirement": "N04",
+      "passed": true,
+      "detail": "one_compatible_in_enumerated_model_not_proven_cause",
+      "seconds": 0.0055407170000307815
+    },
+    {
+      "id": "ARCHIVE-ALL",
+      "requirement": "N04",
+      "passed": true,
+      "detail": 2,
+      "seconds": 0.00561620700000276
+    },
+    {
+      "id": "ARCHIVE-REOPEN",
+      "requirement": "N04",
+      "passed": true,
+      "detail": {
+        "old_review_rejected": true,
+        "new_input_with_fresh_review_accepted": true,
+        "history_authenticity": "external_requirement"
+      },
+      "seconds": 0.005839207000008173
+    },
+    {
+      "id": "TYPE-true",
+      "requirement": "N02",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.005469622999953572
+    },
+    {
+      "id": "TYPE-1",
+      "requirement": "N02",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.005631389999962266
+    },
+    {
+      "id": "TYPE-1.0",
+      "requirement": "N02",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.005876731000057589
+    },
+    {
+      "id": "TYPE-[true]",
+      "requirement": "N02",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.007289768999953594
+    },
+    {
+      "id": "TYPE-[1]",
+      "requirement": "N02",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.006990558000097735
+    },
+    {
+      "id": "TYPE-{\"a\":true}",
+      "requirement": "N02",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.008305272000029618
+    },
+    {
+      "id": "TYPE-{\"a\":1}",
+      "requirement": "N02",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.007335696000041025
+    },
+    {
+      "id": "CONFIRMATION",
+      "requirement": "N03",
+      "passed": true,
+      "detail": {
+        "new_observation_required_then_consumed": true
+      },
+      "seconds": 0.013618264000001545
+    },
+    {
+      "id": "FORMAL-RESERVED-1",
+      "requirement": "N07",
+      "passed": true,
+      "detail": {
+        "occupied_input_ids": 6,
+        "steps": 5
+      },
+      "seconds": 4.025900000215188e-05
+    },
+    {
+      "id": "FORMAL-RESERVED-2",
+      "requirement": "N07",
+      "passed": true,
+      "detail": {
+        "occupied_input_ids": 7,
+        "steps": 5
+      },
+      "seconds": 2.3755000029268558e-05
+    },
+    {
+      "id": "FORMAL-RESERVED-10",
+      "requirement": "N07",
+      "passed": true,
+      "detail": {
+        "occupied_input_ids": 15,
+        "steps": 5
+      },
+      "seconds": 3.25280000197381e-05
+    },
+    {
+      "id": "FORMAL-RESERVED-40",
+      "requirement": "N07",
+      "passed": true,
+      "detail": {
+        "occupied_input_ids": 45,
+        "steps": 5
+      },
+      "seconds": 0.0001307020000922421
+    },
+    {
+      "id": "MANIFEST-G-G",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "G",
+        "accepted": "G"
+      },
+      "seconds": 0.024885510999979488
+    },
+    {
+      "id": "MANIFEST-G-S",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.004424886000037986
+    },
+    {
+      "id": "MANIFEST-G-D",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.004253673999983221
+    },
+    {
+      "id": "MANIFEST-S-G",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.009646114000020134
+    },
+    {
+      "id": "MANIFEST-S-S",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "S",
+        "accepted": "S"
+      },
+      "seconds": 0.045080284999926334
+    },
+    {
+      "id": "MANIFEST-S-D",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00891601000000719
+    },
+    {
+      "id": "MANIFEST-D-G",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00025340199999845936
+    },
+    {
+      "id": "MANIFEST-D-S",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.00021413500007838593
+    },
+    {
+      "id": "MANIFEST-D-D",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "D",
+        "accepted": "D"
+      },
+      "seconds": 0.001532203000010668
+    },
+    {
+      "id": "MANIFEST-GS-G",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "GS",
+        "accepted": "G"
+      },
+      "seconds": 0.06543057800001861
+    },
+    {
+      "id": "MANIFEST-GS-S",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "GS",
+        "accepted": "S"
+      },
+      "seconds": 0.06322139999997489
+    },
+    {
+      "id": "MANIFEST-GS-D",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.012061535000043477
+    },
+    {
+      "id": "MANIFEST-GD-G",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "GD",
+        "accepted": "G"
+      },
+      "seconds": 0.020381429000053686
+    },
+    {
+      "id": "MANIFEST-GD-S",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.004018419000090034
+    },
+    {
+      "id": "MANIFEST-GD-D",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "GD",
+        "accepted": "D"
+      },
+      "seconds": 0.020647260000032475
+    },
+    {
+      "id": "MANIFEST-SD-G",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.008523362999994788
+    },
+    {
+      "id": "MANIFEST-SD-S",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "SD",
+        "accepted": "S"
+      },
+      "seconds": 0.044005073999983324
+    },
+    {
+      "id": "MANIFEST-SD-D",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "SD",
+        "accepted": "D"
+      },
+      "seconds": 0.04410387999996601
+    },
+    {
+      "id": "MANIFEST-GSD-G",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "GSD",
+        "accepted": "G"
+      },
+      "seconds": 0.06296046600004956
+    },
+    {
+      "id": "MANIFEST-GSD-S",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "GSD",
+        "accepted": "S"
+      },
+      "seconds": 0.06629630199995518
+    },
+    {
+      "id": "MANIFEST-GSD-D",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "active": "GSD",
+        "accepted": "D"
+      },
+      "seconds": 0.06327215499993599
+    },
+    {
+      "id": "MANIFEST-BYPASS-./components/S_SYSTEM.md",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.003819096000029276
+    },
+    {
+      "id": "MANIFEST-BYPASS-components/../components/S_SYSTEM.md",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.004037666999920475
+    },
+    {
+      "id": "MANIFEST-BYPASS-GSD_SYSTEM.md",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0038999440000679897
+    },
+    {
+      "id": "MANIFEST-BYPASS-S_SYSTEM.md",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0036863799999764524
+    },
+    {
+      "id": "MANIFEST-BYPASS-PROCEDURES.md",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0038812679999864486
+    },
+    {
+      "id": "MANIFEST-BYPASS-README.md",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.0036876719999554552
+    },
+    {
+      "id": "MANIFEST-FORGED",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.05273881599998731
+    },
+    {
+      "id": "MANIFEST-NORMALIZED",
+      "requirement": "N08",
+      "passed": true,
+      "detail": 212652,
+      "seconds": 0.025170631000037247
+    },
+    {
+      "id": "MANIFEST-BUDGET",
+      "requirement": "N08",
+      "passed": true,
+      "detail": {
+        "rejected": true
+      },
+      "seconds": 0.021840163000092616
+    }
+  ],
+  "scope": "Договоры исправленных конечных функций и соседние случаи; не предметная приёмка свободной LLM"
+}

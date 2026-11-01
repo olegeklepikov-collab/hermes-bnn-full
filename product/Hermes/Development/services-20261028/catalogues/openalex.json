@@ -1,0 +1,1888 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "search_works",
+      "title": "Search works",
+      "description": "Search OpenAlex for scholarly works (papers, preprints, books, datasets). mode=\"keyword\" (default) supports Boolean syntax: AND, OR, NOT, \"quoted phrases\", parentheses. By default it searches titles, abstracts and keywords: a phrase in the query that names an OpenAlex keyword also matches works carrying that keyword (search_in to change). Relevance-sorted results are reranked by default: the top 100 are reordered by how well each work answers the query, so the first results are the most on-topic ones and rerank_score says how sure the reranker is (rerank=false to turn it off). mode=\"semantic\" matches by meaning and is best for descriptive or long queries (up to 2,000 characters; max 50 results; no min_citations/countries filters). mode=\"exact\" matches words without stemming. Omit query to list works by filters alone (e.g. everything by an author, institution or funder). For anything the structured parameters can't express (nested Boolean groups across fields, exclusions, proximity, exact phrases, wildcards) pass an OQL query in `oql` instead; the OQL reference is in the server instructions and at https://help.openalex.org/access/oql/. Set preview=true to get only the result count, the canonical OQL and a small sample, which is the cheap way to tune a query before running it. Every response includes the canonical OQL and a reproduce_url. Returns compact records: title, year, authors (first 5), venue, citations, FWCI, open-access link, primary topic, truncated abstract. Use get_work for a full record.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "oql": {
+            "description": "An OQL query, e.g. works where title-abstract-keywords has ((vaping or \"vape*\" or \"electronic cigarette*\") and (youth or \"adolescen*\")) and published since 2018. A bare where-clause is accepted. Mutually exclusive with query and the structured filters.",
+            "type": "string",
+            "maxLength": 20000
+          },
+          "preview": {
+            "description": "Return only total_results, canonical OQL and a sample of preview_limit works (no abstracts). Use while tuning a query.",
+            "type": "boolean"
+          },
+          "preview_limit": {
+            "description": "Sample size for preview. Default 10.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25
+          },
+          "preview_sample": {
+            "description": "Preview sample: top = highest-ranked (default); random = a random draw from the whole result set, better for judging precision.",
+            "type": "string",
+            "enum": [
+              "top",
+              "random"
+            ]
+          },
+          "query": {
+            "description": "Search text. Keyword mode supports Boolean operators.",
+            "type": "string",
+            "maxLength": 2000
+          },
+          "mode": {
+            "description": "Search mode. Default keyword.",
+            "type": "string",
+            "enum": [
+              "keyword",
+              "semantic",
+              "exact"
+            ]
+          },
+          "search_in": {
+            "description": "Where keyword/exact queries match. title_abstract_keywords (default, what openalex.org searches) matches title and abstract text, and also works tagged with a keyword that a phrase in the query names (catches other wordings, other languages and works with no abstract; every other word must still be in the text); title_and_abstract matches the text only; fulltext also matches the body text of ~100M works, plus keywords (broader, more noise; large reviews that merely mention a term will rank high); title matches titles only. Ignored for semantic mode.",
+            "type": "string",
+            "enum": [
+              "title_abstract_keywords",
+              "title_and_abstract",
+              "fulltext",
+              "title"
+            ]
+          },
+          "sort": {
+            "description": "Sort order, descending. Default: relevance when there is a query, otherwise cited_by_count.",
+            "type": "string",
+            "enum": [
+              "relevance",
+              "cited_by_count",
+              "publication_date",
+              "fwci"
+            ]
+          },
+          "rerank": {
+            "description": "Relevance-sorted searches are reranked by default: the top 100 results are reordered by how well each work answers the query, so the first page holds the most on-topic works. Result 101 onward keeps the normal relevance order, and pages never repeat or skip a work. Costs twice a plain search. false = plain relevance order. Ignored for other sorts and semantic mode.",
+            "type": "boolean"
+          },
+          "limit": {
+            "description": "Results per page, 1-50. Default 15.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "page": {
+            "description": "Page number. Default 1.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "include_abstracts": {
+            "description": "Include a truncated abstract per result. Default true.",
+            "type": "boolean"
+          },
+          "for_author": {
+            "description": "Profile-curation audit view: an author ID (A…). Each result then carries this_authorship (the byline belonging to that author, with raw affiliations and raw ORCID, or the byline that best matches the author's name on works not yet attributed) plus coauthors; page 1 carries a summary of the profile. Typically used with author_ids=[same id] to list the profile's works, or with author_ids=[a duplicate profile] to review its works for merging.",
+            "type": "string",
+            "maxLength": 300
+          },
+          "from_year": {
+            "description": "Earliest publication year, inclusive (e.g. 2020).",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "to_year": {
+            "description": "Latest publication year, inclusive.",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "types": {
+            "description": "Only these work types (OR). Common: article, review, preprint, book-chapter, dataset.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "article",
+                "review",
+                "preprint",
+                "book",
+                "book-chapter",
+                "dissertation",
+                "dataset",
+                "report",
+                "editorial",
+                "letter",
+                "erratum",
+                "retraction",
+                "paratext",
+                "libguides",
+                "reference-entry",
+                "peer-review",
+                "standard",
+                "supplementary-materials",
+                "grant",
+                "other"
+              ]
+            }
+          },
+          "open_access_only": {
+            "description": "Only works with a free-to-read copy.",
+            "type": "boolean"
+          },
+          "oa_status": {
+            "description": "Only these open-access statuses (OR).",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "gold",
+                "green",
+                "hybrid",
+                "bronze",
+                "diamond",
+                "closed"
+              ]
+            }
+          },
+          "min_citations": {
+            "description": "Minimum cited_by_count. Not supported with semantic search.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "author_ids": {
+            "description": "OpenAlex author IDs (e.g. A5067184382). Resolve names with search_entities first.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "institution_ids": {
+            "description": "OpenAlex institution IDs (e.g. I27837315). Matches any author's affiliation.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_ids": {
+            "description": "OpenAlex source (journal/repository) IDs (e.g. S137773608).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topic_ids": {
+            "description": "OpenAlex topic IDs (e.g. T10102), any of them (OR): works whose PRIMARY topic is one of these. Same meaning as OQL's `in the topic`, group_by topic and analyze_works top_topics. For works that carry the topic among any of their (up to 3) topics, use any_topic_ids.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "any_topic_ids": {
+            "description": "OpenAlex topic IDs (OR): works that carry one of these among ANY of their topics, primary or not (typically ~3x as many works as topic_ids). OQL: `where topics is (T10102)`.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "keyword_ids": {
+            "description": "OpenAlex keyword ids (e.g. microplastics, human-health), any of them (OR). Find them with find_keywords. Keywords widen a text search; they do not replace it.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "funder_ids": {
+            "description": "OpenAlex funder IDs (e.g. F4320332161).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publisher_ids": {
+            "description": "OpenAlex publisher IDs (e.g. P4310319908).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "countries": {
+            "description": "ISO-3166 alpha-2 country codes of author institutions (OR), e.g. [\"US\",\"GB\"]. Not supported with semantic search.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "language": {
+            "description": "ISO-639-1 language code, e.g. \"en\".",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "core_sources_only": {
+            "description": "Only works published in 'core' sources: reputable, well-indexed journals and repositories (see https://help.openalex.org/data/sources/). Useful to exclude low-quality venues.",
+            "type": "boolean"
+          },
+          "include_retracted": {
+            "description": "Include retracted works. Default false: retracted works are hidden and the response says so (retracted_works). Also honoured with oql, where the default leaves them out unless the query says otherwise (the echo then reads `it's not retracted`, or `non-retracted works` in the new form).",
+            "type": "boolean"
+          },
+          "raw_filter": {
+            "description": "Escape hatch: extra OpenAlex filter expression appended verbatim, using the syntax documented at https://help.openalex.org/api/filtering/ (e.g. \"has_abstract:true,primary_topic.field.id:17\"). Combined with the structured filters above using AND.",
+            "type": "string",
+            "maxLength": 2000
+          }
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Search works",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_work",
+      "title": "Get work",
+      "description": "Fetch the full record for one scholarly work by OpenAlex ID (W2741809807), DOI (10.7717/peerj.4375 or a doi.org URL), PMID, or PMCID. Returns the authors with affiliations and ORCIDs (all of them up to 100; a bigger collaboration lists the first 100, the last and the corresponding authors, numbered, with authors_total), the full abstract, venue, open-access links, topics, keywords, funding, citations in every year the API counts, and related works.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300,
+            "description": "OpenAlex work ID, DOI, PMID, or PMCID."
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Get work",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "resolve_references",
+      "title": "Resolve references",
+      "description": "Check up to 25 references against OpenAlex in one call and report what each one matched. Each item may be a DOI, PMID, OpenAlex ID, or a free-text citation (e.g. \"Piwowar et al. (2018) The state of OA. PeerJ\"). IDs are looked up exactly; free-text citations are matched on title with a confidence rating (exact, likely, uncertain, none). Use it to verify a bibliography, detect fabricated or garbled citations, fill in missing DOIs, or turn a reading list into OpenAlex IDs.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "references": {
+            "minItems": 1,
+            "maxItems": 25,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 600
+            },
+            "description": "Citations to resolve, one per item."
+          },
+          "author_id": {
+            "description": "Profile curation: an author ID (A…). Each matched work then reports on_profile (already attributed to that author) and authorship_match (the byline to attach, with raw_author_name for submit_curations add_work), so a CV or publication list can be reconciled against the profile.",
+            "type": "string",
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "references"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Resolve references",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "list_citations",
+      "title": "List citations",
+      "description": "List works connected to a given work: direction=\"citing\" (default) returns works that cite it; \"references\" returns the works it cites; \"related\" returns OpenAlex's related works (similar topic and citation neighbourhood). Useful for tracing influence, finding follow-up studies, or reading a paper's bibliography. Supports the same year/type/open-access filters as search_works.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "work_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300,
+            "description": "OpenAlex work ID or DOI of the anchor work."
+          },
+          "direction": {
+            "description": "citing (default), references, or related.",
+            "type": "string",
+            "enum": [
+              "citing",
+              "references",
+              "related"
+            ]
+          },
+          "sort": {
+            "description": "Default cited_by_count (descending).",
+            "type": "string",
+            "enum": [
+              "cited_by_count",
+              "publication_date"
+            ]
+          },
+          "limit": {
+            "description": "Results per page, 1-50. Default 15.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "page": {
+            "description": "Page number. Default 1.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "include_abstracts": {
+            "description": "Include a truncated abstract per result. Default false.",
+            "type": "boolean"
+          },
+          "from_year": {
+            "description": "Earliest publication year, inclusive (e.g. 2020).",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "to_year": {
+            "description": "Latest publication year, inclusive.",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "types": {
+            "description": "Only these work types (OR). Common: article, review, preprint, book-chapter, dataset.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "article",
+                "review",
+                "preprint",
+                "book",
+                "book-chapter",
+                "dissertation",
+                "dataset",
+                "report",
+                "editorial",
+                "letter",
+                "erratum",
+                "retraction",
+                "paratext",
+                "libguides",
+                "reference-entry",
+                "peer-review",
+                "standard",
+                "supplementary-materials",
+                "grant",
+                "other"
+              ]
+            }
+          },
+          "open_access_only": {
+            "description": "Only works with a free-to-read copy.",
+            "type": "boolean"
+          },
+          "oa_status": {
+            "description": "Only these open-access statuses (OR).",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "gold",
+                "green",
+                "hybrid",
+                "bronze",
+                "diamond",
+                "closed"
+              ]
+            }
+          },
+          "min_citations": {
+            "description": "Minimum cited_by_count. Not supported with semantic search.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "author_ids": {
+            "description": "OpenAlex author IDs (e.g. A5067184382). Resolve names with search_entities first.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "institution_ids": {
+            "description": "OpenAlex institution IDs (e.g. I27837315). Matches any author's affiliation.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_ids": {
+            "description": "OpenAlex source (journal/repository) IDs (e.g. S137773608).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topic_ids": {
+            "description": "OpenAlex topic IDs (e.g. T10102), any of them (OR): works whose PRIMARY topic is one of these. Same meaning as OQL's `in the topic`, group_by topic and analyze_works top_topics. For works that carry the topic among any of their (up to 3) topics, use any_topic_ids.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "any_topic_ids": {
+            "description": "OpenAlex topic IDs (OR): works that carry one of these among ANY of their topics, primary or not (typically ~3x as many works as topic_ids). OQL: `where topics is (T10102)`.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "keyword_ids": {
+            "description": "OpenAlex keyword ids (e.g. microplastics, human-health), any of them (OR). Find them with find_keywords. Keywords widen a text search; they do not replace it.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "funder_ids": {
+            "description": "OpenAlex funder IDs (e.g. F4320332161).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publisher_ids": {
+            "description": "OpenAlex publisher IDs (e.g. P4310319908).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "countries": {
+            "description": "ISO-3166 alpha-2 country codes of author institutions (OR), e.g. [\"US\",\"GB\"]. Not supported with semantic search.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "language": {
+            "description": "ISO-639-1 language code, e.g. \"en\".",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "core_sources_only": {
+            "description": "Only works published in 'core' sources: reputable, well-indexed journals and repositories (see https://help.openalex.org/data/sources/). Useful to exclude low-quality venues.",
+            "type": "boolean"
+          },
+          "include_retracted": {
+            "description": "Include retracted works. Default false: retracted works are hidden and the response says so (retracted_works). Also honoured with oql, where the default leaves them out unless the query says otherwise (the echo then reads `it's not retracted`, or `non-retracted works` in the new form).",
+            "type": "boolean"
+          },
+          "raw_filter": {
+            "description": "Escape hatch: extra OpenAlex filter expression appended verbatim, using the syntax documented at https://help.openalex.org/api/filtering/ (e.g. \"has_abstract:true,primary_topic.field.id:17\"). Combined with the structured filters above using AND.",
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "work_id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "List citations",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "search_entities",
+      "title": "Search authors, institutions, sources, topics, funders, publishers",
+      "description": "Find OpenAlex entities by name and/or filters, returning IDs plus a short profile. Entity types: authors (researchers), institutions (universities, labs, companies), sources (journals, conferences, repositories), topics (research areas), funders, publishers. Use it to resolve a name to an ID before filtering works, or as a directory. It is the right tool for expert finding: authors currently at an institution working on a topic (institution_ids + topic_ids, sort by works_count or h_index; each result reports works_in_topic), journals in a field that are open access (sources + topic_ids + is_oa), institutions of a type in a country. Author results include current institutions, h-index and top topics so the right person can be picked when names collide.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "type": "string",
+            "enum": [
+              "authors",
+              "institutions",
+              "sources",
+              "topics",
+              "funders",
+              "publishers"
+            ],
+            "description": "Which kind of entity to search."
+          },
+          "query": {
+            "description": "Name or partial name, e.g. \"Jennifer Doudna\", \"MIT\", \"Nature Communications\", \"CRISPR\". Optional when filters are given.",
+            "type": "string",
+            "maxLength": 500
+          },
+          "institution_ids": {
+            "description": "authors: current institution (includes child institutions). institutions: restrict to these or their children.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topic_ids": {
+            "description": "authors/sources/institutions: only those with works carrying these topics (T…) among any of their topics; works_in_topic counts those works (the any_topic_ids meaning in the works tools, not their primary-topic topic_ids).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "country": {
+            "description": "ISO country code: authors (current institution), institutions, sources, funders, publishers.",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "type": {
+            "description": "institutions: education, healthcare, company, government, nonprofit, facility, funder, archive, other. sources: journal, repository, conference, ebook platform, book series.",
+            "type": "string",
+            "maxLength": 40
+          },
+          "has_orcid": {
+            "description": "authors: only profiles with an ORCID.",
+            "type": "boolean"
+          },
+          "is_oa": {
+            "description": "sources: only fully open-access venues.",
+            "type": "boolean"
+          },
+          "is_in_doaj": {
+            "description": "sources: only venues listed in DOAJ.",
+            "type": "boolean"
+          },
+          "max_apc_usd": {
+            "description": "sources: article processing charge at most this many USD (0 = no APC).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "min_works_count": {
+            "description": "Minimum number of works.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "min_h_index": {
+            "description": "authors/sources/institutions: minimum h-index.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "sort": {
+            "description": "Default: relevance when there is a query, otherwise works_count. Descending.",
+            "type": "string",
+            "enum": [
+              "relevance",
+              "works_count",
+              "cited_by_count",
+              "h_index"
+            ]
+          },
+          "limit": {
+            "description": "Results per page, 1-50. Default 10.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "page": {
+            "description": "Page number. Default 1.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "raw_filter": {
+            "description": "Escape hatch: extra filter expression appended verbatim, using the syntax at https://help.openalex.org/api/filtering/ for this entity type.",
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "entity_type"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Search entities",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_entity",
+      "title": "Get author, institution, source, topic, funder or publisher",
+      "description": "Fetch the full profile of one non-work entity by OpenAlex ID, or by ORCID (authors), ROR (institutions), or ISSN (sources). Includes works and citation counts, h-index, works/citations by year, top topics, affiliation history (authors), and identifiers.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "type": "string",
+            "enum": [
+              "authors",
+              "institutions",
+              "sources",
+              "topics",
+              "funders",
+              "publishers"
+            ],
+            "description": "Which kind of entity the ID refers to."
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300,
+            "description": "OpenAlex ID (A5067184382, I27837315, S137773608, T10102, F…, P…), ORCID, ROR, or ISSN."
+          }
+        },
+        "required": [
+          "entity_type",
+          "id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Get entity",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "group_works",
+      "title": "Count works by author, institution, year, topic, etc.",
+      "description": "Aggregate works matching a query and/or filters, counting them by one dimension: author, institution, institution_type, country, source (journal), publisher, funder, year, type, topic, subfield, field, domain, keyword, oa_status, is_oa, top_10_percent, top_1_percent, language, or sdg. Answers \"who are the top authors on X\", \"which institutions publish most on Y\", \"how has research on Z grown per year\", \"which journals carry the most papers on W\", \"who does institution A collaborate with\" (institution_ids + group_by institution). Returns each group's ID, display name and work count, sorted by count. Keyword/exact queries aggregate over all matching works; semantic queries aggregate over the 50 most relevant works only. For two or three dimensions in one call (by year and country, by field and open access status) or numbers beyond the count (mean FWCI, percent open access, share), use calculate_works instead of one group_works call per value. Accepts an OQL query in `oql` for complex selections (the group by is added from group_by if the query has none). Note: group_by author over institution-filtered works also counts co-authors from other institutions; for \"researchers AT institution X on topic Y\" use search_entities with institution_ids and topic_ids instead.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "group_by": {
+            "type": "string",
+            "enum": [
+              "author",
+              "institution",
+              "institution_type",
+              "country",
+              "source",
+              "publisher",
+              "funder",
+              "year",
+              "type",
+              "topic",
+              "subfield",
+              "field",
+              "domain",
+              "keyword",
+              "oa_status",
+              "is_oa",
+              "top_10_percent",
+              "top_1_percent",
+              "language",
+              "sdg"
+            ],
+            "description": "Dimension to count by."
+          },
+          "oql": {
+            "description": "OQL query selecting the works to count (see search_works). Mutually exclusive with query and the structured filters.",
+            "type": "string",
+            "maxLength": 20000
+          },
+          "query": {
+            "description": "Optional search text (same as search_works).",
+            "type": "string",
+            "maxLength": 2000
+          },
+          "mode": {
+            "description": "Search mode. Default keyword.",
+            "type": "string",
+            "enum": [
+              "keyword",
+              "semantic",
+              "exact"
+            ]
+          },
+          "search_in": {
+            "description": "Where keyword/exact queries match. title_abstract_keywords (default, what openalex.org searches) matches title and abstract text, and also works tagged with a keyword that a phrase in the query names (catches other wordings, other languages and works with no abstract; every other word must still be in the text); title_and_abstract matches the text only; fulltext also matches the body text of ~100M works, plus keywords (broader, more noise; large reviews that merely mention a term will rank high); title matches titles only. Ignored for semantic mode.",
+            "type": "string",
+            "enum": [
+              "title_abstract_keywords",
+              "title_and_abstract",
+              "fulltext",
+              "title"
+            ]
+          },
+          "limit": {
+            "description": "Max groups to return, 1-200. Default 25.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "from_year": {
+            "description": "Earliest publication year, inclusive (e.g. 2020).",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "to_year": {
+            "description": "Latest publication year, inclusive.",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "types": {
+            "description": "Only these work types (OR). Common: article, review, preprint, book-chapter, dataset.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "article",
+                "review",
+                "preprint",
+                "book",
+                "book-chapter",
+                "dissertation",
+                "dataset",
+                "report",
+                "editorial",
+                "letter",
+                "erratum",
+                "retraction",
+                "paratext",
+                "libguides",
+                "reference-entry",
+                "peer-review",
+                "standard",
+                "supplementary-materials",
+                "grant",
+                "other"
+              ]
+            }
+          },
+          "open_access_only": {
+            "description": "Only works with a free-to-read copy.",
+            "type": "boolean"
+          },
+          "oa_status": {
+            "description": "Only these open-access statuses (OR).",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "gold",
+                "green",
+                "hybrid",
+                "bronze",
+                "diamond",
+                "closed"
+              ]
+            }
+          },
+          "min_citations": {
+            "description": "Minimum cited_by_count. Not supported with semantic search.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "author_ids": {
+            "description": "OpenAlex author IDs (e.g. A5067184382). Resolve names with search_entities first.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "institution_ids": {
+            "description": "OpenAlex institution IDs (e.g. I27837315). Matches any author's affiliation.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_ids": {
+            "description": "OpenAlex source (journal/repository) IDs (e.g. S137773608).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topic_ids": {
+            "description": "OpenAlex topic IDs (e.g. T10102), any of them (OR): works whose PRIMARY topic is one of these. Same meaning as OQL's `in the topic`, group_by topic and analyze_works top_topics. For works that carry the topic among any of their (up to 3) topics, use any_topic_ids.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "any_topic_ids": {
+            "description": "OpenAlex topic IDs (OR): works that carry one of these among ANY of their topics, primary or not (typically ~3x as many works as topic_ids). OQL: `where topics is (T10102)`.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "keyword_ids": {
+            "description": "OpenAlex keyword ids (e.g. microplastics, human-health), any of them (OR). Find them with find_keywords. Keywords widen a text search; they do not replace it.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "funder_ids": {
+            "description": "OpenAlex funder IDs (e.g. F4320332161).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publisher_ids": {
+            "description": "OpenAlex publisher IDs (e.g. P4310319908).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "countries": {
+            "description": "ISO-3166 alpha-2 country codes of author institutions (OR), e.g. [\"US\",\"GB\"]. Not supported with semantic search.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "language": {
+            "description": "ISO-639-1 language code, e.g. \"en\".",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "core_sources_only": {
+            "description": "Only works published in 'core' sources: reputable, well-indexed journals and repositories (see https://help.openalex.org/data/sources/). Useful to exclude low-quality venues.",
+            "type": "boolean"
+          },
+          "include_retracted": {
+            "description": "Include retracted works. Default false: retracted works are hidden and the response says so (retracted_works). Also honoured with oql, where the default leaves them out unless the query says otherwise (the echo then reads `it's not retracted`, or `non-retracted works` in the new form).",
+            "type": "boolean"
+          },
+          "raw_filter": {
+            "description": "Escape hatch: extra OpenAlex filter expression appended verbatim, using the syntax documented at https://help.openalex.org/api/filtering/ (e.g. \"has_abstract:true,primary_topic.field.id:17\"). Combined with the structured filters above using AND.",
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "group_by"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Group works",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "analyze_works",
+      "title": "Analyze a set of works",
+      "description": "Build a one-call profile of any set of works defined by a query and/or filters: an institution's output, a funder's portfolio, an author's career, a topic, a country, a journal. Returns total works, open-access share by status, share of works in the top 10% and top 1% most-cited (field-normalized), counts by year and by type, and the top fields, topics, institutions, countries, sources, funders and authors, plus international and industry collaboration shares. Use it for research-office, library, and funder reporting questions (\"summarize our 2024 research\", \"how much of NIH-funded work at UW is open access\", \"who does MIT collaborate with on AI\"). Pick sections to keep the response small. Keyword queries only (no semantic mode). Each section costs one cheap API call.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "query": {
+            "description": "Optional keyword search text (Boolean supported).",
+            "type": "string",
+            "maxLength": 2000
+          },
+          "search_in": {
+            "description": "Where keyword/exact queries match. title_abstract_keywords (default, what openalex.org searches) matches title and abstract text, and also works tagged with a keyword that a phrase in the query names (catches other wordings, other languages and works with no abstract; every other word must still be in the text); title_and_abstract matches the text only; fulltext also matches the body text of ~100M works, plus keywords (broader, more noise; large reviews that merely mention a term will rank high); title matches titles only. Ignored for semantic mode.",
+            "type": "string",
+            "enum": [
+              "title_abstract_keywords",
+              "title_and_abstract",
+              "fulltext",
+              "title"
+            ]
+          },
+          "sections": {
+            "description": "Which sections to compute. Default: all.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "by_year",
+                "by_type",
+                "open_access",
+                "citation_impact",
+                "top_fields",
+                "top_topics",
+                "top_institutions",
+                "top_countries",
+                "top_sources",
+                "top_funders",
+                "top_authors",
+                "collaboration"
+              ]
+            }
+          },
+          "top_n": {
+            "description": "How many entries per top_* list. Default 10.",
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 50
+          },
+          "from_year": {
+            "description": "Earliest publication year, inclusive (e.g. 2020).",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "to_year": {
+            "description": "Latest publication year, inclusive.",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "types": {
+            "description": "Only these work types (OR). Common: article, review, preprint, book-chapter, dataset.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "article",
+                "review",
+                "preprint",
+                "book",
+                "book-chapter",
+                "dissertation",
+                "dataset",
+                "report",
+                "editorial",
+                "letter",
+                "erratum",
+                "retraction",
+                "paratext",
+                "libguides",
+                "reference-entry",
+                "peer-review",
+                "standard",
+                "supplementary-materials",
+                "grant",
+                "other"
+              ]
+            }
+          },
+          "open_access_only": {
+            "description": "Only works with a free-to-read copy.",
+            "type": "boolean"
+          },
+          "oa_status": {
+            "description": "Only these open-access statuses (OR).",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "gold",
+                "green",
+                "hybrid",
+                "bronze",
+                "diamond",
+                "closed"
+              ]
+            }
+          },
+          "min_citations": {
+            "description": "Minimum cited_by_count. Not supported with semantic search.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "author_ids": {
+            "description": "OpenAlex author IDs (e.g. A5067184382). Resolve names with search_entities first.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "institution_ids": {
+            "description": "OpenAlex institution IDs (e.g. I27837315). Matches any author's affiliation.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_ids": {
+            "description": "OpenAlex source (journal/repository) IDs (e.g. S137773608).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topic_ids": {
+            "description": "OpenAlex topic IDs (e.g. T10102), any of them (OR): works whose PRIMARY topic is one of these. Same meaning as OQL's `in the topic`, group_by topic and analyze_works top_topics. For works that carry the topic among any of their (up to 3) topics, use any_topic_ids.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "any_topic_ids": {
+            "description": "OpenAlex topic IDs (OR): works that carry one of these among ANY of their topics, primary or not (typically ~3x as many works as topic_ids). OQL: `where topics is (T10102)`.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "keyword_ids": {
+            "description": "OpenAlex keyword ids (e.g. microplastics, human-health), any of them (OR). Find them with find_keywords. Keywords widen a text search; they do not replace it.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "funder_ids": {
+            "description": "OpenAlex funder IDs (e.g. F4320332161).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publisher_ids": {
+            "description": "OpenAlex publisher IDs (e.g. P4310319908).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "countries": {
+            "description": "ISO-3166 alpha-2 country codes of author institutions (OR), e.g. [\"US\",\"GB\"]. Not supported with semantic search.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "language": {
+            "description": "ISO-639-1 language code, e.g. \"en\".",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "core_sources_only": {
+            "description": "Only works published in 'core' sources: reputable, well-indexed journals and repositories (see https://help.openalex.org/data/sources/). Useful to exclude low-quality venues.",
+            "type": "boolean"
+          },
+          "include_retracted": {
+            "description": "Include retracted works. Default false: retracted works are hidden and the response says so (retracted_works). Also honoured with oql, where the default leaves them out unless the query says otherwise (the echo then reads `it's not retracted`, or `non-retracted works` in the new form).",
+            "type": "boolean"
+          },
+          "raw_filter": {
+            "description": "Escape hatch: extra OpenAlex filter expression appended verbatim, using the syntax documented at https://help.openalex.org/api/filtering/ (e.g. \"has_abstract:true,primary_topic.field.id:17\"). Combined with the structured filters above using AND.",
+            "type": "string",
+            "maxLength": 2000
+          }
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Analyze works",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "calculate_works",
+      "title": "Calculate over works (OQL pipeline)",
+      "description": "Run an OQL calculation and get the calculated groups: split a set of works by one to three fields, named values, searches, conditions or bins, and calculate count, mean/median/sum/min/max of a number, percent of a yes/no field, or each group's share. Write it as a pipeline: get works where <conditions>; then, group those works by <field>; finally, summarize using <measures>. For one row per author, institution, source, publisher, funder, country or topic, start with them and say which works count, e.g. get authors at [University of British Columbia](I141945490) since 2022 who published works where title-abstract has kelp; then, summarize each author using count and mean FWCI (`at` reads the author's own record; `in [Asia](Q48)` for institutions; then, group each author's works by year for a further split). Or compare named things in one step, e.g. get works where topic is [CRISPR and Genetic Engineering](T10878); then, compare institution [Massachusetts Institute of Technology](I63966007) versus [Stanford University](I97018004) versus [Harvard University](I136199984) using count, mean FWCI, and percent open access. The full guide is the OQL reference in the server instructions (read_docs topic oql). Check a new query with check_oql first (free: limits with fixes, time estimate, price). Returns one row per group, keyed by the OQL words of each calculation (count, mean FWCI, ...), nested splits under groups, the summary (summary.all for the whole starting set; with two or more splits, summary.splits with each split's groups on their own, computed from the works: read these, never sum or average group rows), groups_count and next_page, the price, the canonical OQL and a reproduce_url. A query with no split or calculation gets then, summarize using count; a query that starts from authors, institutions, sources, topics, funders or publishers with no split lists them with their own fields. Retracted works are left out unless include_retracted=true or the query says otherwise.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "oql": {
+            "type": "string",
+            "maxLength": 20000,
+            "description": "A pipeline OQL query, e.g. get works where country is [Kenya](KE) and published since 2015; then, group those works by year; finally, summarize using percent open access."
+          },
+          "limit": {
+            "description": "Groups per page (the outer split), 1-200. Default 50. Groups come back by count.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "page": {
+            "description": "Page of groups. Default 1.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "sort": {
+            "description": "Order this page's rows by a calculated column, e.g. \"mean FWCI\" (descending). OQL itself has no sort; the API picks each page's groups by count.",
+            "type": "string",
+            "maxLength": 100
+          },
+          "include_retracted": {
+            "description": "Include retracted works. Default false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "oql"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Calculate over works",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "check_oql",
+      "title": "Check an OQL query (free)",
+      "description": "Free check of any OQL query before running it, the calculation pipelines above all: whether it is valid, every problem with its fix (a parse error, a fourth split, too many groups, too slow), the time estimate against the ~10-second budget, the price in credits and USD, and the canonical text with each entity's name in brackets so you can confirm the IDs mean what you think. The query is checked as calculate_works would run it (retracted works left out unless include_retracted=true). When it is not valid, apply the fix and check again.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "oql": {
+            "type": "string",
+            "maxLength": 6000,
+            "description": "The OQL query to check."
+          },
+          "include_retracted": {
+            "description": "Check it with retracted works included. Default false, as the tools run it.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "oql"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Check an OQL query",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "find_keywords",
+      "title": "Find keywords",
+      "description": "Find the OpenAlex keywords for a topic, the first step of a thorough (high-recall) search. OpenAlex tags works with keywords (e.g. microplastics, human-health, antimicrobial-resistance) that also catch works using other wordings, other languages, or no abstract at all. search_works and keyword_search already match the keywords that the search's own phrases name; use this to find keywords that mean a facet under other names. Give the topic as a sentence (description) and, for better coverage, each facet's main phrase and synonyms (phrases). Returns candidate keywords with a match score, how many works carry each, and their three most-cited titles, so you can keep the ones that mean each facet and drop the rest. Then pass them to keyword_search. Costs about $0.01 (one /text/keywords call) plus a few cheap lookups.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "description": "The topic in a sentence or short paragraph, e.g. \"how microplastics affect human health\". At least 20 characters to be matched as text."
+          },
+          "phrases": {
+            "description": "Short names to look up among keyword names: each facet's main phrase and a synonym or two, e.g. [\"microplastics\", \"nanoplastics\", \"human health\"].",
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 100
+            }
+          },
+          "per_phrase": {
+            "description": "Keyword-name matches kept per phrase. Default 5.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "description"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Find keywords",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "keyword_search",
+      "title": "Keyword-aware search",
+      "description": "Build and measure a thorough search: each facet matches on its text (over titles, abstracts and the keywords the text names) OR on the keywords you chose for it, and all facets must match. Returns the combined OQL with a reproduce_url, and counts for every part: the search alone (what search_works finds for the facets' text), what the chosen keywords add, the combined total, and each facet's text, keyword and keyword-only counts, plus random samples of the whole search and of the works found only through keywords, so you can check precision. Filters (open access, years, types, language, any OQL condition) apply to every count. Use after find_keywords; then list the results with search_works(oql=<combined oql>). Every facet should have text; give a facet keyword_ids only when a keyword really means it.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "facets": {
+            "minItems": 1,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "description": "Short name for the facet, e.g. \"microplastics\".",
+                  "type": "string",
+                  "maxLength": 100
+                },
+                "text": {
+                  "description": "Search text for the facet, matched over title, abstract and the keywords it names: OQL text inside `title-abstract-keywords has (…)`. Synonyms joined with or, \"quoted phrases\", wildcards only inside quotes, e.g. microplastic or microplastics or \"nanoplastic*\".",
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "keyword_ids": {
+                  "description": "Keyword ids from find_keywords that mean this facet, e.g. [\"microplastics\"]. Any of them matches.",
+                  "maxItems": 15,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 200
+                  }
+                }
+              }
+            },
+            "description": "The parts of the topic that must all hold, each with its text and keywords."
+          },
+          "from_year": {
+            "description": "Earliest publication year, inclusive.",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "to_year": {
+            "description": "Latest publication year, inclusive.",
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "types": {
+            "description": "Only these work types (OR), e.g. [\"article\",\"review\"].",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "article",
+                "review",
+                "preprint",
+                "book",
+                "book-chapter",
+                "dissertation",
+                "dataset",
+                "report",
+                "editorial",
+                "letter",
+                "erratum",
+                "retraction",
+                "paratext",
+                "libguides",
+                "reference-entry",
+                "peer-review",
+                "standard",
+                "supplementary-materials",
+                "grant",
+                "other"
+              ]
+            }
+          },
+          "open_access_only": {
+            "description": "Only works with a free-to-read copy.",
+            "type": "boolean"
+          },
+          "language": {
+            "description": "ISO-639-1 language code, e.g. \"en\". Note that keywords are what find works in other languages.",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "extra_oql": {
+            "description": "Any further OQL condition ANDed onto every count, e.g. country is (BR) or \"citation count is at least 10\".",
+            "type": "string",
+            "maxLength": 2000
+          },
+          "include_retracted": {
+            "description": "Include retracted works. Default false.",
+            "type": "boolean"
+          },
+          "sample_size": {
+            "description": "Random works to show from the keyword-only additions (up to 8 are also drawn from the whole search). Default 8.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 25
+          }
+        },
+        "required": [
+          "facets"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Keyword-aware search",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "get_my_account",
+      "title": "Get my OpenAlex account",
+      "description": "Who is connected: name, email addresses (and which are verified), which API key this connection spends (personal or organization), the author profile this account has claimed (with a compact summary: names, institutions, topics, works count), the claim's status, and claim_eligibility: \"instant\" means a claim from this account is approved immediately (a verified academic, institutional or government email), \"review\" means the claim needs ORCID sign-in or a link to one of the user's papers on the profile that lists the account email (checked automatically within minutes; a web page alone never passes). Call this first for anything about the user's own profile.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Get my OpenAlex account",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "claim_author_profile",
+      "title": "Claim an author profile",
+      "description": "Claim an OpenAlex author profile for the connected account so it can be curated (one per account). Confirm the profile with the user first (show its name, institutions, works count and a few titles from search_works). Approved instantly if any verified email on the account is from a university, research institute or government agency (get_my_account reports claim_eligibility). Otherwise, first suggest the user add their university email in Settings at openalex.org (they keep their current email); that makes the claim instant. If the profile has their ORCID iD, they can sign in with ORCID on the profile page instead. If neither works, ask for a link (or DOI) to one of their papers ON THIS PROFILE that lists their OpenAlex account email. A web page alone never passes, not even their page on a university's website, and neither does a page with only their name. The claim is checked automatically within minutes; if it fails, the result says what is missing and the user can send a new link by calling this again.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "author_id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 300,
+            "description": "OpenAlex author ID, e.g. A5023888391."
+          },
+          "evidence": {
+            "description": "A link (URL or DOI) to one of the user's papers on THIS profile that lists their OpenAlex account email. A web page alone (even a university page) does not pass. Required when claim_eligibility is \"review\"; not needed when \"instant\".",
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "author_id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Claim an author profile",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "find_candidate_works",
+      "title": "Find works that may belong to an author",
+      "description": "Works that are probably this author's but are not on their profile, from up to three sources: (1) name: the website's name ladder over raw bylines (as typed, reversed, initials, then looser word order) with a surname-plus-given-name gate, ranked by how much of the name the byline matches; (2) orcid: works carrying the ORCID in OpenAlex plus works listed on the public ORCID record (readable without login unless the author made them private); (3) siblings: other author profiles with the same name, with overlap signals, which may be duplicates of this person. Every work reports this_authorship (the byline that would be attached, with affiliations and coauthors) so the user can be asked about anything unclear. Pass alternate names (from get_my_account, the profile, or a CV) one call at a time; for common names add institution, topic or year filters.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "author_id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 300,
+            "description": "The profile being curated (A…). Works already on it are excluded."
+          },
+          "name": {
+            "description": "Name to search bylines for. Default: the profile's display name. Try each alternate name the person publishes under.",
+            "type": "string",
+            "maxLength": 200
+          },
+          "orcid": {
+            "description": "The author's ORCID, if they gave one.",
+            "type": "string",
+            "maxLength": 60
+          },
+          "sources": {
+            "description": "Which sources to run. Default: all that apply.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "name",
+                "orcid",
+                "siblings"
+              ]
+            }
+          },
+          "limit": {
+            "description": "Max works per source. Default 25.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "institution_ids": {
+            "description": "Narrow the name search to works with an author at these institutions (I…).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "any_topic_ids": {
+            "description": "Narrow the name search to works that carry one of these topics (T…) among any of their topics, not only the primary one (a wide net for finding a person's works).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "from_year": {
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          },
+          "to_year": {
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 2100
+          }
+        },
+        "required": [
+          "author_id"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Find candidate works",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "submit_curations",
+      "title": "Submit profile corrections",
+      "description": "Submit corrections to the user's claimed author profile as OpenAlex curations, up to 100 per call: add_work (attach a byline on a work to the profile), remove_work (detach the profile from a work), set_display_name, set_full_name (the name used to match future works), set_orcid, remove_orcid, and cancel (withdraw a pending curation). Every correction is reversible by the opposite action and each item succeeds or fails on its own. Only submit what the user has agreed to: propose removes and adds with the evidence first, ask about anything that does not clearly fit. Adds are capped at 1,000 per rolling 24 hours. Curations apply on the nightly data refresh and are live within about two days; track them with list_my_curations. Do not re-check in minutes and conclude they failed.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "items": {
+            "minItems": 1,
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "add_work"
+                    },
+                    "work_id": {
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 300
+                    },
+                    "raw_author_name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300,
+                      "description": "The byline exactly as OpenAlex returns it (this_authorship.raw_author_name)."
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "work_id",
+                    "raw_author_name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "remove_work"
+                    },
+                    "work_id": {
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 300
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "work_id"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "set_display_name"
+                    },
+                    "value": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "value"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "set_full_name"
+                    },
+                    "value": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300,
+                      "description": "Must be one of the author's existing raw bylines; it becomes the matching name for future works."
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "value"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "set_orcid"
+                    },
+                    "value": {
+                      "type": "string",
+                      "minLength": 9,
+                      "maxLength": 60
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "value"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "remove_orcid"
+                    },
+                    "value": {
+                      "type": "string",
+                      "minLength": 9,
+                      "maxLength": 60,
+                      "description": "The ORCID being detached."
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "value"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "const": "cancel"
+                    },
+                    "curation_id": {
+                      "type": "string",
+                      "minLength": 3,
+                      "maxLength": 60,
+                      "description": "A pending curation id from list_my_curations."
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "curation_id"
+                  ]
+                }
+              ]
+            }
+          },
+          "author_id": {
+            "description": "The claimed profile (A…). Default: the account's claimed author.",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "items"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Submit profile corrections",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "_meta": null
+    },
+    {
+      "name": "list_my_curations",
+      "title": "List my curations",
+      "description": "The corrections this account has submitted and their status: pending (waiting for the nightly refresh), applied (live), superseded (a newer correction to the same item, by this user or someone else, superseded it, so it will never apply; superseded_by names that correction), or timed_out (not seen live after a week; rechecked daily). Each row carries a plain-language description. Use it to report progress or to find a curation_id to cancel.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "status": {
+            "description": "Only these statuses. Default: all.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "applied",
+                "superseded",
+                "timed_out"
+              ]
+            }
+          },
+          "entity": {
+            "description": "works = add/remove work curations; authors = name and ORCID changes.",
+            "type": "string",
+            "enum": [
+              "works",
+              "authors"
+            ]
+          },
+          "limit": {
+            "description": "Rows per page. Default 25.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          }
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "List my curations",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    },
+    {
+      "name": "read_docs",
+      "title": "Read OpenAlex documentation",
+      "description": "Return a canonical OpenAlex documentation page, bundled from help.openalex.org: oql (OQL: the OpenAlex Query Language (overview)); oql_spec (OQL specification (normative, every rule and error code)); api_quick_reference (OpenAlex API quick reference for agents (entities, filters, syntax)); fixing_authors (Fixing author profiles: claiming, adding and removing works, merging duplicates); author_curation (Author curation API: the exact curation payloads and how they are applied). Use oql_spec when an OQL query is rejected and the fix-it isn't enough, api_quick_reference for entity fields and filter names, and fixing_authors before curating a profile.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "oql",
+              "oql_spec",
+              "api_quick_reference",
+              "fixing_authors",
+              "author_curation"
+            ],
+            "description": "Which page."
+          },
+          "section": {
+            "description": "Optional heading text; returns only that section (case-insensitive substring match on headings).",
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "topic"
+        ]
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": "Read OpenAlex documentation",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "_meta": null
+    }
+  ],
+  "instructions": "OpenAlex is a free, open index of the world's scholarly research: 250M+ works (papers, books, datasets, preprints) with citations, about 100 million author profiles, and every journal, institution, funder and topic they connect to. Data is CC0.\n\nTools:\n- search_works: find papers. Either fill the structured parameters (query + filters) or pass an OQL query for anything complex. By default a query matches titles, abstracts and the keywords its phrases name. preview=true returns just the count and a sample so a query can be tuned cheaply before running it.\n- get_work: full record for one paper by OpenAlex ID, DOI, PMID or PMCID. Free.\n- resolve_references: check a list of citations (DOIs, PMIDs, or free-text references) against OpenAlex; reports whether each exists and what it matched. Use it to verify bibliographies.\n- list_citations: papers citing a work, the works it references, or related works.\n- search_entities: find authors, institutions, sources (journals), topics, funders or publishers by name and/or filters. Resolve names to IDs before filtering works by ID. Also the expert-finding tool: authors currently at an institution working on a topic (institution_ids + topic_ids).\n- get_entity: full profile for an author, institution, source, topic, funder or publisher. Free.\n- group_works: count works along one dimension (author, institution, country, source, year, topic, type, OA status…). Answers \"who publishes most on X\", \"how has X grown\", \"which journals\".\n- analyze_works: one-call profile of any set of works (an institution's output, a funder's portfolio, a topic): totals, open-access share, top-cited share, trend by year, and top fields, topics, institutions, countries, sources, funders and authors.\n- calculate_works: an OQL calculation (get works where ...; then, group those works by ...; finally, summarize using ...; or one row per thing: get authors at [UBC](I141945490) since 2022 who published works where ...; then, summarize each author using ...): split a set of works by up to three fields, named values, searches, conditions or bins, and calculate counts, means, medians, sums, percents and shares, with a summary for the whole set and each split on its own. Answers \"compare MIT, Stanford and Harvard on CRISPR output and impact\", \"open-access share by year for Kenya\", \"authors with more than 10 kelp papers and an h-index above 20\".\n- check_oql: free check of an OQL query before running it: valid or not, every limit with its fix, the time estimate and the price.\n- find_keywords: the OpenAlex keywords for a topic (from a description and facet phrases), with how many works carry each and their top titles.\n- keyword_search: a thorough search: each facet matches on its text (titles, abstracts and the keywords the text names) OR keywords chosen for it, facets ANDed; returns the OQL and counts for every part (the search alone, what the chosen keywords add, per facet) plus a sample of keyword-only finds.\n\nEvery works result includes the canonical OQL that produced it (and a reproduce_url), so users can rerun, share, or cite the exact query.\n\nProfile curation (the connected user's own OpenAlex author profile):\n- get_my_account: who is connected, the claimed profile, claim status, and whether a claim would be instant or needs a link that shows the account email.\n- claim_author_profile: claim a profile for the account (one per account; confirm the profile with the user first).\n- search_works with for_author=<A id>: the audit view. Each work carries this_authorship (the byline, raw affiliations, raw ORCID) and coauthors, and page 1 carries a profile summary.\n- find_candidate_works: works probably theirs but missing from the profile, from bylines (the name ladder), ORCID, and same-name sibling profiles.\n- resolve_references with author_id: reconcile a CV or publication list; each match says whether it is on the profile and which byline to attach.\n- submit_curations / list_my_curations: submit add_work, remove_work, set_display_name, set_full_name, set_orcid, remove_orcid, cancel; track status.\n\nRecipe for \"make my profile accurate\" / \"fix my OpenAlex profile\":\n1. get_my_account. No claimed profile: find it with search_entities (authors), show the user the candidates (name, institutions, works count, a few titles) and confirm; then claim_author_profile. When claim_eligibility is \"review\", first suggest adding a university email to the account (instant) or ORCID sign-in; otherwise collect a link (or DOI) to one of their papers on that profile that lists the account email (a web page alone never passes). The claim is checked within minutes; curation waits for approval.\n2. search_works(author_ids=[id], for_author=id, limit=50) and page through; read the profile summary; note bylines, institutions and topics that do not fit the person.\n3. If the user gave a CV, bio sketch or publication list: read it yourself, extract DOIs or titles, and call resolve_references(author_id=id) in batches of 25. Matches with on_profile=false are add candidates (use authorship_match.raw_author_name); unmatched entries may not be in OpenAlex at all.\n4. find_candidate_works(author_id, name, orcid) for the display name, then for each alternate name the person publishes under.\n5. Judge each work by whether its topic, coauthors, institution and byline fit the person: add clear fits without asking, remove clear misfits after showing them, and ask about anything in between. A CV is evidence, not truth (stale, typos). Skip paratext. Never set an ORCID the user did not give. Removing a work also removes what it alone contributed (an institution, a topic).\n6. submit_curations in batches the user has agreed to; report what is pending. Curations apply on the nightly data refresh and are live within about two days; track them with list_my_curations. Do not re-check in minutes and conclude they failed.\nDuplicate profiles: add the duplicate's works to the claimed profile (search_works(author_ids=[dup], for_author=claimed) lists them with the byline to use); the emptied profile goes inert. There is no merge button.\n\nThe OQL reference is appended below, verbatim from help.openalex.org. The full OQL specification and the API quick reference are also available through the read_docs tool.\n\nRecipe for \"do a thorough search\", \"find everything on X\", \"build a systematic search\" (use it whenever the user wants recall, not just a few good papers). search_works already matches titles, abstracts and the keywords a phrase in the query names, and reranks its top results; this recipe adds keywords chosen by meaning (wordings the user's phrases don't contain) and measures what each part adds:\n1. Split the topic into its facets, the parts that must all hold (e.g. \"microplastics\" and \"human health\"). For each facet write the phrase plus the synonyms, spellings and abbreviations a careful searcher would try: phrases that mean the facet, not single generic words (human, patients, blood) that appear in almost any abstract.\n2. find_keywords(description=<the user's topic in a sentence>, phrases=<each facet's main phrase and a synonym or two>). It returns OpenAlex keywords with how many works carry each and their most-cited titles.\n3. For each facet keep the keywords that mean that facet (read the top titles; drop broader or different-sense ones). A keyword whose name or synonym is already a phrase in the facet's text is matched anyway; the ones worth adding mean the facet under other names. Every facet needs its own keyword: a keyword for only one facet, OR'd in, pulls in that whole field. A facet with no fitting keyword keeps just its text.\n4. keyword_search(facets=[{label, text, keyword_ids}, …], plus filters such as open_access_only, from_year, types). Each facet matches on its text (title, abstract and the keywords the text names) OR its chosen keywords; facets are ANDed. Keywords widen the text search, never replace it (about 11% of works have no keywords).\n5. Report the counts it returns: the search alone (what search_works finds for the facets' text), what the chosen keywords add, the combined total, and per facet. Read both random samples (the whole search, and the keyword-only additions) and say roughly how many look on topic. If the whole search is loose, tighten the facets' text (phrases, not single generic words) and rerun; offer the user a broad and a strict version when the trade-off is real. For the additions: if many are off topic, see which keywords bring them in (added_per_keyword), drop or swap a keyword only when its additions are mostly off topic, and rerun. Never drop a facet's core keyword (the one named like the facet) over a few strays. Act on the warnings: a facet that keeps nearly everything the other facets match is too generic.\n6. Hand back the combined OQL and its reproduce_url, then show results with search_works(oql=<combined>): sorted by relevance (the default; reranked, so the first page holds the most on-topic works) or by cited_by_count (the most cited).\n\nRecipe for \"find references for this passage\": split the passage into its claims; for each claim write an AND group of synonyms joined with or; join the groups with or (or with and if every claim must hold); add year/type/retracted filters; run with preview=true, look at the count and sample, tighten with exact phrases, extra terms or not-clauses; then run for real with sort=relevance and a larger limit. Give the user the canonical OQL with the results.\n\nCalculations: write the pipeline form (the OQL reference below calls it the general form: \"When a sentence can't say it\") or a table sentence (\"Tables of groups\"), and run it with calculate_works. Check a new query with check_oql first (free: each limit with its fix, the time, the price), fix it from the message, then run it. Resolve names to IDs with search_entities first.\ncalculate_works' sort orders a page by a column; a table sentence can also end with its own order (, highest mean FWCI first). To list authors, sources or institutions by their own fields (h-index, 2-year mean citedness), start from them and stop: get authors where last known institution is [Harvard University](I136199984) and h-index is above 50.\n\nRetractions: OpenAlex marks retracted works (is_retracted). Every tool that lists or counts works hides them by default and says so (retracted_works); pass include_retracted=true, or write your own retracted clause in OQL, to include them. get_work and resolve_references never hide: a retracted work comes back with is_retracted: true and a warning as its first fields. Profile-curation views (for_author, find_candidate_works) include retracted works because a profile should be complete. Never present a retracted work as valid evidence; when one appears, tell the user it was retracted.\n\nIDs: works W…, authors A…, sources S…, institutions I…, topics T…, funders F…, publishers P…. Any tool accepts the bare ID or the https://openalex.org/… URL. Link to works with openalex_url or https://doi.org/<doi>.\n\n---\n# Overview\n\n**OQL, the OpenAlex Query Language, lets you ask OpenAlex for works, people, institutions and journals, and for numbers about them, in plain English.** A query is one sentence:\n\n```\nget the count of works about kelp by year since 2000\n```\n\nYou can read that aloud and know what it returns: how many works about kelp came out each year since 2000. That's the point: a query you can paste into a paper's methods section, that a reader understands, and that anyone can run again for the same answer.\n\n**Where to run it:**\n\n- **On the website:** switch to the **OQL tab** at the top of the [search page](https://openalex.org). Valid queries run as you type. The easiest way to experiment.\n- **On the API:** `https://api.openalex.org/?oql=<your query>`. The query names what it gets (`get works ...`, `get authors ...`), so it goes to the API **root**, not `/works`. See the [OQL API](/api/oql/).\n- **Check before you run:** `https://api.openalex.org/query/oql/<your query>` is free. It says whether the query is valid (and if not, how to fix it), how long it should take and what it will cost, and it gives the query back in the form shown on this page.\n\n**OQL shows every query back in one form**, the form on this page, whatever you typed. Type `year >= 2020` and the echo says `since 2020`; type a bare ID like `I63966007` and it says `[Massachusetts Institute of Technology](I63966007)`. So you never have to remember the exact wording: write it close enough, and read the echo.\n\n## Two shapes\n\nEvery query starts with `get`, and every query returns one of two shapes:\n\n| Shape | The sentence | Example |\n|---|---|---|\n| **A list of records**: one row per work, or per thing chosen by its own fields | `get <works>[, <order>]` or `get <things>[, <order>]` | `get works about kelp, most cited first` |\n| **A table of groups**: numbers about a set of works, one row per group | `get the <numbers> of <works> by <splits>[, <order>]` | `get the count of works about kelp by country` |\n\nA table with no split is one row, the smallest table: `get the count of [University of Kansas](I146416000)'s works`. Two short sentences can follow a table: `Only ...` keeps the groups above a count, and `Show ...` adds the groups' own fields:\n\n```\nget the count and mean FWCI of works about kelp by institution in [Sweden](SE), highest mean FWCI first. Only institutions with at least 10 works about kelp.\nget the count of works about \"latent dirichlet allocation\" by author. Show h-index.\n```\n\nThe order is only ever the words after the last comma, so changing the order never changes the rest of the sentence.\n\n## Describing works\n\nLists and tables describe their works with the same words: `get works since 2020 about kelp` and `get the count of works since 2020 about kelp by country` are about the same works. The parts go in this order, and the echo puts them back in it:\n\n| # | Part | Examples |\n|---|---|---|\n| 1 | Whose works, when one institution, country or person defines the set | `[University of Kansas](I146416000)'s works`, `[Kenya](KE)'s works`, `[Jason R Priem](A5023888391)'s works` |\n| 2 | Yes/no words | `open access`, `closed access`, `retracted`, `non-retracted`, `top 1% cited`, `top 10% cited` |\n| 3 | The type | `works` (every type), `articles`, `reviews`, `preprints`, `datasets`, `books`, `book chapters`, `conference papers`, `dissertations`, `editorials`, `letters` |\n| 4 | Time | `since 2020`, `from 2022`, `before 2010`, `from 2018–2025`, `from 2020-10-01 through 2021-09-30` |\n| 5 | What it's about | `about kelp`, `with conjugal in the title` |\n| 6 | Citations | `citing [The state of OA: a large-scale analysis of the…](W2741809807)`, `cited by [...](W2741809807)` |\n| 7 | Where the authors are | `from [Africa](Q15)`, `co-authored with [Massachusetts Institute of Technology](I63966007)`, `with [Jason R Priem](A5023888391) as corresponding author` |\n| 8 | Where the work sits | `in [Nature](S137773608)`, `in SDG [Climate action](13)`, `in the topic [CRISPR and Genetic Engineering](T10878)` |\n| 9 | Publisher, funder, license | `published by [Elsevier BV](P4310320990)`, `funded by [National Institutes of Health](F4320332161)`, `under the [CC-BY](cc-by) license` |\n| 10 | Anything else, after `where` | `where language is [English](en) and citation count is at least 100` |\n\nAll together:\n\n```\nget [University of British Columbia](I141945490)'s open access articles since 2020 about kelp, most cited first\n```\n\n**Entities are links:** the name in brackets, the OpenAlex ID in parentheses. The ID is what counts; the name is optional when you type, and the echo fills it in. Countries use their two-letter code (`[Kenya](KE)`), continents their ID (`[Africa](Q15)`, `[Europe](Q46)`), and closed vocabularies their code (`[review](review)`, `[English](en)`).\n\n### Who: institutions, countries and people\n\n| Example | Meaning |\n|---|---|\n| `get [Massachusetts Institute of Technology](I63966007)'s works since 2020` | works with an author at MIT (or one of its sub-units) |\n| `get works from [Massachusetts Institute of Technology](I63966007) or [Stanford University](I97018004)` | either one |\n| `get works from both [University of Oxford](I40120149) and [University of Cambridge](I241749)` | both on the same work |\n| `get works from all of [University of Oxford](I40120149), [University of Cambridge](I241749), and [Imperial College London](I47508984)` | all three on the same work |\n| `get works about malaria from [Africa](Q15)` | any author in an African country |\n| `get works co-authored by [Jason R Priem](A5023888391) and [Heather Piwowar](A5048491430)` | both people are authors |\n| `get works with [Jason R Priem](A5023888391) as corresponding author` | the corresponding author |\n\n`co-authored with [X]` says the same as `from [X]`, and reads better beside a split by institution: `get the count of works since 2015 co-authored with [Christian-Albrechts-Universität zu Kiel](I32021983) by company` lists the companies Kiel writes with.\n\n### Time\n\nYears read in words, right after the type: `since 2020` (2020 or later), `from 2022` (that year), `before 2010` (2009 or earlier), `from 2018–2025` (both included). Full dates work the same way when you need them: `get works from 2020-10-01 through 2021-09-30 about kelp`. In a table split by year, the years go after `by year` instead: `get the count of [University of Florida](I33213144)'s works by year since 2004`.\n\n`added since` (when OpenAlex added the work; needs a paid plan) goes after `where`: `get [Massachusetts Institute of Technology](I63966007)'s works where added since 2026-10-01`.\n\n### What it's about: searching\n\n`about` searches titles, abstracts and keywords, which is also openalex.org's default. To search one place, name it:\n\n| Example | Searches |\n|---|---|\n| `get works about kelp` | title, abstract, and works tagged with a [keyword](/api/searching/#keywords-in-search) the search names |\n| `get works with conjugal in the title` | the title |\n| `get works with conjugal in the abstract` | the abstract |\n| `get works with conjugal in the title or abstract` | both, no keywords |\n| `get works with \"OpenAlex\" in the full text` | title, abstract and full text |\n| `get works where raw affiliation has (\"Max Planck\" AND Leipzig)` | the affiliation strings as printed |\n| `get works where byline has Priem` | the author names as printed |\n\nThe search string is portable, exactly as a systematic review would report it: capital `AND`, `OR` and `NOT`, parentheses for grouping. One word or one phrase needs no parentheses. The one rule to internalize: **bare words are stemmed, quotes mean exact.** `about kelp` also matches *kelps*; `\"climate change\"` matches only that exact phrase.\n\n| Example | Meaning |\n|---|---|\n| `get works about ((asthma OR wheeze) AND child*)` | Boolean, with a wildcard |\n| `get works with ((asthma OR wheeze) NOT (child OR pediatric)) in the title or abstract` | `NOT` leaves works out |\n| `get works about \"climate change\"` | **exact** phrase (stemming off) |\n| `get works with (stemmed \"genome editing\") in the title` | a phrase kept together that *keeps* stemming |\n| `get works with psoriat* in the title` | `*` is any characters; `?` is exactly one (`wom?n`); neither may start a word, and `*` needs at least 3 characters before it |\n| `get works about (\"smart\" and \"phone\" within 3 words of each other)` | proximity: both terms within N words, any order |\n| `get works where title-abstract is similar to (\"ocean acidification effects on coral reefs\")` | semantic search: by meaning, not keywords (returns the 50 closest) |\n\n**OQL never adds words you didn't write.** No synonyms, no expansions: the search is exactly your string.\n\n### Citations\n\n| Example | Meaning |\n|---|---|\n| `get works citing [The state of OA: a large-scale analysis of the…](W2741809807)` | works whose reference list includes that paper |\n| `get works cited by [The state of OA: a large-scale analysis of the…](W2741809807)` | the works in its reference list |\n| `get works where it's related to ([The state of OA: a large-scale analysis of the prevalence and impact of Open Access articles](W2741809807))` | OpenAlex's \"related works\" for it |\n| `get works citing works in the collection [Example: altmetrics papers](col_8yWKmRNyEr)` | works citing any work in a [collection](#collections) |\n\nA long work title is cut short in the echo (at 48 characters); the ID is what counts. To cite (or not cite) a whole set of works, see [the general form](#when-a-sentence-cant-say-it-the-general-form).\n\n### Where the work sits: journals, topics, funders, licenses\n\n| Example | Meaning |\n|---|---|\n| `get works since 2024 in [Nature](S137773608)` | published in that journal (its primary location) |\n| `get works since 2024 in SDG [Climate action](13)` | tagged with that Sustainable Development Goal |\n| `get works since 2024 in the topic [CRISPR and Genetic Engineering](T10878)` | primary topic (also `in the subfield`, `in the field`, `in the domain`) |\n| `get works from 2022 in the field [Computer Science](17)` | primary topic's field |\n| `get works from 2024 published by [Elsevier BV](P4310320990)` | the publisher |\n| `get works since 2020 funded by [Wellcome Trust](F4320311904) or [National Institutes of Health](F4320332161)` | either funder |\n| `get works from 2024 under the [CC-BY](cc-by) license` | the license |\n\nA value whose kind isn't obvious names its kind: `SDG`, `the topic`, `the subfield`, `the field`, `the domain`, `the collection`, `the ... license`.\n\n### Anything else: `where`\n\nAnything the phrases above don't say goes last, after `where`, as conditions joined with `and` and `or`:\n\n| Example | Meaning |\n|---|---|\n| `get works about kelp where source type is [journal](journal) and language is [English](en)` | a field is a value |\n| `get [Massachusetts Institute of Technology](I63966007)'s works where type is not ([review](review) or [editorial](editorial))` | anything but: negate on the verb; several values share one pair of parentheses |\n| `get works about kelp where institution type is ([company](company) or [government](government))` | one of several values |\n| `get [Massachusetts Institute of Technology](I63966007)'s works where citation count is at least 1000` | numbers in words: `is above`, `is at least`, `is below`, `is at most` |\n| `get [Kenya](KE)'s works from 2023 where FWCI is above 10` | decimals work too |\n| `get [Ghana](GH)'s works where it has a DOI and it doesn't have an abstract` | yes/no fields read as sentences about the work |\n| `get works from 2024 about kelp where institution is unknown` | the field is empty |\n| `get works where ORCID is 0000-0001-6187-6610` | other schemes' IDs: `DOI is 10.1038/nature12373`, `ROR ID is 00ghzk478`, `PMID is 29456894`, `ISSN is 0028-0836` |\n| `get works where institution is [Massachusetts Institute of Technology](I63966007) or funder is [National Institutes of Health](F4320332161)` | OR across different fields |\n\nGroup conditions with parentheses. `and` binds tighter than `or`, and the echo always writes the parentheses, so nothing is left to guess:\n\n```\nget works where (published before 2000 and title-abstract has \"global warming\") or (title-abstract has \"climate change\" and published after 2020)\n```\n\nNesting and OR across *different* fields are what the classic URL syntax can't express. Inside a `where`, searches use `has` with the field name (`title has`, `abstract has`, `title-abstract has`, `title-abstract-keywords has`, `full text has`, `raw affiliation has`, `byline has`) and years read `published since 2020`, `published before 2000`, `published after 2020`, `published in 2023`, `published from 2015 through 2024`.\n\n**Fields for `where`, on works:** type, language, open access, open access status, license, retracted, has DOI, has abstract, has full text, has ORCID, global south, top 1% cited, top 10% cited; institution, institution type, institution country, country, continent, author, corresponding author, corresponding institution, source, source type, publisher, funder, awards, topic (primary), topics (any), subfield, field, domain, keyword, SDG; citation count, FWCI, citation percentile by subfield, reference count, authors count, institutions count, countries count, APC paid; DOI, PMID, ISSN, ORCID, ROR ID; added, updated. API column names (`publication_year`, `primary_topic.id`) work too; the echo uses the OQL names.\n\n## Lists\n\n### Lists of works\n\nEnd a list with an order after a comma:\n\n| Order | |\n|---|---|\n| `, most cited first` / `, least cited first` | by citation count |\n| `, newest first` / `, oldest first` | by publication date |\n| `, highest FWCI first` / `, lowest FWCI first` | by field-weighted citation impact |\n| `, alphabetical by title` / `, reverse alphabetical by title` | by title |\n| `, best matches first` | by relevance to the search (the default when there's a search, so the echo leaves it out) |\n\n```\nget works since 2023 about \"large language models\", most cited first\nget [University of Oxford](I40120149)'s works about (malaria AND vaccine), newest first\nget articles about CRISPR where source type is [journal](journal), highest FWCI first\n```\n\nWith no order, a list with a search comes back best matches first; a list with no search comes back most cited first, adjusted for age.\n\n### Lists of things\n\nAuthors, institutions, journals and other things can be listed by their own fields: what's on their own record, not counts of some works. `get authors`, `get institutions`, `get companies`, `get journals`, `get repositories`, `get sources`, `get publishers`, `get funders`, `get topics`:\n\n| Example | Meaning |\n|---|---|\n| `get authors at [University of British Columbia](I141945490) since 2022 with an h-index above 50` | UBC is on their record in 2022 or later |\n| `get authors at [University of British Columbia](I141945490) with an h-index above 50` | UBC is on their record in **any** year |\n| `get authors never at [University of British Columbia](I141945490) where last known institution is [University of Washington](I201448701)` | never on their record |\n| `get authors with an h-index above 50 where last known institution is [Massachusetts Institute of Technology](I63966007)` | OpenAlex's best guess at where they are now |\n| `get authors at [University of Kansas](I146416000) since 2022 where it has an ORCID` | yes/no fields as sentences |\n| `get authors where co-author is [Jason R Priem](A5023888391)` | everyone who has written with him |\n| `get institutions in [Austria](AT), most cited first` | institutions in a country, with an order |\n| `get companies in [Sweden](SE), most cited first` | one type of institution |\n| `get institutions in [Germany](DE) where collaborator is not [Massachusetts Institute of Technology](I63966007)` | never co-authored with MIT |\n| `get institutions where city is Vienna` | by city |\n| `get journals where publisher is [Elsevier BV](P4310320990)` | a publisher's journals |\n| `get journals in [Kenya](KE)` | journals by country |\n| `get funders in [Kenya](KE)` | funders by country |\n| `get topics in the field [Computer Science](17)` | topics in a field |\n\n`at [X]` reads each author's own record (the institutions on their profile, with years), not the papers' affiliations. Bare `at [X]` means any year, so it also finds people whose record lists X once, long ago or by mistake; for the people there now, write a window (`at [X] since 2022`) or `where last known institution is [X]`.\n\n**Orders for things:** `, highest h-index first`, `, lowest h-index first`, `, highest i10-index first`, `, lowest i10-index first`, `, most cited first`, `, least cited first`, `, lowest works count first`. With no order, things come back most works first.\n\n**Things' own fields:** authors: h-index, i10-index, works count, citation count, last known institution, has ORCID, co-author; institutions: country, continent, type, region, city, global south, works count, h-index, collaborator; sources: type, publisher, ISSN, works count, h-index, 2-year mean citedness.\n\nTo rank things by a number about *some* works (who publishes most on kelp), use a table: the next section.\n\n## Tables of groups\n\n```\nget the <numbers> of <works> by <split>[ and <split>][, <order>]\n```\n\nA table takes a set of works, splits it into groups, and gives numbers for each group, one row per group. With two splits, one row per pair (each year-and-country), with a column for each split and each number.\n\n### Numbers\n\nJoin numbers with `and` (an Oxford comma for three or more). A number covers the matching works in each group.\n\n| Number | Meaning |\n|---|---|\n| `count` | how many works |\n| `share` | each row's slice of the group one level up: of the whole set with one split; of each year with `by year and country` |\n| `mean FWCI`, `median FWCI`, `mean citations`, `median citations` | averages over the works |\n| `sum of citations` | total citations to the works (`the sum of citations to works ...`) |\n| `sum of APCs paid` | total article processing charges paid (`the sum of APCs paid for works ...`) |\n| `percent <yes/no word>` | the rate within each row: `percent open access`, `percent retracted`, `percent with an abstract`, `percent with a DOI`, `percent top 1% cited`, `percent top 10% cited` |\n\n```\nget the count of [University of Kansas](I146416000)'s works\nget the count and mean citations of works from 2022 in the field [Computer Science](17)\nget the sum of APCs paid for [University of Kansas](I146416000)'s works\nget the count, mean FWCI, and percent open access of works about kelp by country\nget the median FWCI and median citations of works about kelp by year\n```\n\n### Splits\n\nOne or two, joined with `and`:\n\n- **Fields of the works:** `year`, `type`, `language`, `open access`, `open access status`, `retracted`, `topic`, `subfield`, `field`, `domain`, `SDG`.\n- **Things:** `author`, `corresponding author`, `institution`, `company`, `country`, `journal`, `source`, `repository`, `publisher`, `funder`.\n\n```\nget the count of works about \"quantum computing\" by country\nget the count and percent retracted of works in [Heliyon](S2898612692) by year and field\nget the count and share of [France](FR)'s works by year since 2013 and open access status\nget the count of [Kenya](KE)'s works by open access\n```\n\nYear is always the x-axis wherever you write it. A yes/no split gives two rows (`open access` and `not open access`). Splits by continent, institution type, source type, license, keyword or global south, number bins, and three splits need [the general form](#when-a-sentence-cant-say-it-the-general-form).\n\n### Which groups\n\nTo narrow a split by things, describe the groups right after the split word:\n\n| Example | Groups |\n|---|---|\n| `get the count of works about kelp by author at [University of British Columbia](I141945490) since 2022` | authors whose own record has UBC since 2022 |\n| `get the count of works about kelp by author in [Norway](NO)` | authors whose own record is in Norway |\n| `get the count of works about kelp by institution in [Canada](CA)` | Canadian institutions |\n| `get the count of works about kelp by author with an h-index above 40` | authors with an h-index above 40 |\n| `get the count and share of top 1% cited articles by year and country in ([United States](US), [China](CN))` | just these countries (up to 100 values) |\n| `get the count and mean FWCI of works since 2015 by institution in ([Indian Institute of Technology Bombay](I162827531), [Indian Institute of Technology Delhi](I68891433))` | named institutions side by side |\n| `get the count of works about kelp by author in ([Jason R Priem](A5023888391), [Heather Piwowar](A5048491430))` | named people |\n| `get the count and mean FWCI of works since 2020 by country in the collection [European Union (EU27)](col_LV29j8URoX)` | the members of a [collection](#collections) |\n| `get the count of works from [Kenya](KE) by country except [Kenya](KE)` | everyone but Kenya: Kenya's partner countries |\n\n**Which groups is not which works.** `by author at [UBC](I141945490) since 2022` keeps the people whose record has UBC, and counts all their kelp works, wherever they wrote them. `from [UBC](I141945490) by author` keeps the works with a UBC author, and counts everyone on them, UBC or not:\n\n```\nget the count of works about kelp by author at [University of British Columbia](I141945490) since 2022\nget the count of works about kelp from [University of British Columbia](I141945490) by author\n```\n\nA condition about the people or places goes on the groups. A condition on the works drops papers, not people. Groups chosen by other own fields (`last known institution`, `co-author is not`, `institution type`) are said in the general form; the echo writes it for you:\n\n```\nget authors where last known institution is [University of Kansas](I146416000) who published works where title-abstract-keywords has (kelp); then, summarize each author using count\n```\n\n### Count floors: `Only`\n\n`Only` keeps the groups with enough of the same works, as its own sentence after the table:\n\n```\nget the count of works about kelp by author. Only authors with at least 20 works about kelp.\n```\n\nUse one whenever you order by a rate or a mean: a percent or mean ordered highest first puts tiny groups on top (5 works, 100% open access).\n\n### The groups' own fields: `Show`\n\nA thing's own fields (h-index, works count) are not numbers about the works. Add them as columns with `Show`:\n\n```\nget the count of works about kelp by author at [University of British Columbia](I141945490) since 2022. Show h-index.\nget the count of works about kelp by author. Show h-index and works count.\nget the count of works about kelp by institution. Show h-index.\n```\n\nOrdering by one (`, highest h-index first`) shows it too.\n\n### Order\n\nThe order goes last, after a comma. With none, a table comes back most works first, and years oldest first.\n\n| Order | |\n|---|---|\n| `, highest <number> first` / `, lowest <number> first` | by any number in the table: `, highest mean FWCI first`, `, highest share first` (with one number: `, highest first`) |\n| `, most works first` / `, fewest works first` | by count |\n| `, newest first` / `, oldest first` | years |\n| `, alphabetical by <split>` | `, alphabetical by country` |\n| `, highest h-index first` | by a thing's own field |\n\n```\nget the count and mean FWCI of works about kelp by country, lowest mean FWCI first. Only countries with at least 50 works about kelp.\nget the sum of citations to works since 2018 about oleogel* by author, highest first\nget the count of works about kelp by year, newest first\nget the count of works about kelp by year and country, most works first\n```\n\nAn order sorts every group, not just the first page, and orders two splits as one flat table.\n\n### More examples\n\n```\nget the count of works since 2020 about (archaeology AND \"deep learning\") by journal\nget the count of works about kelp by author at [University of British Columbia](I141945490), highest h-index first\nget the count and share of all works by SDG\nget the count of works from both [University of Oxford](I40120149) and [University of Cambridge](I241749) by year since 2015\nget the sum of APCs paid for works funded by [Wellcome Trust](F4320311904) by publisher, highest first\nget the count and percent open access of works about kelp by country, highest percent open access first. Only countries with at least 50 works about kelp.\n```\n\n`all works` stands for every work when nothing else narrows them (`get the count and share of all works by SDG`).\n\n## Collections\n\nA [collection](/how-to/collections/) is a list you saved: works, institutions, countries, people, a ranking OpenAlex doesn't hold. Use it wherever a value goes; what `in the collection` means depends on what the collection holds:\n\n```\nget works in the collection [Example: altmetrics papers](col_8yWKmRNyEr)\nget works from 2024 in the collection [European Union (EU27)](col_LV29j8URoX)\nget works from 2024 about kelp where country is not in the collection [European Union (EU27)](col_LV29j8URoX)\nget works citing works in the collection [Example: altmetrics papers](col_8yWKmRNyEr)\nget the count and mean FWCI of works since 2020 by country in the collection [European Union (EU27)](col_LV29j8URoX)\n```\n\nThe first is the works in a works collection; the second, works from the EU's member countries. A collection of your peer institutions works the same way in a table: `by institution in the collection [My peers](<your collection ID>)` gives one row per peer. Write the collection's ID in parentheses or as a link; a bare `col_...` is an error.\n\n## When a sentence can't say it: the general form\n\nA few questions need more than one sentence: comparing one thing against the rest, sets of works inside a condition, walking from works to their authors and on to all those authors' works, number bins, samples, counts of distinct authors. For these, OQL has a general form. It starts `get works where <conditions>` and adds steps after semicolons: `then,` for each step, `finally,` for the last of two or more. It's fully supported; the echo uses a sentence whenever one exists, and the general form only when none does.\n\n**One against the rest:**\n\n```\nget works where published since 2015; then, compare country [India](IN) versus country is not [India](IN) using count and mean FWCI\n```\n\n**Sets inside conditions.** A set is a query inside a condition; it names what it holds:\n\n```\nget works since 2025 where author is in the set (authors of works where title-abstract has kelp and published since 2022)\nget the count of works where it cites a work in the set (works where institution is [University of Kansas](I146416000)) by year\nget works from 2024 in the topic [CRISPR and Genetic Engineering](T10878) where it doesn't cite any work in the set (works where institution is [University of Kansas](I146416000))\n```\n\nThe first finds recent work by anyone who wrote about kelp since 2022; the second, every work citing a Kansas paper, by year (a set fits in a sentence's `where`).\n\n**Walks.** A walk goes from the works to the things related to them, then to *everything* those things did:\n\n```\nget works where institution is [University of Kansas](I146416000) and published in 2023; then, get each author of those works; then, get all that author's works; finally, summarize each author using mean FWCI\n```\n\nThat's each Kansas 2023 author and the mean FWCI of **all** their papers, not just the Kansas ones. One walk out per query.\n\n**Counting distinct things, bins, samples, other numbers:**\n\n```\nget authors who published works where topic is [CRISPR and Genetic Engineering](T10878); then, summarize all those authors using count\nget works where title-abstract-keywords has (kelp); then, group those works into citation count bins at (1, 10, 100); finally, summarize using count\nget works where published in 2020; then, sample 500 of those works with seed 42\nget works where author is [Jason R Priem](A5023888391); then, summarize all those works using min date and max date\nget works where title-abstract-keywords has (kelp); then, group those works by continent; finally, summarize using count\nget works where title-abstract-keywords has (kelp); then, group those works by year; finally, summarize using mean reference count and median authors count\n```\n\nThe first counts distinct CRISPR authors. Bins at `(1, 10, 100)` give `0`, `1-9`, `10-99` and `100+`; `into FWCI bins of 0.5` gives equal widths. A sample with a seed is the same sample every time. The general form splits up to three ways, by any field (continent, institution type, source type, license, keyword, global south), and takes `mean`, `median`, `sum`, `min` and `max` of any number field and `percent` of any yes/no field.\n\n## What OQL assumes\n\nOQL's text never hides a condition the query carries, with these exceptions: sensible defaults it doesn't spell out.\n\n| Default | What it means |\n|---|---|\n| `about` | searches the title, the abstract and the keywords |\n| The core corpus | every query of works runs on OpenAlex's [core corpus](/data/works/corpus/) unless it asks for another, in the general form: `get works (all corpora) where title-abstract-keywords has (kelp)`, or `(expansion corpus)` |\n| Authors with works | lists of authors leave out authors with no works |\n| Sub-units count | `from [institution]` and `[institution]'s works` include its sub-units (a university's hospitals and institutes) |\n| Primary topic | `in the topic / subfield / field / domain` and splits by them use each work's primary topic, not every topic it has |\n| Primary location | `in [journal]` and `by journal` / `by source` use each work's primary location |\n| Default orders | a list with a search: best matches first; a list without: most cited first, adjusted for age; things: most works first; a table: most works first, years oldest first |\n\n## Downloading results\n\nA table exports every row, however many there are, the same way a list of works exports every work. On the website, use the download button above the results: the Export dialog shows the price before you start, and you can follow the export in **Settings → Exports**. An export costs the query's price for every 100 rows it writes (1 credit per 100 groups for a filtered set, 10 for a search), and stops if your credits run out.\n\nThere's nothing to choose. With no split, the export is the one row, as a CSV. With splits, it's one zip of:\n\n- **`groups.csv`**: every group, one row each (with two splits, one row per pair), so every row stands on its own. Columns are named in OQL words: each split (`institution`, plus `institution id` for things with IDs), then each number (`percent open access`).\n- **The summary**: `all-works.csv`, the whole set in one row, and with two splits one CSV per split (`by-institution.csv`, `by-year.csv`). Read these rather than adding up the groups: a work can sit in more than one group (or in none, when it has no year), so groups don't always add up, and a mean of group means is not the mean.\n\nOn the API, the two are separate calls: `format=csv` for the groups, and `format=csv&table=summary` for the summary. A single split by a field pages: add `cursor=*` and follow the `X-Next-Cursor` response header (10,000 groups a page) until it's gone.\n\n```\nhttps://api.openalex.org/?oql=get the count and percent open access of [Kenya](KE)'s works by year since 2015&format=csv\n```\n\n## Limits, time and price\n\nTwo splits in a sentence, three in the general form; up to 100 values in a list; with two splits, up to 10,000 groups per split (one split pages through any number); one walk out per query; about ten seconds a query. Anything over a limit is refused before it runs, with the limit and how to fix it. A table split by author over a broad set of works can be refused as too slow (every author of every 2024 work is about 12 million groups); narrow the works with a topic, a search, a place or fewer years.\n\nA list costs what the same query costs as a URL: 1 credit, or 10 with a search. A table costs what its set of works costs as a list, plus 1 for each lookup of the groups' own records (`at`, `Show h-index`); splits, counts, means and percents add nothing. Walks and compared searches add more. The check tells you the exact price for free, and a response shows what it cost in `meta.cost`. See [Example costs](/access/example-costs/#what-an-oql-calculation-costs).\n\n## OQL never guesses\n\nA query that can't do what it appears to do is refused before it runs, never answered wrong, and the error says how to fix it:\n\n| You wrote | OQL says |\n|---|---|\n| `by FWCI` | `unknown split by FWCI`, and lists the splits a table takes |\n| `the authors count of works ...` | `unknown numbers`, and lists the numbers |\n| `, most popular first` | `unknown order`, and lists the orders a list takes |\n| `where published after 2021-06-01` | ambiguous for a date: write `published since 2021-06-02`, or `since 2021-06-01` to include it |\n| `where type is (article review)` | two values need a connective: `or` (or `and` if you mean both) |\n| `by year and country and type` | a table splits two ways at most |\n| `[Harvard]` with no ID | needs its OpenAlex ID: `[Harvard University](I136199984)` |\n| `title contains (cancer)` | `contains` was renamed: use `has` |\n| `rank ...` or `break down ...` | every query starts with `get`: `get the count of works about kelp by country` |\n| `...; then, group those works by year` after a sentence | a table is one sentence: `get the count of works about kelp by year` |\n\n## Not in the language yet\n\n`Only` and `Show` take counts and the groups' own fields, not other numbers (filter a mean by downloading the table); a second walk out in one query; splitting each walked thing's works further; three splits in a sentence. And nothing OpenAlex doesn't hold.\n\n## Going deeper\n\n- **[Your first OQL queries](/tutorials/oql/)**: a five-step tutorial, from a list of papers to the people behind a topic.\n- **How-tos:** [Benchmarking against peers](/how-to/benchmarking/), [Finding experts and partners](/how-to/finding-experts/), [Tracking trends over time](/how-to/trends-over-time/), [Following citations](/how-to/following-citations/), and [Systematic reviews](/tutorials/systematic-reviews/).\n- **[Cases](https://openalex.org/query/oql/cases)**: a browsable library of worked examples, each with its OQL and the underlying query object.\n- **[Specification](/access/oql-spec/)**: the formal spec: every rule and edge case, plus the formal grammar.\n- **[OQO](/access/oqo-schema/)**: the machine-readable JSON twin of OQL, built for agents and tools.\n- **[OQL API](/api/oql/)**: executing and translating OQL over HTTP.\n\nTell us what's confusing, what's missing, and what you wish you could ask.\n",
+  "serverInfo": {
+    "name": "openalex",
+    "title": "OpenAlex",
+    "version": "0.5.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": null,
+    "logging": null,
+    "prompts": null,
+    "resources": {
+      "subscribe": null,
+      "listChanged": true
+    },
+    "tools": {
+      "listChanged": true
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  },
+  "independent_BNN_oauth": true
+}

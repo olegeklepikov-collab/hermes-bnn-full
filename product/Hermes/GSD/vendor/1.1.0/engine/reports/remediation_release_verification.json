@@ -1,0 +1,118 @@
+{
+  "release": "3.0.2",
+  "test_count": 14,
+  "passed_count": 14,
+  "failed_count": 0,
+  "checks": [
+    {
+      "name": "Паспорт текущего выпуска",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Исходные корпуса, глобальная схема, контроллер и прежние критерии не изменены",
+      "passed": true,
+      "detail": {
+        "unchanged_files": 13
+      }
+    },
+    {
+      "name": "Новая закрытая схема и её положительный пример",
+      "passed": true,
+      "detail": {
+        "comparison_contract": "3.0.2",
+        "record_version": 2
+      }
+    },
+    {
+      "name": "Результаты связаны с текущими файлами и исходами",
+      "passed": true,
+      "detail": {
+        "files": 11,
+        "reports": 5
+      }
+    },
+    {
+      "name": "Исходная регрессия 127",
+      "passed": true,
+      "detail": {
+        "passed": 127
+      }
+    },
+    {
+      "name": "Адресные и соседние проверки 331",
+      "passed": true,
+      "detail": {
+        "passed": 331
+      }
+    },
+    {
+      "name": "Сравнение на неизменённых 615 критериях",
+      "passed": true,
+      "detail": {
+        "before_failures": 40,
+        "after_failures": 0,
+        "same_cases": 615
+      }
+    },
+    {
+      "name": "Неразрешённый старый критерий не скрыт и не переименован",
+      "passed": true,
+      "detail": {
+        "raw_passed": 41,
+        "raw_negative_preserved": "I-PROVENANCE",
+        "interpretation": "Исходный слишком широкий U01 не считается подтверждённым дефектом"
+      }
+    },
+    {
+      "name": "Восемь исправлений имеют адресные свидетельства и границы",
+      "passed": true,
+      "detail": {
+        "findings": 8,
+        "external_acceptance_not_claimed": true
+      }
+    },
+    {
+      "name": "Семь согласованных контекстов реально собираются",
+      "passed": true,
+      "detail": {
+        "G": 212652,
+        "S": 260317,
+        "D": 148865,
+        "GS": 343567,
+        "GD": 232115,
+        "SD": 279780,
+        "GSD": 363030
+      }
+    },
+    {
+      "name": "Состав не расширяется через дополнительный файл",
+      "passed": true,
+      "detail": {
+        "rejected": 5
+      }
+    },
+    {
+      "name": "Производные инструкции согласованы с каноном",
+      "passed": true,
+      "detail": {
+        "derivative_instructions": 4
+      }
+    },
+    {
+      "name": "Синтаксис всех программ поставки",
+      "passed": true,
+      "detail": {
+        "program_files": 16
+      }
+    },
+    {
+      "name": "Документация различает текущую и историческую редакции",
+      "passed": true,
+      "detail": {
+        "current_docs": 4
+      }
+    }
+  ],
+  "scope": "Комплектация и привязка фактических локальных проверок; не независимая предметная приёмка"
+}

@@ -1,0 +1,22 @@
+{
+  "version": "3.0",
+  "files": {
+    "data/case.schema.json": "9f4faac74ece48e3179f4ba9b1239c9dd787d096697d13a5ef7f6506b1e0a434",
+    "data/procedures.json": "cc6010aba789f9ed5f799f173089247d14b4b262f99e4f8bdbcd774b30d63c66",
+    "tests/run_all.py": "cb7ab6f6c1f923f8467b5bf34b532c990aabbdd21316890c8f35031abbd7da08",
+    "tests/test_system.py": "9e023f9ec5bcf359d5f0ba11aa4193e9589eff7ea869e51c02cdf87c4867aefc",
+    "tools/_base.py": "5659f87d0970db577f6acb9de42631edc9ec032770bcc01b60f9e05e5f32c458",
+    "tools/assemble_instructions.py": "1f8a276187c001b25094617e6859cc6cd030fbedca34b5737ce5ebede054608d",
+    "tools/benchmark.py": "83a1ca35e1a38d07657f8c8aa093a20af5e64379a9179b2d837d477d62fbaa7f",
+    "tools/build_contracts.py": "771a17b7aa8b9e3eb3c436bbc811c40341c7ff8c5a45c2fe2429235c59e9cdd2",
+    "tools/collect_reports.py": "316d4095bc7ccd4c34c8ee6f88c3103f11d7b0dde44beee3213d487ac923b96a",
+    "tools/corpus.py": "977a31cf79080f7e57b6efe76cf38e22571e6adb1b72eec0b80f989705d49f58",
+    "tools/engine.py": "85a406ae5ea4c00d36cdd8e1c2be5aa2a1a80268f1618dc9db666e7d14e560dc",
+    "tools/migrate.py": "d5c74f9bcd76730eeb9baeb2af4f806cd63708bc933b171cff62ea050eae4b84",
+    "tools/records.py": "02f56e896e0e48a73c8e10c180018a9a23967c848e0c914eb9700e39fbc2d822",
+    "tools/triad.py": "d5d4950c2e89125bb202c7bd523698ec17e8fb5b26efa7de030d08298d20b8e2",
+    "tools/verify_package.py": "1207f1877d6d726e4bb36a0d81e4fee5f8769d650d95c93d406cf0546e8e3d60"
+  },
+  "verification_report_sha256": "d9b9d10de78918f3ec7119a224ff7cd5fbeecba1d34bb11214255631932965a0",
+  "scope": "Версии текущей локальной реализации и отчёта, сформированные при выпуске; контрольные суммы не являются подписью автора."
+}

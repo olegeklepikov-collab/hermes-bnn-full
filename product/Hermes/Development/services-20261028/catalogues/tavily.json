@@ -1,0 +1,1547 @@
+{
+  "ok": true,
+  "tools": [
+    {
+      "name": "tavily_search",
+      "title": null,
+      "description": "Полный Tavily Search: general/news/finance, четыре глубины, даты, домены, язык, точные фразы, изображения, ответы и расход.",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query to execute with Tavily.",
+            "example": "who is Leo Messi?"
+          },
+          "search_depth": {
+            "type": "string",
+            "description": "Controls the latency vs. relevance tradeoff and how `results[].content` is generated:\n- `advanced`: Highest relevance with increased latency. Best for detailed, high-precision queries. Returns multiple semantically relevant snippets per URL (configurable via `chunks_per_source`).\n- `basic`: A balanced option for relevance and latency. Ideal for general-purpose searches. Returns multiple semantically relevant snippets per URL (configurable via `chunks_per_source`).\n- `fast`: Prioritizes lower latency while maintaining good relevance. Returns multiple semantically relevant snippets per URL (configurable via `chunks_per_source`).\n- `ultra-fast`: Minimizes latency above all else. Best for time-critical use cases. Returns one NLP summary per URL.\n\n**Cost**:\n- `basic`, `fast`, `ultra-fast`: 1 API Credit\n- `advanced`: 2 API Credits\n\nSee [Search Best Practices](/documentation/best-practices/best-practices-search#search-depth) for guidance on choosing the right search depth.",
+            "enum": [
+              "advanced",
+              "basic",
+              "fast",
+              "ultra-fast"
+            ],
+            "default": "basic"
+          },
+          "chunks_per_source": {
+            "type": "integer",
+            "description": "Chunks are short content snippets (maximum 500 characters each) pulled directly from the source. Use `chunks_per_source` to define the maximum number of relevant chunks returned per source and to control the `content` length. Chunks will appear in the `content` field as: `<chunk 1> [...] <chunk 2> [...] <chunk 3>`. Available when `search_depth` is `advanced`, `basic` or `fast`.",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 3
+          },
+          "max_results": {
+            "type": "integer",
+            "example": 1,
+            "description": "The maximum number of search results to return.",
+            "default": 10,
+            "minimum": 0,
+            "maximum": 20
+          },
+          "topic": {
+            "type": "string",
+            "description": "The category of the search.`news` is useful for retrieving real-time updates, particularly about politics, sports, and major current events covered by mainstream media sources. `general` is for broader, more general-purpose searches that may include a wide range of sources.",
+            "default": "general",
+            "enum": [
+              "general",
+              "news",
+              "finance"
+            ]
+          },
+          "time_range": {
+            "type": "string",
+            "description": "The time range back from the current date to filter results based on publish date or last updated date. Useful when looking for sources that have published or updated data. By default, results with no detectable published date are not removed; set `filter_by_published_date` to `true` to remove them.",
+            "enum": [
+              "day",
+              "week",
+              "month",
+              "year",
+              "d",
+              "w",
+              "m",
+              "y"
+            ],
+            "default": null
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Will return all results after the specified start date based on publish date or last updated date. Required to be written in the format YYYY-MM-DD. By default, results with no detectable published date are not removed; set `filter_by_published_date` to `true` to remove them.",
+            "example": "2025-02-09",
+            "default": null
+          },
+          "end_date": {
+            "type": "string",
+            "description": "Will return all results before the specified end date based on publish date or last updated date. Required to be written in the format YYYY-MM-DD. By default, results with no detectable published date are not removed; set `filter_by_published_date` to `true` to remove them.",
+            "example": "2025-12-29",
+            "default": null
+          },
+          "include_published_date": {
+            "type": "boolean",
+            "description": "Include a `published_date` field in each result. The date is Tavily's best estimate of when the source was published or last updated, so it can be later than the original publish date. Results with no detectable date return `null`. Automatically enabled when `topic` is `news`.\n\n**Note**: this feature is currently in beta.",
+            "default": false
+          },
+          "filter_by_published_date": {
+            "type": "boolean",
+            "description": "Remove results whose published date falls outside the `time_range`, `start_date`, or `end_date` window. Results with no detectable published date are also removed. Setting this to `true` also enables `include_published_date`.\n\nIf you want date-window filtering but don't want to lose sources without a detectable date, leave this `false` and set `include_published_date: true` together with a date range instead.",
+            "default": false
+          },
+          "include_answer": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "basic",
+                  "advanced"
+                ]
+              }
+            ],
+            "description": "Include an LLM-generated answer to the provided query. `basic` or `true` returns a quick answer. `advanced` returns a more detailed answer.",
+            "default": false
+          },
+          "include_raw_content": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "markdown",
+                  "text"
+                ]
+              }
+            ],
+            "description": "Include the cleaned and parsed HTML content of each search result. `markdown` or `true` returns search result content in markdown format. `text` returns the plain text from the results and may increase latency.",
+            "default": false
+          },
+          "include_images": {
+            "type": "boolean",
+            "description": "Include images in the response. Returns both a top-level `images` list of query-related images and an `images` array inside each result object with images extracted from that specific source.",
+            "default": false
+          },
+          "include_image_descriptions": {
+            "type": "boolean",
+            "description": "When `include_images` is `true`, also add a descriptive text for each image.",
+            "default": false
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "description": "Whether to include the favicon URL for each result.",
+            "default": false
+          },
+          "include_domains": {
+            "type": "array",
+            "description": "A list of domains to specifically include in the search results. Maximum 300 domains.",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "exclude_domains": {
+            "type": "array",
+            "description": "A list of domains to specifically exclude from the search results. Maximum 150 domains.",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "include_domains_mode": {
+            "type": "string",
+            "description": "Controls how `include_domains` is applied. `restrict` limits results to only the listed domains. `prefer` also searches the rest of the web, so results outside `include_domains` can still surface, rather than excluding them. Defaults to `restrict`, so `include_domains` acts as a hard filter unless set to `prefer`. Setting it without `include_domains` returns a 400 error.",
+            "enum": [
+              "restrict",
+              "prefer"
+            ],
+            "default": "restrict"
+          },
+          "country": {
+            "type": "string",
+            "description": "Boost search results from a specific country. This will prioritize content from the selected country in the search results. Available only if topic is `general`.",
+            "enum": [
+              "afghanistan",
+              "albania",
+              "algeria",
+              "andorra",
+              "angola",
+              "argentina",
+              "armenia",
+              "australia",
+              "austria",
+              "azerbaijan",
+              "bahamas",
+              "bahrain",
+              "bangladesh",
+              "barbados",
+              "belarus",
+              "belgium",
+              "belize",
+              "benin",
+              "bhutan",
+              "bolivia",
+              "bosnia and herzegovina",
+              "botswana",
+              "brazil",
+              "brunei",
+              "bulgaria",
+              "burkina faso",
+              "burundi",
+              "cambodia",
+              "cameroon",
+              "canada",
+              "cape verde",
+              "central african republic",
+              "chad",
+              "chile",
+              "china",
+              "colombia",
+              "comoros",
+              "congo",
+              "costa rica",
+              "croatia",
+              "cuba",
+              "cyprus",
+              "czech republic",
+              "denmark",
+              "djibouti",
+              "dominican republic",
+              "ecuador",
+              "egypt",
+              "el salvador",
+              "equatorial guinea",
+              "eritrea",
+              "estonia",
+              "ethiopia",
+              "fiji",
+              "finland",
+              "france",
+              "gabon",
+              "gambia",
+              "georgia",
+              "germany",
+              "ghana",
+              "greece",
+              "guatemala",
+              "guinea",
+              "haiti",
+              "honduras",
+              "hungary",
+              "iceland",
+              "india",
+              "indonesia",
+              "iran",
+              "iraq",
+              "ireland",
+              "israel",
+              "italy",
+              "jamaica",
+              "japan",
+              "jordan",
+              "kazakhstan",
+              "kenya",
+              "kuwait",
+              "kyrgyzstan",
+              "latvia",
+              "lebanon",
+              "lesotho",
+              "liberia",
+              "libya",
+              "liechtenstein",
+              "lithuania",
+              "luxembourg",
+              "madagascar",
+              "malawi",
+              "malaysia",
+              "maldives",
+              "mali",
+              "malta",
+              "mauritania",
+              "mauritius",
+              "mexico",
+              "moldova",
+              "monaco",
+              "mongolia",
+              "montenegro",
+              "morocco",
+              "mozambique",
+              "myanmar",
+              "namibia",
+              "nepal",
+              "netherlands",
+              "new zealand",
+              "nicaragua",
+              "niger",
+              "nigeria",
+              "north korea",
+              "north macedonia",
+              "norway",
+              "oman",
+              "pakistan",
+              "panama",
+              "papua new guinea",
+              "paraguay",
+              "peru",
+              "philippines",
+              "poland",
+              "portugal",
+              "qatar",
+              "romania",
+              "russia",
+              "rwanda",
+              "saudi arabia",
+              "senegal",
+              "serbia",
+              "singapore",
+              "slovakia",
+              "slovenia",
+              "somalia",
+              "south africa",
+              "south korea",
+              "south sudan",
+              "spain",
+              "sri lanka",
+              "sudan",
+              "sweden",
+              "switzerland",
+              "syria",
+              "taiwan",
+              "tajikistan",
+              "tanzania",
+              "thailand",
+              "togo",
+              "trinidad and tobago",
+              "tunisia",
+              "turkey",
+              "turkmenistan",
+              "uganda",
+              "ukraine",
+              "united arab emirates",
+              "united kingdom",
+              "united states",
+              "uruguay",
+              "uzbekistan",
+              "venezuela",
+              "vietnam",
+              "yemen",
+              "zambia",
+              "zimbabwe"
+            ],
+            "default": null
+          },
+          "language": {
+            "type": "string",
+            "description": "Boost search results in a specific language. Accepts an ISO 639-1 code (e.g. `en`, `fr`, `zh-cn`) or an English language name (e.g. `english`, `french`). By default this only boosts matching-language results in ranking; pass `filter_by_language: true` to strictly filter out non-matching results instead. For best results, write your `query` in the same language you set here.",
+            "example": "en",
+            "default": null
+          },
+          "filter_by_language": {
+            "type": "boolean",
+            "description": "Strictly filter out search results that don't match the `language` parameter, instead of only boosting them in ranking. Requires `language` to be set; returns a 400 error otherwise.",
+            "default": false
+          },
+          "auto_parameters": {
+            "type": "boolean",
+            "description": "When `auto_parameters` is enabled, Tavily automatically configures search parameters based on your query's content and intent. You can still set other parameters manually, and your explicit values will override the automatic ones. The parameters `include_answer`, `include_raw_content`, and `max_results` must always be set manually, as they directly affect response size. Note: `search_depth` may be automatically set to advanced when it's likely to improve results. This uses 2 API credits per request. To avoid the extra cost, you can explicitly set `search_depth` to `basic`.",
+            "default": false
+          },
+          "exact_match": {
+            "type": "boolean",
+            "description": "Ensure that only search results containing the exact quoted phrase(s) in the query are returned, bypassing synonyms or semantic variations. Wrap target phrases in quotes within your query (e.g. `\"John Smith\" CEO Acme Corp`). Punctuation is typically ignored inside quotes.",
+            "default": false
+          },
+          "include_usage": {
+            "type": "boolean",
+            "description": "Whether to include credit usage information in the response.",
+            "default": false
+          },
+          "safe_search": {
+            "type": "boolean",
+            "description": "Whether to filter out adult or unsafe content from results. Not supported for `fast` or `ultra-fast` search depths.",
+            "default": false
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "components": {
+          "schemas": {
+            "ApiError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "ValidationError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "loc": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "integer"
+                            }
+                          ]
+                        }
+                      },
+                      "msg": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "input": {},
+                      "ctx": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "headers": {
+            "RetryAfter": {
+              "description": "When present, the number of seconds to wait before retrying. Read the returned value; the delay can vary.",
+              "schema": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "example": 60
+            }
+          },
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "Bearer authentication header in the form Bearer <token>, where <token> is your Tavily API key (e.g., Bearer tvly-YOUR_API_KEY)."
+            }
+          }
+        }
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": true,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_extract",
+      "title": null,
+      "description": "Tavily Extract: выбранные URL, basic/advanced, полный текст или отрывки, markdown/text, изображения и расход. Проверять failed_results.",
+      "inputSchema": {
+        "properties": {
+          "urls": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "The URL to extract content from.",
+                "example": "https://en.wikipedia.org/wiki/Artificial_intelligence"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "A list of 1–20 URLs to extract in one request.",
+                "example": [
+                  "https://en.wikipedia.org/wiki/Artificial_intelligence",
+                  "https://en.wikipedia.org/wiki/Machine_learning",
+                  "https://en.wikipedia.org/wiki/Data_science"
+                ],
+                "minItems": 1,
+                "maxItems": 20
+              }
+            ]
+          },
+          "query": {
+            "type": "string",
+            "description": "User intent for reranking extracted content chunks. When provided, chunks are reranked based on relevance to this query."
+          },
+          "chunks_per_source": {
+            "type": "integer",
+            "description": "Chunks are short content snippets (maximum 500 characters each) pulled directly from the source. Use `chunks_per_source` to define the maximum number of relevant chunks returned per source and to control the `raw_content` length. Chunks will appear in the `raw_content` field as: `<chunk 1> [...] <chunk 2> [...] <chunk 3>`. Available only when `query` is provided. Must be between 1 and 5.",
+            "minimum": 1,
+            "maximum": 5,
+            "default": 3
+          },
+          "extract_depth": {
+            "type": "string",
+            "description": "The depth of the extraction process. `advanced` extraction retrieves more data, including tables and embedded content, with higher success but may increase latency.`basic` extraction costs 1 credit per 5 successful URL extractions, while `advanced` extraction costs 2 credits per 5 successful URL extractions.",
+            "enum": [
+              "basic",
+              "advanced"
+            ],
+            "default": "basic"
+          },
+          "include_images": {
+            "type": "boolean",
+            "description": "Include a list of images extracted from the URLs in the response. Default is false.",
+            "default": false
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "description": "Whether to include the favicon URL for each result.",
+            "default": false
+          },
+          "format": {
+            "type": "string",
+            "description": "The format of the extracted web page content. `markdown` returns content in markdown format. `text` returns plain text and may increase latency.",
+            "enum": [
+              "markdown",
+              "text"
+            ],
+            "default": "markdown"
+          },
+          "timeout": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum time in seconds to wait for the URL extraction before timing out. Must be between 1.0 and 60.0 seconds. If not specified, default timeouts are applied based on extract_depth: 10 seconds for basic extraction and 30 seconds for advanced extraction.",
+            "minimum": 1,
+            "maximum": 60,
+            "default": "None"
+          },
+          "include_usage": {
+            "type": "boolean",
+            "description": "Whether to include credit usage information in the response. `NOTE:`The value may be 0 if the total successful URL extractions has not yet reached 5 calls. See our [Credits & Pricing documentation](https://docs.tavily.com/documentation/api-credits) for details.",
+            "default": false
+          }
+        },
+        "required": [
+          "urls"
+        ],
+        "type": "object",
+        "components": {
+          "schemas": {
+            "ApiError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "headers": {
+            "RetryAfter": {
+              "description": "When present, the number of seconds to wait before retrying. Read the returned value; the delay can vary.",
+              "schema": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "example": 60
+            }
+          },
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "Bearer authentication header in the form Bearer <token>, where <token> is your Tavily API key (e.g., Bearer tvly-YOUR_API_KEY)."
+            }
+          }
+        }
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": true,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_map",
+      "title": null,
+      "description": "Tavily Map: карта URL с пределом, глубиной, путями, доменами и смысловыми инструкциями; не доказывает полноту сайта.",
+      "inputSchema": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The root URL to begin the mapping.",
+            "example": "docs.tavily.com"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Natural language instructions for the crawler. When specified, the cost increases to 2 API credits per 10 successful pages instead of 1 API credit per 10 pages.",
+            "example": "Find all pages about the Python SDK",
+            "default": null
+          },
+          "max_depth": {
+            "type": "integer",
+            "description": "Max depth of the mapping. Defines how far from the base URL the crawler can explore.",
+            "default": 1,
+            "minimum": 1,
+            "maximum": 5
+          },
+          "max_breadth": {
+            "type": "integer",
+            "description": "Max number of links to follow per level of the tree (i.e., per page).",
+            "default": 20,
+            "minimum": 1,
+            "maximum": 500
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Total number of links the crawler will process before stopping.",
+            "default": 50,
+            "minimum": 1
+          },
+          "select_paths": {
+            "type": "array",
+            "description": "Regex patterns to select only URLs with specific path patterns (e.g., `/docs/.*`, `/api/v1.*`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "select_domains": {
+            "type": "array",
+            "description": "Regex patterns to select crawling to specific domains or subdomains (e.g., `^docs\\.example\\.com$`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "exclude_paths": {
+            "type": "array",
+            "description": "Regex patterns to exclude URLs with specific path patterns (e.g., `/private/.*`, `/admin/.*`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "exclude_domains": {
+            "type": "array",
+            "description": "Regex patterns to exclude specific domains or subdomains from crawling (e.g., `^private\\.example\\.com$`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "allow_external": {
+            "type": "boolean",
+            "description": "Whether to include external domain links in the final results list.",
+            "default": true
+          },
+          "timeout": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum time in seconds to wait for the map operation before timing out. Must be between 10 and 150 seconds.",
+            "minimum": 10,
+            "maximum": 150,
+            "default": 150
+          },
+          "include_usage": {
+            "type": "boolean",
+            "description": "Whether to include credit usage information in the response.`NOTE:`The value may be 0 if the total successful pages mapped has not yet reached 10 calls. See our [Credits & Pricing documentation](https://docs.tavily.com/documentation/api-credits) for details.",
+            "default": false
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object",
+        "components": {
+          "schemas": {
+            "ApiError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "headers": {
+            "RetryAfter": {
+              "description": "When present, the number of seconds to wait before retrying. Read the returned value; the delay can vary.",
+              "schema": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "example": 60
+            }
+          },
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "Bearer authentication header in the form Bearer <token>, where <token> is your Tavily API key (e.g., Bearer tvly-YOUR_API_KEY)."
+            }
+          }
+        }
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": true,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_crawl",
+      "title": null,
+      "description": "Tavily Crawl: ограниченный корпус страниц, фильтры, basic/advanced и отрывки. Явно задавать limit и allow_external.",
+      "inputSchema": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The root URL to begin the crawl.",
+            "example": "docs.tavily.com"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Natural language instructions for the crawler. When specified, the mapping cost increases to 2 API credits per 10 successful pages instead of 1 API credit per 10 pages.",
+            "example": "Find all pages about the Python SDK"
+          },
+          "chunks_per_source": {
+            "type": "integer",
+            "description": "Chunks are short content snippets (maximum 500 characters each) pulled directly from the source. Use `chunks_per_source` to define the maximum number of relevant chunks returned per source and to control the `raw_content` length. Chunks will appear in the `raw_content` field as: `<chunk 1> [...] <chunk 2> [...] <chunk 3>`. Available only when `instructions` are provided. Must be between 1 and 5.",
+            "minimum": 1,
+            "maximum": 5,
+            "default": 3
+          },
+          "max_depth": {
+            "type": "integer",
+            "description": "Max depth of the crawl. Defines how far from the base URL the crawler can explore.",
+            "default": 1,
+            "minimum": 1,
+            "maximum": 5
+          },
+          "max_breadth": {
+            "type": "integer",
+            "description": "Max number of links to follow per level of the tree (i.e., per page).",
+            "default": 20,
+            "minimum": 1,
+            "maximum": 500
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Total number of links the crawler will process before stopping.",
+            "default": 50,
+            "minimum": 1
+          },
+          "select_paths": {
+            "type": "array",
+            "description": "Regex patterns to select only URLs with specific path patterns (e.g., `/docs/.*`, `/api/v1.*`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "select_domains": {
+            "type": "array",
+            "description": "Regex patterns to select crawling to specific domains or subdomains (e.g., `^docs\\.example\\.com$`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "exclude_paths": {
+            "type": "array",
+            "description": "Regex patterns to exclude URLs with specific path patterns (e.g., `/private/.*`, `/admin/.*`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "exclude_domains": {
+            "type": "array",
+            "description": "Regex patterns to exclude specific domains or subdomains from crawling (e.g., `^private\\.example\\.com$`).",
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "allow_external": {
+            "type": "boolean",
+            "description": "Whether to include external domain links in the final results list.",
+            "default": true
+          },
+          "include_images": {
+            "type": "boolean",
+            "description": "Whether to include images in the crawl results.",
+            "default": false
+          },
+          "extract_depth": {
+            "type": "string",
+            "description": "Advanced extraction retrieves more data, including tables and embedded content, with higher success but may increase latency. `basic` extraction costs 1 credit per 5 successful extractions, while `advanced` extraction costs 2 credits per 5 successful extractions.",
+            "enum": [
+              "basic",
+              "advanced"
+            ],
+            "default": "basic"
+          },
+          "format": {
+            "type": "string",
+            "description": "The format of the extracted web page content. `markdown` returns content in markdown format. `text` returns plain text and may increase latency.",
+            "enum": [
+              "markdown",
+              "text"
+            ],
+            "default": "markdown"
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "description": "Whether to include the favicon URL for each result.",
+            "default": false
+          },
+          "timeout": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum time in seconds to wait for the crawl operation before timing out. Must be between 10 and 150 seconds.",
+            "minimum": 10,
+            "maximum": 150,
+            "default": 150
+          },
+          "include_usage": {
+            "type": "boolean",
+            "description": "Whether to include credit usage information in the response. `NOTE:`The value may be 0 if the total use of /extract and /map have not yet reached minimum requirements. See our [Credits & Pricing documentation](https://docs.tavily.com/documentation/api-credits) for details.",
+            "default": false
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object",
+        "components": {
+          "schemas": {
+            "ApiError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "headers": {
+            "RetryAfter": {
+              "description": "When present, the number of seconds to wait before retrying. Read the returned value; the delay can vary.",
+              "schema": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "example": 60
+            }
+          },
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "Bearer authentication header in the form Bearer <token>, where <token> is your Tavily API key (e.g., Bearer tvly-YOUR_API_KEY)."
+            }
+          }
+        }
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": true,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_research",
+      "title": null,
+      "description": "Создать исследование Tavily mini/pro/auto со схемой, четырьмя стилями ссылок, длиной и согласованными файлами. Сохранить request_id; затем получать прежнее задание через tavily_get_research.",
+      "inputSchema": {
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "The research task or question to investigate.",
+            "example": "What are the latest developments in AI?"
+          },
+          "model": {
+            "type": "string",
+            "description": "The model used by the research agent. \"mini\" is optimized for targeted, efficient research and works best for narrow or well-scoped questions. \"pro\" provides comprehensive, multi-angle research and is suited for complex topics that span multiple subtopics or domains",
+            "enum": [
+              "mini",
+              "pro",
+              "auto"
+            ],
+            "default": "auto"
+          },
+          "stream": {
+            "type": "boolean",
+            "description": "Whether to stream the research results as they are generated. When 'true', returns a Server-Sent Events (SSE) stream. See [Streaming documentation](/documentation/api-reference/endpoint/research-streaming) for details.",
+            "default": false
+          },
+          "output_schema": {
+            "type": "object",
+            "description": "A JSON Schema object that defines the structure of the research output. When provided, the research response will be structured to match this schema, ensuring a predictable and validated output shape. Must include a 'properties' field, and may optionally include 'required' field.",
+            "default": null,
+            "properties": {
+              "properties": {
+                "type": "object",
+                "description": "An object containing property definitions. Each key is a property name, and each value is a property schema.",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "object",
+                        "string",
+                        "integer",
+                        "number",
+                        "array"
+                      ],
+                      "description": "The type of the property. Must be one of: object, string, integer, number, or array."
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "A description of the property."
+                    },
+                    "properties": {
+                      "type": "object",
+                      "description": "Required when type is 'object'. Recursive definition of object properties."
+                    },
+                    "items": {
+                      "type": "object",
+                      "description": "Required when type is 'array'. Defines the schema for array items."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "description"
+                  ]
+                }
+              },
+              "required": {
+                "type": "array",
+                "description": "An array of property names that are required. At least one key from the properties object must be included.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "properties": {
+                "company": {
+                  "type": "string",
+                  "description": "The name of the company"
+                },
+                "key_metrics": {
+                  "type": "array",
+                  "description": "List of key performance metrics",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "financial_details": {
+                  "type": "object",
+                  "description": "Detailed financial breakdown",
+                  "properties": {
+                    "operating_income": {
+                      "type": "number",
+                      "description": "Operating income for the period"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "company"
+              ]
+            }
+          },
+          "citation_format": {
+            "type": "string",
+            "description": "The format for citations in the research report.",
+            "enum": [
+              "numbered",
+              "mla",
+              "apa",
+              "chicago"
+            ],
+            "default": "numbered"
+          },
+          "include_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "description": "Soft preference for sources. The research agent prioritizes these domains, but URLs from other domains can still appear in the final report. Matching is host-based and includes subdomains (e.g., `sec.gov` matches `sec.gov` and `data.sec.gov`). Maximum 20 entries.",
+            "default": [],
+            "example": [
+              "sec.gov",
+              "ec.europa.eu"
+            ]
+          },
+          "exclude_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "description": "Hard blocklist. No URL from a listed domain or any of its subdomains appears in the response. Subdomain matching is downward only — blocking `medium.com` also blocks `blog.medium.com`, but blocking `blog.medium.com` leaves `medium.com` itself allowed. Maximum 20 entries.",
+            "default": [],
+            "example": [
+              "reddit.com",
+              "quora.com"
+            ]
+          },
+          "output_length": {
+            "type": "string",
+            "description": "Typed control over response size. Ranges are targets, not hard caps — individual responses can fall outside when the question requires it.",
+            "enum": [
+              "short",
+              "standard",
+              "long"
+            ],
+            "default": "standard"
+          },
+          "files": {
+            "type": "array",
+            "description": "Attach files to the research request and the agent uses their contents as a source alongside the web. Each entry carries a filename and its base64-encoded contents. The agent reads the relevant parts of each file, grounds its answer in them, and cites any file it draws from.\n\nSupported file types: `.txt`, `.md`, `.json`.\n\nLimits: up to 5 files per request; max 80,000 words per text file; max 80,000 words combined across all files.",
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The filename, including its extension (`.txt`, `.md`, or `.json`)."
+                },
+                "data": {
+                  "type": "string",
+                  "description": "The base64-encoded file contents."
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The encoding of the `data` field.",
+                  "enum": [
+                    "base64"
+                  ],
+                  "default": "base64"
+                }
+              },
+              "required": [
+                "name",
+                "data"
+              ]
+            },
+            "example": [
+              {
+                "name": "q1-report.md",
+                "data": "<base64-encoded file contents>",
+                "type": "base64"
+              }
+            ]
+          }
+        },
+        "required": [
+          "input"
+        ],
+        "type": "object",
+        "components": {
+          "schemas": {
+            "ApiError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "headers": {
+            "RetryAfter": {
+              "description": "When present, the number of seconds to wait before retrying. Read the returned value; the delay can vary.",
+              "schema": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "example": 60
+            }
+          },
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "Bearer authentication header in the form Bearer <token>, where <token> is your Tavily API key (e.g., Bearer tvly-YOUR_API_KEY)."
+            }
+          }
+        }
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": null,
+        "idempotentHint": false,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_get_research",
+      "title": null,
+      "description": "Получить существующее исследование по request_id. completed/failed завершают ожидание; include_usage показывает расход.",
+      "inputSchema": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "description": "ID ранее созданного исследования"
+          },
+          "include_usage": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "request_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": true,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_research_stream",
+      "title": null,
+      "description": "Выполнить Research с потоком SSE. Сохраняет события в собственном профиле и возвращает содержание, источники и конечный статус. Файлы передаются только по согласованному составу.",
+      "inputSchema": {
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "The research task or question to investigate.",
+            "example": "What are the latest developments in AI?"
+          },
+          "model": {
+            "type": "string",
+            "description": "The model used by the research agent. \"mini\" is optimized for targeted, efficient research and works best for narrow or well-scoped questions. \"pro\" provides comprehensive, multi-angle research and is suited for complex topics that span multiple subtopics or domains",
+            "enum": [
+              "mini",
+              "pro",
+              "auto"
+            ],
+            "default": "auto"
+          },
+          "output_schema": {
+            "type": "object",
+            "description": "A JSON Schema object that defines the structure of the research output. When provided, the research response will be structured to match this schema, ensuring a predictable and validated output shape. Must include a 'properties' field, and may optionally include 'required' field.",
+            "default": null,
+            "properties": {
+              "properties": {
+                "type": "object",
+                "description": "An object containing property definitions. Each key is a property name, and each value is a property schema.",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "object",
+                        "string",
+                        "integer",
+                        "number",
+                        "array"
+                      ],
+                      "description": "The type of the property. Must be one of: object, string, integer, number, or array."
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "A description of the property."
+                    },
+                    "properties": {
+                      "type": "object",
+                      "description": "Required when type is 'object'. Recursive definition of object properties."
+                    },
+                    "items": {
+                      "type": "object",
+                      "description": "Required when type is 'array'. Defines the schema for array items."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "description"
+                  ]
+                }
+              },
+              "required": {
+                "type": "array",
+                "description": "An array of property names that are required. At least one key from the properties object must be included.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "properties": {
+                "company": {
+                  "type": "string",
+                  "description": "The name of the company"
+                },
+                "key_metrics": {
+                  "type": "array",
+                  "description": "List of key performance metrics",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "financial_details": {
+                  "type": "object",
+                  "description": "Detailed financial breakdown",
+                  "properties": {
+                    "operating_income": {
+                      "type": "number",
+                      "description": "Operating income for the period"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "company"
+              ]
+            }
+          },
+          "citation_format": {
+            "type": "string",
+            "description": "The format for citations in the research report.",
+            "enum": [
+              "numbered",
+              "mla",
+              "apa",
+              "chicago"
+            ],
+            "default": "numbered"
+          },
+          "include_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "description": "Soft preference for sources. The research agent prioritizes these domains, but URLs from other domains can still appear in the final report. Matching is host-based and includes subdomains (e.g., `sec.gov` matches `sec.gov` and `data.sec.gov`). Maximum 20 entries.",
+            "default": [],
+            "example": [
+              "sec.gov",
+              "ec.europa.eu"
+            ]
+          },
+          "exclude_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "description": "Hard blocklist. No URL from a listed domain or any of its subdomains appears in the response. Subdomain matching is downward only — blocking `medium.com` also blocks `blog.medium.com`, but blocking `blog.medium.com` leaves `medium.com` itself allowed. Maximum 20 entries.",
+            "default": [],
+            "example": [
+              "reddit.com",
+              "quora.com"
+            ]
+          },
+          "output_length": {
+            "type": "string",
+            "description": "Typed control over response size. Ranges are targets, not hard caps — individual responses can fall outside when the question requires it.",
+            "enum": [
+              "short",
+              "standard",
+              "long"
+            ],
+            "default": "standard"
+          },
+          "files": {
+            "type": "array",
+            "description": "Attach files to the research request and the agent uses their contents as a source alongside the web. Each entry carries a filename and its base64-encoded contents. The agent reads the relevant parts of each file, grounds its answer in them, and cites any file it draws from.\n\nSupported file types: `.txt`, `.md`, `.json`.\n\nLimits: up to 5 files per request; max 80,000 words per text file; max 80,000 words combined across all files.",
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The filename, including its extension (`.txt`, `.md`, or `.json`)."
+                },
+                "data": {
+                  "type": "string",
+                  "description": "The base64-encoded file contents."
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The encoding of the `data` field.",
+                  "enum": [
+                    "base64"
+                  ],
+                  "default": "base64"
+                }
+              },
+              "required": [
+                "name",
+                "data"
+              ]
+            },
+            "example": [
+              {
+                "name": "q1-report.md",
+                "data": "<base64-encoded file contents>",
+                "type": "base64"
+              }
+            ]
+          }
+        },
+        "required": [
+          "input"
+        ],
+        "type": "object",
+        "components": {
+          "schemas": {
+            "ApiError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "headers": {
+            "RetryAfter": {
+              "description": "When present, the number of seconds to wait before retrying. Read the returned value; the delay can vary.",
+              "schema": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "example": 60
+            }
+          },
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "Bearer authentication header in the form Bearer <token>, where <token> is your Tavily API key (e.g., Bearer tvly-YOUR_API_KEY)."
+            }
+          }
+        }
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": null,
+        "idempotentHint": false,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_usage",
+      "title": null,
+      "description": "Прочитать расход и предел собственного ключа/счёта. Не вызывать чаще десяти раз за десять минут.",
+      "inputSchema": {
+        "properties": {},
+        "type": "object",
+        "additionalProperties": false
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": true,
+        "openWorldHint": null
+      },
+      "_meta": null
+    },
+    {
+      "name": "tavily_logs",
+      "title": null,
+      "description": "Прочитать ограниченный журнал собственного ключа. Платная возможность; filter_by_api_key:true. Не отправляет отзывы и не меняет ключи.",
+      "inputSchema": {
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 10000,
+            "description": "Maximum number of logs to return, most recent first.",
+            "example": 100
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive start of the log window (YYYY-MM-DD).",
+            "example": "2026-08-01"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive end of the log window (YYYY-MM-DD).",
+            "example": "2026-08-07"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "search",
+                "extract",
+                "map",
+                "crawl",
+                "research"
+              ]
+            },
+            "description": "Only return logs for these endpoints. By default, logs for all endpoints are returned.",
+            "example": [
+              "search",
+              "research"
+            ]
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Only return logs for a single project."
+          },
+          "filter_by_api_key": {
+            "type": "boolean",
+            "default": true,
+            "description": "When `true`, return only logs for the API key provided in the Authorization header. When `false` (default), logs for all API keys under your account or organization are returned."
+          }
+        },
+        "type": "object",
+        "components": {
+          "schemas": {
+            "ApiError": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "Bearer authentication header in the form Bearer <token>, where <token> is your Tavily API key (e.g., Bearer tvly-YOUR_API_KEY)."
+            }
+          }
+        }
+      },
+      "execution": null,
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": null,
+        "idempotentHint": true,
+        "openWorldHint": null
+      },
+      "_meta": null
+    }
+  ],
+  "instructions": null,
+  "serverInfo": {
+    "name": "Hermes BN Tavily Full API",
+    "title": null,
+    "version": "1.0.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": null,
+    "resources": null,
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "extensions": null,
+    "tasks": null
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "step_limit": 1000,
+  "reserve_steps": 2,
+  "cost_limit": 1000,
+  "deadline": "2099-01-01T00:00:00Z"
+}

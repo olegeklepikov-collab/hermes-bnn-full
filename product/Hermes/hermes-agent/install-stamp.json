@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "commit": "d923a5eb487a17c0a68801bba9ef0f56c81040a8",
+  "commitDate": null,
+  "branch": "bnn-packaged-local",
+  "builtAt": "2026-10-27T21:33:19.516658+00:00",
+  "dirty": true,
+  "source": "local",
+  "distribution": null,
+  "updateMechanism": "external",
+  "baseVersion": "unknown",
+  "displayVersion": "git.d923a5e.bnn-r30",
+  "distance": 0,
+  "payload": "bootstrap",
+  "tag": null
+}

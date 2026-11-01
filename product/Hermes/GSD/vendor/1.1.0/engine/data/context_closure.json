@@ -1,0 +1,43 @@
+{
+  "version": "3.0",
+  "mandatory_sections": {
+    "G": [
+      "generative:L00045",
+      "generative:L01461",
+      "generative:L01824"
+    ],
+    "S": [
+      "strict:L00060",
+      "strict:L00459",
+      "strict:L00752",
+      "strict:L03237",
+      "strict:L03720"
+    ],
+    "D": []
+  },
+  "dependencies": {
+    "generative:GA-03": [
+      "generative:GC-C004"
+    ],
+    "generative:GA-08": [
+      "generative:GC-D001",
+      "generative:GC-D007"
+    ],
+    "generative:GA-09": [
+      "generative:GC-E005"
+    ],
+    "generative:GC-H009": [
+      "generative:GC-H010"
+    ],
+    "generative:GC-F002": [
+      "generative:GC-J001"
+    ],
+    "generative:GC-D001": [
+      "generative:GC-D005"
+    ],
+    "generative:GC-C001": [
+      "generative:GC-C008"
+    ]
+  },
+  "scope": "Явно объявленное нормативное ядро, точные выбранные операции, полный родительский контекст и перечисленные зависимости. Новая предметная зависимость добавляется до исполнения. Внешняя проверка S не загружается скрыто в G."
+}

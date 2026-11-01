@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GSD — заголовок передачи",
+  "type": "object",
+  "required": [
+    "id",
+    "payload_id",
+    "budget_reservation",
+    "sender",
+    "receiver",
+    "corpus_digest",
+    "payload_digest",
+    "context_digest",
+    "standard_digest",
+    "protocol_version",
+    "component_versions",
+    "payload_version",
+    "dependency_bindings",
+    "risk_floor",
+    "deadline",
+    "budget_amount",
+    "allowed_effects",
+    "residuals",
+    "input_status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\S+$"
+    },
+    "payload_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\S+$"
+    },
+    "budget_reservation": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\S+$"
+    },
+    "sender": {
+      "enum": [
+        "G",
+        "S",
+        "D"
+      ]
+    },
+    "receiver": {
+      "enum": [
+        "G",
+        "S",
+        "D"
+      ]
+    },
+    "corpus_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "context_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "standard_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "protocol_version": {
+      "const": "3.0"
+    },
+    "component_versions": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "enum": [
+          "G",
+          "S",
+          "D"
+        ]
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "payload_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "dependency_bindings": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^\\S+$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "risk_floor": {
+      "enum": [
+        "eMVP",
+        "MVP",
+        "Standard",
+        "eStandard",
+        "High Stakes",
+        "Critical Infrastructure"
+      ]
+    },
+    "deadline": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "budget_amount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "allowed_effects": {
+      "enum": [
+        [],
+        [
+          "local_analysis"
+        ]
+      ]
+    },
+    "residuals": {
+      "type": "object",
+      "required": [
+        "unsearched",
+        "unexplained",
+        "unknown",
+        "risk"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "unsearched": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "unexplained": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "unknown": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "risk": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "input_status": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    }
+  },
+  "additionalProperties": false
+}
