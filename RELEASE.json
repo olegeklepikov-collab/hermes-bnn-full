@@ -1,10 +1,10 @@
 {
   "contract": "HermesBNNFullReleaseV1",
-  "tag": "full-20261031-intake-0.14.3",
+  "tag": "context-refresh-20261101-r1",
   "platform": "macOS 26.5.1 arm64",
   "bundle_root": "Hermes-BNN-Full",
-  "Memory": "2.0.0-dev.44",
-  "Intake": "0.14.3",
+  "Memory": "2.0.0-dev.45",
+  "Intake": "0.14.4",
   "archive": {
     "name": "Hermes-BNN-Full.tar.gz",
     "bytes": 6233231783,
@@ -78,5 +78,29 @@
   "password_required": false,
   "suppliers_keep_their_own_signatures": true,
   "external_accounts_require_new_owner_setup": true,
-  "expanded_program_bytes": 12969912419
+  "expanded_program_bytes": 12969912419,
+  "base_tag": "full-20261031-intake-0.14.3",
+  "required_correction": {
+    "name": "Hermes-BNN-context-refresh-20261101.zip",
+    "bytes": 20310545,
+    "sha256": "bc36f1efd1781151e708c8b24e4b4d19ac1a172ea316987d6cb66dbd44b78404"
+  },
+  "current_composition": "base_plus_correction",
+  "base_archive_is_historical": true,
+  "qualification_current_correction": {
+    "Memory": "2.0.0-dev.45",
+    "Intake": "0.14.4",
+    "new_regressions": 14,
+    "existing_related_regressions": 101,
+    "real_Telegram_input_and_file_cycle": true,
+    "portable_install_on_separate_restored_copy": true,
+    "five_required_controls_registered": true,
+    "complete_pristine_inventory_objects": 239255,
+    "archive_extracted_and_checked": true,
+    "owner_data_or_credentials_in_update": false,
+    "another_physical_Mac_claimed": false,
+    "historical_full_acceptance_not_relabelled": true,
+    "unrelated_skill_read_policy_rejections_not_changed": true
+  },
+  "expanded_program_bytes_current_manifest": 12983988409
 }

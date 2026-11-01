@@ -1,3 +1,7 @@
+**Текущее обязательное дополнение:** [исправление контекста 20261101](updates/context-refresh-20261101-r1/INSTALL-UPDATE-RU.md). Полный комплект состоит из прежней основы и проверенного слоя dev.45/0.14.4. Скачивание: `bash download.sh /новая/папка`; рядом должен находиться `download-base.sh`. До первого `install.sh` выполните `prepare-kit` по инструкции.
+
+Ниже описана полная основа; выбор программ актуализируется обязательным дополнением.
+
 # Полная инструкция Hermes BNN с GSD, UDR, Foundation и Intake, редакция 2
 
 Репозитории: [открытый](https://github.com/olegeklepikov-collab/hermes-bnn-full), [закрытый](https://github.com/olegeklepikov-collab/hermes-bnn-full-private). Полный выпуск: [открытая загрузка](https://github.com/olegeklepikov-collab/hermes-bnn-full/releases/tag/full-20261031-intake-0.14.3), [закрытая загрузка](https://github.com/olegeklepikov-collab/hermes-bnn-full-private/releases/tag/full-20261031-intake-0.14.3). В обоих одинаковый программный комплект; достаточно одного.

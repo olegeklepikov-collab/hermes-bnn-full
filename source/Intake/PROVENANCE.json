@@ -1,11 +1,10 @@
 {
-  "version": "0.14.3",
-  "predecessor": "0.14.2",
-  "algorithm_code_unchanged": true,
-  "reviewed_changes": [
-    "component version",
-    "compatibility binding to qualified portable Memory 2.0.0-dev.44"
-  ],
+  "version": "0.14.4",
+  "predecessor_full": "0.14.3",
+  "predecessor_module": "0.14.2",
+  "Intake_algorithm_code_unchanged": true,
+  "Memory_control_correction_files": 3,
+  "memory_version": "2.0.0-dev.45",
   "owner_state_included": false,
-  "new_qualification_required": true
+  "compatibility_is_instance_bound_at_install": true
 }

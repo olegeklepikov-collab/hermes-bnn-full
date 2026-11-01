@@ -11,7 +11,7 @@ import sys
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).resolve().parent/'Hermes');p.add_argument('--stopped',action='store_true');a=p.parse_args()
     root=a.root.resolve(strict=True);settings=root/'Memory/settings.json';cfg=json.loads(settings.read_text())
-    sys.path[:0]=[str(root/'Intake/0.14.3'),cfg['package_root'],str(root/'hermes-agent')]
+    sys.path[:0]=[str(root/'Intake/0.14.4'),cfg['package_root'],str(root/'hermes-agent')]
     from bnn_intake.deployment import stopped,write,enroll
     from bnn_intake.recovery import optional_stopped
     from bnn_intake.bootstrap import verify_native

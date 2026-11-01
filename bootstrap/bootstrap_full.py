@@ -50,7 +50,7 @@ def initialize_services(bundle):
 
 def install_intake(bundle):
     root=bundle/'Hermes';source=bundle/'Intake';cfg=json.loads((root/'Memory/settings.json').read_text());python=root/'hermes-agent/venv/bin/python'
-    package=source/'packages/hermes_bnn_intake-0.14.3-py3-none-any.whl';manifest=json.loads((source/'packages/manifest.json').read_text());library=root/'Intake/0.14.3'
+    package=source/'packages/hermes_bnn_intake-0.14.4-py3-none-any.whl';manifest=json.loads((source/'packages/manifest.json').read_text());library=root/'Intake/0.14.4'
     library.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
     subprocess.run([str(python),'-B',str(source/'packages/unpack.py'),'--wheel',str(package),'--expected-sha256',manifest['wheel_sha256'],'--target',str(library)],check=True)
     env={k:v for k,v in os.environ.items() if k in ['HOME','PATH','TMPDIR','LANG','LC_ALL']}
@@ -61,7 +61,7 @@ def install_intake(bundle):
     (root/'state/full-intake-install.log').write_text(run.stdout+run.stderr)
     if run.returncode:raise RuntimeError('fresh_intake_install_failed_inspect_own_log')
     receipt=json.loads(run.stdout.splitlines()[-1]);save(root/'state/full-intake-install.json',receipt)
-    return {'version':'0.14.3','installed':True,'one_existing_common_Host':True}
+    return {'version':'0.14.4','installed':True,'one_existing_common_Host':True}
 
 
 def initialize(bundle):
@@ -76,7 +76,7 @@ def initialize(bundle):
 def verify(bundle):
     from neutral_prepare import verify as base_verify
     result=base_verify(bundle);root=bundle/'Hermes';cfg=json.loads((root/'Memory/settings.json').read_text())
-    sys.path[:0]=[str(root/'Intake/0.14.3'),cfg['package_root'],str(root/'hermes-agent')]
+    sys.path[:0]=[str(root/'Intake/0.14.4'),cfg['package_root'],str(root/'hermes-agent')]
     from hermes_cli.plugins import discover_plugins,get_plugin_manager
     from hermes_cli.execution_control import authorize,ExecutionControlDenied
     discover_plugins();manager=get_plugin_manager();entry=manager._plugins['bn-common-memory']

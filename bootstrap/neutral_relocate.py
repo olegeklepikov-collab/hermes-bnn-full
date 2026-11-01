@@ -42,7 +42,7 @@ def run(bundle,old_root,refresh_original=False):
    try:text=raw.decode('utf-8')
    except UnicodeDecodeError:continue
    new=replace_paths(text,mapping)
-   if relative.startswith('Memory/releases/2.0.0-dev.44/'):
+   if relative.startswith('Memory/releases/2.0.0-dev.45/'):
     continue
    if relative.startswith(tuple(signed)):
     if new!=text:blocked.append(relative)

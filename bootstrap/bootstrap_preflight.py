@@ -5,7 +5,7 @@ import platform
 from pathlib import Path
 
 B=Path(__file__).resolve().parent
-pin=json.loads((B/'Hermes/Memory/releases/2.0.0-dev.44/compute-runtime.json').read_text())
+pin=json.loads((B/'Hermes/Memory/releases/2.0.0-dev.45/compute-runtime.json').read_text())
 if platform.system()!='Darwin' or platform.machine()!='arm64':raise SystemExit('Requires native macOS Apple Silicon')
 if platform.mac_ver()[0]!=pin['os_release']:
     raise SystemExit('Compute isolation is qualified for macOS '+pin['os_release']+'; this OS requires separate qualification before execution')

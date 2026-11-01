@@ -1,10 +1,10 @@
 {
   "contract": "BNNIntakeDistributionV1",
-  "version": "0.14.3",
-  "wheel": "hermes_bnn_intake-0.14.3-py3-none-any.whl",
-  "wheel_sha256": "7df170543e6f8acfcf2c275e9b31e44943f01871006ee36a1b92f8103807646f",
+  "version": "0.14.4",
+  "wheel": "hermes_bnn_intake-0.14.4-py3-none-any.whl",
+  "wheel_sha256": "0c9f66027028330f39fb2c9789f766fca59168d526a96b0c9afdb1436be60b4a",
   "members_sha256": {
-    "bnn_intake/__init__.py": "b63f4debbfa2579eadd871f9c0c23de47c12d949edca65982800303353192475",
+    "bnn_intake/__init__.py": "ee0ce844d660afe39e019b6c082d81b979f631f2ee2e42e052b94fe19ea732b5",
     "bnn_intake/acceptance.py": "7e111f2a267c0f7bce28aac11574bb4b1d4b3c2ab2c230261fff0ebeb23018cc",
     "bnn_intake/activation.py": "a3c71bacd376fec0f5897d88bf0934e432413e74d67799c34eacfe7e3fe1d987",
     "bnn_intake/adapter.py": "4df082e9699479859473c9f2dbb9efe59af8cae8c01030d05b781e5870696bdb",
@@ -36,15 +36,15 @@
     "bnn_intake/storage.py": "a1d1f03117838dc107bc1927cfe22e6d0e688450c4b20120dd67c5ce45250788",
     "bnn_intake/visuals.py": "cc813c6831fc4423be225d3a21777c7da9e7a68b725f71a4eb22897fa2f56b65",
     "bnn_intake/data/framework-catalogue.json": "f1021dbe6750ed80c925b5c3ced5178a9e518753d16f11b0150131bf5d24b9cc",
-    "bnn_intake/data/native-compatibility.json": "80b94579c069cae3d9da68879e0c2bdd5c774dcf1f5c4fd2c4f99436e5d15518",
-    "hermes_bnn_intake-0.14.3.dist-info/METADATA": "38dc85ee9c033b44dd265a53558bc74ae2beed304e1af2a992c24b9dbfbbdc44",
-    "hermes_bnn_intake-0.14.3.dist-info/WHEEL": "2b6eb4118ce7cd7b09601406aa623c553c4476265836f0d9c16f5c061f7efcc0",
-    "hermes_bnn_intake-0.14.3.dist-info/top_level.txt": "b7139d41c3101710ee16c21601e7dc6351777504936f3f4df49809c988783a54",
-    "hermes_bnn_intake-0.14.3.dist-info/RECORD": "b088325f337738e9424a42d79445e4b9e95257c642959d43cfe6a0de5976c133"
+    "bnn_intake/data/native-compatibility.json": "8523ec3a78737a73f7792e9b7204aa971358abed331be6df8fd2a97b12e82187",
+    "hermes_bnn_intake-0.14.4.dist-info/METADATA": "be287908bf068c36787cf504f4ca5b8fe389e20ac6b98a2aa47761bd11072998",
+    "hermes_bnn_intake-0.14.4.dist-info/WHEEL": "2b6eb4118ce7cd7b09601406aa623c553c4476265836f0d9c16f5c061f7efcc0",
+    "hermes_bnn_intake-0.14.4.dist-info/top_level.txt": "b7139d41c3101710ee16c21601e7dc6351777504936f3f4df49809c988783a54",
+    "hermes_bnn_intake-0.14.4.dist-info/RECORD": "d712ab9d4c58a555089b660163de12204135d10052277dc2891600bee343f3f3"
   },
   "profile_data_included": false,
   "credentials_or_identity_included": false,
   "Hermes_or_native_dependencies_included": false,
   "requires_qualified_native_installation": true,
-  "qualified_pair": "Memory 2.0.0-dev.44 portable full platform"
+  "distribution_variant": "portable-macos-arm64"
 }

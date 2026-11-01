@@ -42,7 +42,7 @@
     "R/scripts",
     "Services",
     "Development",
-    "Memory/releases/2.0.0-dev.44",
+    "Memory/releases/2.0.0-dev.45",
     "Intake",
     "ASReview/runtime"
   ],
@@ -109,5 +109,5 @@
     "data/plugins/bnn-memory-checkpoint/__init__.py",
     "environment.sh"
   ],
-  "source_root": "/Volumes/AgentRuntime2/active-runtime/Hermes BNN"
+  "source_root": "__HERMES_ROOT__"
 }

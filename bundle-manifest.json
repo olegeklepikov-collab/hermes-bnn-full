@@ -29,19 +29,19 @@
       "mode": 420,
       "type": "file",
       "bytes": 6870,
-      "sha256": "5f90519d484c175547891a3d5d9a0e7616e826ebcb53a79fa3c90315ce4cb255"
+      "sha256": "fa680494f7dc421db4879cb22e208993dee344413d6a400530d7d9c0c14b8cbd"
     },
     "bootstrap_preflight.py": {
       "mode": 420,
       "type": "file",
       "bytes": 1333,
-      "sha256": "249084fb6eb6beb4ee320b28736c874595136216f80248726ef720f03b1d6c01"
+      "sha256": "60d344700a0ac3df2779919d398a2c499157234dc173fa4a839b9592f3df5623"
     },
     "neutral_relocate.py": {
       "mode": 420,
       "type": "file",
       "bytes": 4467,
-      "sha256": "a87be0d271f8a0a6a07db060c72c43b7a19d28ee1daf1df218cb663b91e94fa9"
+      "sha256": "c53afcaa5348ce4c1d791fd5016da33cfddcd1a6888e6d462135fd9e2b1261e9"
     },
     "install.sh": {
       "mode": 448,
@@ -95,7 +95,7 @@
       "mode": 420,
       "type": "file",
       "bytes": 2462,
-      "sha256": "9ec4907f81c3e86bcc38c6aba4c0e19f07693c388d6fe747e3f572b9eb3c0972"
+      "sha256": "158d5773e154e6dbb1d805ebb3fd50a1957ded8a10b965f3ced9b824bf458236"
     },
     "configuration/external-native-pins.json": {
       "mode": 420,
@@ -107,19 +107,19 @@
       "mode": 420,
       "type": "file",
       "bytes": 402,
-      "sha256": "b244f8d9065edc61d03838e6198363ad3200e5c8e5d3c9f524c3a999486e7aa1"
+      "sha256": "a078f9c822e18086111054c43d46ac78df5b164b0ad580042add268ec0d143da"
     },
     "configuration/memory.template.json": {
       "mode": 384,
       "type": "file",
       "bytes": 1450146,
-      "sha256": "48ad49b170b794376f72a318c72af79ba18bf29505ce00169fd3b6709d924518"
+      "sha256": "8c0e695141efc0c9eada4ff6ea9611244bec097724f6429ffd28efaca79917f6"
     },
     "configuration/runtime-source.json": {
       "mode": 384,
       "type": "file",
       "bytes": 1165,
-      "sha256": "82dfcb7aee0cecc2cd7ae680136985fdea11fe0867f4ebd7412e887fdc8ca889"
+      "sha256": "d8a4c1783f46bbf3292bf7c30323e2f0df87c06b4bed7d65a098872707c2b39e"
     },
     "configuration/services.template.json": {
       "mode": 420,
@@ -130,8 +130,8 @@
     "configuration/copy-plan.json": {
       "mode": 384,
       "type": "file",
-      "bytes": 3039,
-      "sha256": "80c230e99e6bb58c803ce72b1cbda83e5329ea54669764a30cd0ea05e0d752e5"
+      "bytes": 3006,
+      "sha256": "21b76c3f5fc7640002c54a7d829162e51d2abb5deaa5b3b360cb86eea9f6ee44"
     },
     "configuration/gsd.template.json": {
       "mode": 384,
@@ -160,14 +160,14 @@
     "docs/OPERATIONS.md": {
       "mode": 420,
       "type": "file",
-      "bytes": 16529,
-      "sha256": "beb2d5af97c5fe396e1a7c3d2921911f6c71d52675ceedc884b0c7514fde6a94"
+      "bytes": 16695,
+      "sha256": "445288c65dca865c9ed4184341fa2586893ba14fb1a0a545f613433af52952af"
     },
     "docs/COMPONENTS.md": {
       "mode": 420,
       "type": "file",
-      "bytes": 5106,
-      "sha256": "47cd03c5cdd45c45fb5602495e0aa10a70f33c8ccfadd52dee6c786fdbd52d8c"
+      "bytes": 5272,
+      "sha256": "391ba860f272ecc8d65fca86edc7cc81a5a827355eb1f7b6a0bc4887908d27ce"
     },
     "docs/VERIFICATION.md": {
       "type": "file",
@@ -178,14 +178,14 @@
     "docs/SERVICES.md": {
       "mode": 420,
       "type": "file",
-      "bytes": 11636,
-      "sha256": "7f047466c5b8a4a20f196b44f32b0fc25db1fa195ef11dab13ad3def05306da2"
+      "bytes": 11802,
+      "sha256": "aca8e8ec4fa76f2656618273fdb9d7eb0739e16f64c8fe7f5e09836ad9a34ea5"
     },
     "docs/INSTALL_MACOS.md": {
       "mode": 420,
       "type": "file",
-      "bytes": 19225,
-      "sha256": "97a0e0805dba480fef2e22b4ead3e83ac6821bc30de6add0149854e8a09554bb"
+      "bytes": 19391,
+      "sha256": "35ef101889899d037beeb80aeea8cca637d0d9868ecf40ce52b9dfb2b9c8f2df"
     },
     "docs/VERIFICATION.json": {
       "type": "file",
@@ -196,8 +196,8 @@
     "docs/BACKUP_RECOVERY.md": {
       "mode": 420,
       "type": "file",
-      "bytes": 7449,
-      "sha256": "327f508ac33514223dd53c59b45dfb0d0dac0c1a42375114739c83cad56cfc45"
+      "bytes": 7615,
+      "sha256": "ba063d4776fcd002371e3ad9f91574bb554e9f8cfe2d72a9ee86b3e3422da8eb"
     },
     "docs/SERVICE_CATALOGUE.json": {
       "mode": 420,
@@ -250,40 +250,40 @@
       "type": "directory"
     },
     "Intake/PACKAGE-MANIFEST.json": {
-      "type": "file",
       "mode": 420,
-      "bytes": 165,
-      "sha256": "f9860ac4336f206b2486cd5e318768118319180a82990fd161e162cf3bb0c034"
+      "type": "file",
+      "bytes": 10068,
+      "sha256": "e27cae65dbe87deda07fc5feeb00f3a4a54366b89873b6fdd86e57a526cdbdc2"
     },
     "Intake/PROVENANCE.json": {
       "mode": 420,
       "type": "file",
-      "bytes": 284,
-      "sha256": "8663fdc79b7e61bff953b44eafee1a0b03a4eae048db2dd380afb96e66c9bca2"
+      "bytes": 298,
+      "sha256": "a4d1cb848cf681606d89dc6b059997f9c273cfde49055486ae46331c658bda17"
     },
     "Intake/INTEGRATION.md": {
-      "type": "file",
       "mode": 420,
-      "bytes": 32300,
-      "sha256": "871b53703fab57008e11750bacf31b425dfbb4796bb90928c4fd67750da122eb"
+      "type": "file",
+      "bytes": 32910,
+      "sha256": "a1bff52bb7f7e64ad8b4c3da6e56cb4ca2ac611c74a32efb64dc3d6fa2d94f80"
     },
     "Intake/pyproject.toml": {
       "mode": 420,
       "type": "file",
       "bytes": 474,
-      "sha256": "876af1e6d5da69586e751efe0b8030e66953e30942217578e44c4e2e7bcfcd38"
+      "sha256": "898eb576ae8fad56a7bce645be7df573e9ff1d13a7e58b1c70fe0dd4aef55d9b"
     },
     "Intake/README.md": {
       "mode": 420,
       "type": "file",
-      "bytes": 2047,
-      "sha256": "6327a88a45876b61380dee07407750fe20a2508236ffc496b032894136fc6271"
+      "bytes": 2657,
+      "sha256": "e892e6733cb283d8ba8226494d556825d9107049f5bd25728b5acd80c8a0d523"
     },
     "Intake/PAYLOAD-SHA256SUMS": {
-      "type": "file",
       "mode": 420,
-      "bytes": 81,
-      "sha256": "f286e005dfd74059a74f8d47e2d7314e38e11f5b78e30209c8310aafb348baa6"
+      "type": "file",
+      "bytes": 9086,
+      "sha256": "b90c2559ca9c3badf6a4de36d776d622b7b5de78a23087a9da9c0bd616ffce98"
     },
     "Intake/requirements-dev.txt": {
       "mode": 420,
@@ -319,13 +319,13 @@
       "mode": 420,
       "type": "file",
       "bytes": 1120,
-      "sha256": "c1992e2043218bd43c66d1d4ad51d2f549ad3a19c2c34b7565ad06703daf1e01"
+      "sha256": "a1eb3799dabd5f2b0acb7e57dd8e240238c192940fa8af2818afa2c8f4d53dd3"
     },
     "Intake/tools/check_compatibility.py": {
       "mode": 420,
       "type": "file",
       "bytes": 1356,
-      "sha256": "3e2e788ff1b6befc5f433725f34e84d0506263e1747c113aa4cd9faa69976562"
+      "sha256": "67546163b2001fcd244e8bba1ff749300ef6e8173189e25b08fb6dcbff8218fe"
     },
     "Intake/tools/run_native_tests.py": {
       "mode": 420,
@@ -572,14 +572,14 @@
     "Intake/docs/VERIFICATION.md": {
       "mode": 420,
       "type": "file",
-      "bytes": 3118,
-      "sha256": "d2ccf80f6b24df7d1d07b404a6cd0a691740b2bc101723420837a4c568f16c06"
+      "bytes": 3856,
+      "sha256": "7b57f66c9e2578a412b980ebc17723403d5978623fc369b5c3f94a6403178e28"
     },
     "Intake/verification/VALIDATION.json": {
       "mode": 420,
       "type": "file",
-      "bytes": 1059,
-      "sha256": "3d019114f6e5c7590d6a95c85c69daef779d685cefbf40840802614f1c5f3a08"
+      "bytes": 1393,
+      "sha256": "4b23b7b2836d47652fb3bafb838aa8bb2afd3e8b2ce09392321d1cef247898f3"
     },
     "Intake/provenance/predecessor-PAYLOAD-SHA256SUMS": {
       "mode": 420,
@@ -632,8 +632,8 @@
     "Intake/packages/manifest.json": {
       "mode": 420,
       "type": "file",
-      "bytes": 4274,
-      "sha256": "9d7815f0ae29020960db99425e6b138558ebe2c127a9d0993f79904f1b7dc72a"
+      "bytes": 4258,
+      "sha256": "12513a0106671023f328c24962555608525cce25e4c3e3d7eee875e36c1ad13e"
     },
     "Intake/packages/unpack.py": {
       "mode": 420,
@@ -985,7 +985,7 @@
       "mode": 420,
       "type": "file",
       "bytes": 112,
-      "sha256": "b63f4debbfa2579eadd871f9c0c23de47c12d949edca65982800303353192475"
+      "sha256": "ee0ce844d660afe39e019b6c082d81b979f631f2ee2e42e052b94fe19ea732b5"
     },
     "Intake/src/bnn_intake/engine.py": {
       "mode": 420,
@@ -1075,7 +1075,7 @@
       "mode": 420,
       "type": "file",
       "bytes": 2075,
-      "sha256": "80b94579c069cae3d9da68879e0c2bdd5c774dcf1f5c4fd2c4f99436e5d15518"
+      "sha256": "8523ec3a78737a73f7792e9b7204aa971358abed331be6df8fd2a97b12e82187"
     },
     "Intake/src/bnn_intake/data/framework-catalogue.json": {
       "mode": 420,
@@ -1368685,11 +1368685,1477 @@
       "type": "file",
       "bytes": 105066342,
       "sha256": "67f6eea4ced4ce48f0a0d4fa3a1cac43d1859a05a88993ee3dff7c52e7edbc4b"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/compute-runtime.json": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 498,
+      "sha256": "2d35326adc82443b810931770d3463850ea2fb4dc1818648685ae88253149123"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/parser-runtime.json": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 493,
+      "sha256": "5e53dcc14e81a966d79fdb98cc816956ee465d6908f0aa9e7fe8aaf9ee134ed4"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/release.json": {
+      "mode": 384,
+      "type": "file",
+      "bytes": 10887,
+      "sha256": "b1b1969ec0a305545d26b3029a90aed715a6e09436110ae214369d273ecf82fa"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/manifest.json": {
+      "mode": 384,
+      "type": "file",
+      "bytes": 22202,
+      "sha256": "42bfef3263a322f96a53b7a72a66834d077b2ad3b47998f70545d9544fe94658"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/vision-ocr.swift": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1333,
+      "sha256": "fb472df1475fc53bb769db51eaa7e7eebb702a3ad990132b9b4d7c361c9c235c"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/vision-ocr": {
+      "mode": 493,
+      "type": "file",
+      "bytes": 92456,
+      "sha256": "307d399a93f13559092859ebf4210d41b228d103d6061541b72b4358a7890e89"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/Обновление.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1599,
+      "sha256": "604d6f7ae3f18bc537522dad4f2075f5d4420b7458e9d735c11b7906ce85a2d6"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/work_status.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 7878,
+      "sha256": "4741d7e038b0b61cc80f8ff89cfec507f7e72e2942ccb0ef214c0d94c31d2184"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/record_metadata.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6261,
+      "sha256": "cf7cc8044fd0828bb577972b6b9fc0c3457766b3c5243e14446a4aa6b039d576"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/migration_v2.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 8202,
+      "sha256": "a91fc3c7b4de5747e04754fab0398669015487984987e7e73db46b18ee7545fd"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/intake.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2260,
+      "sha256": "8d7180771d687c76b5e93fd6e9101da493a2e8994454f6ffaa68a3287fbb6bcb"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/auxiliary_admission.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4644,
+      "sha256": "2d0d29e1fef5344433b39d9c8413d9e212bd84689d416f7f26275edbcd89c026"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/store.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 26076,
+      "sha256": "099bef1defe8ac1a8ab8aff71b7d671cb18f33837e64a531e648145eb859c52d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/data_version.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3807,
+      "sha256": "9950399b6566078bded26f63f098d7f12402abc4d8567aa6d656331909d3a58a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/public_lookup.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1254,
+      "sha256": "26fc328ae30856249e68021ea167b73d4349b63c99c198d4da645b31fe2f1d98"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/research_providers.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 8371,
+      "sha256": "2a768c172cfee947ec75f1411e1e0e3f441666d612950e5e2d62b9f784128079"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/server.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2902,
+      "sha256": "b3c5fbfa846e251dd6b059dc615ce025e3f66bf61d0d5bc0cd9fa85cf6e17d7d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/library.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5744,
+      "sha256": "72db9495d038733e98dde05c653d5b1609334e6dd710f69be6691f56aa494c01"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/recovery.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 8913,
+      "sha256": "63c0a7cdf61c42bf772a69cc5e055a5822c91b43baa83c94f447a2c48f95ecab"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/path_relocation.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1487,
+      "sha256": "982f1f2f7be117c7b223c237d4e6b48e59ef83279424da8ae21492dc9a51358f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/service_engine.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 30220,
+      "sha256": "0ee6f8291a079f0a2cec13ade0021615b0d9e4ec15c391198ff61596626776e1"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/checkpoint.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 8437,
+      "sha256": "974ac5513f6eaebd739b06ae6bffdf4d0d17b3eac642da22af447444ddf8d7f7"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/report_revision.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5155,
+      "sha256": "cf70b5a29c4367058069220aa5667c076f82ea74f1e4c34d60909230a5eed9a8"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/service_sandbox.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2025,
+      "sha256": "1b37356a3148579c0eefaf5b32cd221aba5d35c00a9cdf5981abb443977d7ab5"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/artifact_create.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3184,
+      "sha256": "99b6e8aef7828a253939bfb2cdec9d9ddf44ecce8123e9fbdd41ac2547562721"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/source_visibility.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 9066,
+      "sha256": "3b5601e23a5d0c1777c1f3b1bbddc57ad1540e6f9a46ebff4be470e0bf9e09f5"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/context_v2.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3431,
+      "sha256": "233ba569e0a253d7737b4a491441d4c9a99c0e75a25129efedd4b13badbb0f38"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/projection_observe.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4447,
+      "sha256": "d84df2439d90afbae9333d36de2ae1ffa41d6ebd68e535c30bf59b9481318ec8"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/isolated_runtime.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6361,
+      "sha256": "7df59e5bbd68e8ced5c770ad5fe365f05ef1ec4cc7514cd77c86d56e77be463f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/parser_host.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 17058,
+      "sha256": "96a97ad6ab57af66cfb45b20e735d5eefb070c93cde0b0a31c36bf226bb4b2a1"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/documents.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 24772,
+      "sha256": "d9e603b2e46ddb7836d2b470a8b8d0e023622f11192cf0b47f0432c2b9897752"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/test_knowledge.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6445,
+      "sha256": "bf827d64a07180653949f5be1ab1f50be4f9e27133f14fc4f453da86bfc86e81"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/task_authority.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4293,
+      "sha256": "b7884cc8d2d7a08239f8ef0616da3415d8b0d075fa5748bc97b896df1dc7f66f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/team_context.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4521,
+      "sha256": "69f31927779f055c8c953ca33757af16269690cf04336dc7a46409ec210dc23b"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/gsd_compute_proofs.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1748,
+      "sha256": "617c020470f9605f9752e0fa9c2b6bd392e2fbe97aee0daeefa6f31008233cd2"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/teams.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 19321,
+      "sha256": "2198819188d9b0fbed7fc517d7b70fb5557da55d879464585018da15c7b268b6"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/embedding_gateway.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4240,
+      "sha256": "28382ba311309844aefa2143da1d520554a1d0208b4b9369d61fad81a5eb3581"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/model_accounting.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4860,
+      "sha256": "7d54f973e8c4f1beccb5b2266cea16e91924da8be1a7765a0a2c440e4cc64021"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/__init__.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 52,
+      "sha256": "d6087d073f570a75bdddec3d7725dcfbe4c3e0ea90aad859441b38a51caf0498"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/working_beads.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2201,
+      "sha256": "69f3cc1e2ccf5d1c563200d2ea59181d6d73bcfb6c3425cbd9e54247b60c27a6"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/test_host.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 7793,
+      "sha256": "28e8a714bad81f58237d81ecabb185a491b1b991c8f40638c3e32746c4a7d8c5"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/module_tools.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1705,
+      "sha256": "48b984d3f3ea1785f050c5817db6796864fd9c73f49a9c6df568f4d1c38ebb5b"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/source_visibility_cli.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1716,
+      "sha256": "4ced526b675e2c8fbc251d5b13f8407d3389fc2dbb9b39feebc9108a68adcd28"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/document_worker.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 24494,
+      "sha256": "54ae0ffe42cd79fb21f86b21c055bfb45e3f2ce0cc0b58f891e711552f1b539d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/rpc_admission.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5776,
+      "sha256": "6c2b198e35dae12c08da73a1f2ba6d2e3c8f4867b6b467171152e7acf8084a93"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/compute_worker.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2370,
+      "sha256": "c0685f8faac693099a43ee1d6cd63fe1517803bba5b45dd7afc6b84584c20445"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/test_store.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4821,
+      "sha256": "c3f5c250a269bb3eb086e0e7db705716887d24efbcb5f8db4e00ee4f3700362d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/backend_policy.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5361,
+      "sha256": "563e3fc856529aaaf375b58541b3659a65202b510951bbc13d96b2741c0c2c36"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/working.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 17247,
+      "sha256": "934f55fd6d4e9c1cd17b76db9fd1324428c6585de26902467e2fb1c8ea479503"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/action_catalog.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6743,
+      "sha256": "4c281279e812a4e8486bc5fe5dcf524f951230443b0d4289e3736c3e410e29a1"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/service_files.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 8925,
+      "sha256": "e7568cd12920f7e6fdefdb117c8c8cbff2440d40539576aa6ea80fa0bc3a9e09"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/action_retry.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4632,
+      "sha256": "445a7d999bdb64b0eacacd30df38592fdc68a80f6bc2397ecfd843eb26b77299"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/embeddings.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6884,
+      "sha256": "594287025c56e2a9ad9e26301c19210b76d78e8daf92d34aab4f218add3843f7"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/source_index.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 18867,
+      "sha256": "18fea8fdd4c32222f32748054b1d7f1e2669d7760bd765dd319a62a791b6f7b9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/schemas.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 22781,
+      "sha256": "75c9059c17d324b1108773e1240157085f1809e5b44c4a196cde71fd38ea18f4"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/cognee_worker.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 15364,
+      "sha256": "6f4d2e7263dd82425f7cba870a273ddec35ed93270ced2657ce8a964c2ff7516"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/source_policy_scope.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 9628,
+      "sha256": "1b779b0aca1f6205ce82324f23744c9c301c63d985fb74be11bca4dc7b49ebf4"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/service_delegation.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1740,
+      "sha256": "59bb0ce76881686507f652ab2e9bde8746e3bd69b9507fcdb9e4ab335ebd944b"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/action_review_cli.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2813,
+      "sha256": "82a47d96c5cffa1bd2fd4887181e37aac3df21f13dbe587a6d36f26842320697"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/parser_cli.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 960,
+      "sha256": "701e7e42b2304e0a550c592acf6d1d7cbe08dd44ffdb340c0874e04a6462efcb"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/telegram_delivery.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3628,
+      "sha256": "9112e4910aa2eaacbd2728e75e5dd5280e9efb93bfa53339648e46af8ed0bf78"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/retrieval.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 11764,
+      "sha256": "9c53d1c865a76701a858bd861111149685270fa9b5437a3c3975adb3bdfb79a1"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/plugin.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 37028,
+      "sha256": "0a873eb2897c4b08af0a24e0717df860ec71b890c8dd85228f93bb59f015ee96"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/vector_visibility.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2244,
+      "sha256": "be83a789a91ca8468d67a946dd092ddebc2fe5905a005b29a804a825a8ce39a6"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/packet.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5035,
+      "sha256": "82c29674e5bc3aa26c8c60859bc9e6e52ae667c8e19d5bea4b59b259c2abd476"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/admission.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 17080,
+      "sha256": "3848227c33dca6be3f24d9d0d27f50813611c46ca54e432bf3e3b4a674483ae7"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/write_origin.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1063,
+      "sha256": "e5c220acc6b60c97420b381d56d9abfb637e4c8a6ecc78088d51ca77b54c9246"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/modules.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 11314,
+      "sha256": "86a1fe461c22788ccaf54729faeb5521a53f057cc91cba04df825306be0eaf37"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/artifacts.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 11582,
+      "sha256": "4a6f2dd782a97465fac7a726f6e395cbad2a1715a16f9006f8db6dfd2e8b0d1f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/embedding_cache.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1779,
+      "sha256": "d647a099b4ce00d54a57ca1440ecfda12c24c105dfa4fd689afa713510f41236"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/research_module.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 27433,
+      "sha256": "e99a709a363d0e9589c355d32e9787cad6355c5de727f96b9444cff594815efb"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/workers.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 19210,
+      "sha256": "b73b715ff36682849da55d109e0e17d7421daa7df8849e004cb644057b338612"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/namespace.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4379,
+      "sha256": "2cdd556aca9232f8cd6b5ca977e7dd4c4ba5fc404e8b51aedaf3f41cf1afc721"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/broker.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 20963,
+      "sha256": "e2a689ce7a6347d3840ca6323012e9a88654944c5626d5f8b68a939a11b411e7"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/service_r_versions.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1805,
+      "sha256": "d230238c50c3e8067b3fb5681fede91c56473e1a609beff7b8730d5177cc7e3f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/action_review.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 17311,
+      "sha256": "5b354385ecb5395b61597ecc5227f5afd85c336885fd74432ef156d88b080147"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/read_adapter.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2623,
+      "sha256": "5c9774fef6ac1c13d1b50cc618a1d65e4d04f7dee7ae412bb95884c4250b61ef"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/identity_adapter.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5802,
+      "sha256": "0080335f6ea506b95cae4b9bc182a373a3dacba4948b28489239c3acda90aa10"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/source_fts.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5213,
+      "sha256": "f3b16d93ad4a45f4213f4ebea3ee5b9836afd1c5d268fa99c816740afe4d6ca2"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/continuity.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3986,
+      "sha256": "1987a2864fa1f39a8e589a8ecdc94ed20f953fa303ee9a7272bbebcd58a272e6"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/action_control.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 12696,
+      "sha256": "ea4912cf57648eaccfcfc8c1b35d5508eb49a4f877f711a8e715c3d0e42fde63"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/service_pool.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4789,
+      "sha256": "0cb176764ebd41870f3aa79150a1201d1e47a279d8614a7f15938767fc4ecda3"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/knowledge.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 22778,
+      "sha256": "e13c5128e3ad58a2df5cd92bc7c8f112bc37ea8f4e72015f8ede95ee99a31b4a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/envelope.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6173,
+      "sha256": "b4b91ce06ac08b3e506d1b524e9f971be9e43ee0e052c1e706802fad56d0c6a2"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/control_schema.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3304,
+      "sha256": "e705443c263218c7bb165d760af83373ee068b452ec8b90015ebe0b38b0fe308"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/checkpoint_provider.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1272,
+      "sha256": "d77b00c57726ed65d3feb7d136c5765adad239de555afa7493385b14dc9cb65a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/embedding_contract.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2697,
+      "sha256": "a030fa3f3ec5a9ab81ff7eea55a36fa3a8dd9aa3a299e43eb08a76ebd485f066"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/search_contract.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 8784,
+      "sha256": "22e80556e2bbff65064bedb8c7b496bd19adfb3a3f608796cc1f38cd843e84c6"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/base_work.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1397,
+      "sha256": "7f55be8f097f60b5594c53d0cc31384fad8fe7a828a01ebcda75507ba8bbcd91"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/launch_admission.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 7917,
+      "sha256": "5a624271c4eb6b52f39f63d94d3e60d39ecfd862ab1904b74cdf38ebb559daed"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/compute.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 9266,
+      "sha256": "239799092fb47a57588d281a94334208afe707dde70082aaee710f649e139382"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/service_transport.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 11246,
+      "sha256": "89c89acd4efc185c5d3500aa23bd9155d0bc6dc65710a5a15b16704ecad00481"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/gsd_module.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 11946,
+      "sha256": "f327698855b634f650e316e84d5f274f7b8154b65f5748e2d598ba5cf4e9d743"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/assignment_resources.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4849,
+      "sha256": "47b7fe7045129ea032c2c0554bbe614ac5cc28e112c1618e68ddcc1b08e0547a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/catalogue.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1540,
+      "sha256": "5d7f14bca2f209446f8151cf13248d575beba63c9c6e75a07cbc267fe4ec29a9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/bn_memory/cognee_native.py": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 9479,
+      "sha256": "2671861aca30cf08581842a9f7932a3691503f21505a3e0d7b71a30be64e6d9c"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/services": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/services/catalogue.json": {
+      "mode": 384,
+      "type": "file",
+      "bytes": 3852814,
+      "sha256": "f43198013c066033f8e064d1367105f557c5de4a82a29a052599b7e6f9fe6522"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/manifest.json": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1712,
+      "sha256": "b209cd2c4c6c5478d4b0aa5a42ed149d46db443ccb8eb1bc7f0c5675774ce870"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/classes": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/classes/XlsReader.class": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 24889,
+      "sha256": "1ece415449bb524795336e8d3ad99d4b56fab4db9051bf845b6edd2bc64e73f3"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/classes/XlsReader$1.class": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 820,
+      "sha256": "d238aface28e033d38a2b3d387b8d1f2f930fac48a006d5bd1d904205abe1de9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/log4j-api-2.24.3.jar.asc": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 856,
+      "sha256": "c3fefadb2411623b9795027b7f7e997d675c761dd26f5169d56543f805c66536"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-codec-1.20.0.jar.asc": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 488,
+      "sha256": "ee039a1b3da766b79a20fcd61253fa4b3c31d4252794dfd5f2e0f3b47bc4690f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-io-2.21.0.jar": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 585274,
+      "sha256": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-math3-3.6.1.jar": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2213560,
+      "sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-io-2.21.0.jar.asc": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 488,
+      "sha256": "fb00561eda72a8c1e71ee6b2dcc8f4e5bc30aee75b1097a098c294d07db7c2e5"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/SparseBitSet-1.3.jar": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 25843,
+      "sha256": "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/SparseBitSet-1.3.jar.asc": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 496,
+      "sha256": "871fdcbfbf07f083dd7bdcc42edc5f58ef777ba82a6a0478e4d09adde2106840"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-collections4-4.5.0.jar": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 898652,
+      "sha256": "00f93263c267be201b8ae521b44a7137271b16688435340bf629db1bac0a5845"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/poi-5.5.1.jar.asc": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 488,
+      "sha256": "46816abedbb253dfb5bbfe8c69e968399792d8eb0c0b291a57464d5113cdd007"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-collections4-4.5.0.jar.asc": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 488,
+      "sha256": "46dc6baf4faa32deb57140788e7ff04a328478f214724df1b25bb6865a93538f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/poi-5.5.1.jar": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3006527,
+      "sha256": "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/log4j-api-2.24.3.jar": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 348513,
+      "sha256": "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-math3-3.6.1.jar.asc": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 473,
+      "sha256": "e0a9e72b481ea864abf7a20fec3003294f543167e531970df75a632cc3a08f33"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/lib/commons-codec-1.20.0.jar": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 401021,
+      "sha256": "6af66595f9f6a7bb58ce66518d6888d40b547c366d2262f06676eee19528ff66"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/src": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/xls-runtime/src/XlsReader.java": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 13329,
+      "sha256": "b2eee4cfc4660fafa3a86ca7e97ee1cedfdf32f373773f9f56d0043e9954c056"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/expert-work": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/expert-work/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 10802,
+      "sha256": "1fb3cb24361275c6deac066dcbd6064769234693523b319896c7998280818d9d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/undermind": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/undermind/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6668,
+      "sha256": "21ce09df050218df5a71aca58bb5779e69d2f448f8fc7bac46deb3f795b5057e"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/undermind/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2752,
+      "sha256": "a3b28d96c3f12ab9e8707402527074a8332cdc7988319ff35e46b1f47bfb5b3e"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/undermind/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 21668,
+      "sha256": "20bb8b4471c794786e49c926df246e3bd3ada542747393a4428e3fe27b03ca05"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tinyfish-api": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tinyfish-api/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4447,
+      "sha256": "b49fdf081369abac1a9568be291d4443ecb31ddfb20c2996cc50f11b0c7797ac"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tinyfish-api/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2718,
+      "sha256": "3a835d958c933b0978eb1513fa49b002f30c7f9b2179b417716d52f93b40d4e7"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/consensus": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/consensus/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5070,
+      "sha256": "ae1eefc865aa03e8b7828839403361a1b7a33b73cfe85ea1c672658146bbcd8e"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/consensus/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2752,
+      "sha256": "db62f1c34cadf48916f448fab3a741a34cb666fc69793b4999d618304d723710"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/consensus/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 13168,
+      "sha256": "ff10fa232c8be5ebf5ab2c75d23831f5673e574d3ae99e5a96fcfd3e5b6bf05d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/wiley": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/wiley/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 70,
+      "sha256": "8cee1fec62896f61532ef6b405856e5b282c778995cf36fb2cd00e2afe55e6f3"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/wiley/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2717,
+      "sha256": "493031328c83897ff2aff552d24ae5075cb3b55c372a48dc1ae6beba4cdc7a19"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1287,
+      "sha256": "90da26fcee0419b1bbc7de65cfa1920492c36514595e4e84d0b776e59b3e32f9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2748,
+      "sha256": "3ab4b12bb424123cca84beaadb920a76d7b72f3be327dadfde507c0668cacaa1"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 16004,
+      "sha256": "59aa8962c55080edf1aea595efccc14c655839db80d3b8571dc337b63ef18923"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-search": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-search/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1655,
+      "sha256": "83e53c2e6dcfa93d3ee7764c765dc606874bb22dd9fff9016e296d7334ab0014"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-search/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2776,
+      "sha256": "56ad555257cf0c3d72c25b4b618b9b143d500dbeb049166c1d8c4dd4e51415c0"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-search/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 14388,
+      "sha256": "e29cb4f7f7d989f7608a097aa96d2cee99f93bf242ec4c4ac06ecdba7b9f1d16"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/webofscience": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/webofscience/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1356,
+      "sha256": "87a2c5492ef72a080aa8e89234e6574dd1e3dbaf601ab2ce98c1f43ff3201072"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/webofscience/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2764,
+      "sha256": "5d20304e9534c6b3ef37cd02bf1a98540334917ba1e9c02657f8d33e53bb5368"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/webofscience/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 17753,
+      "sha256": "f0f6012f17418f9e18ef7e3b85dd56089963a4e09038a120d79c64edf3be6f43"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable-select": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable-select/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 14100,
+      "sha256": "7fd71ffdf1b8ee472ef4df3c852475338576b695b2efbfe1d7461c3f33732d95"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable-select/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2776,
+      "sha256": "20516047dc3b066fde8ca46b86242db3a861a57cfb144a3ce71e82b46f48a77a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/keenable-select/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 16004,
+      "sha256": "59aa8962c55080edf1aea595efccc14c655839db80d3b8571dc337b63ef18923"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/asreview": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/asreview/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6372,
+      "sha256": "e5d4d6eba4af55d74024844fea4e2500b7677acd9765804dff4e3cde944e3772"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/asreview/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2748,
+      "sha256": "76544763ad75e6b9cf925cb56339004607a1da8adb815e0bda7fceef089d5196"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/asreview/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 13954,
+      "sha256": "2bc8d7595be456e5ee1492633ad5042a134156f73dc31d6815528cc71caaa2bd"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/firecrawl": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/firecrawl/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 25502,
+      "sha256": "2e88baa2f7b07f0eba55464fae10ec61f77eb1e775e28bb75df982807181f5c9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/firecrawl/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2752,
+      "sha256": "a1ecb4cd10a4cd5494634e2d765f0540332a6f672f728f1e6ebf86e7897870b3"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/firecrawl/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 10693,
+      "sha256": "f1fbc4d22097f1bb66b3b82160c5352a1aa40020a3a3edb4ac0aed34c54a2eab"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/elicit": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/elicit/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 70,
+      "sha256": "8cee1fec62896f61532ef6b405856e5b282c778995cf36fb2cd00e2afe55e6f3"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/elicit/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2726,
+      "sha256": "ddc25b8d13aafc9c7ee44d470c3d80100ecd887df12e10d7a7ab258369061546"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/rstats": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/rstats/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6433,
+      "sha256": "559dfc21dd63e7894187d757c869899c9f5eab702992d91084efcb84924541c6"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/rstats/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2740,
+      "sha256": "c64e6e6ba7821bacb21592469626b581f75eb4c49d98fda814c27ddc819e6b48"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/rstats/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 16539,
+      "sha256": "14291111f5619026cd30de58011b3c6738f932c8101d83b1cfade121616ae967"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble-docs": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble-docs/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4598,
+      "sha256": "2b814f86f15c97d8177b1b675bf0754dc65239f82554fe8d94ccaa584c4f2615"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble-docs/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2760,
+      "sha256": "b0ac6aab24fd394abfc67d6503c339ae70ca5e50623f971a7cbaf1dfbce32e81"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble-docs/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 26413,
+      "sha256": "a322ed5159b6d584778bd789f58c32b0c20dbe4eab8ebb7f5789e789da369374"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/exa": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/exa/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 7052,
+      "sha256": "5b6d8b46f822af55deaac78ba7a81a6f73c289eb7679d41fed554845143a7f56"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/exa/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2728,
+      "sha256": "30d693b3e28ba1df06820f8c9b1a6b1b435e64188e8315310d7d401714b8937a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/exa/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 13164,
+      "sha256": "5dbe48bff06b1754c72caebd8e348ad9d9b7f6c665eb9d3630023b193a3fd137"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex-api": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex-api/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4809,
+      "sha256": "0698f6613e14e62eaab1eef38f6cdbed8e3404b9876439c3c6fb3361f7b69d94"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex-api/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2764,
+      "sha256": "c3196bb9ad0369bb5610561adcc7346c90f81a9fd361dd82e4043025dcacdc63"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex-api/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 19262,
+      "sha256": "aec405f7632a14328f7685b6439e1ccbe1ea06a6b2bd43e571a3551031be48fc"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/wolfram": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/wolfram/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1688,
+      "sha256": "77f5a58683a3b587e35e3089c4930d2dacfb60163df201b98bae2fff3800f794"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/wolfram/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2744,
+      "sha256": "475148f5b32fd4cefa222efae90a429cf22cf8bbd276918ba0122ba981e90865"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/wolfram/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 15968,
+      "sha256": "5234af53109015434993d91c8b034c1e34d49bc3ed8de46a2af244a80309f41a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/semanticscholar": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/semanticscholar/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 15762,
+      "sha256": "0ad8d9c2fc0dea8fb1629af2d5f12556000a6c60a8ed21b73e871a5ec212685c"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/semanticscholar/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2776,
+      "sha256": "2ad118d40ca4cd93a9f502629ec6bbd7446030c1cb71a23a30eec1831f909036"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/semanticscholar/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 17027,
+      "sha256": "16822f050fc8c6d9389b57a1ff3017f6d277bcac24512c6ce87c4c1fe556eb63"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/crossref": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/crossref/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5791,
+      "sha256": "bbe2298efd45d490172094c9638587611f0306f3f07274e8129d6d8bab76d807"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/crossref/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2748,
+      "sha256": "6cba2e7b5b3e4490f6abfba3a51bf779e9af2ffbc0f9e8d6c47e636fe43873b9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/crossref/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 15034,
+      "sha256": "77619850e424c5ae619f21ce5756142f80c90d3b993e939fb49aaed369ed9121"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-task": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-task/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 6328,
+      "sha256": "821a7d860be6054492ac765809652b9e9d3f0ecc09c71ec46524f14a59c8c1c9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-task/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2768,
+      "sha256": "79357d0f49162d62cbd492a6f70ef545ba6eb94935c86ffb8c9532b0707b68ad"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/parallel-task/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 14388,
+      "sha256": "e29cb4f7f7d989f7608a097aa96d2cee99f93bf242ec4c4ac06ecdba7b9f1d16"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 15468,
+      "sha256": "6006d529ab923ffab996246ce96b9fecdb73749abbe1d030caa5267f33a52187"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2748,
+      "sha256": "1db56ef64dc893b78e2adcb5df510761d906b817425d3c2391ac404f8dc08dd1"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/openalex/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 19262,
+      "sha256": "aec405f7632a14328f7685b6439e1ccbe1ea06a6b2bd43e571a3551031be48fc"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/zotero": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/zotero/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3843,
+      "sha256": "798a9bd862f6e1076012d4cca4896deac6b7a85893a4e86bba0e5beec18f9dc2"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/zotero/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2740,
+      "sha256": "a77ce1df2b9c0be2224a2034a009763b81dcd89d3fc88ef9a0fa865b83399447"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/zotero/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 10843,
+      "sha256": "23b86406e588e2f37b2bb66570b5436cfe10987f3c81e74270384ebabbcb603d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scispace": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scispace/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 70,
+      "sha256": "8cee1fec62896f61532ef6b405856e5b282c778995cf36fb2cd00e2afe55e6f3"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scispace/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2730,
+      "sha256": "1635c4d3b4639939855fcf60d90ccd517842be231e35d0e27e1ae984b43b854d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scite": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scite/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 66779,
+      "sha256": "8ff3f989c2bf7067dc07cf4567fe33135bcb057a0236e5b8f4704622146fdb4e"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scite/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2736,
+      "sha256": "bc7a04d8c01b1fda286814663de7086c536cfe10c14adbb0e852f6f8fdb1b32a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scite/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 18824,
+      "sha256": "c97e5dea6d65cc36d8e2f73325418a34e85d52a21adb79ad2e6865f766656ef5"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tinyfish": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tinyfish/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 18352,
+      "sha256": "743acacfb24a078dfafd710cb2d50aafe995e7b106a9d8d2431a225b87afa4b8"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tinyfish/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2748,
+      "sha256": "0346c93b2d61b1a5a0a835f9c7d22b7c7f8a63402c611b2370ed1487f764be7a"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scholarsidekick": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scholarsidekick/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 14017,
+      "sha256": "a2764870ad4312d51381c62a0560665bed7d01e3af2e4ab18de83cd3c660e214"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scholarsidekick/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2776,
+      "sha256": "e38e77b9208ea4bee39ae86b0f85ffe5e4575ec2d67fd36e285f3e5ebede9c0d"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/scholarsidekick/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 18145,
+      "sha256": "c87ca5f9062127eddfe87b98136ae8bcc9c642a91d65dfdd9cae7029f6074866"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pubmed": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pubmed/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2745,
+      "sha256": "71497f9f050ab5cf7291e2832c076e6fdb86253ea11df88e5710afb2b1b9998c"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pubmed/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2740,
+      "sha256": "93eb65c5a4a62fa72ae5d1d36566109a50c853d8d61862a86b2fee669d12502c"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pubmed/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 14368,
+      "sha256": "50789365889dad292082ef38babeacf468c2864b5e250038e8afa41ebae72d2e"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/alphaxiv": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/alphaxiv/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 10073,
+      "sha256": "c0bacf88ab96fbdc884c2afdcbeeea18ff8893e4feb30991214030741bafd752"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/alphaxiv/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2748,
+      "sha256": "ae23e498bd83ecd6b6f44d0ea60deb2bf4fbf1e59830c5ea72bac1440a3c6ac5"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/alphaxiv/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 15756,
+      "sha256": "fda35f496759a54a5cbd0e8bcde2c04c6350eb9cca573df938c7df7b389446c3"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/russianresearch": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/russianresearch/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3067,
+      "sha256": "1851d025f51c893a82ac21b61fd928cc17e01d1df705cafaef9f58c035e1762c"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/russianresearch/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2776,
+      "sha256": "efec10339a33f10af5721c44e584d7c56a49e87424614823c459b6d2889c30b0"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/russianresearch/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 14674,
+      "sha256": "dda8c9cd7a025bf033cde112aa769a42e522b11442f90c771855ce0bbefe4d93"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tavily": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tavily/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 3466,
+      "sha256": "917362251069fff9529b677dbd47902055af194ea29d9961f354ec744cdd5324"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tavily/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2740,
+      "sha256": "f7a873c25274830d9e111126e549a74fb8db2fe7922ac89c6546ca1aad97cb02"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/tavily/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 13865,
+      "sha256": "76e31109fb34eeac76c7bb046c5570f2633b16abab299857b6d00a37c90069d9"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/datacite": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/datacite/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 1570,
+      "sha256": "d8bc163198b29e975f3a7cd561ad311aa54b82297c9c27127054504d1051e639"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/datacite/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2709,
+      "sha256": "bb675d5203c9eabbbc781f941fefe2689534adc4cfd6a61d462c7c659e92b854"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 15333,
+      "sha256": "b51dde5a3589159627245a50bcffeae5602b2047e4ba95e8af9e1efad881da34"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2740,
+      "sha256": "e29d17d0f44b0471b966a603f661843023c980f034d5e246a33dce90202ec044"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/nimble/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 26413,
+      "sha256": "a322ed5159b6d584778bd789f58c32b0c20dbe4eab8ebb7f5789e789da369374"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pendar": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pendar/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 4469,
+      "sha256": "251c636d0e155c0dde4264a45baf3d77d2e98a84295dc9c870e2bd79ccbbecb2"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pendar/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2740,
+      "sha256": "a1e0e9f1e492c927315d866bfb0f10fb8726763a05347ab2fa738ea312658dd7"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/pendar/BN-procedures-reference.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 19069,
+      "sha256": "b5d44f7af91912007fae161c165d94b0c7595541afbfa0fcbcf5b89f92de96fc"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/synapse": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/synapse/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2834,
+      "sha256": "9ff4f6c46b875d074fefa37c197da7bced0e73483941252d02758c001d779a5c"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/synapse/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2705,
+      "sha256": "884b22c11248fdfee34d020128e22dcf456ee4069bed99456fbbc722eb34b123"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/elicit-api": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/elicit-api/METHODS.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 5591,
+      "sha256": "37a66729d0e97bd5a959d521a716dfb8fcb7d5e76689cee7e58ad8d1b568cce1"
+    },
+    "Hermes/Memory/releases/2.0.0-dev.45/skills/services/elicit-api/SKILL.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 2742,
+      "sha256": "641291c05857e92270be3b0bd2cb2579977a84cf49c464623f93b383ad6d645d"
+    },
+    "Intake/packages/hermes_bnn_intake-0.14.4-py3-none-any.whl": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 160069,
+      "sha256": "0c9f66027028330f39fb2c9789f766fca59168d526a96b0c9afdb1436be60b4a"
+    },
+    "docs/INSTALL-UPDATE-RU.md": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 8485,
+      "sha256": "34a9e24871eb9534455006566719d418df438b5e1dbc0116cbac356f007d9b85"
+    },
+    "Intake/SHA256SUMS": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 471,
+      "sha256": "61b1c2e59bdf0fd9cf7b94a3f8a173046a5607092abb98477cc312e08efad8ac"
+    },
+    "Intake/archives": {
+      "mode": 493,
+      "type": "directory"
+    },
+    "Intake/archives/Hermes-Intake-0.14.4.zip": {
+      "mode": 420,
+      "type": "file",
+      "bytes": 803582,
+      "sha256": "9bf3ca3fa887c47d6c3059f5cc41a519ada9fe7e246fcea40990fb94087935e4"
     }
   },
   "owner_state_or_credentials": false,
-  "Memory": "2.0.0-dev.44",
-  "Intake": "0.14.3",
+  "Memory": "2.0.0-dev.45",
+  "Intake": "0.14.4",
   "GSD_engine": "3.0.3",
-  "upstream_signature_claimed": false
+  "upstream_signature_claimed": false,
+  "required_context_fix": "20261101",
+  "base_manifest_sha256": "3651d0663dc2773b9785d66be6aad8d2f15088749b9019b8e544ca339ca897b8"
 }
