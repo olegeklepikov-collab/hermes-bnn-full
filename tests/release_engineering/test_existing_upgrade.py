@@ -36,4 +36,14 @@ class ExistingUpgrade(unittest.TestCase):
             self.assertEqual(out['path_relocations'][0]['owner_id'],'owner')
             self.assertNotIn('package_root',old)
 
+    def test_known_placeholder_is_replaced_only_for_its_exact_owner_root(self):
+        with tempfile.TemporaryDirectory() as d:
+            r=Path(d).resolve();base={'namespace':{'owner_id':'owner','profile_id':'main'},'modules':{},
+                'path_relocations':[{'from':'__HERMES_ROOT__','to':str(r),'owner_id':'owner'}]}
+            out=rebind(base,r,r/'Memory/releases/new')
+            self.assertEqual([x['from'] for x in out['path_relocations']],['/opt/hermes-bnn-distribution'])
+            base['path_relocations'][0]['owner_id']='another-owner'
+            with self.assertRaisesRegex(PermissionError,'exact_own_root'):
+                rebind(base,r,r/'Memory/releases/new')
+
 if __name__=='__main__':unittest.main()

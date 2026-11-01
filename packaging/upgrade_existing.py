@@ -58,7 +58,15 @@ def restore_preimages(root,checkpoint,before):
 
 def rebind(config,root,package):
     cfg=copy.deepcopy(config);cfg['package_root']=str(package)
-    aliases=cfg.setdefault('path_relocations',[])
+    aliases=[]
+    for rule in cfg.get('path_relocations',[]):
+        if rule.get('from')=='__HERMES_ROOT__':
+            if rule != {'from':'__HERMES_ROOT__','to':str(root),'owner_id':cfg['namespace']['owner_id']}:
+                raise PermissionError('legacy_placeholder_requires_exact_own_root')
+            continue  # Known invalid fresh-dev45 placeholder; preimage stays in the checkpoint.
+        if not Path(rule['from']).is_absolute():raise PermissionError('unknown_relative_root_alias')
+        aliases.append(rule)
+    cfg['path_relocations']=aliases
     alias={'from':'/opt/hermes-bnn-distribution','to':str(root),'owner_id':cfg['namespace']['owner_id']}
     if alias not in aliases:aliases.append(alias)
     for module in cfg.get('modules',{}).values():
