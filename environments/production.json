@@ -1,8 +1,10 @@
 {
   "environment": "production",
-  "role": "read_only_reference",
+  "role": "existing_owner_profile_manual_promotion",
   "port_base": 64000,
   "production_mutation_allowed": false,
+  "explicit_owner_authority_can_enable_exact_upgrade": true,
+  "automatic_production_promotion": false,
   "provider_credentials_inherited": false,
   "gateway_autostart": false,
   "multiplex_across_environments": false

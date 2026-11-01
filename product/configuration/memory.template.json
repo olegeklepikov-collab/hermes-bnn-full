@@ -12,7 +12,7 @@
     "zotero": "__HERMES_ROOT__/state/services/zotero/data"
   },
   "state_root": "__HERMES_ROOT__/state/memory",
-  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47",
+  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48",
   "python": "__HERMES_ROOT__/hermes-agent/venv/bin/python",
   "graph_python": "__HERMES_ROOT__/UDR/software/foundation-graph/bin/python",
   "zvec_python": "__HERMES_ROOT__/UDR/software/zvec/bin/python",
@@ -50246,6 +50246,109 @@
           ],
           "additionalProperties": false
         }
+      },
+      {
+        "id": "native.skills.metadata",
+        "tool": "skills_list",
+        "effect": "read_local",
+        "roles": [
+          "parent"
+        ],
+        "arguments_schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+              "maxLength": 128
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "id": "native.skills.bundled",
+        "tool": "skill_view",
+        "effect": "read_local",
+        "roles": [
+          "parent"
+        ],
+        "arguments_schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "enum": [
+                "airtable",
+                "apple-notes",
+                "apple-reminders",
+                "architecture-diagram",
+                "arxiv",
+                "ascii-video",
+                "baoyu-infographic",
+                "blocked-page-recovery",
+                "box",
+                "claude-code",
+                "claude-design",
+                "codebase-inspection",
+                "codex",
+                "competitor-news-monitor",
+                "computer-use",
+                "design-md",
+                "document-to-action-items",
+                "docx",
+                "dogfood",
+                "email-inbox-triage",
+                "findmy",
+                "gif-search",
+                "github",
+                "google-workspace",
+                "grounded-citations",
+                "hermes-agent",
+                "hermes-agent-skill-authoring",
+                "himalaya",
+                "humanizer",
+                "imessage",
+                "inspecting-hermes-desktop-dom",
+                "llm-wiki",
+                "manim-video",
+                "maps",
+                "meeting-action-items",
+                "node-inspect-debugger",
+                "notion",
+                "obsidian",
+                "opencode",
+                "p5js",
+                "pdf",
+                "popular-web-designs",
+                "powerpoint",
+                "product-price-monitor",
+                "python-debugpy",
+                "requesting-code-review",
+                "sdlc-review",
+                "simplify-code",
+                "songsee",
+                "songwriting-and-ai-music",
+                "spike",
+                "systematic-debugging",
+                "teams-meeting-pipeline",
+                "test-driven-development",
+                "weekly-review-planning",
+                "xlsx",
+                "xurl",
+                "youtube-content"
+              ]
+            },
+            "file_path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
       }
     ]
   },
@@ -50393,11 +50496,11 @@
         "__HERMES_ROOT__/GSD/vendor/1.1.0/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/vendor/1.1.0/engine/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/state/w3-modules/gsd/operator/settings.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BN-COMPATIBILITY.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-PATCH.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-COMPUTE-PATCH.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-CORPUS-PATCH.json": "__GENERATED_SHA256__"
       }
     },
@@ -50704,7 +50807,7 @@
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/scripts/vision_model_worker.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/templates/telegram-dm-standalone.config.yaml": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/bundle-manifest.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.47/bn_memory/research_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48/bn_memory/research_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/Dolt/bin/dolt": "__GENERATED_SHA256__"
       },
       "state_root": "__HERMES_ROOT__/state/w3-modules/research/foundation",

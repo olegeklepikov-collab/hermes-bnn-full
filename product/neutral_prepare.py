@@ -134,6 +134,8 @@ def initialize(bundle):
  if not (cognee/'software/venv').is_symlink():(cognee/'software/venv').symlink_to(Path('../../Cognee/software/venv'))
  save(cognee/'state/instance.json',{'instance_id':'hermes-'+identity})
  profile={'model':{'provider':'openai-codex','default':'gpt-6.1-sol'},'agent':{'reasoning_effort':'xhigh','max_turns':0,'run_budget_seconds':None},'compression':{'enabled':True,'in_place':True,'checkpoint_required':True},
+  'research':{'integration_mode':'foundation','workspace_root':str(root/'workspace/research-runs')},
+  'skills':{'inline_shell':False},
   'plugins':{'enabled':['bn-common-memory'],'entries':{'bn-common-memory':{'enabled':True,'settings':{'config_file':str(root/'Memory/settings.json')}}}},
   'mcp_servers':{'context':{'command':str(root/'hermes-agent/venv/bin/python'),'args':[str(pkg/'bn_memory/server.py'),str(root/'Memory/settings.json')],'env':{'HERMES_HOME':str(root/'data'),'PYTHONPATH':os.pathsep.join([str(pkg),str(root/'hermes-agent')]),'PYTHONNOUSERSITE':'1','PYTHONDONTWRITEBYTECODE':'1'}}},
   'memory':{'provider':'bnn-memory-checkpoint','checkpoint_settings_file':str(root/'Memory/settings.json')},'platform_toolsets':{'cli':['context','bnn_modules','skills']},'gateway':{'standalone':True,'multiplex_profiles':False}}
