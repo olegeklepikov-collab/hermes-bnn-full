@@ -194,32 +194,22 @@ def logged(command,env,cwd,log,timeout=600):
 
 def qualify(directory,environment):
     if environment not in ['test','development']:raise PermissionError('production_is_read_only_in_this_phase')
-    release=verify_release(directory);r=resources();base=Path(r['test_root']) if environment=='test' else Path(r['development_root'])/'instances'
-    target=confined(base/(release['build_id']+'-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')),base)
+    r=resources();fallback=Path(r['test_root']) if environment=='test' else Path(r['development_root'])/'instances'
+    base=Path(r.get('environment_roots',{}).get(environment,str(fallback)))
+    stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+    target=confined(base/stamp,base)
     if target.is_relative_to(Path(r['production_read_only_root']).resolve()):raise PermissionError('production_path_forbidden')
-    target.mkdir(parents=True);home=target/'operator-home';home.mkdir(mode=0o700);env=clean_environment(home);env['BNN_ENVIRONMENT']=environment;env['BNN_PORT_BASE']=str(read(ROOT/'environments'/f'{environment}.json')['port_base'])
-    receipt={'contract':'BNNQualificationV1','build_id':release['build_id'],'source_commit':release['source_commit'],'archive_sha256':release['archive']['sha256'],'environment':environment,'target':str(target),'complete':False,'checks':{},'external_models':{'status':'not_run_no_separate_credentials'},'Telegram':{'status':'not_run_no_separate_bot'},'production_promotable':False}
-    write(target/'qualification.json',receipt)
-    bundle=unarchive(Path(directory)/release['archive']['name'],target/'installation');receipt['checks']['archive_inventory']={'objects':verify_tree(bundle,release['bundle_manifest_sha256']),'status':'passed'};write(target/'qualification.json',receipt)
-    logged(['/bin/bash',bundle/'install.sh'],env,bundle,target/'native-install.log');receipt['checks']['native_install']={'status':'passed'};write(target/'qualification.json',receipt)
-    verification=read(bundle/'Hermes/state/full-platform-verification.json')
-    if len(verification['five_required_controls'])!=5 or not verification['Intake_registered']:raise PermissionError('required_native_controls_not_registered')
-    receipt['checks']['native_controls']={'status':'passed','details':verification}
-    runtime=bundle/'Hermes';config=read(runtime/'Memory/settings.json')
-    if config['profile_home']!=str(runtime/'data') or not str(config['state_root']).startswith(str(runtime)+'/'):raise PermissionError('profile_state_not_isolated')
-    if any((runtime/p).exists() for p in ['data/auth.json','private/voyage.key','private/telegram.token']):raise PermissionError('unexpected_owner_credentials')
-    receipt['checks']['independent_identity']={'status':'passed','instance_id':read(runtime/'state/bootstrap.json')['instance_id'],'profile_home':config['profile_home'],'state_root':config['state_root'],'agentmemory_url':config['agentmemory_url'],'neo4j_uri':config['neo4j_uri']}
-    sig=subprocess.run(['/usr/bin/codesign','--verify','--deep','--strict',str(runtime/'Zotero/app/Zotero.app')],capture_output=True,text=True)
-    if sig.returncode:raise PermissionError('zotero_supplier_signature_failed')
-    receipt['checks']['zotero_signature']={'status':'passed'}
-    receipt['complete']=True;receipt['scope']='full_archive_extraction_fresh_native_install_controls_and_isolation_only';receipt['mandatory_not_run']=['live_model_and_subagents','live_Telegram','end_to_end_research','prior_version_data_upgrade','data_restore_and_rollback']
-    write(target/'qualification.json',receipt)
-    print(json.dumps({'qualification':str(target/'qualification.json'),'native_complete':True,'production_promotable':False},ensure_ascii=False),flush=True)
+    home=ROOT.parent/'.operator/command-home';home.mkdir(exist_ok=True)
+    subprocess.run([sys.executable,'-B',str(ROOT/'packaging/qualify_native.py'),'--source',str(ROOT),'--release',str(Path(directory).resolve()),'--target',str(target),'--environment',environment],env=clean_environment(home),check=True)
     return target
 
 
 def status():
     r=resources();result={'source_commit':git('rev-parse','HEAD'),'source_clean':not bool(git('status','--porcelain')),'resources':{k:v for k,v in r.items() if k!='runtime_cache'},'production_writes_implemented':False,'candidates':[],'qualifications':[]}
+    registry=ROOT.parent/'.operator/environments.json'
+    result['native_environments']=read(registry) if registry.exists() else {}
+    prod=Path(r['production_read_only_root'])
+    result['production']={'root':str(prod),'layout':'legacy_not_migrated' if not (prod/'BNN-PRODUCT.json').exists() else 'versioned','write_authority':False}
     p=Path(r['build_root'])/'candidates'
     for d in sorted(p.glob('*/RELEASE.json')) if p.exists() else []:result['candidates'].append({'build_id':read(d)['build_id'],'manifest':str(d)})
     for d in sorted(Path(r['test_root']).glob('*/qualification.json')):result['qualifications'].append({'path':str(d),'complete':read(d)['complete'],'production_promotable':read(d)['production_promotable']})
