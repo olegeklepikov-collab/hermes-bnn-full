@@ -10,10 +10,29 @@ def command(argv,**kw):
  return p.stdout
 
 
-def api(path,body=None):
+def api(path,body=None,method='POST'):
  if body is None:return json.loads(command(['gh','api',path]))
  with tempfile.NamedTemporaryFile('w',suffix='.json') as f:
-  json.dump(body,f);f.flush();return json.loads(command(['gh','api','--method','POST',path,'--input',f.name]))
+  json.dump(body,f);f.flush();return json.loads(command(['gh','api','--method',method,path,'--input',f.name]))
+
+
+def bound_release(releases,binding,repo,tag):
+ if binding:
+  if binding.get('repository')!=repo or binding.get('tag')!=tag:raise PermissionError('publication_binding_changed')
+  matches=[v for v in releases if v['id']==binding['release_id']]
+  if len(matches)!=1 or matches[0]['tag_name']!=tag:raise PermissionError('draft_release_tag_binding_changed')
+ else:matches=[v for v in releases if v['tag_name']==tag]
+ if len(matches)>1:raise PermissionError('ambiguous_release')
+ return matches[0] if matches else None
+
+
+def release_body(summary):
+ return ('Полный нейтральный кандидат для нативной macOS Apple Silicon. Исторические исправления не нужны. '
+         f"Нативных установок подтверждено: {summary['native_installations_passed']}; автономных проверок: {summary['release_engineering_unit_tests']}.\n\n"
+         'Статус: кандидат. Фактические границы проверок и открытые критерии указаны в подписанном QUALIFICATION-SUMMARY.json. '
+         'Действующий BNN автоматически не обновляется.\n\n'
+         'Скачайте все части одного архива и следуйте INSTALL.md. Подпись манифеста и суммы проверяются до установки. '
+         'Внешние аккаунты, ключи и личные данные не включены.')
 
 
 def main():
@@ -23,11 +42,12 @@ def main():
  summary=m.read(d/'QUALIFICATION-SUMMARY.json')
  if summary.get('archive_sha256')!=r['archive']['sha256']:raise PermissionError('summary_for_different_archive')
  if summary.get('native_installations_passed')!=2:raise PermissionError('two_actual_native_installations_required')
- existing=api('repos/'+a.repo+'/releases?per_page=100&tick='+str(time.time_ns()));matches=[v for v in existing if v['tag_name']==a.tag]
- if len(matches)>1:raise PermissionError('ambiguous_release')
- if matches:release=matches[0]
+ record=d/'PUBLICATION.json'
+ existing=api('repos/'+a.repo+'/releases?per_page=100&tick='+str(time.time_ns()))
+ release=bound_release(existing,m.read(record) if record.exists() else None,a.repo,a.tag)
+ if release:pass
  else:
-  release=api('repos/'+a.repo+'/releases',{'tag_name':a.tag,'target_commitish':a.target,'name':'Hermes BNN 2026.11.1: integrated candidate','body':'Полный нейтральный кандидат для нативной macOS Apple Silicon. Все программы и среды включены; исторические исправления не нужны. Две отдельные нативные установки и 40 проверок выпускной инфраструктуры подтверждены.\n\nСтатус: кандидат, не производственный допуск. Реальные модельные и Telegram-прогоны, исследование, обновление данных и восстановление ещё не подтверждены этой поставкой. Действующий BNN не обновляется автоматически.\n\nСкачайте все части одного архива и следуйте INSTALL.md. Подпись манифеста и суммы проверяются до установки. Внешние аккаунты, ключи и личные данные не включены.','draft':True,'prerelease':True,'make_latest':'false'})
+  release=api('repos/'+a.repo+'/releases',{'tag_name':a.tag,'target_commitish':a.target,'name':f"Hermes BNN {r['version']}: integrated candidate",'body':release_body(summary),'draft':True,'prerelease':True,'make_latest':'false'})
  rid=release['id'];record=d/'PUBLICATION.json';have={v['name']:v for v in release['assets']};confirmed=[]
  def refresh():return {v['name']:v for v in api('repos/'+a.repo+'/releases/'+str(rid)+'/assets?per_page=100&tick='+str(time.time_ns()))}
  def upload(path):
@@ -54,9 +74,9 @@ def main():
    print(json.dumps({'part':index,'bytes_confirmed':sum(v['bytes'] for v in parts)}),flush=True)
  m.write(d/'PARTS.json',{'archive':r['archive'],'parts':parts,'password_required':False,'old_releases_required':False});m.sign_manifest(d/'PARTS.json',Path(m.resources()['development_root'])/'.operator/keys/release_ed25519')
  (d/'allowed_signers').write_bytes((m.ROOT/'trust/allowed_signers').read_bytes())
- (d/'INSTALL.md').write_text('''# Установка цельного кандидата Hermes BNN\n\nПоддержана нативная macOS 26.5.1 arm64. Это кандидат для испытаний; рабочий экземпляр не заменяйте. Ключи и история не входят.\n\n1. Скачайте RELEASE.json, RELEASE.json.sig, PARTS.json, PARTS.json.sig, allowed_signers и все partNNN. Доверенный allowed_signers дополнительно сверьте с trust/allowed_signers исходного репозитория.\n2. Проверьте подписи:\n\n```sh\nssh-keygen -Y verify -f allowed_signers -I bnn-release -n bnn-release-v1 -s RELEASE.json.sig < RELEASE.json\nssh-keygen -Y verify -f allowed_signers -I bnn-release -n bnn-release-v1 -s PARTS.json.sig < PARTS.json\n```\n\n3. В отдельной пустой папке объедините только части этого выпуска по порядку part001, part002 и далее в файл с именем archive.name из RELEASE.json. Проверьте SHA-256 собранного файла по archive.sha256. На macOS значения читаются через plutil -extract archive.name raw -o - RELEASE.json и plutil -extract archive.sha256 raw -o - RELEASE.json; контрольная сумма вычисляется shasum -a 256 ИМЯ_АРХИВА.\n4. Распакуйте в новую местную папку вне Dropbox/iCloud, прочитайте Hermes-BNN-Full/docs/INSTALL_MACOS.md. При необходимости установите прилагаемую R 4.6.1 через системный установщик.\n5. Запустите bash install.sh из Hermes-BNN-Full. Он проверит весь состав и подписи поставщиков до создания отдельного владельца и состояния. Для внешних инструментов нужен собственный вход.\n\nПроверки моделей, Telegram, исследования, обновления данных и восстановления этой поставкой ещё не закрыты. Номер продукта указан в BNN-PRODUCT.json.\n''')
+ (d/'INSTALL.md').write_text('''# Установка цельного кандидата Hermes BNN\n\nПоддержана нативная macOS 26.5.1 arm64. Это кандидат для испытаний; рабочий экземпляр не заменяйте. Ключи и история не входят.\n\n1. Скачайте RELEASE.json, RELEASE.json.sig, PARTS.json, PARTS.json.sig, allowed_signers и все partNNN. Доверенный allowed_signers дополнительно сверьте с trust/allowed_signers исходного репозитория.\n2. Проверьте подписи:\n\n```sh\nssh-keygen -Y verify -f allowed_signers -I bnn-release -n bnn-release-v1 -s RELEASE.json.sig < RELEASE.json\nssh-keygen -Y verify -f allowed_signers -I bnn-release -n bnn-release-v1 -s PARTS.json.sig < PARTS.json\n```\n\n3. В отдельной пустой папке объедините только части этого выпуска по порядку part001, part002 и далее в файл с именем archive.name из RELEASE.json. Проверьте SHA-256 собранного файла по archive.sha256. На macOS значения читаются через plutil -extract archive.name raw -o - RELEASE.json и plutil -extract archive.sha256 raw -o - RELEASE.json; контрольная сумма вычисляется shasum -a 256 ИМЯ_АРХИВА.\n4. Распакуйте в новую местную папку вне Dropbox/iCloud, прочитайте Hermes-BNN-Full/docs/INSTALL_MACOS.md. При необходимости установите прилагаемую R 4.6.1 через системный установщик.\n5. Запустите bash install.sh из Hermes-BNN-Full. Он проверит весь состав и подписи поставщиков до создания отдельного владельца и состояния. Для внешних инструментов нужен собственный вход.\n\nФактические результаты и незакрытые проверки перечислены в подписанном QUALIFICATION-SUMMARY.json. Номер продукта указан в BNN-PRODUCT.json.\n''')
  for name in ['RELEASE.json','RELEASE.json.sig','PARTS.json','PARTS.json.sig','QUALIFICATION-SUMMARY.json','QUALIFICATION-SUMMARY.json.sig','allowed_signers','INSTALL.md']:upload(d/name)
- command(['gh','release','edit',a.tag,'--repo',a.repo,'--draft=false','--prerelease','--latest=false'])
+ api('repos/'+a.repo+'/releases/'+str(rid),{'tag_name':a.tag,'target_commitish':a.target,'draft':False,'prerelease':True,'make_latest':'false'},method='PATCH')
  done=api('repos/'+a.repo+'/releases/'+str(rid));have=refresh()
  for row in confirmed:
   if have.get(row['name'],{}).get('digest')!='sha256:'+row['sha256']:raise PermissionError('published_digest_changed')
