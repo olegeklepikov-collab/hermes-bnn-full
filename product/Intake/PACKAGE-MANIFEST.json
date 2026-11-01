@@ -4,13 +4,13 @@
   "files": {
     ".gitignore": "8dd41b089a8e5a8a9a99b509363069b1a131f421a5787f8ab687b754a280f650",
     "AGENTS.md": "87d9e164ac97c4f33c13f2208c4d0135c6e9c1c28eb08f0a7de4521021027e63",
-    "INTEGRATION.md": "a1bff52bb7f7e64ad8b4c3da6e56cb4ca2ac611c74a32efb64dc3d6fa2d94f80",
+    "INTEGRATION.md": "2c43d4267373dd327b5977e7c5223a232d81d85689994316ca051d9be246bebd",
     "PROVENANCE.json": "a4d1cb848cf681606d89dc6b059997f9c273cfde49055486ae46331c658bda17",
-    "README.md": "f74285c8fece0bae162a95964c423d1fd677b5fb027e17d844c6ab90ba8e9068",
+    "README.md": "74b4db3f64dea80da8b1fd10f0aa8a143c3bdab4c811a5027b65db8eb669873d",
     "docs/ARCHITECTURE.md": "08571941e1033dba0b7f4f8a7328fba54c1db76ca3d5ec93c32fd6189eba43f6",
     "docs/REQUIREMENTS.json": "8ba12533bb5fb643f61028d5d070c22c5ce612c91a8e7715111ea9771edab8f2",
     "docs/TOOL_CATALOG.json": "21137750223ed605f060846e7c6205c5f7f8418985fea16ec20b2da2faf0cb5d",
-    "docs/VERIFICATION.md": "7b57f66c9e2578a412b980ebc17723403d5978623fc369b5c3f94a6403178e28",
+    "docs/VERIFICATION.md": "c611d39205d59cfb62285c7b951a1127dcfa435826fe1703db6e48d3c6010031",
     "native_plugin/__init__.py": "8ffb20f1b9329d418a8506d84ad97621b148b685c51c3e0cbfca17521f9cf0d0",
     "native_plugin/plugin.yaml": "96c8a0ceaefefaf0b603d081c7a046de7c0bea8a162124db7bfec97cb4c58e3f",
     "operator/isolated_beads.py": "c5171cf9ab45d6eef95ad1ac033fdc9410bc2169e9bb353f449eab50dbb5e798",
@@ -97,7 +97,8 @@
     "tools/check_compatibility.py": "dd61c7c894e157c950ea712e0362b27bc50beb52feddb7ba20c25a5e2390a5b2",
     "tools/run_native_tests.py": "73c56aea4b6c02ff5ed3262061edbe5e4bb6b4107f96ec1952a56bdab1f6a9ad",
     "tools/verify_package.py": "93617817c043c49c7c4bebe3db8ff99d73431b50acead3f04bc1696231254e09",
-    "verification/VALIDATION.json": "4b23b7b2836d47652fb3bafb838aa8bb2afd3e8b2ce09392321d1cef247898f3"
+    "verification/VALIDATION.json": "4b23b7b2836d47652fb3bafb838aa8bb2afd3e8b2ce09392321d1cef247898f3",
+    "docs/history/VERIFICATION-before-0.14.5.md": "7b57f66c9e2578a412b980ebc17723403d5978623fc369b5c3f94a6403178e28"
   },
   "native_platform_included": false,
   "owner_data_included": false,
