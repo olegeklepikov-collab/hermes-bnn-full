@@ -1,0 +1,49 @@
+## Полный каталог объявленных методов
+
+- `api_main_runSse`: blocked. Run browser automation with SSE streaming; POST /v1/automation/run-sse
+- `api_main_run`: write. Run browser automation synchronously; POST /v1/automation/run
+- `api_main_runAsync`: write. Start automation asynchronously; POST /v1/automation/run-async
+- `api_main_runBatch`: write. Start multiple automations asynchronously; POST /v1/automation/run-batch
+- `api_main_listRuns`: read. List and search runs; GET /v1/runs
+- `api_main_batchGetRuns`: write. Get multiple runs by IDs; POST /v1/runs/batch
+- `api_main_batchCancelRuns`: write. Cancel multiple runs by IDs; POST /v1/runs/batch/cancel
+- `api_main_getRunById`: read. Get run by ID; GET /v1/runs/{id}
+- `api_main_cancelRunById`: write. Cancel run by ID; POST /v1/runs/{id}/cancel
+- `api_main_getStepScreenshot`: read. Get step screenshot; GET /v1/runs/{id}/steps/{stepId}/screenshot
+- `api_main_getStepHtml`: read. Get step HTML snapshot; GET /v1/runs/{id}/steps/{stepId}/html
+- `api_main_listBrowserContextProfiles`: read. List Browser Context Profiles; GET /v1/profiles
+- `api_main_createBrowserContextProfile`: write. Create a Browser Context Profile; POST /v1/profiles
+- `api_main_getBrowserContextProfile`: read. Get a Browser Context Profile; GET /v1/profiles/{profileId}
+- `api_main_updateBrowserContextProfile`: write. Update a Browser Context Profile; PATCH /v1/profiles/{profileId}
+- `api_main_deleteBrowserContextProfile`: write. Delete a Browser Context Profile; DELETE /v1/profiles/{profileId}
+- `api_main_createBrowserContextProfileSetupSession`: write. Create a profile setup session; POST /v1/profiles/{profileId}/setup-session
+- `api_main_cancelBrowserContextProfileSetupSession`: write. Cancel a profile setup session; POST /v1/profiles/{profileId}/setup-session/cancel
+- `api_main_saveBrowserContextProfileSetupSession`: write. Save a profile setup session; POST /v1/profiles/{profileId}/save
+- `api_main_uploadBrowserContextProfileState`: write. Upload Browser Context Profile state; POST /v1/profiles/{profileId}/upload
+- `api_main_deleteBrowserContextProfileDomain`: write. Delete a saved profile domain; DELETE /v1/profiles/{profileId}/domains/{domain}
+- `api_main_connectVault`: blocked. Connect a vault provider; POST /v1/vault/connections
+- `api_main_listVaultConnections`: blocked. List vault connections; GET /v1/vault/connections
+- `api_main_disconnectVault`: blocked. Disconnect a vault provider; DELETE /v1/vault/connections/{connectionId}
+- `api_main_listVaultItems`: blocked. List vault items; GET /v1/vault/items
+- `api_main_syncVaultItems`: blocked. Sync vault items; POST /v1/vault/items/sync
+- `api_main_getWallet`: read. Get wallet; GET /v1/wallet
+- `api_main_topUpWallet`: blocked. Top up wallet (agent-paid); POST /v1/wallet/top-up
+- `api_search_search`: read. Search the web; GET /
+- `api_search_listSearchUsage`: read. List search usage; GET /usage
+- `api_fetch_fetchUrls`: read. Fetch and extract content from URLs; POST /
+- `api_fetch_listFetchUsage`: read. List fetch usage; GET /usage
+- `api_research_runResearch`: blocked. Run research with SSE streaming; POST /v1/automation/run-research
+- `api_research_startResearchAsync`: job. Start research asynchronously; POST /v1/automation/run-research-async
+- `api_research_streamResearchEvents`: blocked. Attach to research progress; GET /v1/research-run/{research_run_id}/events
+- `api_research_listResearchRuns`: read. List research runs; GET /v1/research-run
+- `api_research_getResearchRun`: read. Get research run by ID; GET /v1/research-run/{research_run_id}
+- `api_research_cancelResearchRun`: write. Cancel research run by ID; POST /v1/research-run/{research_run_id}/cancel
+- `api_monitor_createMonitor`: write. Create a Monitor; POST /v1/monitors
+- `api_monitor_listMonitors`: read. List Monitors; GET /v1/monitors
+- `api_monitor_getMonitor`: read. Get a Monitor; GET /v1/monitors/{id}
+- `api_monitor_updateMonitor`: write. Update a Monitor; PATCH /v1/monitors/{id}
+- `api_monitor_deleteMonitor`: write. Delete a Monitor; DELETE /v1/monitors/{id}
+- `api_monitor_runMonitor`: write. Run a Monitor now; POST /v1/monitors/{id}/runs
+- `api_browser_createBrowserSession`: blocked. Create a remote browser session; POST /
+- `api_browser_listBrowserUsage`: blocked. List browser session usage; GET /usage
+- `api_browser_deleteBrowserSession`: blocked. Terminate a browser session; DELETE /{sessionId}

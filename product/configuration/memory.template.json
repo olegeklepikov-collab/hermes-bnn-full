@@ -12,7 +12,7 @@
     "zotero": "__HERMES_ROOT__/state/services/zotero/data"
   },
   "state_root": "__HERMES_ROOT__/state/memory",
-  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48",
+  "package_root": "__HERMES_ROOT__/Memory/releases/2.0.0-dev.53",
   "python": "__HERMES_ROOT__/hermes-agent/venv/bin/python",
   "graph_python": "__HERMES_ROOT__/UDR/software/foundation-graph/bin/python",
   "zvec_python": "__HERMES_ROOT__/UDR/software/zvec/bin/python",
@@ -3487,6 +3487,15 @@
             "revision": {
               "type": "integer",
               "minimum": 1
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max_chars": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4096
             }
           },
           "required": [
@@ -50349,6 +50358,57 @@
             "name"
           ]
         }
+      },
+      {
+        "id": "memory.read.result.child",
+        "tool": "mcp__context__memory_read",
+        "effect": "read_local",
+        "roles": [
+          "collector",
+          "analyst",
+          "reviewer",
+          "G",
+          "S",
+          "D",
+          "parser",
+          "computation"
+        ],
+        "arguments_schema": {
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "max_chars": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4096
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "properties": {
+                "id": {
+                  "pattern": "^RCL-[a-f0-9]{32}$"
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   },
@@ -50496,11 +50556,11 @@
         "__HERMES_ROOT__/GSD/vendor/1.1.0/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/vendor/1.1.0/engine/manifest.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/state/w3-modules/gsd/operator/settings.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.53/bn_memory/gsd_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BN-COMPATIBILITY.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-PATCH.json": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-COMPUTE-PATCH.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.53/bn_memory/gsd_compute_proofs.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/GSD/releases/0.2.13-hermes-0.22.2-r6/BNN-CORPUS-PATCH.json": "__GENERATED_SHA256__"
       }
     },
@@ -50807,7 +50867,7 @@
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/scripts/vision_model_worker.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/skills/research/templates/telegram-dm-standalone.config.yaml": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/UDR/software/research-release/research-source/bundle-manifest.json": "__GENERATED_SHA256__",
-        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.48/bn_memory/research_module.py": "__GENERATED_SHA256__",
+        "__HERMES_ROOT__/Memory/releases/2.0.0-dev.53/bn_memory/research_module.py": "__GENERATED_SHA256__",
         "__HERMES_ROOT__/Dolt/bin/dolt": "__GENERATED_SHA256__"
       },
       "state_root": "__HERMES_ROOT__/state/w3-modules/research/foundation",
@@ -53950,5 +54010,15 @@
       }
     ]
   },
-  "semantic_intake_bridge": true
+  "semantic_intake_bridge": true,
+  "research_context_bytes": 200000,
+  "delegate_registered_sources": true,
+  "native_background_review": true,
+  "storage_policy": {
+    "version": 1,
+    "primary_free_bytes": 2147483648,
+    "background_free_bytes": 5368709120,
+    "reserve_bytes": 134217728,
+    "probe_interval_seconds": 30
+  }
 }

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -48,9 +49,20 @@ def initialize_services(bundle):
     return {'registry_entries':len(registry['services']),'empty_new_account_capsules':True,'provider_execution_verified':False}
 
 
+def intake_distribution(bundle):
+    manifest=json.loads((bundle/'Intake/packages/manifest.json').read_text())
+    version=manifest.get('version');name=manifest.get('wheel')
+    declared=json.loads((bundle/'configuration/full-source.json').read_text())['Intake']
+    if (manifest.get('contract')!='BNNIntakeDistributionV1' or not isinstance(version,str)
+            or not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+',version) or declared!=version
+            or name!='hermes_bnn_intake-'+version+'-py3-none-any.whl'):
+        raise PermissionError('intake_distribution_version_or_name_mismatch')
+    return manifest,bundle/'Intake/packages'/name,bundle/'Hermes/Intake'/version
+
+
 def install_intake(bundle):
     root=bundle/'Hermes';source=bundle/'Intake';cfg=json.loads((root/'Memory/settings.json').read_text());python=root/'hermes-agent/venv/bin/python'
-    package=source/'packages/hermes_bnn_intake-0.14.7-py3-none-any.whl';manifest=json.loads((source/'packages/manifest.json').read_text());library=root/'Intake/0.14.7'
+    manifest,package,library=intake_distribution(bundle)
     library.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
     subprocess.run([str(python),'-B',str(source/'packages/unpack.py'),'--wheel',str(package),'--expected-sha256',manifest['wheel_sha256'],'--target',str(library)],check=True)
     env={k:v for k,v in os.environ.items() if k in ['HOME','PATH','TMPDIR','LANG','LC_ALL']}
@@ -61,12 +73,17 @@ def install_intake(bundle):
     (root/'state/full-intake-install.log').write_text(run.stdout+run.stderr)
     if run.returncode:raise RuntimeError('fresh_intake_install_failed_inspect_own_log')
     receipt=json.loads(run.stdout.splitlines()[-1]);save(root/'state/full-intake-install.json',receipt)
-    return {'version':'0.14.7','installed':True,'one_existing_common_Host':True}
+    return {'version':manifest['version'],'installed':True,'one_existing_common_Host':True}
 
 
 def initialize(bundle):
     from neutral_prepare import initialize as base_initialize
     result=base_initialize(bundle)
+    control_file=bundle/'Hermes/data/execution-controls.json'
+    controls=json.loads(control_file.read_text())
+    seconds=json.loads((bundle/'configuration/execution-controls.template.json').read_text())['timeout_seconds']
+    if type(seconds) is not int or not 0<seconds<=60:raise PermissionError('invalid_control_wait_bound')
+    controls['timeout_seconds']=seconds;save(control_file,controls)
     services=initialize_services(bundle);intake=install_intake(bundle)
     save(bundle/'Hermes/state/full-platform-initialized.json',{'fresh_local_initialized':True,'base':result,'services':services,'intake':intake,
         'source_owner_credentials_or_identity_copied':False,'provider_or_Telegram_execution_verified':False})
@@ -76,7 +93,8 @@ def initialize(bundle):
 def verify(bundle):
     from neutral_prepare import verify as base_verify
     result=base_verify(bundle);root=bundle/'Hermes';cfg=json.loads((root/'Memory/settings.json').read_text())
-    sys.path[:0]=[str(root/'Intake/0.14.7'),cfg['package_root'],str(root/'hermes-agent')]
+    _,_,library=intake_distribution(bundle)
+    sys.path[:0]=[str(library),cfg['package_root'],str(root/'hermes-agent')]
     from hermes_cli.plugins import discover_plugins,get_plugin_manager
     from hermes_cli.execution_control import authorize,ExecutionControlDenied
     discover_plugins();manager=get_plugin_manager();entry=manager._plugins['bn-common-memory']

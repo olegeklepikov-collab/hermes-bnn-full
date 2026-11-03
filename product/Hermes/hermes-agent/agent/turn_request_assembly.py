@@ -21,6 +21,13 @@ from agent.turn_context import build_api_messages
 logger = logging.getLogger("agent.conversation_loop")
 
 
+def normalize_non_user_whitespace(messages):
+    """User bytes are an immutable goal/evidence anchor, including edge whitespace."""
+    for message in messages:
+        if message.get('role') != 'user' and isinstance(message.get('content'), str):
+            message['content'] = message['content'].strip()
+
+
 @dataclass
 class AssembledRequest:
     """Always ``action == "fallthrough"``; the fields are the iteration locals the assembly
@@ -187,9 +194,7 @@ def assemble_api_request(
 
     # Normalize whitespace and tool-call JSON for bit-perfect prefixes across turns
     # (KV-cache reuse on local servers, better cloud cache hits); API copy only.
-    for am in api_messages:
-        if isinstance(am.get("content"), str):
-            am["content"] = am["content"].strip()
+    normalize_non_user_whitespace(api_messages)
     _canonicalize_api_tool_calls(api_messages)
 
     # Strip lone surrogates (U+D800-U+DFFF) that some Ollama-served models emit;
