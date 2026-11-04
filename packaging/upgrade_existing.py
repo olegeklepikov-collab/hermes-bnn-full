@@ -1,4 +1,4 @@
-"""Operator upgrade from the qualified dev.45 profile, using a whole signed release.
+"""Operator upgrade from qualified dev.45/dev.48 profiles, using a whole signed release.
 
 No account import, fresh-owner initialization, history rewind or automatic service stop.
 The operator stops the exact profile first. All preimages remain private beside it.
@@ -56,6 +56,18 @@ def restore_preimages(root,checkpoint,before):
             (root/name).rename(retained)
 
 
+def apply_core_replacements(root,replacements,pins):
+    checked=[]
+    for name,item in replacements.items():
+        relative=str(Path(name).relative_to('hermes-agent'))
+        source=Path(item['source']);target=owned(root,root/name)
+        if source.is_symlink() or release.digest(source)!=item['sha256'] or pins.get(relative)!=item['sha256']:
+            raise PermissionError('core_source_not_exact_whole_release')
+        checked.append((source,target))
+    for source,target in checked:
+        target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
+
+
 def rebind(config,root,package):
     cfg=copy.deepcopy(config);cfg['package_root']=str(package)
     aliases=[]
@@ -80,9 +92,16 @@ def rebind(config,root,package):
     return cfg
 
 
+def control_wait_policy(current,seconds):
+    if type(seconds) is not int or not 0<seconds<=60:raise PermissionError('invalid_control_wait_bound')
+    result=copy.deepcopy(current)
+    if result.get('timeout_seconds')==5:result['timeout_seconds']=seconds
+    return result  # Preserve separately configured owner bounds and all required controllers.
+
+
 def verify_old(root,cfg):
     package=owned(root,cfg['package_root'])
-    if package.name!='2.0.0-dev.45':raise PermissionError('only_qualified_dev45_upgrade_supported')
+    if package.name not in {'2.0.0-dev.45','2.0.0-dev.48','2.0.0-dev.49','2.0.0-dev.50','2.0.0-dev.51','2.0.0-dev.52'}:raise PermissionError('only_qualified_dev45_dev48_or_dev49_upgrade_supported')
     for name,h in release.read(package/'manifest.json').items():
         if release.digest(owned(package,package/name))!=h:raise PermissionError('old_memory_program_changed:'+name)
     old=release.read(package/'release.json')
@@ -90,7 +109,8 @@ def verify_old(root,cfg):
         if release.digest(owned(root,root/'hermes-agent'/name))!=h:raise PermissionError('old_core_program_changed:'+name)
     # This derivative was added to the versioned core pins in dev.47.
     watchdog=root/'hermes-agent/gateway/shutdown_watchdog.py'
-    if release.digest(watchdog)!='13262070225a3174ae56bebefc03ed70ee0dc090d20b8bf8c005d6b49e66f7fa':
+    expected='13262070225a3174ae56bebefc03ed70ee0dc090d20b8bf8c005d6b49e66f7fa' if package.name=='2.0.0-dev.45' else 'e157f02e9e3e8430050404f8450f4a8a87922cc639afd5e7a9714a43a6f2e0e6'
+    if release.digest(watchdog)!=expected:
         raise PermissionError('old_watchdog_not_qualified')
     return package
 
@@ -103,14 +123,14 @@ def execute(root,directory,checkpoint,authority):
     manifest=release.verify_release(directory);bundle=directory/'Hermes-BNN-Full'
     if release.digest(bundle/'bundle-manifest.json')!=manifest['bundle_manifest_sha256']:
         raise PermissionError('wrong_whole_program_manifest')
-    cfg=release.read(root/'Memory/settings.json');verify_old(root,cfg)
+    cfg=release.read(root/'Memory/settings.json');old_package=verify_old(root,cfg)
     if Path(cfg['profile_home'])!=root/'data':raise PermissionError('primary_profile_required')
     memory=manifest['components']['Memory'];intake=manifest['components']['Intake']
     incoming=bundle/'Hermes/Memory/releases'/memory;target=root/'Memory/releases'/memory
     library=root/'Intake'/intake
     if checkpoint.exists():raise FileExistsError('unfinished_or_previous_upgrade_observe_before_retry')
     expected=release.read(bundle/'bundle-manifest.json')['objects']
-    paths={}
+    paths={};core_replacements={}
     for name in release.read(incoming/'manifest.json'):
         if release.digest(incoming/name)!=expected['Hermes/Memory/releases/'+memory+'/'+name]['sha256']:
             raise PermissionError('incoming_memory_changed')
@@ -118,7 +138,9 @@ def execute(root,directory,checkpoint,authority):
         source=bundle/'Hermes/hermes-agent'/name
         if release.digest(source)!=h:raise PermissionError('incoming_core_changed')
         current=root/'hermes-agent'/name
-        if release.digest(current)!=h:paths[str(current.relative_to(root))]=source
+        if not current.is_file() or release.digest(current)!=h:
+            relative=str(current.relative_to(root));paths[relative]=source
+            core_replacements[relative]={'source':str(source),'sha256':h}
     # All copied program bytes come from this exact whole-release inventory.
     if release.digest(incoming/'manifest.json')!=expected['Hermes/Memory/releases/'+memory+'/manifest.json']['sha256']:
         raise PermissionError('incoming_manifest_changed')
@@ -127,13 +149,16 @@ def execute(root,directory,checkpoint,authority):
         raise PermissionError('incoming_intake_manifest_changed')
     if release.digest(wheel)!=distribution['wheel_sha256'] or distribution['version']!=intake:
         raise PermissionError('incoming_intake_changed')
-    sys.path[:0]=[str(root/'Intake/0.14.4'),str(root/'hermes-agent'),cfg['package_root']]
+    old_intake=release.read(root/'data/intake-deployment.json')['deployment']['version']
+    supported={'2.0.0-dev.45':{'0.14.4'},'2.0.0-dev.48':{'0.14.7','0.14.8'},'2.0.0-dev.49':{'0.14.9'},'2.0.0-dev.50':{'0.14.10'},'2.0.0-dev.51':{'0.14.11'},'2.0.0-dev.52':{'0.14.12'}}
+    if old_intake not in supported[old_package.name]:raise PermissionError('old_Intake_pair_not_qualified')
+    sys.path[:0]=[str(root/'Intake'/old_intake),str(root/'hermes-agent'),cfg['package_root']]
     from bnn_intake.deployment import stopped,common_plugin_target,preservation_witness
     from bnn_intake.bootstrap import verify_deployment
     from bnn_intake.recovery import optional_stopped
     verify_deployment(root/'data',root/'Memory/settings.json',cfg)
     plugin=common_plugin_target(root,root/'data')
-    names=['Memory/settings.json','data/config.yaml','data/intake-deployment.json','data/.env','bin/hermes',*paths]
+    names=['Memory/settings.json','data/config.yaml','data/execution-controls.json','data/intake-deployment.json','data/.env','bin/hermes',*paths]
     names += [str((plugin/n).relative_to(root)) for n in ['__init__.py','plugin.yaml','common_policy.py']]
     dbfile=owned(root,Path(cfg['state_root'])/'memory.sqlite')
     # A live loader holds this lock; no forceful lock cleanup is permitted.
@@ -142,14 +167,14 @@ def execute(root,directory,checkpoint,authority):
         before={}
         for name in names:
             path=owned(root,root/name)
-            if name in {'bin/hermes','data/.env'} and not path.exists():
+            if (name in {'bin/hermes','data/.env'} or name in core_replacements) and not path.exists():
                 before[name]={'exists':False};continue
             if not path.is_file():raise PermissionError('required_preimage_missing:'+name)
             saved=checkpoint/'files'/name;saved.parent.mkdir(parents=True,exist_ok=True,mode=0o700);shutil.copy2(path,saved)
             before[name]={'sha256':release.digest(saved),'mode':stat.S_IMODE(saved.stat().st_mode)}
         dbbefore=backup_database(dbfile,checkpoint/'memory.sqlite')
         preservation=preservation_witness(dbfile)
-        release.write(checkpoint/'before.json',{'contract':'BNNExistingUpgradePreimageV1','root':str(root),'archive_sha256':manifest['archive']['sha256'],'source_commit':manifest['source_commit'],'files':before,'database':dbbefore,'database_sha256':release.digest(checkpoint/'memory.sqlite'),'authority_sha256':release.digest(authority),'rollback_rewinds_database':False})
+        release.write(checkpoint/'before.json',{'contract':'BNNExistingUpgradePreimageV1','root':str(root),'archive_sha256':manifest['archive']['sha256'],'source_commit':manifest['source_commit'],'files':before,'core_replacements':core_replacements,'database':dbbefore,'database_sha256':release.digest(checkpoint/'memory.sqlite'),'authority_sha256':release.digest(authority),'rollback_rewinds_database':False})
     # Rehearsal runs separately with new modules loaded; no original profile writes.
     if target.exists():
         if release.inventory(target)!=release.inventory(incoming):raise PermissionError('retained_program_not_exact_candidate')
@@ -165,18 +190,25 @@ def execute(root,directory,checkpoint,authority):
     if release.digest(template)!=expected['configuration/memory.template.json']['sha256']:
         raise PermissionError('incoming_configuration_template_changed')
     template=release.read(template)
+    for key in ['research_context_bytes','delegate_registered_sources','native_background_review','storage_policy']:
+        if key not in newcfg and key in template:newcfg[key]=copy.deepcopy(template[key])
     declarations=template['module_tool_catalog']
     fresh={entry['name']:entry for entry in declarations}
     newcfg['module_tool_catalog']=[fresh[e['name']] if e['name'] in {'work_team','udr_team'} else e
                                    for e in cfg['module_tool_catalog']]
     for rule in newcfg['tool_policy']['rules']:
+        if rule['id']=='memory.read.parent':rule['arguments_schema']=copy.deepcopy(next(r['arguments_schema'] for r in template['tool_policy']['rules'] if r['id']=='memory.read.parent'))
         if rule['id'] in {'w3.module.work_team','w3.module.udr_team'}:
             rule['arguments_schema']=copy.deepcopy(fresh[rule['tool']]['parameters'])
-    for identifier in ['native.skills.metadata','native.skills.bundled']:
+    for identifier in ['native.skills.metadata','native.skills.bundled','memory.read.result.child']:
         incoming_rule=next((x for x in template['tool_policy']['rules'] if x['id']==identifier),None)
         if incoming_rule and not any(x['id']==identifier for x in newcfg['tool_policy']['rules']):
             newcfg['tool_policy']['rules'].append(incoming_rule)
     release.write(checkpoint/'candidate-settings.json',newcfg)
+    controls=bundle/'configuration/execution-controls.template.json'
+    if release.digest(controls)!=expected['configuration/execution-controls.template.json']['sha256']:
+        raise PermissionError('incoming_control_bound_changed')
+    release.write(checkpoint/'candidate-controls.json',control_wait_policy(release.read(root/'data/execution-controls.json'),release.read(controls)['timeout_seconds']))
     env={k:v for k,v in os.environ.items() if k in {'HOME','PATH','LANG','LC_ALL','TMPDIR'}}
     env.update(HERMES_HOME=str(root/'data'),PYTHONPATH=os.pathsep.join([str(library),str(target),str(root/'hermes-agent')]),PYTHONDONTWRITEBYTECODE='1',PYTHONNOUSERSITE='1')
     command=[str(root/'hermes-agent/venv/bin/python'),'-B',str(Path(__file__).absolute()),'apply','--root',str(root),'--checkpoint',str(checkpoint)]
@@ -219,12 +251,11 @@ def apply(root,checkpoint):
             if not item.get('exists',True):
                 if (root/name).exists():raise PermissionError('configuration_changed_during_upgrade')
             elif release.digest(root/name)!=item['sha256']:raise PermissionError('configuration_changed_during_upgrade')
-        # Core delta is intentionally narrow and byte-pinned to the whole release.
-        source=Path(cfg['package_root'])/'release.json';pins=release.read(source)['core_patch_sha256']
-        current=root/'hermes-agent/gateway/shutdown_watchdog.py'
-        candidate=release.ROOT/'product/Hermes/hermes-agent/gateway/shutdown_watchdog.py'
-        if release.digest(candidate)!=pins['gateway/shutdown_watchdog.py']:raise PermissionError('operator_source_not_candidate')
-        shutil.copy2(candidate,current)
+        # Every core replacement, including a newly introduced adapter, comes
+        # from the exact verified whole release. Source checkout bytes are not
+        # substituted for the artifact during installation.
+        pins=release.read(Path(cfg['package_root'])/'release.json')['core_patch_sha256']
+        apply_core_replacements(root,before.get('core_replacements',{}),pins)
         for name,entry in cfg['backend_policy']['allow'].items():entry['resource_sha256']=resource_hash(cfg,name)
         verify_native(cfg)
         app=yaml.safe_load((root/'data/config.yaml').read_text())
@@ -260,6 +291,7 @@ exec "$hermes_install_root/hermes-agent/venv/bin/python" -m hermes_cli.main "$@"
             save_env_value('TELEGRAM_ALLOWED_USERS',str(cfg['delivery']['recipient_user_id']))
             save_env_value('TELEGRAM_ALLOW_ALL_USERS','false');save_env_value('GATEWAY_ALLOW_ALL_USERS','false')
         write(root/'Memory/settings.json',cfg);write_app_config(root/'data/config.yaml',app)
+        write(root/'data/execution-controls.json',release.read(checkpoint/'candidate-controls.json'))
         enroll(root,root/'Memory/settings.json');verify_deployment(root/'data',root/'Memory/settings.json',cfg)
         from bn_memory.plugin import Host
         host=Host(root/'Memory/settings.json')

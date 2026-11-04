@@ -1,32 +1,10 @@
 {
-  "canonical_repository": "olegeklepikov-collab/hermes-bnn-full-private",
-  "canonical_source_commit": "1b8c3640d1e1fd966153e9236b7d3b530e965f78",
-  "program_source_commit": "d56e90053987e7ded9b713e6c9b3d10784257144",
-  "active_source": "product/",
-  "exported_paths": [
-    "AGENTS.md",
-    "README.md",
-    ".gitignore",
-    "product",
-    "locks",
-    "environments",
-    "packaging",
-    "tests/release_engineering",
-    "tests/operator_crypto",
-    "trust",
-    "bin",
-    ".github/workflows",
-    "docs/RELEASE_ENGINEERING_RU.md",
-    "docs/RELEASE_ACCEPTANCE.json",
-    "docs/NATIVE_TASK_RESULTS.md",
-    "docs/TEST_TELEGRAM_RU.md",
-    "docs/TELEGRAM_QUALIFICATION_RU.md"
-  ],
-  "export_type": "neutral committed source only; no private Git history, keys or operator state",
-  "historical_roots": [
-    "source/",
-    "bootstrap/",
-    "RELEASE.json"
-  ],
-  "production_deployment_automatic": false
+  "canonical_repository": "https://github.com/olegeklepikov-collab/hermes-bnn-full-private",
+  "canonical_source_commit": "73fde2db8c8a0679e2b67724d6fb8af7d03a4d81",
+  "product_tree": "12376203800c6f06a45e11152ff7fd682eeae3ac",
+  "Memory": "2.0.0-dev.53",
+  "Intake": "0.14.13",
+  "public_repository_is_derived_export": true,
+  "owner_data_or_credentials_included": false,
+  "historical_fix_chain_required": false
 }

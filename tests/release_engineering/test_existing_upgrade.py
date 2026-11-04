@@ -2,9 +2,29 @@
 import importlib.util,json,sqlite3,sys,tempfile,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'packaging'))
-from upgrade_existing import logical_database,backup_database,owned,rebind
+from upgrade_existing import logical_database,backup_database,owned,rebind,apply_core_replacements
 
 class ExistingUpgrade(unittest.TestCase):
+    def test_all_core_replacements_including_new_adapter_use_artifact_bytes(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as d:
+            r=Path(d).resolve();root=r/'runtime';artifact=r/'artifact';root.mkdir();artifact.mkdir()
+            (root/'hermes-agent/agent').mkdir(parents=True);(root/'hermes-agent/agent/existing.py').write_text('old')
+            replacements={};pins={}
+            for name in ['existing.py','new_adapter.py']:
+                p=artifact/name;p.write_text('qualified '+name);h=hashlib.sha256(p.read_bytes()).hexdigest()
+                replacements['hermes-agent/agent/'+name]={'source':str(p),'sha256':h};pins['agent/'+name]=h
+            apply_core_replacements(root,replacements,pins)
+            self.assertEqual((root/'hermes-agent/agent/new_adapter.py').read_text(),'qualified new_adapter.py')
+            self.assertEqual((root/'hermes-agent/agent/existing.py').read_text(),'qualified existing.py')
+
+    def test_bad_later_core_source_cannot_partially_replace_earlier_file(self):
+        with tempfile.TemporaryDirectory() as d:
+            r=Path(d).resolve();root=r/'runtime';root.mkdir();(root/'hermes-agent').mkdir();target=root/'hermes-agent/first.py';target.write_text('old')
+            source=r/'candidate';source.write_text('candidate');import hashlib;h=hashlib.sha256(source.read_bytes()).hexdigest()
+            values={'hermes-agent/first.py':{'source':str(source),'sha256':h},'hermes-agent/second.py':{'source':str(source),'sha256':'0'*64}}
+            with self.assertRaises(PermissionError):apply_core_replacements(root,values,{'first.py':h,'second.py':'0'*64})
+            self.assertEqual(target.read_text(),'old');self.assertFalse((root/'hermes-agent/second.py').exists())
     def test_backup_restore_preserves_unknown_outcomes_and_binary_rows(self):
         with tempfile.TemporaryDirectory() as d:
             r=Path(d);source=r/'source.sqlite'
@@ -47,3 +67,16 @@ class ExistingUpgrade(unittest.TestCase):
                 rebind(base,r,r/'Memory/releases/new')
 
 if __name__=='__main__':unittest.main()
+
+
+class ControlWaitPolicyTests(unittest.TestCase):
+    def test_only_historical_default_changes_required_controls_preserved(self):
+        from upgrade_existing import control_wait_policy
+        current={'version':1,'required':{'tool':['mandatory']},'timeout_seconds':5}
+        result=control_wait_policy(current,30)
+        self.assertEqual(result['required'],current['required'])
+        self.assertEqual(result['timeout_seconds'],30)
+        self.assertEqual(current['timeout_seconds'],5)
+        self.assertEqual(control_wait_policy({**current,'timeout_seconds':12},30)['timeout_seconds'],12)
+        with self.assertRaises(PermissionError):control_wait_policy(current,0)
+        with self.assertRaises(PermissionError):control_wait_policy(current,61)

@@ -1,0 +1,74 @@
+## Полный каталог объявленных методов
+
+- `web_search_exa`: read. Search the web for any topic and get clean, ready-to-use content.        Best for: Finding current information, news, facts, people, companies, or answering questions about any topic.       Returns: Clean text content from top search results.        Query tips:       describe the ideal page, not keywords. "blog post comparing React and Vue performance" not "React vs Vue".       Use category:people / category:company to search through Linkedin profiles / companies respectively.       If highlights are insufficient, follow up with web_fetch_exa on the best URLs.
+- `web_search_advanced_exa`: read. Advanced web search with full control over filters, domains, dates, and content options.  Best for: When you need specific filters like date ranges, domain restrictions, or category filters. Not recommended for: Simple searches - use web_search_exa instead. Returns: Search results with page text, highlights, summaries or subpage content. Page text is the full page by default. When highlights or summaries are enabled, page text is omitted unless textMaxCharacters is set.
+- `web_fetch_exa`: read. Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL.  Best for: Extracting full content from known URLs. Batch multiple URLs in one call. Returns: Clean text content and metadata from the page(s).
+- `agent_run`: job. Start or resume an Exa Agent run for multi-step research, list-building, or enrichment. Use it instead of running many searches yourself when a task needs multiple searches, cross-source verification, or a structured table of results. Long-running: returns a run ID; resume with runId when the tool reports the run is still running. Not for a single question or lookup (use web_search_exa or web_search_advanced_exa) or reading a known URL (use web_fetch_exa). An interrupted tool call is not an explicit cancellation request.
+- `api_search`: read. Search; POST /search
+- `api_getContents`: read. Contents; POST /contents
+- `api_answer`: read. Answer; POST /answer
+- `api_findSimilar`: read. Find similar links; POST /findSimilar
+- `api_createMonitor`: write. Create a monitor; POST /monitors
+- `api_listMonitors`: read. List monitors; GET /monitors
+- `api_batchMonitors`: write. Batch action on monitors; POST /monitors/batch
+- `api_getMonitor`: read. Get a monitor; GET /monitors/{id}
+- `api_updateMonitor`: write. Update a monitor; PATCH /monitors/{id}
+- `api_deleteMonitor`: write. Delete a monitor; DELETE /monitors/{id}
+- `api_triggerMonitor`: job. Trigger a monitor; POST /monitors/{id}/trigger
+- `api_listRuns`: read. List runs; GET /monitors/{id}/runs
+- `api_getRun`: read. Get a run; GET /monitors/{id}/runs/{runId}
+- `api_createAgentRun`: job. Create a run; POST /agent/runs
+- `api_listAgentRuns`: read. List runs; GET /agent/runs
+- `api_getAgentRun`: read. Get a run; GET /agent/runs/{id}
+- `api_deleteAgentRun`: write. Delete a run; DELETE /agent/runs/{id}
+- `api_cancelAgentRun`: write. Cancel a run; POST /agent/runs/{id}/cancel
+- `api_stopAgentRun`: write. Stop a run; POST /agent/runs/{id}/stop
+- `api_listAgentRunEvents`: blocked. List run events; GET /agent/runs/{id}/events
+- `api_createBatch`: job. Create a batch; POST /batches
+- `api_listBatches`: read. List batches; GET /batches
+- `api_getBatch`: read. Get a batch; GET /batches/{id}
+- `api_deleteBatch`: write. Delete a batch; DELETE /batches/{id}
+- `api_cancelBatch`: write. Cancel a batch; POST /batches/{id}/cancel
+- `api_teams_me_get`: read. Get team info; GET /v0/teams/me
+- `api_websets_create`: job. Create a Webset; POST /v0/websets
+- `api_websets_list`: read. List all Websets; GET /v0/websets
+- `api_websets_get`: read. Get a Webset; GET /v0/websets/{id}
+- `api_websets_update`: write. Update a Webset; POST /v0/websets/{id}
+- `api_websets_delete`: write. Delete a Webset; DELETE /v0/websets/{id}
+- `api_websets_cancel`: write. Cancel a running Webset; POST /v0/websets/{id}/cancel
+- `api_websets_searches_create`: job. Create a Search; POST /v0/websets/{webset}/searches
+- `api_websets_searches_get`: read. Get a Search; GET /v0/websets/{webset}/searches/{id}
+- `api_websets_searches_cancel`: write. Cancel a running Search; POST /v0/websets/{webset}/searches/{id}/cancel
+- `api_websets_enrichments_create`: job. Create an Enrichment; POST /v0/websets/{webset}/enrichments
+- `api_websets_enrichments_update`: write. Update an Enrichment; PATCH /v0/websets/{webset}/enrichments/{id}
+- `api_websets_enrichments_get`: read. Get an Enrichment; GET /v0/websets/{webset}/enrichments/{id}
+- `api_websets_enrichments_delete`: write. Delete an Enrichment; DELETE /v0/websets/{webset}/enrichments/{id}
+- `api_websets_enrichments_cancel`: write. Cancel a running Enrichment; POST /v0/websets/{webset}/enrichments/{id}/cancel
+- `api_websets_items_get`: read. Get an Item; GET /v0/websets/{webset}/items/{id}
+- `api_websets_items_delete`: write. Delete an Item; DELETE /v0/websets/{webset}/items/{id}
+- `api_websets_items_list`: read. List all Items for a Webset; GET /v0/websets/{webset}/items
+- `api_websets_preview`: read. Preview a webset; POST /v0/websets/preview
+- `api_monitors_create`: write. Create a Monitor; POST /v0/monitors
+- `api_monitors_list`: read. List Monitors; GET /v0/monitors
+- `api_monitors_get`: read. Get Monitor; GET /v0/monitors/{id}
+- `api_monitors_update`: write. Update Monitor; PATCH /v0/monitors/{id}
+- `api_monitors_delete`: write. Delete Monitor; DELETE /v0/monitors/{id}
+- `api_monitors_runs_list`: read. List Monitor Runs; GET /v0/monitors/{monitor}/runs
+- `api_monitors_runs_get`: read. Get Monitor Run; GET /v0/monitors/{monitor}/runs/{id}
+- `api_imports_create`: blocked. Create an Import; POST /v0/imports
+- `api_imports_list`: blocked. List Imports; GET /v0/imports
+- `api_imports_get`: blocked. Get Import; GET /v0/imports/{id}
+- `api_imports_update`: blocked. Update Import; PATCH /v0/imports/{id}
+- `api_imports_delete`: blocked. Delete Import; DELETE /v0/imports/{id}
+- `api_webhooks_create`: blocked. Create a Webhook; POST /v0/webhooks
+- `api_webhooks_list`: blocked. List webhooks; GET /v0/webhooks
+- `api_webhooks_get`: blocked. Get a Webhook; GET /v0/webhooks/{id}
+- `api_webhooks_update`: blocked. Update a Webhook; PATCH /v0/webhooks/{id}
+- `api_webhooks_delete`: blocked. Delete a Webhook; DELETE /v0/webhooks/{id}
+- `api_webhooks_attempts_list`: blocked. List webhook attempts; GET /v0/webhooks/{id}/attempts
+- `api_events_list`: blocked. List all Events; GET /v0/events
+- `api_events_get`: blocked. Get an Event; GET /v0/events/{id}
+
+## Методические процедуры BN
+
+Полный исходный порядок и ограничения сохранены в [BN-procedures-reference.md](BN-procedures-reference.md). Используй их методический смысл через текущие типизированные методы; исторические команды не исполняются.

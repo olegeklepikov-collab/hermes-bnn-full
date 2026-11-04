@@ -6,6 +6,7 @@ from pathlib import Path,PurePosixPath
 
 ROOT=Path(__file__).resolve().parents[1]
 NAMESPACE='bnn-release-v1'
+from storage_capacity import protected
 
 
 def digest(p):
@@ -155,6 +156,7 @@ def verify_dependencies(cache):
     return len(actual)
 
 
+@protected('build')
 def build(version):
     if not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+(?:-[a-z0-9.]+)?',version):raise ValueError('invalid_product_version')
     from pair_contract import verify_pair
@@ -188,12 +190,14 @@ def build(version):
     write(bundle/'bundle-manifest.json',meta)
     archive=out/f'Hermes-BNN-{build_id}-macos-arm64.tar.gz'
     def normalized(t):return normalized_tarinfo(t,epoch)
-    with archive.open('xb') as raw,gzip.GzipFile(filename='',fileobj=raw,mode='wb',mtime=0,compresslevel=1) as gz,tarfile.open(fileobj=gz,mode='w|',format=tarfile.PAX_FORMAT) as tar:
+    pending=archive.with_name(archive.name+'.pending')
+    with pending.open('xb') as raw,gzip.GzipFile(filename='',fileobj=raw,mode='wb',mtime=0,compresslevel=1) as gz,tarfile.open(fileobj=gz,mode='w|',format=tarfile.PAX_FORMAT) as tar:
         tar.add(bundle,arcname=bundle.name,recursive=False,filter=normalized)
         for base,dirs,files in os.walk(bundle,followlinks=False):
             dirs.sort();files.sort()
             for name in dirs+files:
                 p=Path(base)/name;tar.add(p,arcname=bundle.name+'/'+str(p.relative_to(bundle)),recursive=False,filter=normalized)
+    os.replace(pending,archive)
     release={**product,'archive':{'name':archive.name,'bytes':archive.stat().st_size,'sha256':digest(archive)},'bundle_manifest_sha256':digest(bundle/'bundle-manifest.json'),'source_file_count':len(src_inventory),'cache_objects_verified':count,'changed_program_files_from_cache':changed,'source_projection_sha256':hashlib.sha256(json.dumps(src_inventory,sort_keys=True).encode()).hexdigest(),'qualification_status':'pending','external_model_execution_claimed':False}
     write(out/'RELEASE.json',release);sign_manifest(out/'RELEASE.json',Path(r['development_root'])/'.operator/keys/release_ed25519')
     write(out/'build-receipt.json',{'source_commit':commit,'release_manifest_sha256':digest(out/'RELEASE.json'),'archive_sha256':release['archive']['sha256'],'build_complete':True,'production_changed':False})
@@ -214,6 +218,7 @@ def logged(command,env,cwd,log,timeout=600):
     if p.returncode:raise RuntimeError('native_step_failed:'+Path(log).name+':'+str(p.returncode))
 
 
+@protected('qualify')
 def qualify(directory,environment):
     if environment not in ['test','development']:raise PermissionError('production_is_read_only_in_this_phase')
     r=resources();fallback=Path(r['test_root']) if environment=='test' else Path(r['development_root'])/'instances'

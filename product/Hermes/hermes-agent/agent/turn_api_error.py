@@ -85,6 +85,7 @@ def handle_api_error(
             "final_response": f"Execution blocked: {api_error}", "messages": messages,
             "failed": True, "error": str(api_error), "failure_reason": "execution_control_denied",
             "failure_retryable": False, "api_calls": api_call_count,
+            "effects_may_have_run": bool(getattr(api_error,"effects_may_have_run",False)),
         })
 
     _recovered, active_system_prompt = recover_before_classification(

@@ -1322,6 +1322,11 @@ def spawn_background_review_thread(
             f"focus — prioritize it over the general instructions above:\n{focus}"
         )
 
+    from agent.background_review_adapter import prepare as prepare_native_review
+    target=prepare_native_review(agent,messages_snapshot,prompt,review_memory,review_skills,review_run,explicit)
+    if target is not None:
+        return target,prompt
+
     def _target() -> None:  # resolves _run_review_in_thread at call time (tests patch it)
         _run_review_in_thread(
             agent, messages_snapshot, prompt, task_cfg=task_cfg, review_run=review_run,

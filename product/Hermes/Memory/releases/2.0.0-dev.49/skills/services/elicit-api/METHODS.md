@@ -1,0 +1,55 @@
+## Полный каталог объявленных методов
+
+- `api_v2_post__search_papers`: read. Search for academic papers; POST /search/papers
+- `api_v2_post__search_trials`: read. Search clinical trials; POST /search/trials
+- `api_v2_post__sessions_reports`: job. Create a new report; POST /sessions/reports
+- `api_v2_get__sessions_reports_sessionId`: read. Get report status and results; GET /sessions/reports/{sessionId}
+- `api_v2_post__sessions_systematic_reviews`: job. Create a new systematic review; POST /sessions/systematic-reviews
+- `api_v2_get__sessions_systematic_reviews_sessionId`: read. Get systematic review status and results; GET /sessions/systematic-reviews/{sessionId}
+- `api_v2_get__sessions`: read. List sessions; GET /sessions
+- `api_v2_post__sessions_sessionId_resume`: job. Resume a paused session; POST /sessions/{sessionId}/resume
+- `api_v2_post__sessions_sessionId_shares`: write. Share a session; POST /sessions/{sessionId}/shares
+- `api_v2_get__sessions_sessionId_shares`: read. List a session's shares; GET /sessions/{sessionId}/shares
+- `api_v2_delete__sessions_sessionId_shares`: write. Revoke a session share; DELETE /sessions/{sessionId}/shares
+- `api_v2_get__usage`: read. Get usage status; GET /usage
+- `api_v2_post__sessions_agents`: job. Create a Research Agent session; POST /sessions/agents
+- `api_v2_get__sessions_agents_sessionId`: read. Get Research Agent session status; GET /sessions/agents/{sessionId}
+- `api_v2_get__sessions_agents_sessionId_events`: blocked. Get Research Agent session events; GET /sessions/agents/{sessionId}/events
+- `api_v2_post__sessions_agents_sessionId_messages`: job. Send a message to a Research Agent session; POST /sessions/agents/{sessionId}/messages
+- `api_v2_post__files`: write. Upload a file; POST /files
+- `api_v2_get__sessions_agents_sessionId_artifacts`: read. List Research Agent session artifacts; GET /sessions/agents/{sessionId}/artifacts
+- `api_v2_get__sessions_agents_sessionId_skills`: read. List Research Agent session skills; GET /sessions/agents/{sessionId}/skills
+- `api_v2_get__sessions_agents_sessionId_sources`: read. List Research Agent session cited sources; GET /sessions/agents/{sessionId}/sources
+- `api_v2_get__sessions_agents_sessionId_artifacts_artifactId_content`: read. Get interactive artifact contents; GET /sessions/agents/{sessionId}/artifacts/{artifactId}/content
+- `api_v2_get__sessions_agents_sessionId_artifacts_artifactId_download`: read. Create an artifact download URL; GET /sessions/agents/{sessionId}/artifacts/{artifactId}/download
+- `api_v2_post__sessions_agents_sessionId_stop`: write. Stop a Research Agent session; POST /sessions/agents/{sessionId}/stop
+- `api_v2_get__routines`: read. List routines; GET /routines
+- `api_v2_post__routines`: write. Create a routine; POST /routines
+- `api_v2_get__routines_id`: read. Retrieve a routine; GET /routines/{id}
+- `api_v2_patch__routines_id`: write. Update a routine; PATCH /routines/{id}
+- `api_v2_post__routines_id_pause`: write. Pause a routine; POST /routines/{id}/pause
+- `api_v2_post__routines_id_resume`: job. Resume a routine; POST /routines/{id}/resume
+- `api_v2_post__routines_id_archive`: write. Archive a routine; POST /routines/{id}/archive
+- `api_v2_post__routines_id_restore`: write. Restore a routine; POST /routines/{id}/restore
+- `api_v2_get__routines_id_runs`: read. List routine runs; GET /routines/{id}/runs
+- `api_v2_post__routines_id_run`: job. Run a routine now; POST /routines/{id}/run
+- `api_v2_get__library_sources`: read. List library sources; GET /library/sources
+- `api_v2_post__library_sources`: write. Save library sources; POST /library/sources
+- `api_v2_get__library_sources_sourceId`: read. Retrieve a library source; GET /library/sources/{sourceId}
+- `api_v2_delete__library_sources_sourceId`: write. Delete a library source; DELETE /library/sources/{sourceId}
+- `api_v2_get__library_sources_sourceId_full_text`: read. Retrieve a source's full text; GET /library/sources/{sourceId}/full-text
+- `api_v2_get__library_collections`: read. List library collections; GET /library/collections
+- `api_v2_post__library_collections`: write. Create a collection; POST /library/collections
+- `api_v2_get__library_collections_collectionId`: read. Retrieve a library collection; GET /library/collections/{collectionId}
+- `api_v2_patch__library_collections_collectionId`: write. Update a collection; PATCH /library/collections/{collectionId}
+- `api_v2_delete__library_collections_collectionId`: write. Delete a collection; DELETE /library/collections/{collectionId}
+- `api_v2_post__library_imports`: write. Import uploaded PDFs; POST /library/imports
+- `api_v2_get__library_imports_importId`: read. Retrieve an import; GET /library/imports/{importId}
+- `api_v2_post__library_collections_collectionId_sources`: write. Add sources to a collection; POST /library/collections/{collectionId}/sources
+- `api_v2_delete__library_collections_collectionId_sources`: write. Remove sources from a collection; DELETE /library/collections/{collectionId}/sources
+- `api_v2_post__projects`: write. Create a project; POST /projects
+- `api_v2_get__projects`: read. List projects; GET /projects
+- `api_v2_get__projects_projectId`: read. Retrieve a project; GET /projects/{projectId}
+- `api_v2_get__projects_projectId_sessions`: read. List sessions in a project; GET /projects/{projectId}/sessions
+- `api_v2_post__projects_projectId_shares`: write. Share a project; POST /projects/{projectId}/shares
+- `api_v2_get__projects_projectId_shares`: read. List a project's shares; GET /projects/{projectId}/shares

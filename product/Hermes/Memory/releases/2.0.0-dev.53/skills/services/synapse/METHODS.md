@@ -1,0 +1,28 @@
+## Полный каталог объявленных методов
+
+- `api_research_get_repo_v1_entity_id_accessRequirement`: read. ; GET /repo/v1/entity/{id}/accessRequirement
+- `api_research_get_repo_v1_entity_id`: read. ; GET /repo/v1/entity/{id}
+- `api_research_put_repo_v1_entity_id`: blocked. ; PUT /repo/v1/entity/{id}
+- `api_research_delete_repo_v1_entity_id`: blocked. ; DELETE /repo/v1/entity/{id}
+- `api_research_get_repo_v1_entity_id_annotations2`: read. ; GET /repo/v1/entity/{id}/annotations2
+- `api_research_put_repo_v1_entity_id_annotations2`: blocked. ; PUT /repo/v1/entity/{id}/annotations2
+- `api_research_get_repo_v1_entity_id_version_versionNumber_annotations2`: read. ; GET /repo/v1/entity/{id}/version/{versionNumber}/annotations2
+- `api_research_delete_repo_v1_entity_id_version_versionNumber`: blocked. ; DELETE /repo/v1/entity/{id}/version/{versionNumber}
+- `api_research_get_repo_v1_entity_id_version_versionNumber`: read. ; GET /repo/v1/entity/{id}/version/{versionNumber}
+- `api_research_get_repo_v1_entity_id_type`: read. ; GET /repo/v1/entity/{id}/type
+- `api_research_get_repo_v1_entity_id_permissions`: read. ; GET /repo/v1/entity/{id}/permissions
+- `api_research_get_repo_v1_entity_id_path`: read. ; GET /repo/v1/entity/{id}/path
+- `api_research_get_repo_v1_entity_id_version`: read. ; GET /repo/v1/entity/{id}/version
+- `api_research_get_repo_v1_entity_id_generatedBy`: read. ; GET /repo/v1/entity/{id}/generatedBy
+- `api_research_put_repo_v1_entity_id_generatedBy`: blocked. ; PUT /repo/v1/entity/{id}/generatedBy
+- `api_research_delete_repo_v1_entity_id_generatedBy`: blocked. ; DELETE /repo/v1/entity/{id}/generatedBy
+- `api_research_get_repo_v1_entity_id_version_versionNumber_generatedBy`: read. ; GET /repo/v1/entity/{id}/version/{versionNumber}/generatedBy
+- `api_research_get_repo_v1_entity_id_filehandles`: read. ; GET /repo/v1/entity/{id}/filehandles
+- `api_research_get_repo_v1_entity_id_version_versionNumber_filehandles`: read. ; GET /repo/v1/entity/{id}/version/{versionNumber}/filehandles
+- `api_research_post_repo_v1_entity_children`: read. ; POST /repo/v1/entity/children
+- `api_research_post_repo_v1_search`: read. ; POST /repo/v1/search
+- `api_research_get_repo_v1_entity_id_column`: read. ; GET /repo/v1/entity/{id}/column
+- `api_research_post_repo_v1_entity_id_table_query_async_start`: job. ; POST /repo/v1/entity/{id}/table/query/async/start
+- `api_research_get_repo_v1_entity_id_table_query_async_get_asyncToken`: read. ; GET /repo/v1/entity/{id}/table/query/async/get/{asyncToken}
+- `api_research_post_repo_v1_entity_id_table_download_csv_async_start`: job. ; POST /repo/v1/entity/{id}/table/download/csv/async/start
+- `api_research_get_repo_v1_entity_id_table_download_csv_async_get_asyncToken`: read. ; GET /repo/v1/entity/{id}/table/download/csv/async/get/{asyncToken}
