@@ -1,4 +1,4 @@
-"""Operator upgrade from qualified dev.45/dev.48 profiles, using a whole signed release.
+"""Operator upgrade from explicitly qualified pairs, using a whole signed release.
 
 No account import, fresh-owner initialization, history rewind or automatic service stop.
 The operator stops the exact profile first. All preimages remain private beside it.
@@ -7,6 +7,17 @@ import argparse,copy,hashlib,json,os,shutil,sqlite3,stat,subprocess,sys,zipfile
 from contextlib import closing
 from pathlib import Path
 import release_cli as release
+
+SUPPORTED_PAIRS = {
+    '2.0.0-dev.45': {'0.14.4'},
+    '2.0.0-dev.48': {'0.14.7', '0.14.8'},
+    '2.0.0-dev.49': {'0.14.9'},
+    '2.0.0-dev.50': {'0.14.10'},
+    '2.0.0-dev.51': {'0.14.11'},
+    '2.0.0-dev.52': {'0.14.12'},
+    '2.0.0-dev.53': {'0.14.13'},
+    '2.0.0-dev.54': {'0.14.14'},
+}
 
 
 def logical_database(path):
@@ -101,7 +112,7 @@ def control_wait_policy(current,seconds):
 
 def verify_old(root,cfg):
     package=owned(root,cfg['package_root'])
-    if package.name not in {'2.0.0-dev.45','2.0.0-dev.48','2.0.0-dev.49','2.0.0-dev.50','2.0.0-dev.51','2.0.0-dev.52'}:raise PermissionError('only_qualified_dev45_dev48_or_dev49_upgrade_supported')
+    if package.name not in SUPPORTED_PAIRS:raise PermissionError('only_qualified_memory_upgrade_supported')
     for name,h in release.read(package/'manifest.json').items():
         if release.digest(owned(package,package/name))!=h:raise PermissionError('old_memory_program_changed:'+name)
     old=release.read(package/'release.json')
@@ -150,8 +161,7 @@ def execute(root,directory,checkpoint,authority):
     if release.digest(wheel)!=distribution['wheel_sha256'] or distribution['version']!=intake:
         raise PermissionError('incoming_intake_changed')
     old_intake=release.read(root/'data/intake-deployment.json')['deployment']['version']
-    supported={'2.0.0-dev.45':{'0.14.4'},'2.0.0-dev.48':{'0.14.7','0.14.8'},'2.0.0-dev.49':{'0.14.9'},'2.0.0-dev.50':{'0.14.10'},'2.0.0-dev.51':{'0.14.11'},'2.0.0-dev.52':{'0.14.12'}}
-    if old_intake not in supported[old_package.name]:raise PermissionError('old_Intake_pair_not_qualified')
+    if old_intake not in SUPPORTED_PAIRS[old_package.name]:raise PermissionError('old_Intake_pair_not_qualified')
     sys.path[:0]=[str(root/'Intake'/old_intake),str(root/'hermes-agent'),cfg['package_root']]
     from bnn_intake.deployment import stopped,common_plugin_target,preservation_witness
     from bnn_intake.bootstrap import verify_deployment

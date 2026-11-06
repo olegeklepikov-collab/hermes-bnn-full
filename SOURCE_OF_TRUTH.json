@@ -1,10 +1,11 @@
 {
   "canonical_repository": "https://github.com/olegeklepikov-collab/hermes-bnn-full-private",
-  "canonical_source_commit": "73fde2db8c8a0679e2b67724d6fb8af7d03a4d81",
-  "product_tree": "12376203800c6f06a45e11152ff7fd682eeae3ac",
-  "Memory": "2.0.0-dev.53",
-  "Intake": "0.14.13",
+  "canonical_source_commit": "55b3b1012f510356ed69a1499b7e6a9aaab878ea",
+  "product_tree": "e45d74cb6209ef047886bb5841419b66064eba64",
+  "Memory": "2.0.0-dev.54",
+  "Intake": "0.14.14",
   "public_repository_is_derived_export": true,
   "owner_data_or_credentials_included": false,
-  "historical_fix_chain_required": false
+  "historical_fix_chain_required": false,
+  "runtime_release_source_commit": "1f4031239b0671d67413d8cea847294ce5d9ced2"
 }

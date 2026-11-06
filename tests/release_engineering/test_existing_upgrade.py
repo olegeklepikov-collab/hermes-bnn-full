@@ -80,3 +80,48 @@ class ControlWaitPolicyTests(unittest.TestCase):
         self.assertEqual(control_wait_policy({**current,'timeout_seconds':12},30)['timeout_seconds'],12)
         with self.assertRaises(PermissionError):control_wait_policy(current,0)
         with self.assertRaises(PermissionError):control_wait_policy(current,61)
+
+
+class CurrentInstalledPairTests(unittest.TestCase):
+    def test_locked_release_pair_remains_a_supported_future_upgrade_source(self):
+        from upgrade_existing import SUPPORTED_PAIRS
+        root = Path(__file__).resolve().parents[2]
+        components = json.loads((root / 'locks/product.lock.json').read_text())['components']
+        self.assertIn(components['Intake'], SUPPORTED_PAIRS.get(components['Memory'], set()))
+
+    def qualified_root(self, directory):
+        import shutil
+        source = Path(__file__).resolve().parents[2] / 'product/Hermes'
+        root = Path(directory).resolve() / 'runtime'
+        package = root / 'Memory/releases/2.0.0-dev.53'
+        shutil.copytree(source / 'Memory/releases/2.0.0-dev.53', package)
+        pins = json.loads((package / 'release.json').read_text())['core_patch_sha256']
+        for name in pins:
+            target = root / 'hermes-agent' / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source / 'hermes-agent' / name, target)
+        return root, package
+
+    def test_exact_current_memory_program_is_a_supported_upgrade_source(self):
+        from upgrade_existing import verify_old
+        with tempfile.TemporaryDirectory() as directory:
+            root, package = self.qualified_root(directory)
+            self.assertEqual(verify_old(root, {'package_root': str(package)}), package)
+
+    def test_current_version_does_not_admit_changed_memory_bytes(self):
+        from upgrade_existing import verify_old
+        with tempfile.TemporaryDirectory() as directory:
+            root, package = self.qualified_root(directory)
+            with (package / 'bn_memory/checkpoint.py').open('a') as handle:
+                handle.write('\n# Different program bytes\n')
+            with self.assertRaisesRegex(PermissionError, 'old_memory_program_changed'):
+                verify_old(root, {'package_root': str(package)})
+
+    def test_current_version_does_not_admit_changed_core_bytes(self):
+        from upgrade_existing import verify_old
+        with tempfile.TemporaryDirectory() as directory:
+            root, package = self.qualified_root(directory)
+            target = root / 'hermes-agent/agent/compression_checkpoint.py'
+            target.write_text(target.read_text() + '\n# Different core bytes\n')
+            with self.assertRaisesRegex(PermissionError, 'old_core_program_changed'):
+                verify_old(root, {'package_root': str(package)})
