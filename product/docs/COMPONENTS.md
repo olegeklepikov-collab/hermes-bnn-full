@@ -7,8 +7,8 @@
 | Компонент | Путь в комплекте | Состав |
 |---|---|---|
 | Hermes | `Hermes/hermes-agent` | Полные исходники, собственная venv и исправления ядра |
-| Memory / context / identity | `Hermes/Memory/releases/2.0.0-dev.54` | Один общий Host, Store, parser/compute, контексты, режимы и пустое основание новой идентичности |
-| Intake | `Intake` | Исходники, wheel 0.14.14, схемы, каталог методов, тесты и установщик |
+| Memory / context / identity | `Hermes/Memory/releases/2.0.0-dev.55` | Один общий Host, Store, parser/compute, контексты, режимы и пустое основание новой идентичности |
+| Intake | `Intake` | Исходники, wheel 0.14.15, схемы, каталог методов, тесты и установщик |
 | Python | `Hermes/runtime/python` | Самодостаточный CPython 3.14.6 и среды компонентов |
 | GSD | `Hermes/GSD` | Канонический Engine 3.0.3 и адаптер r6; источник проверяется отдельно |
 | Research + Foundation | `Hermes/UDR/software` | Подписанные ZIP, подписи, публичные ключи и исходные деревья |
