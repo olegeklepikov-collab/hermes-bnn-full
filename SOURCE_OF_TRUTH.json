@@ -1,6 +1,6 @@
 {
   "canonical_repository": "https://github.com/olegeklepikov-collab/hermes-bnn-full-private",
-  "canonical_source_commit": "7fd8d365b98d9e40e77611d60b544af5b61a112b",
+  "canonical_source_commit": "3c6fbf8652067cbecde6bdc5a61bc495bef68a86",
   "product_tree": "d2c5f8343e1def5b4f85962d56d381d344d4b133",
   "Memory": "2.0.0-dev.55",
   "Intake": "0.14.15",

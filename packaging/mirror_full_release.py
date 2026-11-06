@@ -1,6 +1,7 @@
 """Mirror an already published, signed neutral release inside GitHub; never overwrite assets."""
 from pathlib import Path
 import hashlib,json,os,re,subprocess,tempfile,time
+from publish_candidate import bound_release
 SOURCE='olegeklepikov-collab/hermes-bnn-full'
 DESTINATION='olegeklepikov-collab/hermes-bnn-full-private'
 ROOT=Path(__file__).resolve().parents[1]
@@ -57,7 +58,7 @@ def main():
             name=archive['name']+f'.part{number:03d}';asset=source_assets.get(name,{})
             if part['name']!=name or asset.get('size')!=part['bytes'] or asset.get('digest')!='sha256:'+part['sha256']:
                 raise PermissionError('signed_part_not_on_source_server')
-        destination=api(f'repos/{DESTINATION}/releases/tags/{tag}',optional=True)
+        destination=bound_release(api(f'repos/{DESTINATION}/releases?per_page=100'),None,DESTINATION,tag)
         if destination is None:
             destination=api(f'repos/{DESTINATION}/releases',{'tag_name':tag,'target_commitish':os.environ['GITHUB_SHA'],'name':'Hermes BNN '+release['version']+': verified neutral mirror','body':'Зеркало тех же подписанных байтов полного нейтрального выпуска. Проверки и ограничения: QUALIFICATION-SUMMARY.json. Автоматического обновления рабочего экземпляра нет.\n\n'+source['html_url']+'\n\n'+marker,'draft':True,'prerelease':source['prerelease'],'make_latest':'false'})
         if marker not in destination.get('body',''):raise PermissionError('existing_release_has_different_binding')
