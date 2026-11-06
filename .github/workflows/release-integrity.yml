@@ -4,11 +4,16 @@ on:
     branches: [main, 'engineering/**', 'fix/**', 'feature/**']
   pull_request:
   workflow_dispatch:
+    inputs:
+      mirror_tag:
+        description: "Optional published neutral release tag to mirror into the canonical private repository"
+        required: false
+        default: ""
 permissions:
   contents: read
 concurrency:
-  group: bnn-check-${{ github.ref }}
-  cancel-in-progress: true
+  group: bnn-check-${{ github.ref }}-${{ inputs.mirror_tag || 'checks' }}
+  cancel-in-progress: ${{ !inputs.mirror_tag }}
 jobs:
   release-engineering:
     name: release-engineering
@@ -22,3 +27,21 @@ jobs:
         run: python3 -B -m unittest discover -s tests/release_engineering -v
       - name: Verify source and neutral distribution metadata
         run: python3 -B packaging/check_source.py
+
+  mirror-release:
+    needs: release-engineering
+    name: Mirror signed public release
+    if: github.event_name == 'workflow_dispatch' && github.repository == 'olegeklepikov-collab/hermes-bnn-full-private' && inputs.mirror_tag != ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+      - name: Verify signatures and mirror identical neutral bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BNN_MIRROR_TAG: ${{ inputs.mirror_tag }}
+        run: python3 -B packaging/mirror_full_release.py
