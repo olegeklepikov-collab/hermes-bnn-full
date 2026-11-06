@@ -7,8 +7,8 @@
   },
   "components": {
     "platform": "macOS arm64",
-    "Memory": "2.0.0-dev.53",
-    "Intake": "0.14.13",
+    "Memory": "2.0.0-dev.54",
+    "Intake": "0.14.14",
     "Hermes_commit": "d923a5eb487a17c0a68801bba9ef0f56c81040a8",
     "GSD": "3.0.3",
     "Research": "0.44.0b2",
