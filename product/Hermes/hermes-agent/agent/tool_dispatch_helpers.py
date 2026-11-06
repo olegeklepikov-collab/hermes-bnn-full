@@ -547,9 +547,26 @@ def _tool_output_risk_metadata(name: str, content: Any) -> Optional[dict[str, An
 
 
 def _neutralize_delimiters(content: str) -> str:
-    """Defang embedded ``untrusted_tool_result`` tokens so poisoned content can't close the
-    trust boundary early (hyphens keep it readable but non-matching)."""
-    return _DELIMITER_TOKEN_RE.sub("untrusted-tool-result", content)
+    """Keep the boundary literal out of the wire without changing decoded JSON.
+
+    An explicit page can be followed by the native elision notice. Decode only
+    the JSON prefix; plain text outside it retains the established defanging.
+    """
+    if not _DELIMITER_TOKEN_RE.search(content):
+        return content
+    stripped = content.lstrip()
+    start = len(content) - len(stripped)
+    try:
+        _, end = json.JSONDecoder().raw_decode(stripped)
+    except (ValueError, RecursionError):
+        return _DELIMITER_TOKEN_RE.sub("untrusted-tool-result", content)
+    boundary = start + end
+    # A valid JSON token with underscores can occur only inside a quoted
+    # string. Unicode escaping preserves its value, including field names.
+    encoded = _DELIMITER_TOKEN_RE.sub(
+        lambda match: match.group(0).replace("_", r"\u005f"), content[start:boundary])
+    tail = _DELIMITER_TOKEN_RE.sub("untrusted-tool-result", content[boundary:])
+    return content[:start] + encoded + tail
 
 
 def _maybe_wrap_untrusted(name: str, content: Any) -> Any:

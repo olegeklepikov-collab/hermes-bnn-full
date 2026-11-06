@@ -90,6 +90,11 @@ def format_subagent_failure_line(
     reason = describe_subagent_failure(failure_reason, error)
     if reason:
         line += f": {reason.rstrip('.')}"
+    if any(code in str(error or '') for code in (
+        'assigned_file_reception_source_changed', 'assigned_file_reception_payload_changed',
+        'assigned_file_version_changed',
+    )):
+        return line + ". Details: /agents. Check the assigned version and saved delivery before resuming this task."
     return line + ". Details: /agents, or ask me to retry with a smaller task."
 
 
